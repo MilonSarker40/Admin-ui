@@ -1,0 +1,55 @@
+import Link from 'next/link';
+import React from 'react';
+import Dropdown from 'react-bootstrap/Dropdown';
+
+
+
+
+const Sidebar = () => {
+
+  return (
+    <>
+      <div className='left_sidebar'>
+       <div className='sidebar-head'>
+          <h1><i class="ri-dashboard-fill"></i>dashboard</h1>
+        </div>
+        <nav className='navbarMenu'>
+           <Link href="/sample" active><i class="ri-settings-3-fill"></i>Sample</Link>
+          <Dropdown>
+            <Dropdown.Toggle  id="dropdown-basic">
+            <i class="ri-user-line"></i>User<span><i class="ri-arrow-right-s-line"></i></span>
+            </Dropdown.Toggle>
+            <Dropdown.Menu>
+              <Dropdown.Item href="/dealer">Dealer</Dropdown.Item>
+              <Dropdown.Item href="/subdealer">Sub Dealer</Dropdown.Item>
+              <Dropdown.Item href="/agent">Agent</Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+          <Dropdown>
+            <Dropdown.Toggle  id="dropdown-basic">
+              <i class="ri-profile-line"></i>National<span><i class="ri-arrow-right-s-line"></i></span>
+            </Dropdown.Toggle>
+            <Dropdown.Menu>
+              <Dropdown.Item href="/country">Country</Dropdown.Item>
+              <Dropdown.Item href="/circle">Circle</Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+          <Dropdown>
+            <Dropdown.Toggle  id="dropdown-basic">
+            <i class="ri-router-line"></i>Network<span><i class="ri-arrow-right-s-line"></i></span>
+            </Dropdown.Toggle>
+            <Dropdown.Menu>
+              <Dropdown.Item href="/service">Service</Dropdown.Item>
+              <Dropdown.Item href="/mobilenetwork">Mobile Network</Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+          <Link href="indexapi" active><i class="ri-settings-3-fill"></i>Api Index</Link>
+          <Link href="simulator" active><i class="ri-settings-3-fill"></i>Simulator</Link>
+          <Link href="#" active><i class="ri-settings-3-fill"></i>Test Component</Link>
+        </nav>
+      </div>
+    </>
+  )
+}
+
+export default Sidebar

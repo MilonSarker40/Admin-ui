@@ -1,0 +1,30 @@
+.header{
+    /* background: #0088FF; */
+    /* background: #0061DF; */
+    background: #9AC0F2;
+    padding:10px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+}
+.header__innr{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+.avator .btn-check:checked+.btn,
+.avator .btn.active,
+.avator .btn.show,
+.avator .btn:first-child:active,
+.avator :not(.btn-check)+.btn:active{
+    background-color: transparent !important;
+}
+
+.btn-check:checked+.btn, .btn.active, .btn.show, .btn:first-child:active, :not(.btn-check)+.btn:active {
+    color: inherit;
+    background-color: transparent;
+    border-color: 0;
+}
