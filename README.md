@@ -1,1 +1,1 @@
-# Admin-ui
+# admin-panel-ui
