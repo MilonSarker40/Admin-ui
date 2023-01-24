@@ -1,1 +1,1 @@
-# admin-panel-ui
+# admin-panel-ui project
