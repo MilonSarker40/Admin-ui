@@ -270,8 +270,9 @@ element.style {
   padding-top: 90px;
   height: 100vh;
 }
-.left_sidebar{
-  padding-top: 90px;
+.left_sidebar {
+	padding-top: 90px;
+	padding-right: 10px;
 }
 
 /*

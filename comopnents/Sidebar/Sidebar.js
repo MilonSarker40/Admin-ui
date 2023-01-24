@@ -9,7 +9,7 @@ const Sidebar = () => {
 
   return (
     <>
-      <div className='left_sidebar'>
+      <div className='left_sidebar clearfix'>
        <div className='sidebar-head'>
           <h1><i class="ri-dashboard-fill"></i>dashboard</h1>
         </div>
