@@ -18,8 +18,8 @@ const Header = (props) => {
 
     const handleClick=()=>{
       localStorage.clear();
-      window.location.reload();
-  }
+      window.location.href = '/login';
+    }
   return (
     <>
       <header className={`${classes.header}`}>
@@ -38,7 +38,7 @@ const Header = (props) => {
                         </DropdownToggle>
                         <DropdownMenu>
                             <DropdownItem href='/login'><i class="ri-login-circle-line"></i>Login</DropdownItem>
-                            <DropdownItem onClick={handleClick} href='/logout'><i class="ri-account-circle-fill"></i>Logout</DropdownItem>
+                            <DropdownItem onClick={handleClick} href='#'><i class="ri-account-circle-fill"></i>Logout</DropdownItem>
                         </DropdownMenu>
                     </Dropdown>
                  </div>
