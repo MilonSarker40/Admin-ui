@@ -595,8 +595,10 @@ const TableTest = () => {
         </Col>
     </Row>
     {/* <[object Object]> */}
-        <TableHeader />
-        <TableBody />
+        <table className='table'>
+            <TableHeader />
+            <TableBody />
+        </table>
     {/* </[object Object]> */}
   </DatatableWrapper>
     </>
