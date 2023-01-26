@@ -38,7 +38,7 @@ const Header = (props) => {
                             <Image src={Avator} width='70px' height='70px' alt='' />
                         </DropdownToggle>
                         <DropdownMenu>
-                            <DropdownItem href='/login'><i class="ri-login-circle-line"></i>Login</DropdownItem>
+                            {/* <DropdownItem href='/login'><i class="ri-login-circle-line"></i>Login</DropdownItem> */}
                             <DropdownItem onClick={handleClick} href='#'><i class="ri-account-circle-fill"></i>Logout</DropdownItem>
                         </DropdownMenu>
                     </Dropdown>
