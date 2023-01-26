@@ -18,7 +18,8 @@ const Header = (props) => {
 
     const handleClick=()=>{
       localStorage.clear();
-      window.location.href = '/login';
+      // window.location.href = '/login';
+      window.location.reload();
     }
   return (
     <>

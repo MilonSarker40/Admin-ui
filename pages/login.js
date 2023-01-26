@@ -1,47 +1,46 @@
-import React, { useState, useRef } from 'react';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
+import React from 'react';
+// import Container from 'react-bootstrap/Container';
+// import Row from 'react-bootstrap/Row';
+// import Col from 'react-bootstrap/Col';
+// import Button from 'react-bootstrap/Button';
+// import Form from 'react-bootstrap/Form';
 import Index from '../pages/index';
+import LoginFrom from '../comopnents/LoginFrom/LoginFrom.js';
 
 
 const login = () => {
 
+  // const [number, setNumber]= useState('');
+  // const [password, setPassword]= useState('');
+  // const [isloggedIn, setIsloggedIn] = useState(false)
+
+  // const [recValue,setRecValue] = useState({number:number,password:password});
+
+  // const submitForm =((e)=>{
+  //   e.preventDefault()
+  //   const newValue ={number:number, password:password}
+  //   setRecValue(newValue)
+  //   console.log(newValue)
+
+  //   setNumber("")
+  //   setPassword("")
+  //   setIsloggedIn(true)
+  //  })
 
 
-  const [number, setNumber]= useState('');
-  const [password, setPassword]= useState('');
-  const [isloggedIn, setIsloggedIn] = useState(false)
+  //   const phoneNumber=useRef();
+  //   const userPassword=useRef();
 
-  const [recValue,setRecValue] = useState({number:number,password:password});
+  //   const handleClick=()=>{
+  //       console.log(phoneNumber.current.value,"initial Number value")
+  //      localStorage.setItem("Phone Number",phoneNumber.current.value)
 
-  const submitForm =((e)=>{
-    e.preventDefault()
-    const newValue ={number:number, password:password}
-    setRecValue(newValue)
-    console.log(newValue)
+  //       console.log(userPassword.current.value,"initial Password value")
+  //       localStorage.setItem("User Password",userPassword.current.value)
 
-    setNumber("")
-    setPassword("")
-    setIsloggedIn(true)
-   })
-
-
-    const phoneNumber=useRef();
-    const userPassword=useRef();
-
-    const handleClick=()=>{
-        console.log(phoneNumber.current.value,"initial Number value")
-       localStorage.setItem("Phone Number",phoneNumber.current.value)
-
-        console.log(userPassword.current.value,"initial Password value")
-        localStorage.setItem("User Password",userPassword.current.value)
-
-        setIsloggedIn(true);
-        localStorage.setItem("isLoggedin", true);
-   }
+  //       setIsloggedIn(true);
+  //       localStorage.setItem("isLoggedin", true);
+  //  }
 
 
   // const useNumber=useRef()
@@ -57,13 +56,16 @@ const login = () => {
   //     }
   //   }
 
-  // const MainComp = isloggedIn ? <Index /> : <p>SOME PAGE</p>
+  const isloggedIn = true
+
+  const MainComp = isloggedIn ? <Index /> : <LoginFrom />
 
   return (
     <>
-     {
-      isloggedIn ?
-      <Index /> :
+    {/* <LoginFrom />  */}
+    {/* { MainComp } */}
+     {/* {
+      isloggedIn ? <Index /> :
       <section className='login-form-sec-wrp'>
         <Container>
             <Row>
@@ -93,7 +95,7 @@ const login = () => {
             </Row>
         </Container>
       </section>
-     }
+     } */}
     </>
   )
   // return <MainComp />
