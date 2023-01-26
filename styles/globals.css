@@ -447,6 +447,9 @@ show-data
  .avator .dropdown-menu{
   border-radius: 0 !important;
  }
+ .data_table{
+  padding-top: 30px;
+ }
  /*
  ----------------
   Responsive Css
