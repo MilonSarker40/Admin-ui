@@ -11,8 +11,19 @@ import Image from 'next/image';
 import Logo from '../../public/images/Logo.png';
 import classes from './Header.module.css';
 import Avator from '../../public/images/avator.png';
+import Button from 'react-bootstrap/Button';
+import Offcanvas from 'react-bootstrap/Offcanvas';
+import Sidebar from '../Sidebar/Sidebar';
+
+
+
 
 const Header = (props) => {
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
     const [dropdownOpen, setDropdownOpen] = useState(false);
     const toggle = () => setDropdownOpen((prevState) => !prevState);
 
@@ -27,10 +38,13 @@ const Header = (props) => {
         <div className='container-fluid'>
             <Row>
               <div className={`${classes.header__innr}`}>
-                <div className='logo'>
+                <div className='logo clearfix'>
                         <Link href='/'>
                             <Image src={Logo} width='150px' height='50px' alt='' /> 
                         </Link>
+                        <Button variant="primary" onClick={handleShow}>
+                          <i class="ri-bar-chart-horizontal-fill"></i>
+                        </Button>
                  </div>
                  <div className='avator'>
                     <Dropdown isOpen={dropdownOpen} toggle={toggle} {...props}>
@@ -46,6 +60,14 @@ const Header = (props) => {
                </div>
             </Row>
         </div>
+        <Offcanvas show={show} onHide={handleClose}>
+        <Offcanvas.Header closeButton>
+          <Offcanvas.Title></Offcanvas.Title>
+        </Offcanvas.Header>
+        <Offcanvas.Body>
+          <Sidebar />
+        </Offcanvas.Body>
+      </Offcanvas>
       </header>
     </>
   )
