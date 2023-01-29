@@ -13,9 +13,9 @@ const Sidebar = () => {
   return (
     <>
       <div className='left_sidebar clearfix'>
-       <div className='sidebar-head'>
+       {/* <div className='sidebar-head'>
           <h1><i class="ri-dashboard-fill"></i>dashboard</h1>
-        </div>
+        </div> */}
         <nav className='navbarMenu'>
            <Link href="/sample" active><i class="ri-settings-3-fill"></i>Sample</Link>
           <Dropdown>

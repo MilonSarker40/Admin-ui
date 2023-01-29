@@ -85,9 +85,6 @@ img{
 	border-radius: 0;
 }
 
-  
-
-
 
 .avator button.dropdown-toggle{
   white-space: nowrap;
@@ -291,18 +288,26 @@ element.style {
   margin-top: 20px;;
 }
 
+.tabsWarp ul {
+  border-bottom: 1px solid#ddd;
+  padding-bottom: 0;
+}
+
 .tabsWarp ul li button{
-  background:#1C3496 !important;
+  background:transparent !important;
   font-size: 16px !important;
   line-height: 1 !important;
-  color: #fff !important;
+  font-weight: 700;
+  color: #000 !important;
   border: 0 !important;
   border-radius: 0 !important;
   margin-right:10px !important;
   text-transform: uppercase !important;
 }
 .tabsWarp ul li button.active{
-  background: #0088FF !important;
+  background: transparent !important;
+  border-bottom: 2px solid#0088FF !important;
+  color: #0088FF !important;
 }
 .btn{
   border-radius: 0 !important;
@@ -327,9 +332,7 @@ element.style {
   vertical-align: baseline;
   font-size: 12px;
 }
-.tabsWarp .nav-tabs{
-  border-bottom: 0 !important;
-}
+
 
 .login-form-sec-wrp {
   padding: 100px 0;
@@ -388,7 +391,8 @@ element.style {
 --------------------- 
  */
  .footer {
-	background: #2C113E;
+	/* background: #2C113E; */
+	background: #000;
 	padding: 20px 20px;
 	text-align: center;
 	position: relative;
