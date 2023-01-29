@@ -93,8 +93,8 @@ img{
   padding: 0;
 }
 .avator img{
-  width: 70px;
-  height: 70px;
+  width: 50px;
+  height: 50px;
   border:5px solid#fff;
   border-radius: 40px;
 }
@@ -200,10 +200,15 @@ element.style {
   border: 0;
   padding-left: 20px;
 }
-.logo a{
+.logo a {
   display: inline-block;
   vertical-align: baseline;
   float: left;
+  color: #fff;
+  text-decoration: none;
+  font-size: 24px;
+  text-transform: uppercase;
+  font-weight: 600;
 }
 
 /*
@@ -269,7 +274,7 @@ element.style {
 }
 
 .main_content{
-  padding-top: 90px;
+  padding-top: 70px;
   height: 100vh;
 }
 .left_sidebar {
@@ -381,7 +386,7 @@ element.style {
   overflow-y: scroll;
   top: 0;
   bottom: 0;
-  padding-top: 170px;
+  padding-top: 110px;
   padding-right: 20px;
 }
 
@@ -640,6 +645,9 @@ show-data
   }
   .navbarMenu{
     padding-top: 100px;
+  }
+  .breadcmp-wrp {
+      height: 120px;
   }
  }
  @media(max-width:479px){

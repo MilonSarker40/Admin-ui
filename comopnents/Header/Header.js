@@ -40,7 +40,8 @@ const Header = (props) => {
               <div className={`${classes.header__innr}`}>
                 <div className='logo clearfix'>
                         <Link href='/'>
-                            <Image src={Logo} width='150px' height='50px' alt='' /> 
+                            {/* <Image src={Logo} width='150px' height='50px' alt='' />  */}
+                            Dashboard
                         </Link>
                         <Button variant="primary" onClick={handleShow}>
                           <i class="ri-bar-chart-horizontal-fill"></i>

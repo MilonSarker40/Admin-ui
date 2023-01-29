@@ -46,8 +46,8 @@ const Sidebar = () => {
               <Dropdown.Item href="/mobilenetwork">Mobile Network</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
-          <Link href="/indexapi" active><i class="ri-settings-3-fill"></i>Api Index</Link>
-          <Link href="/simulator" active><i class="ri-settings-3-fill"></i>Simulator</Link>
+          <Link href="/indexapi" active><i class="ri-file-text-line"></i>Api Index</Link>
+          <Link href="/simulator" active><i class="ri-pages-fill"></i>Simulator</Link>
           <Link href="/testcomponents" active><i class="ri-settings-3-fill"></i>Test Component</Link>
         </nav>
       </div>
