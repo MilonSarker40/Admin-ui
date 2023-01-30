@@ -44,7 +44,7 @@ const Header = (props) => {
                             Dashboard
                         </Link>
                         <Button variant="primary" onClick={handleShow}>
-                          <i class="ri-menu-line"></i>
+                            <i class="ri-menu-line"></i>
                         </Button>
                  </div>
                  <div className='avator'>
