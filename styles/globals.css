@@ -6,7 +6,7 @@ body {
   margin: 0;
   font-family: "Quicksand", sans-serif;
   scroll-behavior: smooth;
-  background: #f5f5f5;
+  background: #edf5f8;
 }
 
 /**
@@ -64,7 +64,7 @@ a, a:hover, a:focus, button:hover, button:focus{
     color: #fff;
     background: #512C36;
   }
-  .reset-list,
+.reset-list,
 .ulc{
 	margin: 0;
 	padding: 0;
@@ -109,20 +109,9 @@ img{
 }
 
 .main_content-lft {
-  width: 20%;
-  /* background: #eee; */
-  background: #cfd9e7;
-  box-shadow: 0px 3px 15px 0px rgb(0 0 0 / 10%);
-  border-style: solid;
-  border-width: 0px 0px 0px 0px;
-  float: left;
-  height: 100vh;
-  padding: 20px 20px;
-}
-.main_content-lft {
-	width: 20%;
+	width: 18%;
 	/* background: #eee; */
-	background: #cfd9e7;
+	background: #fff;
 	box-shadow: 0px 3px 15px 0px rgb(0 0 0 / 10%);
 	border-style: solid;
 	border-width: 0px 0px 0px 0px;
@@ -147,12 +136,13 @@ Sidebar Css
   position: relative;
   font-size: 16px;
   line-height: 1;
+  font-weight: 500;
   text-align: left;
 }
 .navbarMenu .dropdown button > i{
   position: absolute;
-  left: 0;
-  color: #1C3496;
+  left: 5px;
+  color: #25c1d8;
 }
 .navbarMenu .dropdown span{
   display: inline-block;
@@ -166,18 +156,30 @@ Sidebar Css
   background: transparent !important;
   border: 0 !important;
   padding-left: 20px !important;
+  padding-right: 10px;
 }
 .navbarMenu .dropdown-menu.show {
   display: block;
   width: 100%;
   border-radius: 0;
 }
+.navbarMenu .dropdown button:hover,
 .navbarMenu .btn-check:checked+.btn,
 .navbarMenu .btn.active, .btn.show,
 .navbarMenu .btn:first-child:active,
 .navbarMenu :not(.btn-check)+.btn:active{
-  background: transparent;
-  color: #000;
+  background: #25c1d8;
+  color: #fff !important;
+}
+.navbarMenu a:hover i,
+.navbarMenu .dropdown button:hover i{
+  color: #fff !important;
+}
+.navbarMenu > a:hover,
+.navbarMenu .dropdown-item:focus,
+.navbarMenu .dropdown-item:hover{
+  background: #25c1d8 !important;
+  color: #fff;
 }
 .navbarMenu > a {
   color: #000;
@@ -185,11 +187,13 @@ Sidebar Css
   position: relative;
   display: block;
   padding: 10px 20px 10px 25px;
+  font-size: 16px;
+  font-weight: 500;
 }
 .navbarMenu a i{
   position: absolute;
-  left: 0;
-  color: #1C3496;
+  left: 5px;
+  color: #25c1d8;
 }
 
 element.style {
@@ -217,7 +221,7 @@ element.style {
 ---------------- 
  */
  .main_content-rgt {
-  width: 80%;
+  width: 82%;
   float: right;
   padding: 20px 20px;
 }
@@ -225,7 +229,7 @@ element.style {
 	background: #eee;
 	padding: 20px 20px;
 	/* background-image: url(../public/images/Instant-Payments.jpg); */
-	height: 150px;
+	height: 120px;
 	/* background-repeat: no-repeat;
 	background-position: center center;
 	background-size: cover; */
@@ -234,7 +238,7 @@ element.style {
   justify-content: left;
   align-items: center;
 }
-.breadcmp-wrp::after{
+/* .breadcmp-wrp::after{
   content: '';
   position: absolute;
   left: 0;
@@ -242,17 +246,18 @@ element.style {
   bottom: 0;
   right: 0;
   background: rgba(207, 217, 231, 0.3);
-}
+} */
 .breadcmp{
   position: relative;
   z-index: 999;
 }
 .breadcmp h1 {
-  font-size: 20px;
+  font-size: 25px;
   line-height: 1;
   color: #000;
   text-transform: capitalize;
   margin-bottom: 15px;
+  font-weight: 700;
 }
 .breadcmp a{
   display: inline-block;
@@ -381,13 +386,13 @@ element.style {
 }
 .navbarMenu {
   position: fixed;
-  max-width: 19%;
+  max-width: 17%;
   width: 100%;
   overflow-y: scroll;
   top: 0;
   bottom: 0;
   padding-top: 110px;
-  padding-right: 20px;
+  padding-right: 10px;
 }
 
 /*
