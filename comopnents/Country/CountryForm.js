@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
@@ -9,6 +9,19 @@ const CountryForm = () => {
     const [countryName, setCountryName] = useState('');
     const [countryShortCode, setCountryShortCode] = useState('');
     const [countryCode, setCountryCode] = useState('');
+    const [opt, setOpt] =useState([]);
+
+    const optd=[
+      {'id':1, 'name':'Bangladesh'},
+      {'id':2, 'name':'India'},
+      {'id':3, 'name':'Pak'}
+    ]
+
+    useEffect (()=>{
+      setOpt(optd)
+    },[])
+
+    const options = opt.map((value)=><option value={value.id}>{value.name}</option>)
 
     const [allValue, setAllValue] = useState([]);
 
@@ -32,9 +45,7 @@ const CountryForm = () => {
                     <Form.Label>Country Name</Form.Label>
                     <Form.Select aria-label="Default select example" value={countryName} onChange={(e)=>setCountryName(e.target.value)}>
                         <option>Country Name</option>
-                        <option value="Bangladesh">Bangladesh</option>
-                        <option value="India">India</option>
-                        <option value="Pak">Pak</option>
+                        {options}
                     </Form.Select>
                 </Form.Group> 
                 <Form.Group as={Col} controlId="formGridEmail">

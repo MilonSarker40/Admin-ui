@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
@@ -12,6 +12,69 @@ const SimulatorForm = () => {
     const [serviceType, setServiceType] = useState('');
     const [mobileNumber, setMobileNumber] = useState('');
     const [amount, setAmount] = useState('');
+    const [opt, setOpt] = useState([]);
+    const [optN, setOptN] = useState([]);
+    const [optS, setOptS] = useState([]);
+
+    const optd=[
+      {
+        id:1,
+        name:'Bangladesh'
+      },
+      {
+        id:2,
+        name:'India'
+      },
+      {
+        id:3,
+        name:'Pak'
+      },
+    ]
+
+    useEffect(()=>{
+      setOpt(optd)
+    },[])
+
+    const options =opt.map((value)=><option value={value.id}>{value.name}</option>)
+
+    const optdN=[
+      {
+        id:1,
+        name:'Gp'
+      },
+      {
+        id:2,
+        name:'Airtel'
+      },
+      {
+        id:3,
+        name:'Banglalink'
+      },
+    ]
+
+    useEffect(()=>{
+      setOptN(optdN)
+    },[])
+
+    const options1 =optN.map((value)=><option value={value.id}>{value.name}</option>)
+
+
+    const optdS=[
+      {
+        id:1,
+        name:'Dataload'
+      },
+      {
+        id:2,
+        name:'TopUp'
+      }
+    ]
+
+    useEffect(()=>{
+      setOptS(optdS)
+    },[])
+
+    const options2 =optS.map((value)=><option value={value.id}>{value.name}</option>)
 
     const [allValue, setAllValue] = useState([]);
 
@@ -38,18 +101,14 @@ const SimulatorForm = () => {
                     <Form.Label>Country</Form.Label>
                     <Form.Select aria-label="Default select example" value={country} onChange={(e)=>setCountry(e.target.value)}>
                         <option>Select Country</option>
-                        <option value="Bangladesh">Bangladesh</option>
-                        <option value="India">India</option>
-                        <option value="Pak">Pak</option>
+                        {options}
                     </Form.Select>
                 </Form.Group>
                 <Form.Group as={Col} controlId="formNetwork">
                     <Form.Label>Network</Form.Label>
                     <Form.Select aria-label="Default select example" value={network} onChange={(e)=>setNetwork(e.target.value)}>
                         <option>Select Network</option>
-                        <option value="Gp">Gp</option>
-                        <option value="Airtel">Airtel</option>
-                        <option value="Banglalink">Banglalink</option>
+                        {options1}
                     </Form.Select>
                 </Form.Group>
             </Row>
@@ -58,8 +117,7 @@ const SimulatorForm = () => {
                     <Form.Label>Service Type</Form.Label>
                     <Form.Select aria-label="Default select example" value={serviceType} onChange={(e)=>setServiceType(e.target.value)}>
                         <option>Select Service</option>
-                        <option value="Dataload">Dataload</option>
-                        <option value="TopUp">TopUp</option>
+                        {options2}
                     </Form.Select>
                 </Form.Group>
 

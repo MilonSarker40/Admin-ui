@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
@@ -11,6 +11,32 @@ const MobileNetworkFrom = () => {
 
   const [mobileService, setMobileService] =useState('');
   const [mobileServiceNet, SetMobileServiceNet] =useState('');
+  const [opt, setOpt] =useState([]);
+
+  const optd=[
+    {
+      id:1,
+      name:'GP'
+    },
+    {
+      id:2,
+      name:'Banglanik'
+    },
+    {
+      id:3,
+      name:'Teletalk'
+    },
+    {
+      id:4,
+      name:'Airtel'
+    }
+  ]
+
+  useEffect(()=>{
+    setOpt(optd);
+  },[])
+
+  const options =opt.map((value)=><option value={value.id}>{value.name}</option>)
 
   const [allValue, setAllValue] = useState([]);
 
@@ -39,10 +65,7 @@ const MobileNetworkFrom = () => {
                     <Form.Label>Select Mobile Network</Form.Label>
                     <Form.Select aria-label="Default select example" value={mobileServiceNet} onChange={(e)=>SetMobileServiceNet(e.target.value)}>
                         <option>Select Network</option>
-                        <option value="GP">GP</option>
-                        <option value="Banglanik">Banglanik</option>
-                        <option value="Teletalk">Teletalk</option>
-                        <option value="Airtel">Airtel</option>
+                        {options}
                     </Form.Select>
                  </Form.Group> 
             </Row>

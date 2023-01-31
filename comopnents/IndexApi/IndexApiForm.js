@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
@@ -12,6 +12,50 @@ const IndexApiForm = () => {
     const [status, setStatus] = useState('');
     const [requestType, SetRequestType] = useState('');
     const [credentials, setCredentials] = useState('');
+    const [opt, setOpt] = useState([]);
+    const [opt1, setOpt1] = useState([]);
+
+    const optd =[
+      {
+        id:1,
+        name:'select1',
+      },
+      {
+        id:2,
+        name:'select2',
+      },
+      {
+        id:3,
+        name:'select3',
+      }
+    ]
+
+    useEffect(()=>{
+      setOpt(optd)
+    })
+
+    const options =opt.map((value)=><option value={value.id}>{value.name}</option>)
+
+    const optd1 =[
+      {
+        id:1,
+        name:'Type 1',
+      },
+      {
+        id:2,
+        name:'Type 2',
+      },
+      {
+        id:3,
+        name:'Type 3',
+      }
+    ]
+
+    useEffect(()=>{
+      setOpt1(optd1)
+    })
+
+    const options1 =opt1.map((value)=><option value={value.id}>{value.name}</option>)
 
     const [allValue,setAllValue] = useState([]);
 
@@ -54,9 +98,7 @@ const IndexApiForm = () => {
                     <Form.Label>Status</Form.Label>
                     <Form.Select aria-label="Default select example" value={status} onChange={(e)=>setStatus(e.target.value)}>
                         <option>Select Status</option>
-                        <option value="Select1">Select1</option>
-                        <option value="Select2">Select2</option>
-                        <option value="Select3">Select3</option>
+                        {options}
                     </Form.Select>
                 </Form.Group> 
             </Row>
@@ -65,9 +107,7 @@ const IndexApiForm = () => {
                     <Form.Label>Request Type</Form.Label>
                     <Form.Select aria-label="Default select example" value={requestType} onChange={(e)=>SetRequestType(e.target.value)}>
                         <option>Select Type</option>
-                        <option value="Select1">Select1</option>
-                        <option value="Select2">Select2</option>
-                        <option value="Select3">Select3</option>
+                         {options1}
                     </Form.Select>
                 </Form.Group> 
                 <Form.Group as={Col} controlId="formCredentials">

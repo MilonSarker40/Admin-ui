@@ -1,28 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 
-const selectOption=[
-  {
-   Label:'Bangladesh',
-   value:'Bangladesh', 
-  },
-  {
-    Label:'India',
-    value:'India', 
-   },
-   {
-    Label:'Pak',
-    value:'Pak', 
-   },
-   {
-    Label:'Srilanka',
-    value:'Srilanka', 
-   },
 
-]
 
 const DealerForm = () => {
     const [fname, setfName] = useState('');
@@ -33,6 +15,34 @@ const DealerForm = () => {
     const [city, setCity] = useState('');
     const [country, setCountry] = useState('');
     const [area, setArea] = useState('');
+    const [opt, setOpt] = useState([]);
+
+
+    const optd=[
+      {
+       id:'Bangladesh',
+       name:'Bangladesh', 
+      },
+      {
+        id:'India',
+        name:'India', 
+       },
+       {
+        id:'Pak',
+        name:'Pak', 
+       },
+       {
+        id:'Srilanka',
+        name:'Srilanka', 
+       },
+    
+    ]
+
+    useEffect(()=>{
+      setOpt(optd);
+    },[])
+
+    const options =opt.map((value)=><option value={value.id}>{value.name}</option>)
 
     const [allValue, setAllValue] = useState([]);
 
@@ -91,9 +101,7 @@ const DealerForm = () => {
                     <Form.Label>Country</Form.Label>
                     <Form.Select aria-label="Default select example" value={country} onChange={(e)=>setCountry(e.target.value)}>
                         <option>Country</option>
-                        {selectOption.map((option)=>(
-                          <option value={option.value}>{option.Label}</option>
-                        ))}
+                        {options}
                     </Form.Select>
                 </Form.Group> 
                 <Form.Group as={Col} controlId="formArea">

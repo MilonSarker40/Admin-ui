@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
@@ -15,6 +15,21 @@ const AgentForm = () => {
     const [city, setCity] = useState('');
     const [country, setCountry] = useState('');
     const [areaManager, setAreaManager] = useState('');
+    const [opt, setOpt] = useState([]);
+
+    // Call api for the country list
+    const optd =[
+      {'id':1, 'name': 'Bangladesh'},
+      {'id':2, 'name': 'India'},
+      {'id':3, 'name': 'Pak'}
+    ]
+
+    useEffect(()=>{
+      setOpt(optd);
+    },[])
+
+    const options = opt.map((value)=><option value={value.id}>{value.name}</option>)
+
 
     const [allValue,setAllValue] =useState([]);
 
@@ -75,10 +90,8 @@ const AgentForm = () => {
               <Form.Group as={Col} controlId="formCountry">
                     <Form.Label>Country</Form.Label>
                     <Form.Select aria-label="Default select example" value={country} onChange={(e)=>setCountry(e.target.value)}>
-                        <option>country</option>
-                        <option value="Bangladesh">Bangladesh</option>
-                        <option value="India">India</option>
-                        <option value="Pak">Pak</option>
+                        <option>Country</option>
+                        {options}
                     </Form.Select>
                 </Form.Group> 
                 <Form.Group as={Col} controlId="AreaManager">

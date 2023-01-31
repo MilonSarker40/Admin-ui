@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
@@ -8,6 +8,20 @@ const CircleForm = () => {
 
   const [fname, setFname] = useState('');
   const [selectCountry, setSelectCountry] = useState('');
+  const [opt, setOpt] = useState([]);
+
+  // Call api for the country list
+  const optd =[
+    {'id': 1, 'name':'Bangladesh'},
+    {'id':2, 'name':'India'},
+    {'id':3, 'name':'Pak'}
+  ]
+
+  useEffect(()=>{
+    setOpt();
+  },[])
+
+  const options = opt.map((value)=><option value={value.id}>{value.name}</option>)
 
   const [allValue,setAllValue] = useState([]);
 
@@ -36,9 +50,7 @@ const CircleForm = () => {
                     <Form.Label>Select Country</Form.Label>
                     <Form.Select aria-label="Default select example" value={selectCountry} onChange={(e)=>setSelectCountry(e.target.value)}>
                         <option>Country Name</option>
-                        <option value="Bangladesh">Bangladesh</option>
-                        <option value="India">India</option>
-                        <option value="Pak">Pak</option>
+                        {options}
                     </Form.Select>
                  </Form.Group> 
             </Row>

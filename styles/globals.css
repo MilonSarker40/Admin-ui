@@ -391,16 +391,18 @@ element.style {
 .sign-box{
   display: block;
 }
-.navbarMenu {
+.navbarMenu{
   position: fixed;
   max-width: 17%;
   width: 100%;
   /* overflow-y: scroll; */
+  /* scrollbar-width:1px !important; */
   top: 0;
   bottom: 0;
   padding-top: 110px;
   padding-right: 10px;
 }
+
 
 /*
 ---------------------

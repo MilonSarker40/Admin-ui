@@ -1,44 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 
-const selectOption=[
-  {
-   Label:'Bangladesh',
-   value:'Bangladesh', 
-  },
-  {
-    Label:'India',
-    value:'India', 
-   },
-   {
-    Label:'Pak',
-    value:'Pak', 
-   },
-   {
-    Label:'Srilanka',
-    value:'Srilanka', 
-   },
-
-]
-const subDlrOption=[
-  {
-    label:'Dealer',
-    value:'Dealer', 
-   },
-  {
-   label:'Agent',
-   value:'Agent', 
-  },
-  {
-    label:'Marchent',
-    value:'Marchent', 
-   },
 
 
-]
 
 const SubDealerForm = () => {
     const [fname, setfName] = useState('');
@@ -50,6 +17,58 @@ const SubDealerForm = () => {
     const [country, setCountry] = useState('');
     const [area, setArea] = useState('');
     const [dealer,setDealer] = useState('');
+    const [opt, setOpt] =useState([]);
+    const [opt1, setOpt1] =useState([]);
+
+    const optd=[
+      {
+       id:1,
+       name:'Bangladesh', 
+      },
+      {
+        id:2,
+        name:'India', 
+       },
+       {
+        id:3,
+        name:'Pak', 
+       },
+       {
+        id:4,
+        name:'Srilanka', 
+       },
+    
+    ]
+
+    useEffect(()=>{
+      setOpt(optd);
+    },[])
+    
+    const options =opt.map((value)=><option value={value.id}>{value.name}</option>)
+
+    const options1 =opt1.map((value)=><option value={value.id}>{value.name}</option>)
+
+    const optd1=[
+      {
+        id:1,
+        name:'Dealer', 
+       },
+      {
+       id:2,
+       name:'Agent', 
+      },
+      {
+        id:3,
+        name:'Marchent', 
+       },
+    
+    
+    ]
+    useEffect(()=>{
+      setOpt1(optd1);
+    },[])
+
+
 
     const [allValue, setAllValue] = useState([]);
 
@@ -109,17 +128,13 @@ const SubDealerForm = () => {
                     <Form.Label>Country</Form.Label>
                     <Form.Select aria-label="Default select example" value={country} onChange={(e)=>setCountry(e.target.value)}>
                         <option>Country</option>
-                        {selectOption.map((option)=>(
-                          <option value={option.value}>{option.Label}</option>
-                        ))}
+                        {options}
                     </Form.Select>
                 </Form.Group> 
                 <Form.Group as={Col} controlId="formDealer">
                     <Form.Label>Dealer</Form.Label>
                     <Form.Select aria-label="Default select example" value={dealer} onChange={(e)=>setDealer(e.target.value)}>
-                        {subDlrOption.map((option)=>(
-                          <option value={option.value}>{option.label}</option>
-                        ))}
+                      {options1}
                     </Form.Select>
                 </Form.Group> 
             </Row>
