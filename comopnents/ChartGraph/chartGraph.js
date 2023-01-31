@@ -124,7 +124,7 @@ const chartGraph =()=>{
           </div>
         </div>
         <div className="p-4 flex-auto">
-          {/* Chart */}
+          Chart
           <div className="relative h-350-px">
             <canvas id="line-chart"></canvas>
           </div>
