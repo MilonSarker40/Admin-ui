@@ -2,7 +2,7 @@ import React from 'react';
 import {Row, Col} from 'reactstrap';
 import Sidebar from '../Sidebar/Sidebar';
 import Breadcrumb from '../BreadCrumb/BreadCrumb';
-import chartGraph from '../ChartGraph/chartGraph';
+import CardBarChart from '../CardBarChart/CardBarChart';
 
 const MainContent = () => {
 
@@ -14,7 +14,7 @@ const MainContent = () => {
          </div>
          <div className='main_content-rgt'>
            <Breadcrumb title='Home Page' subtitle='Home' />
-           <chartGraph />
+           <CardBarChart />
          </div>
       </section>
     </>
