@@ -3,6 +3,8 @@ import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
+import DynamicCheckBox from '../DynamicCheckBox/DynamicCheckBox';
+import CheckboxContainer from '../DynamicCheckBox/DynamicCheckBox';
 
 const IndexApiForm = () => {
 
@@ -73,6 +75,7 @@ const IndexApiForm = () => {
         SetRequestType('')
         setCredentials('')
     }
+  
 
   return (
     <>
@@ -99,6 +102,7 @@ const IndexApiForm = () => {
                     <Form.Select aria-label="Default select example" value={status} onChange={(e)=>setStatus(e.target.value)}>
                         <option>Select Status</option>
                         {options}
+                        <DynamicCheckBox />
                     </Form.Select>
                 </Form.Group> 
             </Row>
