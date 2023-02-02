@@ -4,7 +4,6 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import DynamicCheckBox from '../DynamicCheckBox/DynamicCheckBox';
-import CheckboxContainer from '../DynamicCheckBox/DynamicCheckBox';
 
 const IndexApiForm = () => {
 
