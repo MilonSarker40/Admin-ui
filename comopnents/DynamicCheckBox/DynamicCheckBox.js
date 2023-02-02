@@ -4,19 +4,16 @@ function DynamicCheckBox(){
     // http://localhost:3000/fruit
     const [api,setApi] =useState([])
     const [selected,setSelected] =useState([])
+    const data = [
+        {name: "Apple"},
+        {name: "Banana"},
+        {name: "Orange"},
+    ]
     useEffect(()=>{
-        // fetch("http://localhost:3000/fruit").then(data=>data.json()).then(val=>setApi(val))
-        const fruitItem =[
-        {
-         name:'Apple',
-        },
-        {
-         name:'Orange',
-        },
-        {
-         name:'Banna',
-        }
-        ]
+        // fetch("http://localhost:3000/fruit").then(data=>data.json()).then(val=>setApi(val));
+        console.log("inside dynamic");
+        setApi(data);
+        console.log(data);
     },[])
 
     const handleChnage =(e,index)=>{
