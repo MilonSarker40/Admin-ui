@@ -5,7 +5,18 @@ function DynamicCheckBox(){
     const [api,setApi] =useState([])
     const [selected,setSelected] =useState([])
     useEffect(()=>{
-        fetch("http://localhost:3000/fruit").then(data=>data.json()).then(val=>setApi(val))
+        // fetch("http://localhost:3000/fruit").then(data=>data.json()).then(val=>setApi(val))
+        const fruitItem =[
+        {
+         name:'Apple',
+        },
+        {
+         name:'Orange',
+        },
+        {
+         name:'Banna',
+        }
+        ]
     },[])
 
     const handleChnage =(e,index)=>{
@@ -24,9 +35,9 @@ function DynamicCheckBox(){
     return (
         <div>
             {
-                api.map((fruit,i)=>
+                api.map((fruitItem,i)=>
                 <div key={i}>
-                    <input id={i} type="checkbox" value={fruit.name} onChange={(e)=>handleChnage(e,i)} /><span>{fruit.name}</span>
+                    <input id={i} type="checkbox" value={fruitItem.name} onChange={(e)=>handleChnage(e,i)} /><span>{fruitItem.name}</span>
                 </div>
                 )
             }

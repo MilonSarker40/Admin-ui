@@ -101,9 +101,11 @@ const IndexApiForm = () => {
                     <Form.Select aria-label="Default select example" value={status} onChange={(e)=>setStatus(e.target.value)}>
                         <option>Select Status</option>
                         {options}
-                        <DynamicCheckBox />
                     </Form.Select>
                 </Form.Group> 
+            </Row>
+            <Row className='mb-3'>
+              <DynamicCheckBox />
             </Row>
             <Row className='mb-3'>
                <Form.Group as={Col} controlId="formStatus">
