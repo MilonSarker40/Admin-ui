@@ -38,7 +38,7 @@ const IndexApiForm = () => {
             <Row className="mb-3">
                 <Form.Group as={Col} controlId="formStatus">
                     <Form.Label>Status</Form.Label>
-                    <Form.Select aria-label="Default select example" value={status} onChange={(e)=>setStatus(e.target.value)}>
+                    <Form.Select aria-label="Default select example">
                         <option>Select Status</option>
                         {options}
                     </Form.Select>
