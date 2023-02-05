@@ -3,7 +3,8 @@ import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 import Sidebar from '../comopnents/Sidebar/Sidebar';
 import BreadCrumb from '../comopnents/BreadCrumb/BreadCrumb';
-import EarningTable from '../comopnents/AgentEarning/EarningTable';
+import DueId from '../comopnents/AgentDue.js/DueId';
+
 
 const agentDue = () => {
   return (
@@ -17,7 +18,7 @@ const agentDue = () => {
             <div className='tabsWarp'>
              <Tabs defaultActiveKey="List" id="uncontrolled-tab-example" className="mb-3">
                     <Tab eventKey="List" title="List">
-                        <EarningTable />
+                        <DueId />
                     </Tab>
                 </Tabs>
            </div>

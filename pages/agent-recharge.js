@@ -4,6 +4,7 @@ import Tabs from 'react-bootstrap/Tabs';
 import Sidebar from '../comopnents/Sidebar/Sidebar';
 import BreadCrumb from '../comopnents/BreadCrumb/BreadCrumb';
 import RechargeTable from '../comopnents/AgentRecharge/RechargeTable';
+import RechargeId from '../comopnents/AgentRecharge/RechargeId';
 
 const agent = () => {
   return (
@@ -17,7 +18,7 @@ const agent = () => {
             <div className='tabsWarp'>
              <Tabs defaultActiveKey="List" id="uncontrolled-tab-example" className="mb-3">
                     <Tab eventKey="List" title="List">
-                        <RechargeTable />
+                        <RechargeId />
                     </Tab>
                 </Tabs>
            </div>
