@@ -26,6 +26,7 @@ const Sidebar = () => {
               <Dropdown.Item href="/dealer">Dealer</Dropdown.Item>
               <Dropdown.Item href="/subdealer">Sub Dealer</Dropdown.Item>
               <Dropdown.Item href="/agent">Agent</Dropdown.Item>
+              <Dropdown.Item href="/report">Report</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
           <Dropdown>
@@ -44,6 +45,16 @@ const Sidebar = () => {
             <Dropdown.Menu>
               <Dropdown.Item href="/service">Service</Dropdown.Item>
               <Dropdown.Item href="/mobilenetwork">Mobile Network</Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+          <Dropdown>
+            <Dropdown.Toggle  id="dropdown-basic">
+            <i class="ri-file-text-fill"></i>Report<span><i class="ri-arrow-right-s-line"></i></span>
+            </Dropdown.Toggle>
+            <Dropdown.Menu>
+              <Dropdown.Item href="/agent-earning">Agent Earning</Dropdown.Item>
+              <Dropdown.Item href="/agent-due">Agent Due</Dropdown.Item>
+              <Dropdown.Item href="/agent-recharge">Agent Recharge</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
           <Link href="/indexapi" active><i class="ri-file-text-line"></i>Api Index</Link>
