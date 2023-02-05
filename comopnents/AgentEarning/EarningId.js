@@ -10,8 +10,17 @@ import {
   TableHeader
 } from 'react-bs-datatable';
 import { Col, Row, Table } from 'react-bootstrap';
+import Link from 'next/link';
 
 const EarningId = () => {
+
+  const rowEvents = {
+    onClick: (e, row, rowIndex) => {
+      return <Link href='/EarningTable'></Link>;
+      // alert('ok');
+    }
+  };
+
   return (
     <>
       <DatatableWrapper
@@ -93,7 +102,7 @@ const EarningId = () => {
       </Row>
         <table className='table'>
             <TableHeader />
-            <TableBody />
+            <TableBody rowEvents={ rowEvents } />
         </table>
         <Row>
           <Col
