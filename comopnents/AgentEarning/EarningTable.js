@@ -19,39 +19,38 @@ const EarningTable = () => {
             
             {
             score: 1,
-            nambuer: '01745698745',
-            date: 'March 04, 2022',
-            location: 'Dhaka',
+            taix: '2',
+            amount: '200',
             },
             {
             score: 2,
-            nambuer: '01745698745',
+            taix: '4',
+            amount: '300',
             date: 'March 08, 2022',
-            location: 'Dhaka',
             },
             {
             score: 3,
-            nambuer: '01745698745',
+            taix: '5',
+            amount: '400',
             date: 'February 18, 2022',
-            location: 'Dhaka',
             },
             {
             score: 4,
-            nambuer: '01745698745',
+            taix: '6',
+            amount: '500',
             date: 'February 15, 2022',
-            location: 'Dhaka',
             },
             {
             score: 5,
-            nambuer: '01745698745',
+            taix: '7',
+            amount: '600',
             date: 'February 26, 2022',
-            location: 'Dhaka',
             },
             {
             score: 6,
-            nambuer: '01745698745',
+            taix: '8',
+            amount: '700',
             date: 'February 09, 2022',
-            location: 'Dhaka',
             },
       
           
@@ -64,13 +63,13 @@ const EarningTable = () => {
             isFilterable: false,
             isSortable: true,
             prop: 'score',
-            title: 'ID'
+            title: 'Agent ID'
             },
             {
             isFilterable: true,
             isSortable: true,
-            prop: 'nambuer',
-            title: 'Nambuer'
+            prop: 'amount',
+            title: 'Amount'
             },
             {
             isFilterable: false,
@@ -78,18 +77,6 @@ const EarningTable = () => {
             prop: 'date',
             title: 'Last Update'
             },
-            {
-            isFilterable: true,
-            isSortable: false,
-            prop: 'location',
-            title: 'Location'
-            },
-          //  }
-          //   isFilterable: true,
-          //   isSortable: true ,
-          //   prop: 'check',
-          //   title: 'Check'
-          //   },
         ]}
         paginationOptionsProps={{
             initialState: {
