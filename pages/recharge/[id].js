@@ -3,7 +3,7 @@ import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 import Sidebar from '../../comopnents/Sidebar/Sidebar';
 import BreadCrumb from '../../comopnents/BreadCrumb/BreadCrumb';
-import RechargeTableId from '../../comopnents/RechargeTableId.js/RechargeTableId';
+import RechargeTableId from '../../comopnents/RechargeTableId/RechargeTableId';
 
 const RechargeReport = () => {
   return (
