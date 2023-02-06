@@ -53,32 +53,34 @@ function AgReportTable() {
   ]);
 
   return (
-    <Table striped bordered hover size="sm">
-      <thead>
-        <tr>
-          <th>Agent</th>
-          <th>Recharge</th>
-          <th>Dues</th>
-          <th>Earing</th>
-          <th>Balance </th>
-          <th>Sale</th>
-        </tr>
-      </thead>
-      <tbody>
-        {
-          table.map((item) => (
-            <tr key={item.id}>
-              <Link href={`/agentreport/${item.id}`}> <td>{item.agent}</td></Link>
-              <td>{item.recharge}</td>
-              <td>{item.dues}</td>
-              <td>{item.earning}</td>
-              <td>{item.balance}</td>
-              <td>{item.sale}</td>
+    <div className='agent-report-tbl'>
+       <Table striped bordered hover size="sm">
+          <thead>
+            <tr>
+              <th>Agent</th>
+              <th>Recharge</th>
+              <th>Dues</th>
+              <th>Earing</th>
+              <th>Balance </th>
+              <th>Sale</th>
             </tr>
-          ))
-        }
-      </tbody>
-    </Table>
+          </thead>
+          <tbody>
+            {
+              table.map((item) => (
+                <tr key={item.id}>
+                  <Link href={`/agentreport/${item.id}`}> <td>{item.agent}</td></Link>
+                  <td>{item.recharge}</td>
+                  <td>{item.dues}</td>
+                  <td>{item.earning}</td>
+                  <td>{item.balance}</td>
+                  <td>{item.sale}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </Table>
+    </div>
   );
 }
 

@@ -351,6 +351,15 @@ element.style {
   vertical-align: baseline;
   font-size: 12px;
 }
+.agent-report-tbl table tbody tr a{
+  display: block;
+  text-decoration: none;
+  border: none;
+}
+.agent-report-tbl table tbody tr a td{
+  color: #000;
+  border: 0 !important;
+}
 
 
 .login-form-sec-wrp {

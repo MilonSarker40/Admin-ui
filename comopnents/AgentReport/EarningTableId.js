@@ -18,41 +18,48 @@ const EarningTableId = () => {
         body={[
             
             {
-            score: 1,
+            id: 1,
             taix: '2',
             amount: '200',
-            },
-            {
-            score: 2,
-            taix: '4',
-            amount: '300',
+            number:'01745698745',
             date: 'March 08, 2022',
             },
             {
-            score: 3,
-            taix: '5',
-            amount: '400',
-            date: 'February 18, 2022',
+            id: 2,
+            taix: '2',
+            amount: '200',
+            number:'01745698745',
+            date: 'March 08, 2022',
             },
             {
-            score: 4,
-            taix: '6',
-            amount: '500',
-            date: 'February 15, 2022',
+            id: 3,
+            taix: '2',
+            amount: '200',
+            number:'01745698745',
+            date: 'March 08, 2022',
             },
             {
-            score: 5,
-            taix: '7',
-            amount: '600',
-            date: 'February 26, 2022',
+            id: 4,
+            taix: '2',
+            amount: '200',
+            number:'01745698745',
+            date: 'March 08, 2022',
             },
             {
-            score: 6,
-            taix: '8',
-            amount: '700',
-            date: 'February 09, 2022',
+            id: 5,
+            taix: '2',
+            amount: '200',
+            number:'01745698745',
+            date: 'March 08, 2022',
             },
-      
+            {
+            id: 6,
+            taix: '2',
+            amount: '200',
+            number:'01745698745',
+            date: 'March 08, 2022',
+            },
+    
           
         ]}
         headers={[
@@ -62,14 +69,26 @@ const EarningTableId = () => {
             },
             isFilterable: false,
             isSortable: true,
-            prop: 'score',
+            prop: 'id',
             title: 'Agent ID'
             },
             {
             isFilterable: true,
             isSortable: true,
+            prop: 'taix',
+            title: 'Taix'
+            },
+            {
+            isFilterable: false,
+            isSortable: true,
             prop: 'amount',
-            title: 'Amount'
+            title: 'Anount'
+            },
+            {
+            isFilterable: false,
+            isSortable: true,
+            prop: 'number',
+            title: 'Number'
             },
             {
             isFilterable: false,
