@@ -69,12 +69,12 @@ function AgReportTable() {
             {
               table.map((item) => (
                 <tr key={item.id}>
-                  <Link href={`/agentreport/${item.id}`}> <td>{item.agent}</td></Link>
-                  <td>{item.recharge}</td>
-                  <td>{item.dues}</td>
-                  <td>{item.earning}</td>
-                  <td>{item.balance}</td>
-                  <td>{item.sale}</td>
+                   <td><Link href={`/agentreport/${item.id}`}>{item.agent}</Link></td>
+                  <td><Link href={`/recharge/${item.id}`}>{item.recharge}</Link></td>
+                  <td><Link href={`/due/${item.id}`}>{item.dues}</Link></td>
+                  <td><Link href={`/earning/${item.id}`}>{item.earning}</Link></td>
+                  <td><Link href={`/balance/${item.id}`}>{item.balance}</Link></td>
+                  <td><Link href={`/sale/${item.id}`}>{item.sale}</Link></td>
                 </tr>
               ))
             }

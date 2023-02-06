@@ -351,12 +351,12 @@ element.style {
   vertical-align: baseline;
   font-size: 12px;
 }
-.agent-report-tbl table tbody tr a{
+.agent-report-tbl table tbody tr td a{
   display: block;
   text-decoration: none;
   border: none;
 }
-.agent-report-tbl table tbody tr a td{
+.agent-report-tbl table tbody tr td a{
   color: #000;
   border: 0 !important;
 }
