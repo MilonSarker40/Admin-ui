@@ -6,6 +6,7 @@ import BreadCrumb from '../comopnents/BreadCrumb/BreadCrumb';
 import IndexApiForm from '../comopnents/IndexApi/IndexApiForm';
 import IndexApiTable from '../comopnents/IndexApi/IndexApiTable';
 import AvailableApiForm from '../comopnents/IndexApi/AvailableApiForm';
+import AssignmentApiForm from '../comopnents/AssignmentApi/AssignmentApiForm';
 
 const indexapi = () => {
   return (
@@ -26,6 +27,9 @@ const indexapi = () => {
                     </Tab>
                     <Tab eventKey="Available Api" title="Available Api">
                        <AvailableApiForm />
+                    </Tab>
+                    <Tab eventKey="Assignment Api" title="Assignment Api">
+                       <AssignmentApiForm />
                     </Tab>
                 </Tabs>
            </div>
