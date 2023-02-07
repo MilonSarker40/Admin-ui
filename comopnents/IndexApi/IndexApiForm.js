@@ -33,7 +33,7 @@ const IndexApiForm = () => {
 
     useEffect(()=>{
       setOpt(optd)
-    })
+    },[])
 
     const options =opt.map((value)=><option value={value.id}>{value.name}</option>)
 
