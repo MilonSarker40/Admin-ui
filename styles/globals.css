@@ -413,6 +413,9 @@ element.style {
   padding-top: 110px;
   padding-right: 10px;
 }
+.contact-form-check label{
+  float: left;
+}
 
 
 /*

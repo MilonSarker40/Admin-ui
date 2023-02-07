@@ -37,15 +37,24 @@ const IndexApiForm = ({selected}) => {
       <div className='contact-form-wrp'>
          <Form action=''>
             <Row className="mb-3">
-              <Col lg='2'>
-                <div className='contact-form-check'>
-                <label>{selected}</label>
-                </div>
-              </Col>
-              <Col lg='4'>
+              <Col lg='6'>
                 <div className='contact-form-check'>
                   <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Control type="text" placeholder="Enter Value" />
+                    {
+                      selected && selected.map((selectItem,index) => (
+                        <>
+                        <Row className="mb-3">
+                          <Col lg='3'>
+                            <label>{selectItem}</label>
+                          </Col>
+                          <Col lg='9'>
+                            <Form.Control key={index} type="text" placeholder="Enter Value" />
+                          </Col>
+                          </Row>
+                        </>
+                      ))
+                    }
+                    
                   </Form.Group>
                 </div>
               </Col>
