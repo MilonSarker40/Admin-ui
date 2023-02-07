@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 
-function DynamicCheckBox(){
+function DynamicCheckBox({handleChnage,selected}){
     // http://localhost:3000/fruit
     const [api,setApi] =useState([])
-    const [selected,setSelected] =useState([])
     const data = [
         {name: "Apple"},
         {name: "Banana"},
@@ -16,17 +15,6 @@ function DynamicCheckBox(){
         console.log(data);
     },[])
 
-    const handleChnage =(e,index)=>{
-        console.log(e.target.value)
-        const activeData = document.getElementById(index).checked
-        console.log(activeData,"activeData")
-        if(activeData == true){
-            setSelected (oldData=>[...oldData,e.target.value])
-        }else{
-            setSelected(selected.filter(values=>values !==e.target.value))
-        }
-        
-    }
     
 
     return (

@@ -5,7 +5,7 @@ import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import DynamicCheckBox from '../DynamicCheckBox/DynamicCheckBox';
 
-const IndexApiForm = () => {
+const IndexApiForm = ({handleChnage,selected}) => {
 
 
     const [opt, setOpt] = useState([]);
@@ -27,7 +27,7 @@ const IndexApiForm = () => {
 
     useEffect(()=>{
       setOpt(optd)
-    })
+    },[])
 
     const options =opt.map((value)=><option value={value.id}>{value.name}</option>)
 
@@ -45,7 +45,7 @@ const IndexApiForm = () => {
                 </Form.Group> 
             </Row>
             <Row className='mb-3'>
-              <DynamicCheckBox />
+              <DynamicCheckBox handleChnage={handleChnage} selected={selected}/>
             </Row>
             <div className='contact-submit'>
                 <Button gap={3} variant="primary" type="submit">

@@ -5,31 +5,32 @@ import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import DynamicCheckBox from '../DynamicCheckBox/DynamicCheckBox';
 
-const IndexApiForm = () => {
+const IndexApiForm = ({selected}) => {
 
+    console.log(selected)
 
-    const [opt, setOpt] = useState([]);
+    // const [opt, setOpt] = useState([]);
 
-    const optd =[
-      {
-        id:1,
-        name:'select1',
-      },
-      {
-        id:2,
-        name:'select2',
-      },
-      {
-        id:3,
-        name:'select3',
-      }
-    ]
+    // const optd =[
+    //   {
+    //     id:1,
+    //     name:'select1',
+    //   },
+    //   {
+    //     id:2,
+    //     name:'select2',
+    //   },
+    //   {
+    //     id:3,
+    //     name:'select3',
+    //   }
+    // ]
 
-    useEffect(()=>{
-      setOpt(optd)
-    })
+    // useEffect(()=>{
+    //   setOpt(optd)
+    // },[])
 
-    const options =opt.map((value)=><option value={value.id}>{value.name}</option>)
+    // const options =opt.map((value)=><option value={value.id}>{value.name}</option>)
 
   return (
     <>
@@ -38,7 +39,7 @@ const IndexApiForm = () => {
             <Row className="mb-3">
               <Col lg='2'>
                 <div className='contact-form-check'>
-                  <label>Bangladesh</label>
+                <label>{selected}</label>
                 </div>
               </Col>
               <Col lg='4'>

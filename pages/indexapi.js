@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 import Sidebar from '../comopnents/Sidebar/Sidebar';
@@ -9,6 +9,21 @@ import AvailableApiForm from '../comopnents/IndexApi/AvailableApiForm';
 import AssignmentApiForm from '../comopnents/AssignmentApi/AssignmentApiForm';
 
 const indexapi = () => {
+   const[count,setCount] = useState(10)
+   const [selected,setSelected] =useState([])
+
+   const handleChnage =(e,index)=>{
+      console.log(e.target.value)
+      const activeData = document.getElementById(index).checked
+      console.log(activeData,"activeData")
+      if(activeData == true){
+          setSelected (oldData=>[...oldData,e.target.value])
+      }else{
+          setSelected(selected.filter(values=>values !==e.target.value))
+      }
+      
+  }
+
   return (
     <>
       <section className='main_content clearfix'>
@@ -26,10 +41,10 @@ const indexapi = () => {
                        <IndexApiForm />
                     </Tab>
                     <Tab eventKey="Available Api" title="Available Api">
-                       <AvailableApiForm />
+                       <AvailableApiForm handleChnage={handleChnage} selected={selected}/>
                     </Tab>
                     <Tab eventKey="Assignment Api" title="Assignment Api">
-                       <AssignmentApiForm />
+                       <AssignmentApiForm selected={selected}/>
                     </Tab>
                 </Tabs>
            </div>
