@@ -10,19 +10,7 @@ import AssignmentApiForm from '../comopnents/AssignmentApi/AssignmentApiForm';
 
 const indexapi = () => {
    const[count,setCount] = useState(10)
-   const [selected,setSelected] =useState([])
-
-   const handleChnage =(e,index)=>{
-      console.log(e.target.value)
-      const activeData = document.getElementById(index).checked
-      console.log(activeData,"activeData")
-      if(activeData == true){
-          setSelected (oldData=>[...oldData,e.target.value])
-      }else{
-          setSelected(selected.filter(values=>values !==e.target.value))
-      }
-      
-  }
+   
 
   return (
     <>
@@ -41,10 +29,10 @@ const indexapi = () => {
                        <IndexApiForm />
                     </Tab>
                     <Tab eventKey="Available Api" title="Available Api">
-                       <AvailableApiForm handleChnage={handleChnage} selected={selected}/>
+                       <AvailableApiForm/>
                     </Tab>
                     <Tab eventKey="Assignment Api" title="Assignment Api">
-                       <AssignmentApiForm selected={selected}/>
+                       <AssignmentApiForm/>
                     </Tab>
                 </Tabs>
            </div>

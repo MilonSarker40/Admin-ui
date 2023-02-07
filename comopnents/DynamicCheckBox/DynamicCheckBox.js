@@ -4,9 +4,9 @@ function DynamicCheckBox({handleChnage,selected}){
     // http://localhost:3000/fruit
     const [api,setApi] =useState([])
     const data = [
-        {name: "Apple"},
-        {name: "Banana"},
-        {name: "Orange"},
+        {name: "Bangladesh"},
+        {name: "India"},
+        {name: "Pak"},
     ]
     useEffect(()=>{
         // fetch("http://localhost:3000/fruit").then(data=>data.json()).then(val=>setApi(val));

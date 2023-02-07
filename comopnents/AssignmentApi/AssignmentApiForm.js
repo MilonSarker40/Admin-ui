@@ -5,12 +5,13 @@ import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import DynamicCheckBox from '../DynamicCheckBox/DynamicCheckBox';
 
-const IndexApiForm = ({selected}) => {
+const IndexApiForm = () => {
 
-    console.log(selected)
+
 
     const [opt, setOpt] = useState([]);
-
+    const [cities,setCities] = useState([])
+    const [api,setApi] = useState()
     const optd =[
       {
         id:1,
@@ -28,7 +29,12 @@ const IndexApiForm = ({selected}) => {
 
     useEffect(()=>{
       setOpt(optd)
+      let apiData = JSON.parse(localStorage.getItem('apiData'))
+      setCities(apiData.cities)
+      setApi(apiData.api)
     },[])
+
+    
 
     const options =opt.map((value)=><option value={value.id}>{value.name}</option>)
 
@@ -46,9 +52,10 @@ const IndexApiForm = ({selected}) => {
                     </Form.Select>
                 </Form.Group> 
              </Row>
+
               <Form.Group className="mb-3" controlId="formBasicPassword">
                 {
-                  selected && selected.map((selectItem,index) => (
+                  cities && cities.map((selectItem,index) => (
                     <>
                     <Row className="mb-3">
                       <Col lg='2'>
