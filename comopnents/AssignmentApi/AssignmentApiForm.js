@@ -15,15 +15,15 @@ const IndexApiForm = () => {
     const optd =[
       {
         id:1,
-        name:'select1',
+        name:'Bangladesh',
       },
       {
         id:2,
-        name:'select2',
+        name:'India',
       },
       {
         id:3,
-        name:'select3',
+        name:'Pak',
       }
     ]
 
@@ -36,7 +36,7 @@ const IndexApiForm = () => {
 
     
 
-    const options =opt.map((value)=><option value={value.id}>{value.name}</option>)
+    const options =opt.map((value)=><option value={value.name}>{value.name}</option>)
 
   return (
     <>
