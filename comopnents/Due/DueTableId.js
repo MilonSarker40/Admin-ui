@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
   DatatableWrapper,
@@ -12,50 +12,61 @@ import {
 import { Col, Row, Table } from 'react-bootstrap';
 
 const DueId = () => {
+ 
+  const bodyData=[
+    {
+      id : 1,
+      credit : 200,
+      debit: 300,
+      },
+      {
+      id : 2,
+      credit : 300,
+      debit: 400,
+      },
+      {
+      id : 3,
+      credit : 400,
+      debit: 500,
+      },
+  ]
+  const headerData=[
+     {
+      cellProps: {
+          style: function noRefCheck(){}
+      },
+      isFilterable: false,
+      isSortable: true,
+      prop: 'id',
+      title: 'Agent ID'
+      },
+      {
+      isFilterable: true,
+      isSortable:true,
+      prop: 'credit',
+      title: 'Credit'
+      },
+      {
+      isFilterable: true,
+      isSortable:true,
+      prop: 'debit',
+      title: 'Debit'
+      },
+  ]
+
+  useEffect(() => {
+    fetch("url")
+      .then((res) => res.json())
+      .then((data) => setData(data));
+    setData(bodyData);
+  })
+
   return (
     <>
       <DatatableWrapper
-        body={[
-            
-            {
-            id : 1,
-            credit : 200,
-            debit: 300,
-            },
-            {
-            id : 2,
-            credit : 300,
-            debit: 400,
-            },
-            {
-            id : 3,
-            credit : 400,
-            debit: 500,
-            },
-        ]}
-        headers={[
-           {
-            cellProps: {
-                style: function noRefCheck(){}
-            },
-            isFilterable: false,
-            isSortable: true,
-            prop: 'id',
-            title: 'Agent ID'
-            },
-            {
-            isFilterable: true,
-            isSortable:true,
-            prop: 'credit',
-            title: 'Credit'
-            },
-            {
-            isFilterable: true,
-            isSortable:true,
-            prop: 'debit',
-            title: 'Debit'
-            },
-        ]}
+         body={data}
+         headers={headerData}
+
         paginationOptionsProps={{
             initialState: {
             options: [

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState,useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
   DatatableWrapper,
@@ -15,107 +15,117 @@ import { Col, Row, Table } from 'react-bootstrap';
 
 
 const MobileNetworkTable = () => {
+
+  const [data,setData] =useState([]);
+
+  const bodyData =[
+    {
+      date: 'March 04, 2022',
+      location: 'Dhaka',
+      name: 'Gertrud',
+      score: 60,
+      status: 'Eidt',
+      nambuer: '01745698745'
+      },
+      {
+      date: 'March 08, 2022',
+      location: 'Dhaka',
+      name: 'Gui',
+      score: 73,
+      status: 'Eidt',
+      nambuer: '01745698745'
+      },
+      {
+      date: 'February 18, 2022',
+      location: 'Dhaka',
+      name: 'Hannis',
+      score: 17,
+      status: 'Eidt',
+      nambuer: '01745698745'
+      },
+      {
+      date: 'February 15, 2022',
+      location: 'Dhaka',
+      name: 'Hyacinthe',
+      score: 1,
+      status: 'Eidt',
+      nambuer: '01745698745'
+      },
+      {
+      date: 'February 26, 2022',
+      location: 'Dhaka',
+      name: 'Jacquetta',
+      score: 54,
+      status: 'Eidt',
+      nambuer: '01745698745'
+      },
+      {
+      date: 'February 09, 2022',
+      location: 'Dhaka',
+      name: 'Jany',
+      score: 44,
+      status: 'Eidt',
+      nambuer: '01745698745'
+      },
+  ]
+
+  const headerData=[
+    {
+      isFilterable: true,
+      isSortable: true,
+      prop: 'name',
+      title: 'Name'
+      },
+      {
+      isFilterable: true,
+      isSortable: true,
+      prop: 'nambuer',
+      title: 'Nambuer'
+      },
+      {
+      isFilterable: true,
+      isSortable: false,
+      prop: 'location',
+      title: 'Location'
+      },
+      {
+      isFilterable: false,
+      isSortable: true,
+      prop: 'date',
+      title: 'Last Update'
+      },
+      {
+      cellProps: {
+          style: function noRefCheck(){}
+      },
+      isFilterable: false,
+      isSortable: true,
+      prop: 'score',
+      title: 'ID'
+      },
+      {
+      alignment: {
+          horizontal: 'center'
+      },
+      checkbox: {
+          className: 'table-checkbox',
+          idProp: 'name'
+      },
+      prop: 'checkbox'
+      }
+  ]
+  useEffect(() => {
+    fetch("url")
+      .then((res) => res.json())
+      .then((data) => setData(data));
+    setData(bodyData);
+  })
   return (
     <>
       <DatatableWrapper
-        body={[
-            
-            {
-            date: 'March 04, 2022',
-            location: 'Dhaka',
-            name: 'Gertrud',
-            score: 60,
-            status: 'Eidt',
-            nambuer: '01745698745'
-            },
-            {
-            date: 'March 08, 2022',
-            location: 'Dhaka',
-            name: 'Gui',
-            score: 73,
-            status: 'Eidt',
-            nambuer: '01745698745'
-            },
-            {
-            date: 'February 18, 2022',
-            location: 'Dhaka',
-            name: 'Hannis',
-            score: 17,
-            status: 'Eidt',
-            nambuer: '01745698745'
-            },
-            {
-            date: 'February 15, 2022',
-            location: 'Dhaka',
-            name: 'Hyacinthe',
-            score: 1,
-            status: 'Eidt',
-            nambuer: '01745698745'
-            },
-            {
-            date: 'February 26, 2022',
-            location: 'Dhaka',
-            name: 'Jacquetta',
-            score: 54,
-            status: 'Eidt',
-            nambuer: '01745698745'
-            },
-            {
-            date: 'February 09, 2022',
-            location: 'Dhaka',
-            name: 'Jany',
-            score: 44,
-            status: 'Eidt',
-            nambuer: '01745698745'
-            },
-      
-          
-        ]}
-        headers={[
-            {
-            isFilterable: true,
-            isSortable: true,
-            prop: 'name',
-            title: 'Name'
-            },
-            {
-            isFilterable: true,
-            isSortable: true,
-            prop: 'nambuer',
-            title: 'Nambuer'
-            },
-            {
-            isFilterable: true,
-            isSortable: false,
-            prop: 'location',
-            title: 'Location'
-            },
-            {
-            isFilterable: false,
-            isSortable: true,
-            prop: 'date',
-            title: 'Last Update'
-            },
-            {
-            cellProps: {
-                style: function noRefCheck(){}
-            },
-            isFilterable: false,
-            isSortable: true,
-            prop: 'score',
-            title: 'ID'
-            },
-            {
-            alignment: {
-                horizontal: 'center'
-            },
-            checkbox: {
-                className: 'table-checkbox',
-                idProp: 'name'
-            },
-            prop: 'checkbox'
-            }
-        ]}
+        body={data}
+        headers={headerData}
+
         paginationOptionsProps={{
             initialState: {
             options: [
