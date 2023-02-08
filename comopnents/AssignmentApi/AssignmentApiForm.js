@@ -12,6 +12,8 @@ const IndexApiForm = () => {
     const [opt, setOpt] = useState([]);
     const [cities,setCities] = useState([])
     const [api,setApi] = useState()
+
+
     const optd =[
       {
         id:1,
@@ -30,8 +32,8 @@ const IndexApiForm = () => {
     useEffect(()=>{
       setOpt(optd)
       let apiData = JSON.parse(localStorage.getItem('apiData'))
-      setCities(apiData.cities)
-      setApi(apiData.api)
+      setCities(apiData?.cities)
+      setApi(apiData?.api)
     },[])
 
     
