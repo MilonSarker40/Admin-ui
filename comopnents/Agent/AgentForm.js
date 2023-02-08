@@ -116,7 +116,7 @@ const AgentForm = () => {
       </div>
       <section className='show-data'>
         {allValue.map((currentValue) => {
-          const { fname, number, email, verifiCode, address, city, country,  areaManager } = currentValue
+          const { fname, number, email, verificCode, address, city, country,  areaManager } = currentValue
           return (
             <>
               <div className='sign-box'>
@@ -131,7 +131,7 @@ const AgentForm = () => {
                   Email : <span>{email}</span>
                 </h3>
                 <h3>
-                 verifi Code : <span>{verifiCode}</span>
+                 verifi Code : <span>{verificCode}</span>
                 </h3>
                 <h3>
                    Address : <span>{address}</span>

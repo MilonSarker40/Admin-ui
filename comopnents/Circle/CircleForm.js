@@ -14,11 +14,11 @@ const CircleForm = () => {
   const optd =[
     {'id': 1, 'name':'Bangladesh'},
     {'id':2, 'name':'India'},
-    {'id':3, 'name':'Pak'}
+    {'id':3, 'name':'Pak'},
   ]
 
   useEffect(()=>{
-    setOpt();
+    setOpt(optd);
   },[])
 
   const options = opt.map((value)=><option value={value.id}>{value.name}</option>)

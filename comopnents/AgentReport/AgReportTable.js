@@ -69,7 +69,7 @@ function AgReportTable() {
             {
               table.map((item) => (
                 <tr key={item.id}>
-                   <td><Link href={`/agentreport/${item.id}`}>{item.agent}</Link></td>
+                  <td><Link href={`/agentreport/${item.id}`}>{item.agent}</Link></td>
                   <td><Link href={`/recharge/${item.id}`}>{item.recharge}</Link></td>
                   <td><Link href={`/due/${item.id}`}>{item.dues}</Link></td>
                   <td><Link href={`/earning/${item.id}`}>{item.earning}</Link></td>

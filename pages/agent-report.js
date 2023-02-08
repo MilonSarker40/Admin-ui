@@ -15,7 +15,7 @@ const AgentReport = () => {
             <Sidebar />
          </div>
          <div className='main_content-rgt'>
-            <BreadCrumb title='Agent Due' subtitle='Agent Due' />
+            <BreadCrumb title='Agent REPORT' subtitle='Agent REPORT' />
             <div className='tabsWarp'>
              <Tabs defaultActiveKey="List" id="uncontrolled-tab-example" className="mb-3">
                     <Tab eventKey="List" title="List">

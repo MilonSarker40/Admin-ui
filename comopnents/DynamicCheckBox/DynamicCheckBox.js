@@ -28,7 +28,7 @@ function DynamicCheckBox({handleChnage,selected}){
             }
             <br/>
             {
-                selected.map((a,i)=><div key={i}>{a}</div>)
+                selected.map((a,i)=> <div key={i}>  {a} </div>)
             }
         </div>
     );
