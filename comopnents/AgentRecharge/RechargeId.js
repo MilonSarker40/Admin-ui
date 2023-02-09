@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState,useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
   DatatableWrapper,
@@ -12,44 +12,51 @@ import {
 import { Col, Row, Table } from 'react-bootstrap';
 
 const RechargeId = () => {
+
+  const [data,setData]=useState([]);
+
+  const bodyData=[
+    {
+      score: 1,
+      recharge: '200',
+      },
+      {
+      score: 2,
+      recharge: '300',
+      },
+      {
+      score: 3,
+      recharge: '500',
+      },
+  ]
+  const headerData=[
+    {
+      cellProps: {
+          style: function noRefCheck(){}
+      },
+      isFilterable: false,
+      isSortable: true,
+      prop: 'score',
+      title: 'Agent ID'
+      },
+      {
+      isFilterable: true,
+      isSortable:true,
+      prop: 'recharge',
+      title: 'Recharge'
+      },
+  ]
+  useEffect(() => {
+    fetch("url")
+      .then((res) => res.json())
+      .then((data) => setData(data));
+    setData(bodyData);
+  })
   return (
     <>
       <DatatableWrapper
-        body={[
-            
-            {
-            score: 1,
-            recharge: '200',
-            // date: 'March 04, 2022',
-            },
-            {
-            score: 2,
-            recharge: '300',
-            // date: 'March 04, 2022',
-            },
-            {
-            score: 3,
-            recharge: '500',
-            // date: 'March 04, 2022',
-            },
-        ]}
-        headers={[
-           {
-            cellProps: {
-                style: function noRefCheck(){}
-            },
-            isFilterable: false,
-            isSortable: true,
-            prop: 'score',
-            title: 'Agent ID'
-            },
-            {
-            isFilterable: true,
-            isSortable:true,
-            prop: 'recharge',
-            title: 'Recharge'
-            },
-        ]}
+        body={data}
+        headers={headerData}
         paginationOptionsProps={{
             initialState: {
             options: [

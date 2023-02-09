@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
   DatatableWrapper,
@@ -12,91 +12,99 @@ import {
 import { Col, Row, Table } from 'react-bootstrap';
 
 const EarningTableId = () => {
+  const [data,setData] =useState([]);
+
+  const bodyData=[
+    {
+      id: 1,
+      taix: '2',
+      amount: '200',
+      number:'01745698745',
+      date: 'March 08, 2022',
+      },
+      {
+      id: 2,
+      taix: '2',
+      amount: '200',
+      number:'01745698745',
+      date: 'March 08, 2022',
+      },
+      {
+      id: 3,
+      taix: '2',
+      amount: '200',
+      number:'01745698745',
+      date: 'March 08, 2022',
+      },
+      {
+      id: 4,
+      taix: '2',
+      amount: '200',
+      number:'01745698745',
+      date: 'March 08, 2022',
+      },
+      {
+      id: 5,
+      taix: '2',
+      amount: '200',
+      number:'01745698745',
+      date: 'March 08, 2022',
+      },
+      {
+      id: 6,
+      taix: '2',
+      amount: '200',
+      number:'01745698745',
+      date: 'March 08, 2022',
+      },
+  ]
+  const headerData=[
+    {
+      cellProps: {
+          style: function noRefCheck(){}
+      },
+      isFilterable: false,
+      isSortable: true,
+      prop: 'id',
+      title: 'Agent ID'
+      },
+      {
+      isFilterable: true,
+      isSortable: true,
+      prop: 'taix',
+      title: 'Taix'
+      },
+      {
+      isFilterable: false,
+      isSortable: true,
+      prop: 'amount',
+      title: 'Anount'
+      },
+      {
+      isFilterable: false,
+      isSortable: true,
+      prop: 'number',
+      title: 'Number'
+      },
+      {
+      isFilterable: false,
+      isSortable: true,
+      prop: 'date',
+      title: 'Last Update'
+      },
+  ]
+
+  useEffect(() => {
+    fetch("url")
+      .then((res) => res.json())
+      .then((data) => setData(data));
+    setData(bodyData);
+  },[])
   return (
     <>
       <DatatableWrapper
-        body={[
-            
-            {
-            id: 1,
-            taix: '2',
-            amount: '200',
-            number:'01745698745',
-            date: 'March 08, 2022',
-            },
-            {
-            id: 2,
-            taix: '2',
-            amount: '200',
-            number:'01745698745',
-            date: 'March 08, 2022',
-            },
-            {
-            id: 3,
-            taix: '2',
-            amount: '200',
-            number:'01745698745',
-            date: 'March 08, 2022',
-            },
-            {
-            id: 4,
-            taix: '2',
-            amount: '200',
-            number:'01745698745',
-            date: 'March 08, 2022',
-            },
-            {
-            id: 5,
-            taix: '2',
-            amount: '200',
-            number:'01745698745',
-            date: 'March 08, 2022',
-            },
-            {
-            id: 6,
-            taix: '2',
-            amount: '200',
-            number:'01745698745',
-            date: 'March 08, 2022',
-            },
-    
-          
-        ]}
-        headers={[
-           {
-            cellProps: {
-                style: function noRefCheck(){}
-            },
-            isFilterable: false,
-            isSortable: true,
-            prop: 'id',
-            title: 'Agent ID'
-            },
-            {
-            isFilterable: true,
-            isSortable: true,
-            prop: 'taix',
-            title: 'Taix'
-            },
-            {
-            isFilterable: false,
-            isSortable: true,
-            prop: 'amount',
-            title: 'Anount'
-            },
-            {
-            isFilterable: false,
-            isSortable: true,
-            prop: 'number',
-            title: 'Number'
-            },
-            {
-            isFilterable: false,
-            isSortable: true,
-            prop: 'date',
-            title: 'Last Update'
-            },
-        ]}
+        body={data}
+        headers={headerData}
         paginationOptionsProps={{
             initialState: {
             options: [
