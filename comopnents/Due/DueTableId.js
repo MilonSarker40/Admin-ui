@@ -68,7 +68,7 @@ const DueId = () => {
       <DatatableWrapper
          body={data}
          headers={headerData}
-
+         
         paginationOptionsProps={{
             initialState: {
             options: [

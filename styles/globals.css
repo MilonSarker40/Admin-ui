@@ -365,11 +365,17 @@ element.style {
 .login-form-sec-wrp {
   padding: 100px 0;
   height: 100vh;
-  display: flex;
+  /* display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
 }
-.login-form{
+.login-form {
+  max-width: 460px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 30px 30px;
+}
+/* .login-form{
   max-width: 600px;
   width: 100%;
   margin: 0 auto;
@@ -379,6 +385,18 @@ element.style {
   border-width: 0px 0px 0px 0px;
   border-radius: 10px 10px 10px 10px;
   padding:50px 50px;
+} */
+.login-form-dsc {
+  text-align: center;
+  border-bottom: 1px solid#ddd;
+  margin-bottom: 30px;
+}
+.login-form-dsc h2{
+  color: #0088FF;
+}
+.login-form-dsc p{
+  margin-bottom: 20px;
+  text-transform: capitalize;
 }
 
 .sidebar-head h1 {
@@ -406,7 +424,7 @@ element.style {
   position: fixed;
   max-width: 17%;
   width: 100%;
-  /* overflow-y: scroll; */
+  overflow-y: scroll; 
   /* scrollbar-width:1px !important; */
   top: 0;
   bottom: 0;
@@ -415,6 +433,44 @@ element.style {
 }
 .contact-form-check label{
   float: left;
+}
+
+.navbarMen::-webkit-scrollbar{
+  display: none;
+}
+
+.navbarMen{
+  -ms-overflow-style: none !important; 
+  scrollbar-width: none !important; 
+}
+.login-form-sec-wrp{
+  background: url(/images/login-bg.jpg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  position: relative;
+}
+.login-form-sec-wrp::after{
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(13, 110, 253, 0.5);
+}
+.login-form-rgt {
+  width: 50%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
 }
 
 
