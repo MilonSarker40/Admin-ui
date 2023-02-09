@@ -13,82 +13,80 @@ import { Col, Row, Table } from 'react-bootstrap';
 
 const SimulatorTable = () => {
   const [data, setData] = useState([]);
+  const [agent, setAgent] = useState([]);
 
-  const bodyData = [
+  useEffect(() => {
+    fetch('http://localhost:3000/alltrx')
+        .then((res) => res.json())
+        .then((data) => {
+            // console.log(data.message);
+            setData(data.message);
+        })
+    fetch('http://localhost:3000/allagenttrx')
+        .then((res) => res.json())
+        .then((data) => {
+            console.log(data.message);
+            setAgent(data.message);
+        })
+}, []); 
+
+  let balance = 0.00
+
+    for (let i = 0; i<agent.length; i++){
+        balance = balance + agent[i].transferedAmount - agent[i].deductedAmount;
+    }
+
+    const headerAgent = [
       {
-        date: 'March 04, 2022',
-        location: 'Dhaka',
-        name: 'Gertrud',
-        score: 60,
-        status: 'Eidt',
-        nambuer: '01745698745'
-        },
-        {
-        date: 'March 08, 2022',
-        location: 'Dhaka',
-        name: 'Gui',
-        score: 73,
-        status: 'Eidt',
-        nambuer: '01745698745'
-        },
-        {
-        date: 'February 18, 2022',
-        location: 'Dhaka',
-        name: 'Hannis',
-        score: 17,
-        status: 'Eidt',
-        nambuer: '01745698745'
-        },
-        {
-        date: 'February 15, 2022',
-        location: 'Dhaka',
-        name: 'Hyacinthe',
-        score: 1,
-        status: 'Eidt',
-        nambuer: '01745698745'
-        },
-        {
-        date: 'February 26, 2022',
-        location: 'Dhaka',
-        name: 'Jacquetta',
-        score: 54,
-        status: 'Eidt',
-        nambuer: '01745698745'
-        },
-        {
-        date: 'February 09, 2022',
-        location: 'Dhaka',
-        name: 'Jany',
-        score: 44,
-        status: 'Eidt',
-        nambuer: '01745698745'
-        }
+        isFilterable: true,
+        isSortable: true,
+        prop: 'id',
+        title: 'Id'
+      },
+      {
+        isFilterable: true,
+        isSortable: true,
+        prop: 'transferedAmount',
+        title: 'credit'
+      },
+      {
+        isFilterable: true,
+        isSortable: true,
+        prop: 'deductedAmount',
+        title: 'debit'
+      },
+      {
+        isFilterable: true,
+        isSortable: true,
+        prop: 'createdAt',
+        title: 'date'
+      },
     ]
 
     const headerData = [
       {
         isFilterable: true,
         isSortable: true,
-        prop: 'name',
-        title: 'Name'
+        prop: 'id',
+        title: 'Id'
         },
         {
         isFilterable: true,
         isSortable: true,
-        prop: 'nambuer',
-        title: 'Nambuer'
+        prop: 'number',
+        title: 'Number'
         },
         {
         isFilterable: true,
         isSortable: false,
-        prop: 'location',
-        title: 'Location'
+        prop: 'amount',
+        title: 'Amount'
         },
         {
         isFilterable: false,
         isSortable: true,
-        prop: 'date',
-        title: 'Last Update'
+        prop: 'by',
+        title: 'By'
         },
         {
         cellProps: {
@@ -96,32 +94,72 @@ const SimulatorTable = () => {
         },
         isFilterable: false,
         isSortable: true,
-        prop: 'score',
-        title: 'ID'
-        },
-        {
-        alignment: {
-            horizontal: 'center'
-        },
-        checkbox: {
-            className: 'table-checkbox',
-            idProp: 'name'
-        },
-        prop: 'checkbox'
+        prop: 'api',
+        title: 'Api'
         }
     ]
-
-    useEffect(() => {
-      fetch("url")
-        .then((res) => res.json())
-        .then((data) => setData(data));
-      setData(bodyData);
-    },[])
   return (
     <>
       <DatatableWrapper
         body={data}
         headers={headerData}
+  
+        paginationOptionsProps={{
+            initialState: {
+            options: [
+                5,
+                10,
+                15,
+                20
+            ],
+            rowsPerPage: 10
+            }
+        }}
+        sortProps={{
+            sortValueObj: {
+            date: function noRefCheck(){}
+            }
+        }}
+        >
+      <Row className="mb-4">
+        <Col
+          className="d-flex flex-col justify-content-end align-items-end"
+          lg={6}
+          xs={12}
+        >
+          <Filter />
+        </Col>
+
+        <Col
+            className="d-flex flex-col justify-content-lg-right align-items-right justify-content-sm-end mb-2 mb-sm-0"
+            lg={6}
+            sm={6}
+            xs={12}
+          >
+            <PaginationOptions alwaysShowPagination />
+        </Col>
+      </Row>
+        <table className='table'>
+            <TableHeader />
+            <TableBody />
+        </table>
+        <Row>
+          <Col
+            className="d-flex flex-col justify-content-end align-items-end"
+            lg={12}
+            sm={12}
+            xs={12}
+          >
+            <Pagination alwaysShowPagination />
+          </Col>
+        </Row>
+      </DatatableWrapper>
+
+
+
+      <DatatableWrapper
+        body={agent}
+        headers={headerAgent}
   
         paginationOptionsProps={{
             initialState: {
