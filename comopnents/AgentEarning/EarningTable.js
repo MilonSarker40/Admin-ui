@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState,useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
   DatatableWrapper,
@@ -12,72 +12,79 @@ import {
 import { Col, Row, Table } from 'react-bootstrap';
 
 const EarningTable = () => {
+  const [data,setData]=useState([]);
+
+  const bodyData=[
+    {
+      score: 1,
+      taix: '2',
+      amount: '200',
+      },
+      {
+      score: 2,
+      taix: '4',
+      amount: '300',
+      date: 'March 08, 2022',
+      },
+      {
+      score: 3,
+      taix: '5',
+      amount: '400',
+      date: 'February 18, 2022',
+      },
+      {
+      score: 4,
+      taix: '6',
+      amount: '500',
+      date: 'February 15, 2022',
+      },
+      {
+      score: 5,
+      taix: '7',
+      amount: '600',
+      date: 'February 26, 2022',
+      },
+      {
+      score: 6,
+      taix: '8',
+      amount: '700',
+      date: 'February 09, 2022',
+      },
+  ]
+  const headerData=[
+    {
+      cellProps: {
+          style: function noRefCheck(){}
+      },
+      isFilterable: false,
+      isSortable: true,
+      prop: 'score',
+      title: 'Agent ID'
+      },
+      {
+      isFilterable: true,
+      isSortable: true,
+      prop: 'amount',
+      title: 'Amount'
+      },
+      {
+      isFilterable: false,
+      isSortable: true,
+      prop: 'date',
+      title: 'Last Update'
+      },
+  ]
+  useEffect(() => {
+    fetch("url")
+      .then((res) => res.json())
+      .then((data) => setData(data));
+    setData(bodyData);
+  })
   return (
     <>
       <DatatableWrapper
-        body={[
-            
-            {
-            score: 1,
-            taix: '2',
-            amount: '200',
-            },
-            {
-            score: 2,
-            taix: '4',
-            amount: '300',
-            date: 'March 08, 2022',
-            },
-            {
-            score: 3,
-            taix: '5',
-            amount: '400',
-            date: 'February 18, 2022',
-            },
-            {
-            score: 4,
-            taix: '6',
-            amount: '500',
-            date: 'February 15, 2022',
-            },
-            {
-            score: 5,
-            taix: '7',
-            amount: '600',
-            date: 'February 26, 2022',
-            },
-            {
-            score: 6,
-            taix: '8',
-            amount: '700',
-            date: 'February 09, 2022',
-            },
-      
-          
-        ]}
-        headers={[
-           {
-            cellProps: {
-                style: function noRefCheck(){}
-            },
-            isFilterable: false,
-            isSortable: true,
-            prop: 'score',
-            title: 'Agent ID'
-            },
-            {
-            isFilterable: true,
-            isSortable: true,
-            prop: 'amount',
-            title: 'Amount'
-            },
-            {
-            isFilterable: false,
-            isSortable: true,
-            prop: 'date',
-            title: 'Last Update'
-            },
-        ]}
+       body={data}
+       headers={headerData}
         paginationOptionsProps={{
             initialState: {
             options: [

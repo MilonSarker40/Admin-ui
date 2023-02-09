@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
   DatatableWrapper,
@@ -21,50 +21,53 @@ const EarningId = () => {
     }
   };
 
+  const [data,setData] =useState([]);
+
+  const bodyData=[
+    {
+      score: 1,
+      earnd: '200',
+      },
+      {
+      score: 2,
+      earnd: '300',
+      },
+      {
+      score: 3,
+      earnd: '300',
+      },
+  ]
+
+  const headerData=[
+    {
+      cellProps: {
+          style: function noRefCheck(){}
+      },
+      isFilterable: false,
+      isSortable: true,
+      prop: 'score',
+      title: 'ID'
+      },
+      {
+      isFilterable: true,
+      isSortable: true,
+      prop: 'earnd',
+      title: 'Earnd'
+      },
+  ]
+
+  useEffect(() => {
+    fetch("url")
+      .then((res) => res.json())
+      .then((data) => setData(data));
+    setData(bodyData);
+  })
+
   return (
     <>
       <DatatableWrapper
-        body={[
-            
-            {
-            score: 1,
-            earnd: '200',
-            // date: 'March 04, 2022',
-            },
-            {
-            score: 2,
-            earnd: '300',
-            // date: 'March 04, 2022',
-            },
-            {
-            score: 3,
-            earnd: '300',
-            // date: 'March 04, 2022',
-            },
-        ]}
-        headers={[
-           {
-            cellProps: {
-                style: function noRefCheck(){}
-            },
-            isFilterable: false,
-            isSortable: true,
-            prop: 'score',
-            title: 'ID'
-            },
-            {
-            isFilterable: true,
-            isSortable: true,
-            prop: 'earnd',
-            title: 'Earnd'
-            },
-            // {
-            // isFilterable: false,
-            // isSortable: true,
-            // prop: 'date',
-            // title: 'Last Update'
-            // },
-        ]}
+       body={data}
+       headers={headerData}
         paginationOptionsProps={{
             initialState: {
             options: [
