@@ -117,7 +117,7 @@ const CountryTable = () => {
     .then((res) => res.json())
     .then((data) => setData(data));
   setData(bodyData);
-})
+},[])
 
 
 

@@ -117,7 +117,7 @@ const DataTable = () => {
       .then((res) => res.json())
       .then((data) => setData(data));
     setData(bodyData);
-  })
+  },[])
 
   return (
     <>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState,useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
   DatatableWrapper,
@@ -12,85 +12,87 @@ import {
 import { Col, Row, Table } from 'react-bootstrap';
 
 const AgentDueTable = () => {
+
+  const [data,setData] =useState([]);
+
+  const bodyData =[
+    {
+      score: 1,
+      nambuer: '01745698745',
+      date: 'March 04, 2022',
+      location: 'Dhaka',
+      },
+      {
+      score: 2,
+      nambuer: '01745698745',
+      date: 'March 08, 2022',
+      location: 'Dhaka',
+      },
+      {
+      score: 3,
+      nambuer: '01745698745',
+      date: 'February 18, 2022',
+      location: 'Dhaka',
+      },
+      {
+      score: 4,
+      nambuer: '01745698745',
+      date: 'February 15, 2022',
+      location: 'Dhaka',
+      },
+      {
+      score: 5,
+      nambuer: '01745698745',
+      date: 'February 26, 2022',
+      location: 'Dhaka',
+      },
+      {
+      score: 6,
+      nambuer: '01745698745',
+      date: 'February 09, 2022',
+      location: 'Dhaka',
+      },
+  ]
+  const headerData=[
+    {
+      cellProps: {
+          style: function noRefCheck(){}
+      },
+      isFilterable: false,
+      isSortable: true,
+      prop: 'score',
+      title: 'ID'
+      },
+      {
+      isFilterable: true,
+      isSortable: true,
+      prop: 'nambuer',
+      title: 'Nambuer'
+      },
+      {
+      isFilterable: false,
+      isSortable: true,
+      prop: 'date',
+      title: 'Last Update'
+      },
+      {
+      isFilterable: true,
+      isSortable: false,
+      prop: 'location',
+      title: 'Location'
+      },
+  ]
+  useEffect(() => {
+    fetch("url")
+      .then((res) => res.json())
+      .then((data) => setData(data));
+    setData(bodyData);
+  })
   return (
     <>
       <DatatableWrapper
-        body={[
-            
-            {
-            score: 1,
-            nambuer: '01745698745',
-            date: 'March 04, 2022',
-            location: 'Dhaka',
-            },
-            {
-            score: 2,
-            nambuer: '01745698745',
-            date: 'March 08, 2022',
-            location: 'Dhaka',
-            },
-            {
-            score: 3,
-            nambuer: '01745698745',
-            date: 'February 18, 2022',
-            location: 'Dhaka',
-            },
-            {
-            score: 4,
-            nambuer: '01745698745',
-            date: 'February 15, 2022',
-            location: 'Dhaka',
-            },
-            {
-            score: 5,
-            nambuer: '01745698745',
-            date: 'February 26, 2022',
-            location: 'Dhaka',
-            },
-            {
-            score: 6,
-            nambuer: '01745698745',
-            date: 'February 09, 2022',
-            location: 'Dhaka',
-            },
-      
-          
-        ]}
-        headers={[
-           {
-            cellProps: {
-                style: function noRefCheck(){}
-            },
-            isFilterable: false,
-            isSortable: true,
-            prop: 'score',
-            title: 'ID'
-            },
-            {
-            isFilterable: true,
-            isSortable: true,
-            prop: 'nambuer',
-            title: 'Nambuer'
-            },
-            {
-            isFilterable: false,
-            isSortable: true,
-            prop: 'date',
-            title: 'Last Update'
-            },
-            {
-            isFilterable: true,
-            isSortable: false,
-            prop: 'location',
-            title: 'Location'
-            },
-          //  }
-          //   isFilterable: true,
-          //   isSortable: true ,
-          //   prop: 'check',
-          //   title: 'Check'
-          //   },
-        ]}
+       bodyData={data}
+       headers={headerData}
         paginationOptionsProps={{
             initialState: {
             options: [

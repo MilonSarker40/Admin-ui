@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react';
+import React,{useState,useEffect} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
   DatatableWrapper,
@@ -116,7 +116,7 @@ const SimulatorTable = () => {
         .then((res) => res.json())
         .then((data) => setData(data));
       setData(bodyData);
-    })
+    },[])
   return (
     <>
       <DatatableWrapper
