@@ -45,34 +45,34 @@ const LoginFrom = () => {
 
     return (
         <section className='login-form-sec-wrp'>
-          <Container>
-            <Row>
-                <Col lg='12'>
-                  <div className='login-form'>
-                  <Form action='' onSubmit={submitForm}>
-                      <Row className="mb-3">
-                        <Form.Group as={Col} controlId="formNumber">
-                            <Form.Label>Number</Form.Label>
-                            <Form.Control type="text" id='formNumber' ref={phoneNumber}  value={number} onChange={(e) => setNumber(e.target.value)} placeholder="Enter Number"/>
-                        </Form.Group> 
-                        </Row>
-                        <Row className="mb-3">
-                            <Form.Group as={Col} controlId="formPassword">
-                                <Form.Label>Password</Form.Label>
-                                <Form.Control type="password" id='formPassword' ref={userPassword} value={password} onChange={(e)=>setPassword(e.target.value)} placeholder="Enter Password" />
-                            </Form.Group>
-                        </Row>
-                        <div className='contact-submit'>
-                            <Button gap={3} onClick={handleClick} variant="primary" type="submit">
-                                Submit
-                            </Button>
-                        </div>
-                        </Form>
+             <div className='login-form-rgt'>
+               <div className='login-form'>
+                 <div className='login-form-dsc'>
+                    <h2>Login Account User</h2>
+                    <p>simply dummy text of the printing and  typesetting <br></br> industry</p>
+                 </div>
+                <Form action='' onSubmit={submitForm}>
+                    <Row className="mb-3">
+                    <Form.Group as={Col} controlId="formNumber">
+                        <Form.Label>Number</Form.Label>
+                        <Form.Control type="text" id='formNumber' ref={phoneNumber}  value={number} onChange={(e) => setNumber(e.target.value)} placeholder="Enter Number"/>
+                    </Form.Group> 
+                    </Row>
+                    <Row className="mb-3">
+                        <Form.Group as={Col} controlId="formPassword">
+                            <Form.Label>Password</Form.Label>
+                            <Form.Control type="password" id='formPassword' ref={userPassword} value={password} onChange={(e)=>setPassword(e.target.value)} placeholder="Enter Password" />
+                        </Form.Group>
+                    </Row>
+                    <div className='contact-submit'>
+                        <Button gap={3} onClick={handleClick} variant="primary" type="submit">
+                            Submit
+                        </Button>
                     </div>
-                </Col>
-            </Row>
-          </Container>
-      </section>
+                    </Form>
+                </div>
+             </div>
+        </section>
     )
 }
 

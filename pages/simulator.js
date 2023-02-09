@@ -14,7 +14,7 @@ const simulator = () => {
             <Sidebar />
          </div>
          <div className='main_content-rgt'>
-            <BreadCrumb title='Mobile Network' subtitle='Mobile Network' />
+            <BreadCrumb title='Simulator' subtitle='Simulator' />
             <div className='tabsWarp'>
              <Tabs defaultActiveKey="List" id="uncontrolled-tab-example" className="mb-3">
                     <Tab eventKey="List" title="List">
