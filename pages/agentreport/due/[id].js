@@ -1,9 +1,9 @@
 import React from 'react';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
-import Sidebar from '../../comopnents/Sidebar/Sidebar';
-import BreadCrumb from '../../comopnents/BreadCrumb/BreadCrumb';
-import DueTableId from '../../comopnents/due/DueTableId';
+import Sidebar from '../../../comopnents/Sidebar/Sidebar';
+import BreadCrumb from '../../../comopnents/BreadCrumb/BreadCrumb';
+import DueTableId from '../../../comopnents/due/DueTableId';
 
 const RechargeReport = () => {
   return (
