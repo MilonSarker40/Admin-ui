@@ -57,6 +57,7 @@ const Sidebar = () => {
               <Dropdown.Item href="/agent-recharge">Agent Recharge</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
+          <Link href="/settlement" active><i class="ri-file-text-line"></i>Settlement</Link>
           <Link href="/agent-report" active><i class="ri-file-text-line"></i>Agent Report</Link>
           <Link href="/indexapi" active><i class="ri-file-text-line"></i>Api Index</Link>
           <Link href="/simulator" active><i class="ri-pages-fill"></i>Simulator</Link>

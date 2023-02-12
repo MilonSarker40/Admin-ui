@@ -6,95 +6,93 @@ import Row from 'react-bootstrap/Row';
 
 const ServiceForm = () => {
 
-    const [serviceName, setServiceName] = useState('');
-    const [mobileNetwork, SetMobileNetwork] = useState('');
-    const [opt, setOpt] = useState([]);
+  const [service, setService] = useState("");
+  const [mno, setMno] = useState(0);
+  const [opt, setOpt] = useState([]);
 
-    const optd=[
-      {
-        id:1,
-        name:'GP'
-      },
-      {
-        id:2,
-        name:'Banglanik'
-      },
-      {
-        id:3,
-        name:'Teletalk'
-      },
-      {
-        id:4,
-        name:'Airtel'
-      }
-    ]
+  // Call api for the country list
+  const optd = [
+      {'id': 1, 'mno': "GP"},
+      {'id': 2, 'mno': "BL"},
+      {'id': 3, 'mno': "Airtel"}
+  ] 
 
-    useEffect(()=>{
-      setOpt(optd);
-    },[])
+  useEffect(() => {
+      fetch('http://localhost:3000/network/list')
+          .then((res) => res.json())
+          .then((data) => {
+              console.log(data.message);
+              setOpt(data.message);
+          })
+      // setOpt(optd);
+  }, [])
 
-    const options =opt.map((value)=><option value={value.id}>{value.name}</option>)
+  const options = opt.map((value) => <option value={value.id}>{ value.name }</option>)
 
-    const [allValue, setAllValue] = useState([]);
+  const serviceVal = (event) => {
+      setService(event.target.value);
+  }
 
-    const formSubmit=(e)=>{
-        e.preventDefault()
+  const mnoVal = (event) => {
+      setMno(event.target.value);
+  }
 
-        const newValue ={serviceName:serviceName, mobileNetwork:mobileNetwork}
+  let data = {
+      'service': service,
+      'mno': mno
+  }
 
-        setAllValue([...allValue, newValue])
-        console.log(newValue)
+  const clearData = () => {
+      document.getElementById("name").value = "";
+  }
 
-        setServiceName('') 
-        SetMobileNetwork('') 
-    }
+  const saveData = () => {
+      console.log(data);
+      fetch('http://localhost:3000/service', {
+          method: 'POST', // or 'PUT'
+          headers: {
+              'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data),
+      })
+      .then((response) => response.json())
+      .then((data) => {
+          console.log('Success:', data);
+      })
+      .catch((error) => {
+          console.error('Error:', error);
+      });
+      clearData();
+  }
 
 
   return (
     <>
     <div className='contact-form-wrp'>
-         <Form action='' onSubmit={formSubmit}>
+         <Form action=''>
            <Row className="mb-3">
                <Form.Group as={Col} controlId="formGridEmail">
                     <Form.Label>Service Name</Form.Label>
-                    <Form.Control type="text" placeholder="Enter Your Service Name" value={serviceName} onChange={(e)=>setServiceName(e.target.value)} />
+                    <Form.Control type="text" placeholder="Enter Your Service Name" onChange={serviceVal} />
                 </Form.Group>
                 <Form.Group as={Col} controlId="formCountry">
                     <Form.Label>Select Mobile Network</Form.Label>
-                    <Form.Select aria-label="Default select example" value={mobileNetwork} onChange={(e)=>SetMobileNetwork(e.target.value)}>
+                    <Form.Select aria-label="Default select example" onChange={mnoVal}>
                         <option>Select Network</option>
                         {options}
                     </Form.Select>
                  </Form.Group> 
             </Row>
             <div className='contact-submit'>
-                <Button gap={3} variant="primary" type="submit">
+                <Button gap={3} variant="primary" type="submit" onClick={saveData}>
                     Save
                 </Button>
-                <Button variant="primary" type="submit">
+                <Button variant="primary" type="submit" onClick={clearData}>
                     Clear
                 </Button>
             </div>
             </Form>
        </div>
-       <section className='show-data'>
-        {allValue.map((currentValue) => {
-          const { serviceName, mobileNetwork} = currentValue
-          return (
-            <>
-              <div className='sign-box'>
-                <h1>Send Successfully</h1>
-                <h3>
-                  Full Name : <span>{serviceName}</span>
-                </h3>
-                <h3>
-                  Country : <span>{mobileNetwork}</span>
-                </h3>
-              </div>
-            </>
-          )
-        })}
-      </section>
     </>
   )
 }

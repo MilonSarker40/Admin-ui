@@ -6,90 +6,109 @@ import Row from 'react-bootstrap/Row';
 
 const CountryForm = () => {
    
-    const [countryName, setCountryName] = useState('');
-    const [countryShortCode, setCountryShortCode] = useState('');
-    const [countryCode, setCountryCode] = useState('');
-    const [opt, setOpt] =useState([]);
+  const [name, setName] = useState("");
+  const [short, setShort] = useState("");
+  const [code, setCode] = useState("");
+  const [opt, setOpt] = useState([]);
 
-    const optd=[
-      {'id':1, 'name':'Bangladesh'},
-      {'id':2, 'name':'India'},
-      {'id':3, 'name':'Pak'}
-    ]
 
-    useEffect (()=>{
-      setOpt(optd)
-    },[])
-
-    const options = opt.map((value)=><option value={value.id}>{value.name}</option>)
-
-    const [allValue, setAllValue] = useState([]);
-
-    const formSubmit=(e)=>{
-        e.preventDefault()
-        const newValue ={countryName:countryName, countryShortCode:countryShortCode, countryCode:countryCode}
-        setAllValue([...allValue, newValue])
-        console.log(newValue)
-
-        setCountryName('')
-        setCountryShortCode('') 
-        setCountryCode('')
+  const optd =[
+    {
+      id:1,
+      name:'select1',
+    },
+    {
+      id:2,
+      name:'select2',
+    },
+    {
+      id:3,
+      name:'select3',
     }
+  ]
+
+  useEffect(()=>{
+    setOpt(optd)
+  },[])
+
+  const options =opt.map((value)=><option value={value.id}>{value.name}</option>)
+
+  const nameVal = (event) => {
+      setName(event.target.value);
+  }
+
+  const shortVal = (event) => {
+      setShort(event.target.value);
+  }
+
+  const codeVal = (event) => {
+      setCode(event.target.value);
+  }
+
+  let data = {
+      'name' : name,
+      'short': short,
+      'code': code
+  }
+
+  const clearData = () => {
+      document.getElementById("name").value = "";
+      document.getElementById("short").value = "";
+      document.getElementById("code").value = "";
+  }
+
+  const saveData = () => {
+      console.log("data Saving : ", data);
+      fetch('http://localhost:3000/country', {
+          method: 'POST', // or 'PUT'
+          headers: {
+              'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data),
+      })
+      .then((response) => response.json())
+      .then((data) => {
+          console.log('Success:', data);
+      })
+      .catch((error) => {
+          console.error('Error:', error);
+      });
+      clearData();
+  }
 
   return (
     <>
      <div className='contact-form-wrp'>
-         <Form action='' onSubmit={formSubmit}>
+         <Form action=''>
            <Row className="mb-3">
               <Form.Group as={Col} controlId="formCountry">
                     <Form.Label>Country Name</Form.Label>
-                    <Form.Select aria-label="Default select example" value={countryName} onChange={(e)=>setCountryName(e.target.value)}>
+                    <Form.Select aria-label="Default select example" onChange={nameVal}>
                         <option>Country Name</option>
                         {options}
                     </Form.Select>
                 </Form.Group> 
                 <Form.Group as={Col} controlId="formGridEmail">
                     <Form.Label>Country Short Code</Form.Label>
-                    <Form.Control type="text" placeholder="Country Short Code" value={countryShortCode} onChange={(e)=>setCountryShortCode(e.target.value)} />
+                    <Form.Control type="text" placeholder="Country Short Code" onChange={shortVal} />
                 </Form.Group>
             </Row>
             <Row className="mb-3">
                 <Form.Group as={Col} controlId="formGridEmail">
                     <Form.Label>Country Code</Form.Label>
-                    <Form.Control type="text" placeholder="Enter Country Code" value={countryCode} onChange={(e)=>setCountryCode(e.target.value)} />
+                    <Form.Control type="text" placeholder="Enter Country Code" onChange={codeVal} />
                 </Form.Group>
             </Row>
             <div className='contact-submit'>
-                <Button gap={3} variant="primary" type="submit">
+                <Button gap={3} variant="primary" type="submit" onClick={saveData}>
                     Save
                 </Button>
-                <Button variant="primary" type="submit">
+                <Button variant="primary" type="submit" onClick={clearData}>
                     Clear
                 </Button>
             </div>
             </Form>
       </div>
-      <section className='show-data'>
-        {allValue.map((currentValue) => {
-          const { countryName, countryShortCode, countryCode } = currentValue
-          return (
-            <>
-              <div className='sign-box'>
-                <h1>Send Successfully</h1>
-                <h3>
-                  Country Name : <span>{countryName}</span>
-                </h3>
-                <h3>
-                 Country ShortCode : <span>{countryShortCode}</span>
-                </h3>
-                <h3>
-                 Country Code : <span>{countryCode}</span>
-                </h3>
-              </div>
-            </>
-          )
-        })}
-      </section>
     </>
   )
 }

@@ -9,94 +9,91 @@ import Row from 'react-bootstrap/Row';
 const MobileNetworkFrom = () => {
 
 
-  const [mobileService, setMobileService] =useState('');
-  const [mobileServiceNet, SetMobileServiceNet] =useState('');
-  const [opt, setOpt] =useState([]);
+  const [mno, setMno] = useState("");
+  const [country, setCountry] = useState(0);
+  const [opt, setOpt] = useState([]);
 
-  const optd=[
-    {
-      id:1,
-      name:'GP'
-    },
-    {
-      id:2,
-      name:'Banglanik'
-    },
-    {
-      id:3,
-      name:'Teletalk'
-    },
-    {
-      id:4,
-      name:'Airtel'
-    }
-  ]
+  // Call api for the country list
+  const optd = [
+      {'id': 1, 'name': "BD"},
+      {'id': 2, 'name': "IND"}
+  ] 
 
-  useEffect(()=>{
-    setOpt(optd);
-  },[])
+  useEffect(() => {
+      fetch('http://localhost:3000/country/list')
+          .then((res) => res.json())
+          .then((data) => {
+              console.log(data.message);
+              setOpt(data.message);
+          })
+      // setOpt(optd);
+  }, [])
 
-  const options =opt.map((value)=><option value={value.id}>{value.name}</option>)
+  const options = opt.map((value) => <option value={value.id}>{ value.name }</option>)
 
-  const [allValue, setAllValue] = useState([]);
+  const mnoVal = (event) => {
+      setMno(event.target.value);
+  }
 
-  const formSubmit=(e)=>{
-      e.preventDefault()
+  const countryVal = (event) => {
+      setCountry(event.target.value);
+  }
 
-      const newValue ={mobileService:mobileService, mobileServiceNet:mobileServiceNet}
+  let data = {
+      'mno': mno,
+      'country': country
+  }
 
-      setAllValue([...allValue, newValue])
-      console.log(newValue)
+  const clearData = () => {
+      document.getElementById("mno").value = "";
+  }
 
-      setMobileService('') 
-      SetMobileServiceNet('') 
+  const saveData = () => {
+      console.log(data);
+      fetch('http://localhost:3000/network', {
+          method: 'POST', // or 'PUT'
+          headers: {
+              'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data),
+      })
+      .then((response) => response.json())
+      .then((data) => {
+          console.log('Success:', data);
+      })
+      .catch((error) => {
+          console.error('Error:', error);
+      });
+      clearData();
   }
 
   return (
     <>
       <div className='contact-form-wrp'>
-         <Form action='' onSubmit={formSubmit}>
+         <Form action=''>
            <Row className="mb-3">
                <Form.Group as={Col} controlId="formGridEmail">
                     <Form.Label>Service Name</Form.Label>
-                    <Form.Control type="text" placeholder="Enter Your Service Name" value={mobileService} onChange={(e)=>setMobileService(e.target.value)} />
+                    <Form.Control type="text" placeholder="Enter Your Service Name" onChange={mnoVal} />
                 </Form.Group>
                 <Form.Group as={Col} controlId="formCountry">
                     <Form.Label>Select Mobile Network</Form.Label>
-                    <Form.Select aria-label="Default select example" value={mobileServiceNet} onChange={(e)=>SetMobileServiceNet(e.target.value)}>
+                    <Form.Select aria-label="Default select example" onChange={countryVal}>
                         <option>Select Network</option>
                         {options}
                     </Form.Select>
                  </Form.Group> 
             </Row>
             <div className='contact-submit'>
-                <Button gap={3} variant="primary" type="submit">
+                <Button gap={3} variant="primary" type="submit" onClick={saveData}>
                     Save
                 </Button>
-                <Button variant="primary" type="submit">
+                <Button variant="primary" type="submit" onClick={clearData}>
                     Clear
                 </Button>
             </div>
             </Form>
        </div>
-       <section className='show-data'>
-        {allValue.map((currentValue) => {
-          const { mobileService, mobileServiceNet} = currentValue
-          return (
-            <>
-              <div className='sign-box'>
-                <h1>Send Successfully</h1>
-                <h3>
-                  Full Name : <span>{mobileService}</span>
-                </h3>
-                <h3>
-                  Country : <span>{mobileServiceNet}</span>
-                </h3>
-              </div>
-            </>
-          )
-        })}
-      </section>
     </>
   )
 }
