@@ -5,6 +5,8 @@ import Sidebar from '../../comopnents/Sidebar/Sidebar';
 import BreadCrumb from '../../comopnents/BreadCrumb/BreadCrumb';
 import TransferForm from '../../comopnents/Transfer/TransferForm';
 import WithdrawForm from '../../comopnents/Withdraw/WithdrawForm';
+import ProfitForm from '../../comopnents/Profit/ProfitForm';
+import InformationForm from '../../comopnents/Information/InformationForm';
 
 
 
@@ -24,6 +26,12 @@ const country = () => {
                     </Tab>
                     <Tab eventKey="Withdraw" title="Withdraw">
                        <WithdrawForm />
+                    </Tab>
+                    <Tab eventKey="Profit" title="Profit">
+                       <ProfitForm />
+                    </Tab>
+                    <Tab eventKey="Information" title="Information">
+                       <InformationForm />
                     </Tab>
               </Tabs>
            </div>
