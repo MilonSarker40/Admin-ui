@@ -9,29 +9,11 @@ const CountryForm = () => {
   const [name, setName] = useState("");
   const [short, setShort] = useState("");
   const [code, setCode] = useState("");
-  const [opt, setOpt] = useState([]);
 
 
-  const optd =[
-    {
-      id:1,
-      name:'select1',
-    },
-    {
-      id:2,
-      name:'select2',
-    },
-    {
-      id:3,
-      name:'select3',
-    }
-  ]
 
-  useEffect(()=>{
-    setOpt(optd)
-  },[])
 
-  const options =opt.map((value)=><option value={value.id}>{value.name}</option>)
+
 
   const nameVal = (event) => {
       setName(event.target.value);
@@ -81,22 +63,19 @@ const CountryForm = () => {
      <div className='contact-form-wrp'>
          <Form action=''>
            <Row className="mb-3">
-              <Form.Group as={Col} controlId="formCountry">
+                <Form.Group as={Col} controlId="formGridEmail">
                     <Form.Label>Country Name</Form.Label>
-                    <Form.Select aria-label="Default select example" onChange={nameVal}>
-                        <option>Country Name</option>
-                        {options}
-                    </Form.Select>
-                </Form.Group> 
+                    <Form.Control type="text" id='name' placeholder="Country Name.." onChange={nameVal} />
+                </Form.Group>
                 <Form.Group as={Col} controlId="formGridEmail">
                     <Form.Label>Country Short Code</Form.Label>
-                    <Form.Control type="text" placeholder="Country Short Code" onChange={shortVal} />
+                    <Form.Control type="text" id='short' placeholder="Country Short Code" onChange={shortVal} />
                 </Form.Group>
             </Row>
             <Row className="mb-3">
                 <Form.Group as={Col} controlId="formGridEmail">
                     <Form.Label>Country Code</Form.Label>
-                    <Form.Control type="text" placeholder="Enter Country Code" onChange={codeVal} />
+                    <Form.Control type="text" id='code' placeholder="Enter Country Code" onChange={codeVal} />
                 </Form.Group>
             </Row>
             <div className='contact-submit'>

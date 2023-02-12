@@ -77,9 +77,9 @@ const MobileNetworkFrom = () => {
                     <Form.Control type="text" placeholder="Enter Your Service Name" onChange={mnoVal} />
                 </Form.Group>
                 <Form.Group as={Col} controlId="formCountry">
-                    <Form.Label>Select Mobile Network</Form.Label>
+                    <Form.Label>Select Country</Form.Label>
                     <Form.Select aria-label="Default select example" onChange={countryVal}>
-                        <option>Select Network</option>
+                        <option>Select Country</option>
                         {options}
                     </Form.Select>
                  </Form.Group> 
