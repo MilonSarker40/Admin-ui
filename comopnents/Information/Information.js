@@ -46,11 +46,12 @@ const TransferForm = () => {
      <div className='contact-form-wrp'>
          <Form action=''>
            <Row className="mb-3"> 
-                <Form.Group as={Col} controlId="formGridEmail">
-                    <Form.Label>Information</Form.Label>
-                    <Form.Control type="number" step="2" id="information" placeholder="Information" onChange={informationVal} />
+                <Form.Group as={Col} controlId="exampleForm.ControlTextarea1">
+                  <Form.Label>Information</Form.Label>
+                  <Form.Control as="textarea" type="text" step="2" id="information" placeholder="Information" onChange={informationVal} />
                 </Form.Group>
             </Row>
+
             <div className='contact-submit'>
                 <Button gap={3} variant="primary" type="submit" onChange={saveData}>
                     Save
