@@ -436,7 +436,7 @@ element.style {
 }
 
 .navbarMen::-webkit-scrollbar{
-  display: none;
+  /* display: none; */
   width: 0 !important;
 }
 
@@ -556,6 +556,13 @@ show-data
 }
 .logo button{
   display: none;
+}
+.contact-form-wrp textarea{
+  height: 150px;
+}
+.contact-form-wrp textarea,
+.contact-form-wrp input{
+  border-radius: 0;
 }
  /*
  ----------------
