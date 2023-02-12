@@ -7,7 +7,8 @@ const MainApp = ({Component, pageProps}) => {
     const [isLoggedIn, setIsloggedIn] = useState(false);
 
     useEffect(() => {
-        const logState = localStorage.getItem("isLoggedIn")
+        const logState = localStorage.getItem("loginData")
+        console.log(logState);
         setIsloggedIn(logState);
         console.log(isLoggedIn);
     }, [])
@@ -15,7 +16,7 @@ const MainApp = ({Component, pageProps}) => {
     const renderApp = isLoggedIn ? <TempApp Component={Component} pageProps={pageProps} /> : <LoginFrom />
 
     return (
-        renderApp
+        renderApp 
     )
 }
 

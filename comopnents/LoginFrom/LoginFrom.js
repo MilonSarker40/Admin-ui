@@ -7,8 +7,6 @@ import Form from 'react-bootstrap/Form';
 
 
 const LoginFrom = () => {
-
-
     const [number, setNumber]= useState('');
     const [password, setPassword]= useState('');
     const [isloggedIn, setIsloggedIn] = useState(false)
@@ -31,16 +29,43 @@ const LoginFrom = () => {
       const userPassword=useRef();
   
       const handleClick=()=>{
-         console.log(phoneNumber.current.value,"initial Number value")
+         console.log(phoneNumber.current.value,"user");
          localStorage.setItem("phone_number",phoneNumber.current.value)
   
-          console.log(userPassword.current.value,"initial Password value")
-          localStorage.setItem("password",userPassword.current.value)
+
+          let info = {
+            phone: phoneNumber.current.value,
+            password: userPassword.current.value
+          }
+
+          fetch('http://localhost:3000/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(info),
+            })
+            .then((response) => response.json())
+            .then((data) => {
+                console.log('Success:', data);
+                console.log(data.uid);
+                setIsloggedIn(true);
+                localStorage.setItem("loginData", data);
+                localStorage.setItem("uid", data.uid),
+                localStorage.setItem("accessToken", data.accessToken),
+                localStorage.setItem("refreshToken", data.refreshToken),
+
+                window.location.reload();
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                alert(error.message.msg);
+            });
   
-          setIsloggedIn(true);
-          localStorage.setItem("isLoggedIn", true);
-          setIsloggedIn(true);
-          window.location.reload();
+        //   setIsloggedIn(true);
+        //   localStorage.setItem("isLoggedIn", true);
+        //   setIsloggedIn(true);
+        //   window.location.reload();
      }
 
     return (

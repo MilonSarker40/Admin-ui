@@ -15,7 +15,7 @@ const country = () => {
             <Sidebar />
          </div>
          <div className='main_content-rgt'>
-            <BreadCrumb title='Agent' subtitle='Agent' />
+            <BreadCrumb title='Country' subtitle='Country Index' />
             <div className='tabsWarp'>
              <Tabs defaultActiveKey="List" id="uncontrolled-tab-example" className="mb-3">
                     <Tab eventKey="List" title="List">

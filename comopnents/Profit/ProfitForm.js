@@ -4,13 +4,18 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 
-const TransferForm = () => {
+const ProfitForm = ({uid}) => {
 
-  const [Profit, setProfit] = useState("");
+  const [profit, setProfit] = useState("");
 
 
   const ProfitVal = (event) => {
-    setProfit(event.target.value);
+    setProfit(parseFloat(event.target.value));
+  }
+
+  let data = {
+    percent: profit,
+    uid: uid
   }
 
   const clearData = () => {
@@ -18,25 +23,25 @@ const TransferForm = () => {
   }
 
   const saveData = () => {
-      // fetch('http://localhost:3000/network', {
-      //     method: 'POST', // or 'PUT'
-      //     headers: {
-      //         'Content-Type': 'application/json',
-      //     },
-      //     body: JSON.stringify(data),
-      // })
-      // .then((response) => response.json())
-      // .then((data) => {
-      //     console.log('Success:', data);
-      // })
-      // .catch((error) => {
-      //     console.error('Error:', error);
-      // });
-      console.log(Profit);
-      
-      clearData();
-
-  }
+    event.preventDefault();
+    fetch(`http://localhost:3000/assignpercent/${uid}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+    })
+    .then((response) => response.json())
+    .then((data) => {
+        alert(data);
+        console.log('Success:', data);
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
+    
+    clearData();
+}
 
    
 
@@ -52,10 +57,10 @@ const TransferForm = () => {
                 </Form.Group>
             </Row>
             <div className='contact-submit'>
-                <Button gap={3} variant="primary" type="submit" onChange={saveData}>
+                <Button gap={3} variant="primary" type="submit" onClick={saveData}>
                     Save
                 </Button>
-                <Button variant="primary" type="submit" onChange={clearData}>
+                <Button variant="primary" type="submit" onClick={clearData}>
                     Clear
                 </Button>
             </div>
@@ -65,4 +70,4 @@ const TransferForm = () => {
   )
 }
 
-export default TransferForm
+export default ProfitForm

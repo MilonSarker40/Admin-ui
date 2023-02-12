@@ -62,7 +62,9 @@ const IndexApiForm = () => {
     const options =opt.map((value)=><option value={value.name}>{value.name}</option>)
 
     const handleSaveData = () => {
-      localStorage.setItem('apiData',JSON.stringify( {cities: selected, api: inputApi}))
+      let data = {cities: selected, api: inputApi}
+      console.log(JSON.stringify(data));
+      localStorage.setItem('apiData',JSON.stringify( {cities: selected, api: inputApi}));
     }
 
   return (

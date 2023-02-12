@@ -10,13 +10,6 @@ const ServiceForm = () => {
   const [mno, setMno] = useState(0);
   const [opt, setOpt] = useState([]);
 
-  // Call api for the country list
-  const optd = [
-      {'id': 1, 'mno': "GP"},
-      {'id': 2, 'mno': "BL"},
-      {'id': 3, 'mno': "Airtel"}
-  ] 
-
   useEffect(() => {
       fetch('http://localhost:3000/network/list')
           .then((res) => res.json())
@@ -49,7 +42,7 @@ const ServiceForm = () => {
   const saveData = () => {
       console.log(data);
       fetch('http://localhost:3000/service', {
-          method: 'POST', // or 'PUT'
+          method: 'POST',
           headers: {
               'Content-Type': 'application/json',
           },

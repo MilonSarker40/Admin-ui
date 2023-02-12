@@ -5,9 +5,10 @@ import Link from 'next/link';
 
 function AgReportTable() {
 
+  const uid = localStorage.getItem("uid")
   const [table, setTable] =useState([
     {
-      id: '1',
+      id: uid,
       agent: 'Agent1',
     },
     {

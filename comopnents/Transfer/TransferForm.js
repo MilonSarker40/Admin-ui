@@ -4,42 +4,47 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 
-const TransferForm = () => {
+const TransferForm = ({uid}) => {
 
-  const [transfer, setTransfer] = useState("");
+  const [transfer, setTransfer] = useState(0.00);
 
 
   const transferVal = (event) => {
-    setTransfer(event.target.value);
+    setTransfer(parseFloat(event.target.value));
   }
 
   const clearData = () => {
       document.getElementById("transf").value = 0.00;
   }
 
+  console.log(uid);
+
+  let data = {
+    amount: transfer,
+    uid: uid
+  }
+
   const saveData = () => {
-      // fetch('http://localhost:3000/network', {
-      //     method: 'POST', // or 'PUT'
-      //     headers: {
-      //         'Content-Type': 'application/json',
-      //     },
-      //     body: JSON.stringify(data),
-      // })
-      // .then((response) => response.json())
-      // .then((data) => {
-      //     console.log('Success:', data);
-      // })
-      // .catch((error) => {
-      //     console.error('Error:', error);
-      // });
+      event.preventDefault();
+      fetch(`http://localhost:3000/balancetransfer/${uid}`, {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data),
+      })
+      .then((response) => response.json())
+      .then((data) => {
+          alert(data);
+          console.log('Success:', data);
+      })
+      .catch((error) => {
+          console.error('Error:', error);
+      });
       console.log(transfer);
       
       clearData();
-
   }
-
-   
-
 
   return (
     <>
@@ -52,10 +57,10 @@ const TransferForm = () => {
                 </Form.Group>
             </Row>
             <div className='contact-submit'>
-                <Button gap={3} variant="primary" type="submit" onChange={saveData}>
+                <Button gap={3} variant="primary" type='submit' onClick={saveData}>
                     Save
                 </Button>
-                <Button variant="primary" type="submit" onChange={clearData}>
+                <Button variant="primary" onClick={clearData}>
                     Clear
                 </Button>
             </div>
