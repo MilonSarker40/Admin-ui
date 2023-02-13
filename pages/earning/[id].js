@@ -1,4 +1,5 @@
 import React from 'react';
+import { useRouter } from 'next/router';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 import Sidebar from '../../comopnents/Sidebar/Sidebar';
@@ -6,6 +7,8 @@ import BreadCrumb from '../../comopnents/BreadCrumb/BreadCrumb';
 import EarningTableId from '../../comopnents/AgentReport/EarningTableId';
 
 const RechargeReport = () => {
+  const router = useRouter()
+  const id = router.query
   return (
     <>
       <section className='main_content clearfix'>
@@ -17,7 +20,7 @@ const RechargeReport = () => {
             <div className='tabsWarp'>
              <Tabs defaultActiveKey="List" id="uncontrolled-tab-example" className="mb-3">
                     <Tab eventKey="List" title="List">
-                      <EarningTableId />
+                      <EarningTableId uid={id}/>
                     </Tab>
                 </Tabs>
            </div>

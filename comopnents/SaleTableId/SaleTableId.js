@@ -12,7 +12,7 @@ import {
 import { Col, Row, Table } from 'react-bootstrap';
 import { useState } from 'react';
 
-const SaleTableId = () => {
+const SaleTableId = ({uid}) => {
 
   const [data,setData] =useState([]);
 
@@ -97,9 +97,9 @@ const SaleTableId = () => {
   ]
 
   useEffect(() => {
-    fetch("url")
+    fetch(`http://localhost:3000/agentrecharge/${uid}`)
       .then((res) => res.json())
-      .then((data) => setData(data));
+      .then((data) => console.log(data));
     setData(bodyData);
   },[])
   return (

@@ -11,7 +11,7 @@ import {
 } from 'react-bs-datatable';
 import { Col, Row, Table } from 'react-bootstrap';
 
-const EarningTableId = () => {
+const EarningTableId = ({uid}) => {
   const [data,setData] =useState([]);
 
   const bodyData=[
@@ -95,9 +95,9 @@ const EarningTableId = () => {
   ]
 
   useEffect(() => {
-    fetch("url")
+    fetch(`http://localhost:3000/agentearning/${uid}`)
       .then((res) => res.json())
-      .then((data) => setData(data));
+      .then((data) => console.log(data));
     setData(bodyData);
   },[])
   return (

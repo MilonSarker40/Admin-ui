@@ -32,7 +32,6 @@ const IndexApiForm = () => {
         {name: "Pak"},
     ]
     useEffect(()=>{
-        // fetch("http://localhost:3000/fruit").then(data=>data.json()).then(val=>setApi(val));
         console.log("inside dynamic");
         setApi(data);
         console.log(data);

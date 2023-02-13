@@ -1,13 +1,15 @@
 import Table from 'react-bootstrap/Table';
 import { useRouter } from 'next/router'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 
 function AgReportTable() {
 
-  const [table, setTable] =useState([
+  const [table, setTable] =useState([]);
+
+  let data = [
     {
-      id: '1',
+      id: '11',
       agent: 'Agent1',
       recharge: '500',
       dues: '200',
@@ -50,7 +52,11 @@ function AgReportTable() {
       balance: '2400',
       sale: '5400'
     }
-  ]);
+  ]
+
+  useEffect(() => {
+    setTable(data);
+  }, [])
 
   return (
     <div className='agent-report-tbl'>

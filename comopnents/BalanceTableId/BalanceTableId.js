@@ -11,7 +11,7 @@ import {
 } from 'react-bs-datatable';
 import { Col, Row, Table } from 'react-bootstrap';
 
-const BalanceTableId = () => {
+const BalanceTableId = ({uid}) => {
   const [data,setData] =useState([]);
 
   const bodyData=[
@@ -54,10 +54,14 @@ const BalanceTableId = () => {
       title: 'Debit'
       },
   ]
+
   useEffect(() => {
-    fetch("url")
+    fetch(`http://localhost:3000/agentbalance/${uid}`)
       .then((res) => res.json())
-      .then((data) => setData(data));
+      .then((data) => 
+        console.log(data)
+        // setData(data.message)
+      );
     setData(bodyData);
   },[])
   return (
