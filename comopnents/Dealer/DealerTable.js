@@ -100,16 +100,6 @@ const DataTable = () => {
       prop: 'score',
       title: 'ID'
       },
-      {
-      alignment: {
-          horizontal: 'center'
-      },
-      checkbox: {
-          className: 'table-checkbox',
-          idProp: 'name'
-      },
-      prop: 'checkbox'
-      }
   ]
 
   useEffect(() => {

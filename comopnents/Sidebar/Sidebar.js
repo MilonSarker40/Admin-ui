@@ -26,7 +26,6 @@ const Sidebar = () => {
               <Dropdown.Item href="/dealer">Dealer</Dropdown.Item>
               <Dropdown.Item href="/subdealer">Sub Dealer</Dropdown.Item>
               <Dropdown.Item href="/agent">Agent</Dropdown.Item>
-              <Dropdown.Item href="/report">Report</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
           <Dropdown>
