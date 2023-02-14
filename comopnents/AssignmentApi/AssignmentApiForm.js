@@ -13,23 +13,6 @@ const IndexApiForm = () => {
     const [apiPriority, setApiPriority] = useState([]);
 
     const [opt, setOpt] = useState([]);
-    const [cities,setCities] = useState([])
-    const [api,setApi] = useState()
-
-    const optd =[
-        {
-            id:1,
-            name:'Bangladesh',
-        },
-        {
-            id:2,
-            name:'India',
-        },
-        {
-            id:3,
-            name:'Pak',
-        }
-    ]
 
 
 
@@ -46,11 +29,6 @@ const IndexApiForm = () => {
                 console.log("apis : ", data.message);
                 setApiList(data.message);
             })
-        
-        setOpt(optd)
-        let apiData = JSON.parse(localStorage.getItem('apiData'))
-        setCities(apiData?.cities)
-        setApi(apiData?.api)
     },[])
 
     const handleSubmit = () => {
@@ -65,13 +43,26 @@ const IndexApiForm = () => {
         }
 
         let data = {
-            ctry: ctry,
+            ctry: parseInt(ctry),
             apiPriority: values
         }
         console.log(data);
-    }
+        fetch('http://localhost:3000/assign/priority',{
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        })
+        .then((response) => response.json())
+        .then((data) => {
+            console.log(data.message);
+        })
 
-    const options =opt.map((value)=><option value={value.name}>{value.name}</option>)
+        .catch((error) => {
+            console.error('Error: ', error)
+        });
+    }
 
     const ctryOptions = ctryList.map((value) => <option value={value.id}>{value.name}</option>)
 

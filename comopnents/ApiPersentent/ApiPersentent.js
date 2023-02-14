@@ -3,36 +3,36 @@ import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
+import PercentInfo from './PercentInfo';
 
 export const ApiPersentent = () => {
 
-    const [persent, setPersent] = useState("");
+    const [apiList, setApiList] = useState([]);
+    const [networkList, setNetworkList] = useState([]);
+
+    const [persent, setPersent] = useState(0.0);
     const [network, setNetwork] = useState(0);
     const [api, setApi] = useState(0);
-    const [opt, setOpt] = useState([]);
-    const [opt1, setOpt1] = useState([]);
-
-    // Call api for the country list
-    const optd = [
-        {'id': 1, 'name': "Api 1"},
-        {'id': 2, 'name': "Api 2"}
-    ]
-    
-    const optd1 = [
-        {'id': 1, 'name': "GP"},
-        {'id': 2, 'name': "BL"}
-    ]
 
     useEffect(() => {
-        setOpt(optd);
+        fetch('http://localhost:3000/network/list')
+            .then((res) => res.json())
+            .then((data) => {
+                console.log("network : ", data.message);
+                setNetworkList(data.message);
+            })
+
+        fetch('http://localhost:3000/apis')
+            .then((res) => res.json())
+            .then((data) => {
+                console.log("apis : ", data.message);
+                setApiList(data.message);
+            })
+
     }, [])
 
-    useEffect(() => {
-        setOpt1(optd1);
-    }, [])
-
-    const options = opt.map((value) => <option value={value.id}>{ value.name }</option>)
-    const options1 = opt1.map((value) => <option value={value.id}>{ value.name }</option>)
+    const apiOpt = apiList.map((value) => <option value={value.id}>{ value.name }</option>)
+    const networkOpt = networkList.map((value) => <option value={value.id}>{ value.name }</option>)
 
     const persentVal = (event) => {
         setPersent(event.target.value);
@@ -47,9 +47,9 @@ export const ApiPersentent = () => {
     }
 
     let data = {
-        'persent': persent,
-        'api': api,
-        'network': network,
+        percentage: parseFloat(persent),
+        api: parseInt(api),
+        network: parseInt(network),
     }
 
     const clearData = () => {
@@ -58,8 +58,8 @@ export const ApiPersentent = () => {
 
     const saveData = () => {
         console.log(data);
-        fetch('http://localhost:3000/', {
-            method: 'POST', // or 'PUT'
+        fetch('http://localhost:3000/assign/percent',{
+            method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
@@ -67,30 +67,24 @@ export const ApiPersentent = () => {
         })
         .then((response) => response.json())
         .then((data) => {
-            console.log('Success:', data);
+            console.log(data.message);
         })
+
         .catch((error) => {
-            console.error('Error:', error);
+            console.error('Error: ', error)
         });
-        clearData();
     }
 
   return (
     <>
      <div className='contact-form-wrp'>
          <Form action=''>
-           <Row className="mb-3">
-               <Form.Group as={Col} controlId="formGridEmail">
-                    <Form.Label>Percentage</Form.Label>
-                    <Form.Control type="text" placeholder="Enter Your Percentage" onChange={persentVal}/> 
-                </Form.Group>
-            </Row>
             <Row className="mb-3">
                <Form.Group as={Col} controlId="formCountry">
                     <Form.Label>Select Api</Form.Label>
                     <Form.Select aria-label="Default select example" onChange={apiVal}>
                         <option>Select Api</option>
-                        {options}
+                        {apiOpt}
                     </Form.Select>
                  </Form.Group> 
             </Row>
@@ -99,12 +93,19 @@ export const ApiPersentent = () => {
                     <Form.Label>Select Network</Form.Label>
                     <Form.Select aria-label="Default select example" onChange={networkVal}>
                         <option>Network</option>
-                        {options1}
+                        {networkOpt}
                     </Form.Select>
                  </Form.Group> 
             </Row>
+            <Row className="mb-3">
+               <Form.Group as={Col} controlId="formGridEmail">
+                    <Form.Label>Percentage</Form.Label>
+                    <Form.Control type="number" step={2} placeholder="Enter Your Percentage" onChange={persentVal}/> 
+                </Form.Group>
+            </Row>
+            
             <div className='contact-submit'>
-                <Button gap={3} variant="primary" type="submit" onClick={saveData}>
+                <Button gap={3} variant="primary" type="button" onClick={saveData}>
                     Save
                 </Button>
                 <Button variant="primary" type="submit" onClick={clearData}>
@@ -113,6 +114,10 @@ export const ApiPersentent = () => {
             </div>
             </Form>
       </div>
+
+      <hr />
+
+      <PercentInfo/>
     </>
   )
 }

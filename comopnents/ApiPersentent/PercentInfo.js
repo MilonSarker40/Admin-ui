@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
-import PriorityData from './PriorityData';
+import PercentData from './PercentData';
 
 
-const ApiInfo = () => {
+const PercentInfo = () => {
     const [apiList, setApiList] = useState([]);
     const [data, setData] = useState([]);
 
@@ -15,18 +15,17 @@ const ApiInfo = () => {
                 console.log("apis : ", data.message);
                 setApiList(data.message);
             })
-        fetch('http://localhost:3000/apipriority')
+        fetch('http://localhost:3000/apipercentage')
             .then((res) => res.json())
             .then((data) => {
                 console.log("Datas : ", data.message);
                 setData(data.message);
             })
-        
     },[])
 
     const apiTab = apiList.map((values) => 
         <Tab eventKey={values.name} title={values.name}>
-            <PriorityData id={values.id} />
+            <PercentData id={values.id} />
         </Tab>
     )
 
@@ -45,4 +44,4 @@ const ApiInfo = () => {
     )
 }
 
-export default ApiInfo;
+export default PercentInfo;
