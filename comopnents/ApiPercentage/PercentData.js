@@ -11,77 +11,71 @@ import {
 } from 'react-bs-datatable';
 import { Col, Row, Table } from 'react-bootstrap';
 
-const PriorityData = ({id}) => {
+const PercentData = ({id}) => {
     const [data, setData] = useState([])
-
     useEffect(() => {
-        // fetch('http://localhost:3000/api/priority')
+        // fetch('http://localhost:3000/api/percentage')
         //     .then((res) => res.json())
         //     .then((data) => {
         //         console.log("priorities : ", data.message);
         //         setData(data.message);
         //     })
-
         setData(bodyData);
-    },[])
+    }, [])
 
     const bodyData=[
         {
-        score: 1,
-        country: 'Bangladesh',
-        priority: '1.2',
-        },
-        {
-        score: 2,
-        country: 'Bangladesh',
-        priority: '1.2',
-        },
-        {
-        score: 3,
-        country: 'Bangladesh',
-        priority: '1.2',
-        },
-        {
-        score:4,
-        country: 'Bangladesh',
-        priority: '1.2',
-        },
-        {
-        score: 5,
-        country: 'Bangladesh',
-        priority: '1.2',
-        },
-        {
-        score: 6,
-        country: 'Bangladesh',
-        priority: '1.2',
-        },
-    ]
+         score: 1,
+         network: 'BL',
+         percentage: '10%',
+         },
+         {
+         score: 2,
+         network: 'BL',
+         percentage: '10%',
+         },
+         {
+         score: 3,
+         network: 'BL',
+         percentage: '10%',
+         },
+         {
+         score: 4,
+         network: 'BL',
+         percentage: '10%',
+         },
+         {
+         score: 5,
+         network: 'BL',
+         percentage: '10%',
+         },
+     ]
     const headerData=[
-        {
-          cellProps: {
-              style: function noRefCheck(){}
-          },
-          isFilterable: false,
-          isSortable: true,
-          prop: 'score',
-          title: 'ID'
-          },
-        {
-          isFilterable: true,
-          isSortable: true,
-          prop: 'country',
-          title: 'Country'
-          },
-          {
-          isFilterable: true,
-          isSortable: true,
-          prop: 'priority',
-          title: 'Priority'
-          },
-      
-       ]
+      {
+       cellProps: {
+           style: function noRefCheck(){}
+       },
+       isFilterable: false,
+       isSortable: true,
+       prop: 'score',
+       title: 'ID'
+       },
+      {
+       isFilterable: true,
+       isSortable: true,
+       prop: 'network',
+       title: 'Network'
+       },
+       {
+       isFilterable: true,
+       isSortable: true,
+       prop: 'percentage',
+       title: 'Percentage'
+       },
+    ]
+   
 
+    console.log(data);
     return(
         <>
         <p>Data is : {id}</p>
@@ -139,9 +133,8 @@ const PriorityData = ({id}) => {
           </Col>
         </Row>
       </DatatableWrapper>
-        </>
-        
+      </>
     )
 }
 
-export default PriorityData;
+export default PercentData;
