@@ -279,9 +279,11 @@ element.style {
   position: relative;
   padding-left: 20px;
 }
-.breadcmp a i{
+.breadcmp a i {
   position: absolute;
   left: 0;
+  top: -2px;
+  font-size: 20px;
 }
 .dropdown-toggle::after{
   content: none !important;
@@ -493,6 +495,9 @@ element.style {
 	align-items: center;
 	width: 100%;
 }
+.footer_innr p{
+  text-align: center;
+}
 .footer_socail_icon ul{
   margin: 0 -10px;
  }
@@ -512,15 +517,10 @@ element.style {
 	background: #0d6efd;
 	color: #fff;
 }
-
-.footer_innr p{
-  font-size: 18px;
-  line-height: 1;
-  color: #fff;
-  text-align: right !important;
-  margin-bottom: 0 !important;
-  padding-top: 5px !important;
+.login-form label{
+  font-weight: 600;
 }
+
 
 /*
 --------------
@@ -564,6 +564,9 @@ show-data
 .contact-form-wrp textarea,
 .contact-form-wrp input{
   border-radius: 0;
+}
+.contact-form-wrp label{
+  font-weight: 600;
 }
  /*
  ----------------

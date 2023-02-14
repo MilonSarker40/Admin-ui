@@ -1,0 +1,12 @@
+.footer_innr{
+    text-align: center !important;
+    width: 100%;
+}
+.footer_innr p{
+    font-size: 18px;
+    line-height: 1;
+    color: #fff;
+    text-align:center !important;
+    margin-bottom: 0 !important;
+    padding-top: 5px !important;
+  }
