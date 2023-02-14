@@ -7,7 +7,7 @@ import IndexApiForm from '../comopnents/IndexApi/IndexApiForm';
 import IndexApiTable from '../comopnents/IndexApi/IndexApiTable';
 import AvailableApiForm from '../comopnents/IndexApi/AvailableApiForm';
 import AssignmentApiForm from '../comopnents/AssignmentApi/AssignmentApiForm';
-import { ApiPersentent } from '../comopnents/ApiPersentent/ApiPersentent';
+import { ApiPersentent } from '../comopnents/ApiPercentage/ApiPercentage';
 
 const indexapi = () => {
    const[count,setCount] = useState(10)
