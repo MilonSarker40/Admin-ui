@@ -7,6 +7,7 @@ import IndexApiForm from '../comopnents/IndexApi/IndexApiForm';
 import IndexApiTable from '../comopnents/IndexApi/IndexApiTable';
 import AvailableApiForm from '../comopnents/IndexApi/AvailableApiForm';
 import AssignmentApiForm from '../comopnents/AssignmentApi/AssignmentApiForm';
+import { ApiPersentent } from '../comopnents/ApiPersentent/ApiPersentent';
 
 const indexapi = () => {
    const[count,setCount] = useState(10)
@@ -33,6 +34,9 @@ const indexapi = () => {
                     </Tab>
                     <Tab eventKey="Assignment Api" title="Assignment Api">
                        <AssignmentApiForm/>
+                    </Tab>
+                    <Tab eventKey="Percentage Api" title="Percentage Api">
+                       <ApiPersentent />
                     </Tab>
                 </Tabs>
            </div>
