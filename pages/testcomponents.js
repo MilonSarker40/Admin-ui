@@ -11,7 +11,7 @@ const testcomponents = () => {
             <Sidebar />
          </div>
          <div className='main_content-rgt'>
-           <Breadcrumb title='Sample' subtitle='Sample' />
+           <Breadcrumb title='Test Components' subtitle='Test Components' />
            <div className='data_table'>
              <TableTest />
            </div>
