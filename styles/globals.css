@@ -560,6 +560,7 @@ show-data
 .contact-form-wrp textarea{
   height: 150px;
 }
+.contact-form-wrp select,
 .contact-form-wrp textarea,
 .contact-form-wrp input{
   border-radius: 0;

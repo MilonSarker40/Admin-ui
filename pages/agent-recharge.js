@@ -14,7 +14,7 @@ const agent = () => {
             <Sidebar />
          </div>
          <div className='main_content-rgt'>
-            <BreadCrumb title='Agent Earning' subtitle='Agent Earning' />
+            <BreadCrumb title='Agent Recharge' subtitle='Agent Recharge' />
             <div className='tabsWarp'>
              <Tabs defaultActiveKey="List" id="uncontrolled-tab-example" className="mb-3">
                     <Tab eventKey="List" title="List">

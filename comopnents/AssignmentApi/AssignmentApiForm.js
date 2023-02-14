@@ -4,41 +4,80 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import DynamicCheckBox from '../DynamicCheckBox/DynamicCheckBox';
+import ApiInfo from './ApiInfo';
 
 const IndexApiForm = () => {
-
-
+    const [ctry, setCtry] = useState(0);
+    const [ctryList, setCtryList] = useState([]);
+    const [apiList, setApiList] = useState([]);
+    const [apiPriority, setApiPriority] = useState([]);
 
     const [opt, setOpt] = useState([]);
     const [cities,setCities] = useState([])
     const [api,setApi] = useState()
 
-
     const optd =[
-      {
-        id:1,
-        name:'Bangladesh',
-      },
-      {
-        id:2,
-        name:'India',
-      },
-      {
-        id:3,
-        name:'Pak',
-      }
+        {
+            id:1,
+            name:'Bangladesh',
+        },
+        {
+            id:2,
+            name:'India',
+        },
+        {
+            id:3,
+            name:'Pak',
+        }
     ]
 
+
+
     useEffect(()=>{
-      setOpt(optd)
-      let apiData = JSON.parse(localStorage.getItem('apiData'))
-      setCities(apiData?.cities)
-      setApi(apiData?.api)
+        fetch('http://localhost:3000/country/list')
+            .then((res) => res.json())
+            .then((data) => {
+                console.log("country : ", data.message);
+                setCtryList(data.message);
+            })
+        fetch('http://localhost:3000/apis')
+            .then((res) => res.json())
+            .then((data) => {
+                console.log("apis : ", data.message);
+                setApiList(data.message);
+            })
+        
+        setOpt(optd)
+        let apiData = JSON.parse(localStorage.getItem('apiData'))
+        setCities(apiData?.cities)
+        setApi(apiData?.api)
     },[])
 
-    
+    const handleSubmit = () => {
+        console.log("Submitting");
+        let input = document.getElementsByName('priority[]');
+        let values = []
+        for (var i = 0; i < input.length; i++) {
+            if (!isNaN(parseInt(input[i].value))){
+                let val = {apiId: parseInt(input[i].id), priority: parseInt(input[i].value)}
+                values.push(val);
+            }
+        }
+
+        let data = {
+            ctry: ctry,
+            apiPriority: values
+        }
+        console.log(data);
+    }
 
     const options =opt.map((value)=><option value={value.name}>{value.name}</option>)
+
+    const ctryOptions = ctryList.map((value) => <option value={value.id}>{value.name}</option>)
+
+    const countryVal = (event) => {
+        setCtry(event.target.value);
+    }
 
   return (
     <>
@@ -47,24 +86,24 @@ const IndexApiForm = () => {
             <div className='contact-form-check'>
             <Row className="mb-3">
                 <Form.Group as={Col} controlId="formStatus">
-                    <Form.Label>Status</Form.Label>
-                    <Form.Select aria-label="Default select example">
-                        <option>Select Status</option>
-                        {options}
+                    <Form.Label>Api Priority Assignment</Form.Label>
+                    <Form.Select aria-label="Default select example" onChange={countryVal}>
+                        <option>Select Country</option>
+                        {ctryOptions}
                     </Form.Select>
                 </Form.Group> 
              </Row>
 
               <Form.Group className="mb-3" controlId="formBasicPassword">
                 {
-                  cities && cities.map((selectItem,index) => (
+                  apiList && apiList.map((item,index) => (
                     <>
                     <Row className="mb-3">
                       <Col lg='2'>
-                        <label>{selectItem}</label>
+                        <label>{item.name}</label>
                       </Col>
                       <Col lg='4'>
-                        <Form.Control key={index} type="text" placeholder="Enter Value" />
+                        <Form.Control key={index} id={item.id} type="number" name='priority[]' placeholder="Enter Value" />
                       </Col>
                       </Row>
                     </>
@@ -74,7 +113,7 @@ const IndexApiForm = () => {
               </Form.Group>
             </div>
             <div className='contact-submit'>
-                <Button gap={3} variant="primary" type="submit">
+                <Button gap={3} variant="primary" onClick={handleSubmit} type="button">
                     Save
                 </Button>
                 <Button variant="primary" type="submit">
@@ -82,7 +121,11 @@ const IndexApiForm = () => {
                 </Button>
             </div>
             </Form>
-      </div>
+      </div>    
+
+      <hr/>
+
+      <ApiInfo/>
     </>
   )
 }
