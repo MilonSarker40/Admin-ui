@@ -9,54 +9,25 @@ import {
   TableBody,
   TableHeader
 } from 'react-bs-datatable';
-import { Col, Row, Table } from 'react-bootstrap';
+import { Col, Modal, Row, Table } from 'react-bootstrap';
+import ModalUpdate from "./ModalUpdate";
 
-const PriorityData = ({id}) => {
+const PriorityData = ({id, dataOpt}) => {
     const [data, setData] = useState([])
-
     useEffect(() => {
-        // fetch('http://localhost:3000/api/priority')
-        //     .then((res) => res.json())
-        //     .then((data) => {
-        //         console.log("priorities : ", data.message);
-        //         setData(data.message);
-        //     })
+        console.log(dataOpt);
+        let filtered = dataOpt.filter((data) => {
+          return data ? data.apiId == id : []
+        });
 
-        setData(bodyData);
+        for (let i = 0; i<filtered.length; i++){
+          filtered[i].button = <ModalUpdate id={filtered[i].id}  />
+        }
+        console.log("filtered data priority : ", filtered);
+        setData(filtered);
     },[])
 
-    const bodyData=[
-        {
-        score: 1,
-        country: 'Bangladesh',
-        priority: '1.2',
-        },
-        {
-        score: 2,
-        country: 'Bangladesh',
-        priority: '1.2',
-        },
-        {
-        score: 3,
-        country: 'Bangladesh',
-        priority: '1.2',
-        },
-        {
-        score:4,
-        country: 'Bangladesh',
-        priority: '1.2',
-        },
-        {
-        score: 5,
-        country: 'Bangladesh',
-        priority: '1.2',
-        },
-        {
-        score: 6,
-        country: 'Bangladesh',
-        priority: '1.2',
-        },
-    ]
+
     const headerData=[
         {
           cellProps: {
@@ -64,13 +35,13 @@ const PriorityData = ({id}) => {
           },
           isFilterable: false,
           isSortable: true,
-          prop: 'score',
+          prop: 'id',
           title: 'ID'
           },
         {
           isFilterable: true,
           isSortable: true,
-          prop: 'country',
+          prop: 'ctry',
           title: 'Country'
           },
           {
@@ -79,6 +50,11 @@ const PriorityData = ({id}) => {
           prop: 'priority',
           title: 'Priority'
           },
+          {
+            prop: 'button',
+            title: 'Button'
+          },
+            
       
        ]
 

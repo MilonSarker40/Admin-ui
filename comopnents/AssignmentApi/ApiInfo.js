@@ -12,13 +12,13 @@ const ApiInfo = () => {
         fetch('http://localhost:3000/apis')
             .then((res) => res.json())
             .then((data) => {
-                console.log("apis : ", data.message);
+                // console.log("apis : ", data.message);
                 setApiList(data.message);
             })
         fetch('http://localhost:3000/apipriority')
             .then((res) => res.json())
             .then((data) => {
-                console.log("Datas : ", data.message);
+                // console.log("APi Datas : ", data.message);
                 setData(data.message);
             })
         
@@ -26,7 +26,7 @@ const ApiInfo = () => {
 
     const apiTab = apiList.map((values) => 
         <Tab eventKey={values.name} title={values.name}>
-            <PriorityData id={values.id} />
+            <PriorityData id={values.id} dataOpt={data} />
         </Tab>
     )
 

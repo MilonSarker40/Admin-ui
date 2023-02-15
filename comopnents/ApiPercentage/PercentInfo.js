@@ -12,20 +12,20 @@ const PercentInfo = () => {
         fetch('http://localhost:3000/apis')
             .then((res) => res.json())
             .then((data) => {
-                console.log("apis : ", data.message);
+                // console.log("apis : ", data.message);
                 setApiList(data.message);
             })
         fetch('http://localhost:3000/apipercentage')
             .then((res) => res.json())
             .then((data) => {
-                console.log("Datas : ", data.message);
+                // console.log("Percent Datas : ", data.message);
                 setData(data.message);
             })
     },[])
 
     const apiTab = apiList.map((values) => 
         <Tab eventKey={values.name} title={values.name}>
-            <PercentData id={values.id} />
+            <PercentData id={values.id} dataOpt={data} />
         </Tab>
     )
 

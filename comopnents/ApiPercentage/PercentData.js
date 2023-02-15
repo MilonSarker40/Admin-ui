@@ -10,46 +10,23 @@ import {
   TableHeader
 } from 'react-bs-datatable';
 import { Col, Row, Table } from 'react-bootstrap';
+import ModalUpdate from "./ModalUpdate";
 
-const PercentData = ({id}) => {
+const PercentData = ({id, dataOpt}) => {
     const [data, setData] = useState([])
     useEffect(() => {
-        // fetch('http://localhost:3000/api/percentage')
-        //     .then((res) => res.json())
-        //     .then((data) => {
-        //         console.log("priorities : ", data.message);
-        //         setData(data.message);
-        //     })
-        setData(bodyData);
+        console.log(dataOpt);
+        const filtered = dataOpt.filter((data) => {
+            return data ? data.apiId == id : []
+        })
+        for (let i = 0; i<filtered.length; i++){
+          filtered[i].button = <ModalUpdate id={filtered[i].id} />
+        }
+        console.log("filtered data percentage : ", filtered);
+        setData(filtered);
     }, [])
 
-    const bodyData=[
-        {
-         score: 1,
-         network: 'BL',
-         percentage: '10%',
-         },
-         {
-         score: 2,
-         network: 'BL',
-         percentage: '10%',
-         },
-         {
-         score: 3,
-         network: 'BL',
-         percentage: '10%',
-         },
-         {
-         score: 4,
-         network: 'BL',
-         percentage: '10%',
-         },
-         {
-         score: 5,
-         network: 'BL',
-         percentage: '10%',
-         },
-     ]
+    
     const headerData=[
       {
        cellProps: {
@@ -57,20 +34,24 @@ const PercentData = ({id}) => {
        },
        isFilterable: false,
        isSortable: true,
-       prop: 'score',
+       prop: 'id',
        title: 'ID'
        },
       {
        isFilterable: true,
        isSortable: true,
-       prop: 'network',
+       prop: 'networkName',
        title: 'Network'
        },
        {
        isFilterable: true,
        isSortable: true,
-       prop: 'percentage',
+       prop: `percent`,
        title: 'Percentage'
+       },
+       {
+         prop: 'button',
+         title: 'Button'
        },
     ]
    
