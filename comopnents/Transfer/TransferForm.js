@@ -3,10 +3,11 @@ import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
+import { TransferTable } from './TransferTable';
 
 const TransferForm = ({uid}) => {
 
-  const [transfer, setTransfer] = useState(0.00);
+  const [transfer, setTransfer] = useState("");
 
 
   const transferVal = (event) => {
@@ -15,6 +16,10 @@ const TransferForm = ({uid}) => {
 
   const clearData = () => {
       document.getElementById("transf").value = 0.00;
+  }
+
+  const agentVal = (event) => {
+    console.log(event.target.value);
   }
 
   console.log(uid);
@@ -49,7 +54,16 @@ const TransferForm = ({uid}) => {
   return (
     <>
      <div className='contact-form-wrp'>
-         <Form action=''>
+       <Form action=''>
+         <Row className="mb-3">
+              <Form.Group as={Col} controlId="formCountry">
+                <Form.Label>Select Agent</Form.Label>
+                <Form.Select aria-label="Default select example" onChange={agentVal}>
+                    <option>Select Agent</option>
+                    {/* {options} */}
+                </Form.Select>
+              </Form.Group>
+           </Row>
            <Row className="mb-3"> 
                 <Form.Group as={Col} controlId="formGridEmail">
                     <Form.Label>Balance Transfer</Form.Label>
@@ -57,14 +71,15 @@ const TransferForm = ({uid}) => {
                 </Form.Group>
             </Row>
             <div className='contact-submit'>
-                <Button gap={3} variant="primary" type='submit' onClick={saveData}>
+                <Button gap={3} variant="primary" type="submit" onChange={saveData}>
                     Save
                 </Button>
-                <Button variant="primary" onClick={clearData}>
+                <Button variant="primary" type="submit" onChange={clearData}>
                     Clear
                 </Button>
             </div>
-            </Form>
+          </Form>
+          <TransferTable uid={uid}/>
       </div>
     </>
   )
