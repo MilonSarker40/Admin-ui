@@ -17,37 +17,37 @@ const RechargeTable = () => {
 
   const bodyData =[
     {
-      score: 1,
+      id: 1,
       nambuer: '01745698745',
       date: 'March 04, 2022',
       location: 'Dhaka',
       },
       {
-      score: 2,
+      id: 2,
       nambuer: '01745698745',
       date: 'March 08, 2022',
       location: 'Dhaka',
       },
       {
-      score: 3,
+      id: 3,
       nambuer: '01745698745',
       date: 'February 18, 2022',
       location: 'Dhaka',
       },
       {
-      score: 4,
+      id: 4,
       nambuer: '01745698745',
       date: 'February 15, 2022',
       location: 'Dhaka',
       },
       {
-      score: 5,
+      id: 5,
       nambuer: '01745698745',
       date: 'February 26, 2022',
       location: 'Dhaka',
       },
       {
-      score: 6,
+      id: 6,
       nambuer: '01745698745',
       date: 'February 09, 2022',
       location: 'Dhaka',
@@ -60,7 +60,7 @@ const RechargeTable = () => {
       },
       isFilterable: false,
       isSortable: true,
-      prop: 'score',
+      prop: 'id',
       title: 'ID'
       },
       {

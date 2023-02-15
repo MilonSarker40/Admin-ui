@@ -17,27 +17,27 @@ const PercentageTable = () => {
   
   const bodyData=[
      {
-      score: 1,
+      id: 1,
       network: 'BL',
       percentage: '10%',
       },
       {
-      score: 2,
+      id: 2,
       network: 'BL',
       percentage: '10%',
       },
       {
-      score: 3,
+      id: 3,
       network: 'BL',
       percentage: '10%',
       },
       {
-      score: 4,
+      id: 4,
       network: 'BL',
       percentage: '10%',
       },
       {
-      score: 5,
+      id: 5,
       network: 'BL',
       percentage: '10%',
       },
@@ -49,7 +49,7 @@ const PercentageTable = () => {
     },
     isFilterable: false,
     isSortable: true,
-    prop: 'score',
+    prop: 'id',
     title: 'ID'
     },
    {

@@ -17,15 +17,15 @@ const RechargeId = () => {
 
   const bodyData=[
     {
-      score: 1,
+      id: 1,
       recharge: '200',
       },
       {
-      score: 2,
+      id: 2,
       recharge: '300',
       },
       {
-      score: 3,
+      id: 3,
       recharge: '500',
       },
   ]
@@ -36,7 +36,7 @@ const RechargeId = () => {
       },
       isFilterable: false,
       isSortable: true,
-      prop: 'score',
+      prop: 'id',
       title: 'Agent ID'
       },
       {

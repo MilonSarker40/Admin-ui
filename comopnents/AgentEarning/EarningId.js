@@ -25,15 +25,15 @@ const EarningId = () => {
 
   const bodyData=[
     {
-      score: 1,
+      id: 1,
       earnd: '200',
       },
       {
-      score: 2,
+      id: 2,
       earnd: '300',
       },
       {
-      score: 3,
+      id: 3,
       earnd: '300',
       },
   ]
@@ -45,7 +45,7 @@ const EarningId = () => {
       },
       isFilterable: false,
       isSortable: true,
-      prop: 'score',
+      prop: 'id',
       title: 'ID'
       },
       {

@@ -16,36 +16,36 @@ const EarningTable = () => {
 
   const bodyData=[
     {
-      score: 1,
+      id: 1,
       taix: '2',
       amount: '200',
       },
       {
-      score: 2,
+      id: 2,
       taix: '4',
       amount: '300',
       date: 'March 08, 2022',
       },
       {
-      score: 3,
+      id: 3,
       taix: '5',
       amount: '400',
       date: 'February 18, 2022',
       },
       {
-      score: 4,
+      id: 4,
       taix: '6',
       amount: '500',
       date: 'February 15, 2022',
       },
       {
-      score: 5,
+      id: 5,
       taix: '7',
       amount: '600',
       date: 'February 26, 2022',
       },
       {
-      score: 6,
+      id: 6,
       taix: '8',
       amount: '700',
       date: 'February 09, 2022',
@@ -58,7 +58,7 @@ const EarningTable = () => {
       },
       isFilterable: false,
       isSortable: true,
-      prop: 'score',
+      prop: 'id',
       title: 'Agent ID'
       },
       {

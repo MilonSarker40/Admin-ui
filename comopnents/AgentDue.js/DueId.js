@@ -18,17 +18,17 @@ const DueId = () => {
         body={[
             
             {
-            score: 1,
+            id: 1,
             due: '200',
             // date: 'March 04, 2022',
             },
             {
-            score: 2,
+            id: 2,
             due: '300',
             // date: 'March 04, 2022',
             },
             {
-            score: 3,
+            id: 3,
             due: '300',
             // date: 'March 04, 2022',
             },
@@ -40,7 +40,7 @@ const DueId = () => {
             },
             isFilterable: false,
             isSortable: true,
-            prop: 'score',
+            prop: 'id',
             title: 'Agent ID'
             },
             {

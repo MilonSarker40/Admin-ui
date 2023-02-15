@@ -24,7 +24,7 @@ const TableTest = () => {
         date: 'March 28, 2022',
         location: 'Saturn',
         name: 'Aaren',
-        score: 69,
+        id: 69,
         status: 'Active',
         username: 'aaren-50'
         },
@@ -32,7 +32,7 @@ const TableTest = () => {
         date: 'February 04, 2022',
         location: 'Earth',
         name: 'Adriana',
-        score: 97,
+        id: 97,
         status: 'Inactive',
         username: 'adriana-3'
         },
@@ -40,7 +40,7 @@ const TableTest = () => {
         date: 'February 23, 2022',
         location: 'Jupyter',
         name: 'Alisha',
-        score: 11,
+        id: 11,
         status: 'Inactive',
         username: 'alisha-18'
         },
@@ -48,7 +48,7 @@ const TableTest = () => {
         date: 'February 09, 2022',
         location: 'Venus',
         name: 'Andeee',
-        score: 27,
+        id: 27,
         status: 'unknown',
         username: 'andeee-57'
         },
@@ -56,7 +56,7 @@ const TableTest = () => {
         date: 'March 29, 2022',
         location: 'Jupyter',
         name: 'Annabela',
-        score: 28,
+        id: 28,
         status: 'Active',
         username: 'annabela-45'
         },
@@ -64,7 +64,7 @@ const TableTest = () => {
         date: 'February 16, 2022',
         location: 'Mars',
         name: 'Aryn',
-        score: 38,
+        id: 38,
         status: 'Inactive',
         username: 'aryn-53'
         },
@@ -72,7 +72,7 @@ const TableTest = () => {
         date: 'March 30, 2022',
         location: 'Jupyter',
         name: 'Basia',
-        score: 22,
+        id: 22,
         status: 'Inactive',
         username: 'basia-66'
         },
@@ -80,7 +80,7 @@ const TableTest = () => {
         date: 'February 28, 2022',
         location: 'Mars',
         name: 'Bernardine',
-        score: 94,
+        id: 94,
         status: 'Active',
         username: 'bernardine-93'
         },
@@ -88,7 +88,7 @@ const TableTest = () => {
         date: 'March 04, 2022',
         location: 'Mars',
         name: 'Bobbi',
-        score: 66,
+        id: 66,
         status: 'Active',
         username: 'bobbi-38'
         },
@@ -96,7 +96,7 @@ const TableTest = () => {
         date: 'March 14, 2022',
         location: 'Jupyter',
         name: 'Cam',
-        score: 36,
+        id: 36,
         status: 'Inactive',
         username: 'cam-59'
         },
@@ -104,7 +104,7 @@ const TableTest = () => {
         date: 'March 22, 2022',
         location: 'Jupyter',
         name: 'Carlie',
-        score: 11,
+        id: 11,
         status: 'Active',
         username: 'carlie-25'
         },
@@ -112,7 +112,7 @@ const TableTest = () => {
         date: 'March 15, 2022',
         location: 'Mars',
         name: 'Cecile',
-        score: 61,
+        id: 61,
         status: 'Active',
         username: 'cecile-9'
         },
@@ -120,7 +120,7 @@ const TableTest = () => {
         date: 'March 13, 2022',
         location: 'Venus',
         name: 'Christal',
-        score: 16,
+        id: 16,
         status: 'Active',
         username: 'christal-78'
         },
@@ -128,7 +128,7 @@ const TableTest = () => {
         date: 'February 16, 2022',
         location: 'Earth',
         name: 'Clarice',
-        score: 27,
+        id: 27,
         status: 'Active',
         username: 'clarice-68'
         },
@@ -136,7 +136,7 @@ const TableTest = () => {
         date: 'March 13, 2022',
         location: 'Saturn',
         name: 'Corly',
-        score: 84,
+        id: 84,
         status: 'Active',
         username: 'corly-99'
         },
@@ -144,7 +144,7 @@ const TableTest = () => {
         date: 'February 12, 2022',
         location: 'Saturn',
         name: 'Danny',
-        score: 75,
+        id: 75,
         status: 'Inactive',
         username: 'danny-28'
         },
@@ -152,7 +152,7 @@ const TableTest = () => {
         date: 'March 28, 2022',
         location: 'Earth',
         name: 'Dawn',
-        score: 59,
+        id: 59,
         status: 'Active',
         username: 'dawn-85'
         },
@@ -160,7 +160,7 @@ const TableTest = () => {
         date: 'March 23, 2022',
         location: 'Earth',
         name: 'Diena',
-        score: 41,
+        id: 41,
         status: 'Inactive',
         username: 'diena-93'
         },
@@ -168,7 +168,7 @@ const TableTest = () => {
         date: 'March 22, 2022',
         location: 'Venus',
         name: 'Drucie',
-        score: 92,
+        id: 92,
         status: 'Inactive',
         username: 'drucie-38'
         },
@@ -176,7 +176,7 @@ const TableTest = () => {
         date: 'March 21, 2022',
         location: 'Jupyter',
         name: 'Edith',
-        score: 56,
+        id: 56,
         status: 'Inactive',
         username: 'edith-32'
         },
@@ -184,7 +184,7 @@ const TableTest = () => {
         date: 'March 25, 2022',
         location: 'Mars',
         name: 'Elyssa',
-        score: 7,
+        id: 7,
         status: 'Inactive',
         username: 'elyssa-56'
         },
@@ -192,7 +192,7 @@ const TableTest = () => {
         date: 'March 18, 2022',
         location: 'Venus',
         name: 'Eugine',
-        score: 62,
+        id: 62,
         status: 'Inactive',
         username: 'eugine-41'
         },
@@ -200,7 +200,7 @@ const TableTest = () => {
         date: 'February 15, 2022',
         location: 'Venus',
         name: 'Fina',
-        score: 8,
+        id: 8,
         status: 'Active',
         username: 'fina-26'
         },
@@ -208,7 +208,7 @@ const TableTest = () => {
         date: 'March 21, 2022',
         location: 'Mars',
         name: 'Fred',
-        score: 38,
+        id: 38,
         status: 'Inactive',
         username: 'fred-59'
         },
@@ -216,7 +216,7 @@ const TableTest = () => {
         date: 'March 04, 2022',
         location: 'Jupyter',
         name: 'Gertrud',
-        score: 60,
+        id: 60,
         status: 'Inactive',
         username: 'gertrud-35'
         },
@@ -224,7 +224,7 @@ const TableTest = () => {
         date: 'March 08, 2022',
         location: 'Earth',
         name: 'Gui',
-        score: 73,
+        id: 73,
         status: 'Active',
         username: 'gui-63'
         },
@@ -232,7 +232,7 @@ const TableTest = () => {
         date: 'February 18, 2022',
         location: 'Jupyter',
         name: 'Hannis',
-        score: 17,
+        id: 17,
         status: 'Inactive',
         username: 'hannis-0'
         },
@@ -240,7 +240,7 @@ const TableTest = () => {
         date: 'February 15, 2022',
         location: 'Saturn',
         name: 'Hyacinthe',
-        score: 1,
+        id: 1,
         status: 'Inactive',
         username: 'hyacinthe-81'
         },
@@ -248,7 +248,7 @@ const TableTest = () => {
         date: 'February 26, 2022',
         location: 'Earth',
         name: 'Jacquetta',
-        score: 54,
+        id: 54,
         status: 'Inactive',
         username: 'jacquetta-77'
         },
@@ -256,7 +256,7 @@ const TableTest = () => {
         date: 'February 09, 2022',
         location: 'Mars',
         name: 'Jany',
-        score: 44,
+        id: 44,
         status: 'Inactive',
         username: 'jany-58'
         },
@@ -264,7 +264,7 @@ const TableTest = () => {
         date: 'March 24, 2022',
         location: 'Venus',
         name: 'Joane',
-        score: 71,
+        id: 71,
         status: 'Active',
         username: 'joane-26'
         },
@@ -272,7 +272,7 @@ const TableTest = () => {
         date: 'February 11, 2022',
         location: 'Jupyter',
         name: 'Juliane',
-        score: 60,
+        id: 60,
         status: 'Inactive',
         username: 'juliane-80'
         },
@@ -280,7 +280,7 @@ const TableTest = () => {
         date: 'February 20, 2022',
         location: 'Venus',
         name: 'Kamilah',
-        score: 15,
+        id: 15,
         status: 'Active',
         username: 'kamilah-14'
         },
@@ -288,7 +288,7 @@ const TableTest = () => {
         date: 'February 09, 2022',
         location: 'Earth',
         name: 'Katuscha',
-        score: 38,
+        id: 38,
         status: 'Inactive',
         username: 'katuscha-23'
         },
@@ -296,7 +296,7 @@ const TableTest = () => {
         date: 'March 08, 2022',
         location: 'Mars',
         name: 'Konstance',
-        score: 58,
+        id: 58,
         status: 'Active',
         username: 'konstance-84'
         },
@@ -304,7 +304,7 @@ const TableTest = () => {
         date: 'March 09, 2022',
         location: 'Jupyter',
         name: 'Lacie',
-        score: 63,
+        id: 63,
         status: 'Active',
         username: 'lacie-21'
         },
@@ -312,7 +312,7 @@ const TableTest = () => {
         date: 'March 23, 2022',
         location: 'Jupyter',
         name: 'Leona',
-        score: 24,
+        id: 24,
         status: 'Inactive',
         username: 'leona-26'
         },
@@ -320,7 +320,7 @@ const TableTest = () => {
         date: 'March 16, 2022',
         location: 'Jupyter',
         name: 'Lita',
-        score: 62,
+        id: 62,
         status: 'Active',
         username: 'lita-55'
         },
@@ -328,7 +328,7 @@ const TableTest = () => {
         date: 'February 26, 2022',
         location: 'Earth',
         name: 'Lorie',
-        score: 0,
+        id: 0,
         status: 'Inactive',
         username: 'lorie-34'
         },
@@ -336,7 +336,7 @@ const TableTest = () => {
         date: 'March 22, 2022',
         location: 'Saturn',
         name: 'Madeleine',
-        score: 42,
+        id: 42,
         status: 'Active',
         username: 'madeleine-34'
         },
@@ -344,7 +344,7 @@ const TableTest = () => {
         date: 'February 12, 2022',
         location: 'Saturn',
         name: 'Margette',
-        score: 61,
+        id: 61,
         status: 'Active',
         username: 'margette-4'
         },
@@ -352,7 +352,7 @@ const TableTest = () => {
         date: 'February 03, 2022',
         location: 'Venus',
         name: 'Mary',
-        score: 22,
+        id: 22,
         status: 'Active',
         username: 'mary-13'
         },
@@ -360,7 +360,7 @@ const TableTest = () => {
         date: 'February 12, 2022',
         location: 'Earth',
         name: 'Maye',
-        score: 30,
+        id: 30,
         status: 'Inactive',
         username: 'maye-7'
         },
@@ -368,7 +368,7 @@ const TableTest = () => {
         date: 'March 08, 2022',
         location: 'Mars',
         name: 'Micheline',
-        score: 42,
+        id: 42,
         status: 'Inactive',
         username: 'micheline-17'
         },
@@ -376,7 +376,7 @@ const TableTest = () => {
         date: 'March 13, 2022',
         location: 'Jupyter',
         name: 'Mureil',
-        score: 87,
+        id: 87,
         status: 'Active',
         username: 'mureil-18'
         },
@@ -384,7 +384,7 @@ const TableTest = () => {
         date: 'February 11, 2022',
         location: 'Earth',
         name: 'Nariko',
-        score: 73,
+        id: 73,
         status: 'Active',
         username: 'nariko-12'
         },
@@ -392,7 +392,7 @@ const TableTest = () => {
         date: 'February 12, 2022',
         location: 'Mars',
         name: 'Nollie',
-        score: 21,
+        id: 21,
         status: 'Active',
         username: 'nollie-50'
         },
@@ -400,7 +400,7 @@ const TableTest = () => {
         date: 'March 13, 2022',
         location: 'Saturn',
         name: 'Paola',
-        score: 27,
+        id: 27,
         status: 'Inactive',
         username: 'paola-66'
         },
@@ -408,7 +408,7 @@ const TableTest = () => {
         date: 'March 05, 2022',
         location: 'Earth',
         name: 'Perry',
-        score: 53,
+        id: 53,
         status: 'Active',
         username: 'perry-26'
         },
@@ -416,7 +416,7 @@ const TableTest = () => {
         date: 'March 02, 2022',
         location: 'Mars',
         name: 'Raquela',
-        score: 64,
+        id: 64,
         status: 'Active',
         username: 'raquela-90'
         },
@@ -424,7 +424,7 @@ const TableTest = () => {
         date: 'February 03, 2022',
         location: 'Saturn',
         name: 'Robinia',
-        score: 71,
+        id: 71,
         status: 'Inactive',
         username: 'robinia-57'
         },
@@ -432,7 +432,7 @@ const TableTest = () => {
         date: 'March 08, 2022',
         location: 'Mars',
         name: 'Rosanne',
-        score: 60,
+        id: 60,
         status: 'Active',
         username: 'rosanne-34'
         },
@@ -440,7 +440,7 @@ const TableTest = () => {
         date: 'March 19, 2022',
         location: 'Earth',
         name: 'Sara-Ann',
-        score: 37,
+        id: 37,
         status: 'Inactive',
         username: 'sara-ann-69'
         },
@@ -448,7 +448,7 @@ const TableTest = () => {
         date: 'March 08, 2022',
         location: 'Mars',
         name: 'Shel',
-        score: 41,
+        id: 41,
         status: 'Inactive',
         username: 'shel-44'
         },
@@ -456,7 +456,7 @@ const TableTest = () => {
         date: 'February 24, 2022',
         location: 'Venus',
         name: 'Sidoney',
-        score: 62,
+        id: 62,
         status: 'Active',
         username: 'sidoney-95'
         },
@@ -464,7 +464,7 @@ const TableTest = () => {
         date: 'March 08, 2022',
         location: 'Mars',
         name: 'Suzette',
-        score: 99,
+        id: 99,
         status: 'Inactive',
         username: 'suzette-4'
         },
@@ -472,7 +472,7 @@ const TableTest = () => {
         date: 'February 17, 2022',
         location: 'Venus',
         name: 'Thalia',
-        score: 3,
+        id: 3,
         status: 'Active',
         username: 'thalia-90'
         },
@@ -480,7 +480,7 @@ const TableTest = () => {
         date: 'February 15, 2022',
         location: 'Saturn',
         name: 'Tobe',
-        score: 0,
+        id: 0,
         status: 'Inactive',
         username: 'tobe-79'
         },
@@ -488,7 +488,7 @@ const TableTest = () => {
         date: 'March 20, 2022',
         location: null,
         name: 'Vanessa',
-        score: 17,
+        id: 17,
         status: 'Active',
         username: 'vanessa-80'
         },
@@ -496,7 +496,7 @@ const TableTest = () => {
         date: 'February 12, 2022',
         location: 'Mars',
         name: 'Wileen',
-        score: 68,
+        id: 68,
         status: 'Inactive',
         username: 'wileen-55'
         }
@@ -532,8 +532,8 @@ const TableTest = () => {
         },
         isFilterable: false,
         isSortable: true,
-        prop: 'score',
-        title: 'Score'
+        prop: 'id',
+        title: 'ID'
         },
         {
         alignment: {
