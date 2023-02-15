@@ -11,47 +11,108 @@ import {
 } from 'react-bs-datatable';
 import { Col, Row, Table } from 'react-bootstrap';
 
-const RechargeId = () => {
 
-  const [data,setData]=useState([]);
+
+
+const OrganizationTable = () => {
+
+
+  const [data,setData] =useState([]);
 
   const bodyData=[
     {
+      date: 'March 04, 2022',
+      location: 'Dhaka',
+      name: 'Gertrud',
+      id: 60,
+      status: 'Eidt',
+      nambuer: '01745698745'
+      },
+      {
+      date: 'March 08, 2022',
+      location: 'Dhaka',
+      name: 'Gui',
+      id: 73,
+      status: 'Eidt',
+      nambuer: '01745698745'
+      },
+      {
+      date: 'February 18, 2022',
+      location: 'Dhaka',
+      name: 'Hannis',
+      id: 17,
+      status: 'Eidt',
+      nambuer: '01745698745'
+      },
+      {
+      date: 'February 15, 2022',
+      location: 'Dhaka',
+      name: 'Hyacinthe',
       id: 1,
-      recharge: '200',
+      status: 'Eidt',
+      nambuer: '01745698745'
       },
       {
-      id: 2,
-      recharge: '300',
+      date: 'February 26, 2022',
+      location: 'Dhaka',
+      name: 'Jacquetta',
+      id: 54,
+      status: 'Eidt',
+      nambuer: '01745698745'
       },
       {
-      id: 3,
-      recharge: '500',
-      },
+      date: 'February 09, 2022',
+      location: 'Dhaka',
+      name: 'Jany',
+      id: 44,
+      status: 'Eidt',
+      nambuer: '01745698745'
+      }
   ]
-  const headerData=[
+
+  const headerData =[
     {
+      isFilterable: true,
+      isSortable: true,
+      prop: 'name',
+      title: 'Name'
+      },
+      {
+      isFilterable: true,
+      isSortable: true,
+      prop: 'nambuer',
+      title: 'Nambuer'
+      },
+      {
+      isFilterable: true,
+      isSortable: false,
+      prop: 'location',
+      title: 'Location'
+      },
+      {
+      isFilterable: false,
+      isSortable: true,
+      prop: 'date',
+      title: 'Last Update'
+      },
+      {
       cellProps: {
           style: function noRefCheck(){}
       },
       isFilterable: false,
       isSortable: true,
       prop: 'id',
-      title: 'Agent ID'
-      },
-      {
-      isFilterable: true,
-      isSortable:true,
-      prop: 'recharge',
-      title: 'Recharge'
+      title: 'ID'
       },
   ]
+
   useEffect(() => {
     fetch("url")
       .then((res) => res.json())
       .then((data) => setData(data));
     setData(bodyData);
-  })
+  },[])
+
   return (
     <>
       <DatatableWrapper
@@ -111,4 +172,5 @@ const RechargeId = () => {
   )
 }
 
-export default RechargeId
+export default OrganizationTable;
+

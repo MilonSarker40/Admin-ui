@@ -23,7 +23,7 @@ const MobileNetworkTable = () => {
       date: 'March 04, 2022',
       location: 'Dhaka',
       name: 'Gertrud',
-      score: 60,
+      id: 60,
       status: 'Eidt',
       nambuer: '01745698745'
       },
@@ -31,7 +31,7 @@ const MobileNetworkTable = () => {
       date: 'March 08, 2022',
       location: 'Dhaka',
       name: 'Gui',
-      score: 73,
+      id: 73,
       status: 'Eidt',
       nambuer: '01745698745'
       },
@@ -39,7 +39,7 @@ const MobileNetworkTable = () => {
       date: 'February 18, 2022',
       location: 'Dhaka',
       name: 'Hannis',
-      score: 17,
+      id: 17,
       status: 'Eidt',
       nambuer: '01745698745'
       },
@@ -47,7 +47,7 @@ const MobileNetworkTable = () => {
       date: 'February 15, 2022',
       location: 'Dhaka',
       name: 'Hyacinthe',
-      score: 1,
+      id: 1,
       status: 'Eidt',
       nambuer: '01745698745'
       },
@@ -55,7 +55,7 @@ const MobileNetworkTable = () => {
       date: 'February 26, 2022',
       location: 'Dhaka',
       name: 'Jacquetta',
-      score: 54,
+      id: 54,
       status: 'Eidt',
       nambuer: '01745698745'
       },
@@ -63,7 +63,7 @@ const MobileNetworkTable = () => {
       date: 'February 09, 2022',
       location: 'Dhaka',
       name: 'Jany',
-      score: 44,
+      id: 44,
       status: 'Eidt',
       nambuer: '01745698745'
       },
@@ -100,7 +100,7 @@ const MobileNetworkTable = () => {
       },
       isFilterable: false,
       isSortable: true,
-      prop: 'score',
+      prop: 'id',
       title: 'ID'
       },
   ]

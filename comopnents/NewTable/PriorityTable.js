@@ -17,32 +17,32 @@ const PriorityTable = () => {
   
   const bodyData=[
       {
-      score: 1,
+      id: 1,
       country: 'Bangladesh',
       priority: '1.2',
       },
       {
-      score: 2,
+      id: 2,
       country: 'Bangladesh',
       priority: '1.2',
       },
       {
-      score: 3,
+      id: 3,
       country: 'Bangladesh',
       priority: '1.2',
       },
       {
-      score:4,
+      id:4,
       country: 'Bangladesh',
       priority: '1.2',
       },
       {
-      score: 5,
+      id: 5,
       country: 'Bangladesh',
       priority: '1.2',
       },
       {
-      score: 6,
+      id: 6,
       country: 'Bangladesh',
       priority: '1.2',
       },
@@ -54,7 +54,7 @@ const PriorityTable = () => {
     },
     isFilterable: false,
     isSortable: true,
-    prop: 'score',
+    prop: 'id',
     title: 'ID'
     },
   {
