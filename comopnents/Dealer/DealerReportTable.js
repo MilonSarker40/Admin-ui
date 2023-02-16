@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import { useState } from 'react';
 import Link from 'next/link';
 
-function SubDealerReportTable() {
+function DealerReportTable() {
 
   const [table, setTable] =useState([
     {
@@ -85,4 +85,4 @@ function SubDealerReportTable() {
   );
 }
 
-export default SubDealerReportTable;
+export default DealerReportTable;

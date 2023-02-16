@@ -223,6 +223,9 @@ element.style {
   text-transform: uppercase;
   font-weight: 600;
 }
+.logo a:hover{
+  color: #fff;
+}
 
 /*
 ----------------

@@ -5,7 +5,7 @@ import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import DynamicCheckBox from '../DynamicCheckBox/DynamicCheckBox';
 
-const IndexApiForm = () => {
+const AssignmentApiForm = () => {
 
 
 
@@ -87,4 +87,4 @@ const IndexApiForm = () => {
   )
 }
 
-export default IndexApiForm
+export default AssignmentApiForm
