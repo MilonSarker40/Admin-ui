@@ -3,12 +3,13 @@ import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 import Sidebar from '../comopnents/Sidebar/Sidebar';
 import BreadCrumb from '../comopnents/BreadCrumb/BreadCrumb';
-import AgentReportId from '../comopnents/AgentReportId/AgentReportId';
+import SubDealerReportTable from '../comopnents/SubDealer/SubDealerReportTable';
 
 
 
 
-const AgentReport = () => {
+
+const SubDealerReport = () => {
   return (
     <>
       <section className='main_content clearfix'>
@@ -16,11 +17,11 @@ const AgentReport = () => {
             <Sidebar />
          </div>
          <div className='main_content-rgt'>
-            <BreadCrumb title='Agent Report' subtitle='Agent Report' />
+            <BreadCrumb title='Subdealer Report' subtitle='Subdealer Report' />
             <div className='tabsWarp'>
              <Tabs defaultActiveKey="List" id="uncontrolled-tab-example" className="mb-3">
                     <Tab eventKey="List" title="List">
-                        <AgentReportId />
+                       <SubDealerReportTable />
                     </Tab>
                 </Tabs>
            </div>
@@ -30,4 +31,4 @@ const AgentReport = () => {
   )
 }
 
-export default AgentReport
+export default SubDealerReport

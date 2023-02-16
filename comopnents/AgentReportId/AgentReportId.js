@@ -3,12 +3,12 @@ import { useRouter } from 'next/router'
 import { useState } from 'react';
 import Link from 'next/link';
 
-function AgReportTable() {
+function AgentReportId() {
 
   const [table, setTable] =useState([
     {
       id: '1',
-      agent: 'Agent1',
+      agent: 'Agent Report 1',
       recharge: '500',
       dues: '200',
       earning: '2000',
@@ -17,7 +17,7 @@ function AgReportTable() {
     },
     {
       id: '2',
-      agent: 'Agent2',
+      agent: 'Agent Report 2',
       recharge: '600',
       dues: '300',
       earning: '2100',
@@ -26,15 +26,16 @@ function AgReportTable() {
     },
     {
       id: '3',
-      agent: 'Agent3',
+      agent: 'Agent Report 3',
       recharge: '700',
       dues: '400',
       earning: '2200',
+      balance: '2400',
       sale: '5200'
     },
     {
       id: '4',
-      agent: 'Agent4',
+      agent: 'Agent Report 4',
       recharge: '800',
       dues: '500',
       earning: '2300',
@@ -43,7 +44,7 @@ function AgReportTable() {
     },
     {
       id: '5',
-      agent: 'Agent5',
+      agent: 'Agent Report 5',
       recharge: '900',
       dues: '600',
       earning: '2400',
@@ -57,7 +58,7 @@ function AgReportTable() {
        <Table striped bordered hover size="sm">
           <thead>
             <tr>
-              <th>Agent</th>
+              <th>Agent Report</th>
               <th>Recharge</th>
               <th>Dues</th>
               <th>Earing</th>
@@ -69,12 +70,12 @@ function AgReportTable() {
             {
               table.map((item) => (
                 <tr key={item.id}>
-                  <td><Link href={`/agentreport/${item.id}`}>{item.agent}</Link></td>
-                  <td><Link href={`/agentreport/${item.id}`}>{item.recharge}</Link></td>
-                  <td><Link href={`/agentreport/${item.id}`}>{item.dues}</Link></td>
-                  <td><Link href={`/agentreport/${item.id}`}>{item.earning}</Link></td>
-                  <td><Link href={`/agentreport/${item.id}`}>{item.balance}</Link></td>
-                  <td><Link href={`/agentreport/${item.id}`}>{item.sale}</Link></td>
+                  <td><Link href={`/agentreportid/${item.id}`}>{item.agent}</Link></td>
+                  <td><Link href={`/agentreportid/${item.id}`}>{item.recharge}</Link></td>
+                  <td><Link href={`/agentreportid/${item.id}`}>{item.dues}</Link></td>
+                  <td><Link href={`/agentreportid/${item.id}`}>{item.earning}</Link></td>
+                  <td><Link href={`/agentreportid/${item.id}`}>{item.balance}</Link></td>
+                  <td><Link href={`/agentreportid/${item.id}`}>{item.sale}</Link></td>
                 </tr>
               ))
             }
@@ -84,4 +85,4 @@ function AgReportTable() {
   );
 }
 
-export default AgReportTable;
+export default AgentReportId;
