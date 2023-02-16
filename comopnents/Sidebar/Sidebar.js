@@ -48,6 +48,16 @@ const Sidebar = () => {
           </Dropdown>
           <Dropdown>
             <Dropdown.Toggle  id="dropdown-basic">
+            <i class="ri-file-text-fill"></i>Reports<span><i class="ri-arrow-right-s-line"></i></span>
+            </Dropdown.Toggle>
+            <Dropdown.Menu>
+              <Dropdown.Item href="/agent-report">Agent Report</Dropdown.Item>
+              <Dropdown.Item href="/dealer-report">Dealer Report</Dropdown.Item>
+              <Dropdown.Item href="/subdealer-report">SubDealer Report</Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+          <Dropdown>
+            <Dropdown.Toggle  id="dropdown-basic">
             <i class="ri-file-text-fill"></i>Report<span><i class="ri-arrow-right-s-line"></i></span>
             </Dropdown.Toggle>
             <Dropdown.Menu>
@@ -57,7 +67,6 @@ const Sidebar = () => {
             </Dropdown.Menu>
           </Dropdown>
           <Link href="/settlement" active><i class="ri-radar-line"></i>Settlement</Link>
-          <Link href="/agent-report" active><i class="ri-file-text-line"></i>Agent Report</Link>
           <Link href="/indexapi" active><i class="ri-file-text-line"></i>Api Index</Link>
           <Link href="/simulator" active><i class="ri-pages-fill"></i>Simulator</Link>
           <Link href="/organization" active><i class="ri-pages-fill"></i>Organization</Link>
