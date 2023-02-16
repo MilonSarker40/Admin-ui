@@ -10,6 +10,7 @@ const SubDealerForm = () => {
     const [number, setNumber] = useState('');
     const [pasword, setPassword] = useState('');
     const [email, setEmail] = useState('');
+    const [store, setStore] = useState('');
     
     const [verifiCode, setVerifiCode] = useState('');
     const [address, setAddress] = useState('');
@@ -22,6 +23,11 @@ const SubDealerForm = () => {
     const [ref, setRef] = useState(0);
 
     const optd1=[
+        {
+            id:0,
+            name:'Select', 
+            value: 'N/A'
+        },
         {
           id:1,
           name:'Dealer', 
@@ -49,7 +55,7 @@ const SubDealerForm = () => {
         password: pasword,
         type: type,
         address: address,
-        ref: 11,
+        ref: 1,
         age: age
     }
 
@@ -104,6 +110,11 @@ const SubDealerForm = () => {
                     <Form.Label>Email Address</Form.Label>
                     <Form.Control type="email" placeholder="Enter email" onChange={(e)=>setEmail(e.target.value)} />
                 </Form.Group>
+                
+                <Form.Group as={Col} controlId="formGridAddress1">
+                    <Form.Label>Store Name</Form.Label>
+                    <Form.Control type='text' placeholder="Enter Store Name" onChange={(e)=>setStore(e.target.value)} />
+                </Form.Group> 
 
                 <Form.Group as={Col} controlId="formVerification">
                     <Form.Label>Age</Form.Label>

@@ -14,6 +14,7 @@ import { Col, Row, Table } from 'react-bootstrap';
 
 export const WithdrawTable = ({uid}) => {
     const [data,setData] = useState([]);
+    console.log("withdraw uid : ", uid, typeof(uid));
 
     // {
     //     id: 3,
@@ -63,11 +64,11 @@ export const WithdrawTable = ({uid}) => {
     ]
   
     useEffect(() => {
-        fetch(`http://localhost:3000/data/withdrawal/${uid}`)
+      fetch("http://localhost:3000/data/withdrawal/"+uid)
             .then((res) => res.json())
             .then((data) => {
                 console.log("withdrawl data : ", data)
-                setData(data);
+                setData(data.message);
             });
         // setData(bodyData);
     },[])

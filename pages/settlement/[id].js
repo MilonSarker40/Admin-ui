@@ -14,7 +14,7 @@ import Information from '../../comopnents/Information/Information';
 const country = () => {
     const router = useRouter();
     const {id} = router.query;
-    console.log(id)
+    console.log(typeof(id));
     return (
     <>
         <section className='main_content clearfix'>

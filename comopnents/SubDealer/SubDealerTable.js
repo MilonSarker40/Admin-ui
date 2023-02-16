@@ -15,99 +15,63 @@ const SubDealerTable = () => {
 
   const [data,setData] = useState([]);
 
-  const bodyData=[
-    {
-      date: 'March 04, 2022',
-      location: 'Dhaka',
-      name: 'Gertrud',
-      id: 60,
-      status: 'Eidt',
-      nambuer: '01745698745'
-      },
-      {
-      date: 'March 08, 2022',
-      location: 'Dhaka',
-      name: 'Gui',
-      id: 73,
-      status: 'Eidt',
-      nambuer: '01745698745'
-      },
-      {
-      date: 'February 18, 2022',
-      location: 'Dhaka',
-      name: 'Hannis',
-      id: 17,
-      status: 'Eidt',
-      nambuer: '01745698745'
-      },
-      {
-      date: 'February 15, 2022',
-      location: 'Dhaka',
-      name: 'Hyacinthe',
-      id: 1,
-      status: 'Eidt',
-      nambuer: '01745698745'
-      },
-      {
-      date: 'February 26, 2022',
-      location: 'Dhaka',
-      name: 'Jacquetta',
-      id: 54,
-      status: 'Eidt',
-      nambuer: '01745698745'
-      },
-      {
-      date: 'February 09, 2022',
-      location: 'Dhaka',
-      name: 'Jany',
-      id: 44,
-      status: 'Eidt',
-      nambuer: '01745698745'
-      },
+  const test= {
+    "id": 9,
+    "email": "test@test.com",
+    "phone": "01797568609",
+    "password": "$2b$12$VZ03b5FiGy.37FtIaBK6YeWmw6jsqlDYE1qmS49xYXXIp.UwDEXWG",
+    "createdAt": "2023-02-02T09:43:08.730Z",
+    "updatedAt": "2023-02-02T09:43:08.730Z",
+    "type": "agent",
+    "status": true
+}
 
-  ]
+  const bodyData=[]
 
   const headerData =[
     {
       isFilterable: true,
       isSortable: true,
-      prop: 'name',
-      title: 'Name'
+      prop: 'id',
+      title: 'Id'
       },
       {
       isFilterable: true,
       isSortable: true,
-      prop: 'nambuer',
-      title: 'Nambuer'
+      prop: 'phone',
+      title: 'Phone'
       },
       {
       isFilterable: true,
       isSortable: false,
-      prop: 'location',
-      title: 'Location'
+      prop: 'email',
+      title: 'Email'
       },
       {
-      isFilterable: false,
-      isSortable: true,
-      prop: 'date',
-      title: 'Last Update'
+      isFilterable: true,
+      isSortable: false,
+      prop: 'store',
+      title: 'Store'
       },
       {
-      cellProps: {
-          style: function noRefCheck(){}
+      isFilterable: true,
+      isSortable: false,
+      prop: 'type',
+      title: 'Type'
       },
-      isFilterable: false,
-      isSortable: true,
-      prop: 'id',
-      title: 'ID'
-      },
+      {
+      isFilterable: true,
+      isSortable: false,
+      prop: 'createdAt',
+      title: 'Date Joined'
+      }
   ]
 
   useEffect(() => {
-    // fetch("url")
-    //   .then((res) => res.json())
-    //   .then((data) => setData(data));
-    setData(bodyData);
+    fetch("http://localhost:3000/all")
+      .then((res) => res.json())
+      .then((data) => setData(data.message));
+    // setData(bodyData);
   },[])
 
   return (

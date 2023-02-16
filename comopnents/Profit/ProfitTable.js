@@ -14,6 +14,7 @@ import { Col, Row, Table } from 'react-bootstrap';
 
 export const ProfitTable = ({uid}) => {
     const [data,setData] = useState([]);
+    console.log("profit uid : ", uid, typeof(uid));
 
     // {
     //   id: 1,
@@ -32,9 +33,6 @@ export const ProfitTable = ({uid}) => {
   
     const headerData=[
         {
-        cellProps: {
-            style: function noRefCheck(){}
-        },
         isFilterable: false,
         isSortable: true,
         prop: 'id',
@@ -61,12 +59,12 @@ export const ProfitTable = ({uid}) => {
     ]
   
     useEffect(() => {
-      // fetch(`http://localhost:3000/data/percent/${uid}`)
-      //   .then((res) => res.json())
-      //   .then((data) => {
-      //     console.log("withdrawl data : ", data)
-      //     setData(data)
-      //   });
+      fetch("http://localhost:3000/data/percent/"+uid)
+        .then((res) => res.json())
+        .then((data) => {
+          console.log("profit data : ", data)
+          setData(data.message)
+        });
       // setData(bodyData);
     },[])
 

@@ -7,7 +7,7 @@ import { TransferTable } from './TransferTable';
 
 const TransferForm = ({uid}) => {
 
-  const [transfer, setTransfer] = useState("");
+  const [transfer, setTransfer] = useState(0.00);
 
 
   const transferVal = (event) => {
@@ -31,7 +31,7 @@ const TransferForm = ({uid}) => {
 
   const saveData = () => {
       event.preventDefault();
-      fetch(`http://localhost:3000/balancetransfer/${uid}`, {
+      fetch("http://localhost:3000/balancetransfer/"+uid, {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json',
@@ -71,10 +71,10 @@ const TransferForm = ({uid}) => {
                 </Form.Group>
             </Row>
             <div className='contact-submit'>
-                <Button gap={3} variant="primary" type="submit" onChange={saveData}>
+                <Button gap={3} variant="primary" type="button" onClick={saveData}>
                     Save
                 </Button>
-                <Button variant="primary" type="submit" onChange={clearData}>
+                <Button variant="primary" type="button" onClick={clearData}>
                     Clear
                 </Button>
             </div>

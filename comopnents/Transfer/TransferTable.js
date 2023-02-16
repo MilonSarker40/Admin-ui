@@ -21,39 +21,11 @@ export const TransferTable = ({uid}) => {
         name: 'Agent 1',
         amount:'200',
         date: 'March 02, 2023',
-        },
-        {
-        id: 2,
-        name: 'Agent 2',
-        amount:'300',
-        date: 'March 02, 2023',
-        },
-        {
-        id: 3,
-        name: 'Agent 3',
-        amount:'400',
-        date: 'March 02, 2023',
-        },
-        {
-        id: 4,
-        name: 'Agent 4',
-        amount:'500',
-        date: 'March 02, 2023',
-        },
-        {
-        id: 5,
-        name: 'Agent 5',
-        amount:'600',
-        date: 'March 02, 2023',
-        },
-  
+        }
     ]
   
     const headerData=[
         {
-        cellProps: {
-            style: function noRefCheck(){}
-        },
         isFilterable: false,
         isSortable: true,
         prop: 'id',
@@ -62,28 +34,22 @@ export const TransferTable = ({uid}) => {
         {
         isFilterable: true,
         isSortable: true,
-        prop: 'name',
-        title: 'Name'
-        },
-       {
-        isFilterable: true,
-        isSortable: true,
-        prop: 'amount',
-        title: 'Amount'
+        prop: 'transferedAmount',
+        title: 'Transfered Amount'
         },
         {
         isFilterable: false,
         isSortable: true,
-        prop: 'date',
-        title: 'Last Update'
-        },
+        prop: 'createdAt',
+        title: 'Date'
+        }
     ]
   
     useEffect(() => {
-      // fetch(`http://localhost:3000/data/transfer/${uid}`)
-      //   .then((res) => res.json())
-      //   .then((data) => setData(data));
-      setData(bodyData);
+      fetch("http://localhost:3000/data/transfer/"+uid)
+        .then((res) => res.json())
+        .then((data) => setData(data.message));
+      // setData(bodyData);
     },[])
 
   return (
