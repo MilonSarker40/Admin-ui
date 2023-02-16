@@ -77,34 +77,34 @@ const OrganizationTable = () => {
       {
       isFilterable: true,
       isSortable: true,
-      prop: 'transition',
-      title: 'Transition'
+      prop: 'transactionId',
+      title: 'Trx'
       },
       {
       isFilterable: true,
       isSortable: false,
-      prop: 'api',
+      prop: 'apiId',
       title: 'Api'
       },
       {
       isFilterable: true,
       isSortable: true,
-      prop: 'amount',
+      prop: 'cutAmount',
       title: 'Amount'
       },
       {
       isFilterable: false,
       isSortable: true,
-      prop: 'date',
-      title: 'Last Update'
+      prop: 'createdAt',
+      title: 'Date'
       },
   ]
 
   useEffect(() => {
-    // fetch("url")
-    //   .then((res) => res.json())
-    //   .then((data) => setData(data));
-    setData(bodyData);
+    fetch("http://localhost:3000/orgreports")
+      .then((res) => res.json())
+      .then((data) => setData(data.message));
+    // setData(bodyData);
   },[])
 
   return (
