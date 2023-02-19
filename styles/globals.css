@@ -184,10 +184,18 @@ Sidebar Css
 .navbarMenu .dropdown button:hover i{
   color: #fff !important;
 }
+.navbarMenu > a.active i,
+.navbarMenu > a.active,
 .navbarMenu > a:hover,
 .navbarMenu .dropdown-item:focus,
 .navbarMenu .dropdown-item:hover{
-  background: #25c1d8 !important;
+  background-color: #25c1d8 !important;
+  color: #fff;
+}
+.navbarMenu .dropdown-item.active i,
+.navbarMenu .dropdown-item.active, 
+.navbarMenu .dropdown-item:active{
+  background-color: #25c1d8 !important;
   color: #fff;
 }
 .navbarMenu > a {

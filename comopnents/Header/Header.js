@@ -41,7 +41,7 @@ const Header = (props) => {
                 <div className='logo clearfix'>
                         <Link href='/'>
                             {/* <Image src={Logo} width='150px' height='50px' alt='' />  */}
-                            Dashboard
+                            Azra
                         </Link>
                         <Button variant="primary" onClick={handleShow}>
                             <i class="ri-menu-line"></i>

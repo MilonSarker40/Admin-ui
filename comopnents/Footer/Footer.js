@@ -16,7 +16,7 @@ const Footer = () => {
             </ul>
           </div> */}
           <div className={`${classes.footer_innr}`}>
-            <p>© 2023 Admin Panel. All Rights Reserved</p>
+            <p>© 2023 Azra. All Rights Reserved</p>
           </div> 
       </footer>
     </>
