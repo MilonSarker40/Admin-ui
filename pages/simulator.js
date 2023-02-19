@@ -18,7 +18,7 @@ const simulator = () => {
             <div className='tabsWarp'>
              <Tabs defaultActiveKey="List" id="uncontrolled-tab-example" className="mb-3">
                     <Tab eventKey="List" title="List">
-                       <SimulatorTable />
+                       {/* <SimulatorTable /> */}
                     </Tab>
                     <Tab eventKey="Add New" title="Add New">
                        <SimulatorForm />

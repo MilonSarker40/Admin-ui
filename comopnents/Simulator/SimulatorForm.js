@@ -85,7 +85,7 @@ const SimulatorForm = () => {
       'country': parseInt(country),
       'network': parseInt(network),
       'service': parseInt(service),
-      // 'user': loginData.username
+      'userId': parseInt(localStorage.getItem("uid"))
   }
 
   const clearData = () => {
@@ -163,10 +163,10 @@ const SimulatorForm = () => {
                 </Form.Group>
             </Row>
             <div className='contact-submit'>
-                <Button gap={3} variant="primary" type="submit" id="btn_save" onClick={saveData}>
+                <Button gap={3} variant="primary" type="button" id="btn_save" onClick={saveData}>
                   Recharge
                 </Button>
-                <Button variant="primary" type="submit" id="btn_clear" onClick={clearData}>
+                <Button variant="primary" type="button" id="btn_clear" onClick={clearData}>
                     Clear
                 </Button>
             </div>
