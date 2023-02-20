@@ -10,7 +10,7 @@ function AgentReportId() {
   useEffect(() => {
     fetch('http://localhost:3000/agentreport')
       .then(res => res.json())
-      .then(data => setTable(data.message))
+      .then(data => console.log(data.message))
   },[])
 
   return (
@@ -30,7 +30,7 @@ function AgentReportId() {
             {
               table.map((item) => (
                 <tr key={item.id}>
-                  <td><Link href=''>{item.email}</Link></td>
+                  <td>{item.email}</td>
                   <td><Link href={`/recharge/${item.id}`}>{item.data.recharge}</Link></td>
                   <td><Link href={`/due/${item.id}`}>{item.data.dues}</Link></td>
                   <td><Link href={`/earning/${item.id}`}>{item.data.earning}</Link></td>

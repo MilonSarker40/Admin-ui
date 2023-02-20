@@ -14,50 +14,18 @@ import { Col, Row, Table } from 'react-bootstrap';
 const TransactionReportId = () => {
   const [data,setData] =useState([]);
 
-  const bodyData=[
-    {
-      id: 1,
-      taix: '2',
-      amount: '200',
-      number:'01745698745',
-      date: 'March 08, 2022',
-      },
-      {
-      id: 2,
-      taix: '2',
-      amount: '200',
-      number:'01745698745',
-      date: 'March 08, 2022',
-      },
-      {
-      id: 3,
-      taix: '2',
-      amount: '200',
-      number:'01745698745',
-      date: 'March 08, 2022',
-      },
-      {
-      id: 4,
-      taix: '2',
-      amount: '200',
-      number:'01745698745',
-      date: 'March 08, 2022',
-      },
-      {
-      id: 5,
-      taix: '2',
-      amount: '200',
-      number:'01745698745',
-      date: 'March 08, 2022',
-      },
-      {
-      id: 6,
-      taix: '2',
-      amount: '200',
-      number:'01745698745',
-      date: 'March 08, 2022',
-      },
-  ]
+//   {
+//     "trxId": 45,
+//     "phone": "01911552532",
+//     "amount": 450,
+//     "rechargeStatus": true,
+//     "doneBy": "new@test.com",
+//     "store": "No Store",
+//     "country": "Bangladesh",
+//     "network": "Banglalink",
+//     "service": "Dataload",
+//     "createdAt": "2023-02-19T11:44:35.325Z"
+// },
   const headerData=[
     {
       cellProps: {
@@ -65,40 +33,69 @@ const TransactionReportId = () => {
       },
       isFilterable: false,
       isSortable: true,
-      prop: 'id',
-      title: 'Agent ID'
+      prop: 'trxId',
+      title: 'Trx ID'
       },
       {
       isFilterable: true,
       isSortable: true,
-      prop: 'taix',
-      title: 'Taix'
+      prop: 'phone',
+      title: 'Phone'
       },
       {
       isFilterable: false,
       isSortable: true,
       prop: 'amount',
-      title: 'Anount'
+      title: 'Amount'
       },
       {
       isFilterable: false,
       isSortable: true,
-      prop: 'number',
-      title: 'Number'
+      prop: 'rechargeStatus',
+      title: 'Status'
+      },
+      {
+        isFilterable: false,
+        isSortable: true,
+        prop: 'doneBy',
+        title: 'Agent'
+      },
+      {
+        isFilterable: false,
+        isSortable: true,
+        prop: 'store',
+        title: 'Agent Store'
+      },
+      {
+        isFilterable: false,
+        isSortable: true,
+        prop: 'country',
+        title: 'Country'
+      },
+      {
+        isFilterable: false,
+        isSortable: true,
+        prop: 'network',
+        title: 'Network'
+      },
+      {
+        isFilterable: false,
+        isSortable: true,
+        prop: 'service',
+        title: 'Service'
       },
       {
       isFilterable: false,
       isSortable: true,
-      prop: 'date',
-      title: 'Last Update'
+      prop: 'createdAt',
+      title: 'Date'
       },
   ]
 
   useEffect(() => {
-    fetch("url")
+    fetch("http://localhost:3000/alltransactions")
       .then((res) => res.json())
-      .then((data) => setData(data));
-    setData(bodyData);
+      .then((data) => setData(data.message));
   },[])
   return (
     <>

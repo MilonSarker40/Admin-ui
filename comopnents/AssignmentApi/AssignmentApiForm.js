@@ -6,7 +6,7 @@ import Row from 'react-bootstrap/Row';
 import DynamicCheckBox from '../DynamicCheckBox/DynamicCheckBox';
 import ApiInfo from './ApiInfo';
 
-const IndexApiForm = () => {
+const AssignmentApiForm = () => {
     const [ctry, setCtry] = useState(0);
     const [ctryList, setCtryList] = useState([]);
     const [apiList, setApiList] = useState([]);
