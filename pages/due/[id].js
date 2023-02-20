@@ -1,12 +1,12 @@
 import React from 'react';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
-import Sidebar from '../comopnents/Sidebar/Sidebar';
-import BreadCrumb from '../comopnents/BreadCrumb/BreadCrumb';
-import DueTableId from '../comopnents/Due/DueTableId';
+import Sidebar from '../../comopnents/Sidebar/Sidebar';
+import BreadCrumb from '../../comopnents/BreadCrumb/BreadCrumb';
+import DueTable from '../../comopnents/Due/DueTable';
 
 
-const agentDue = () => {
+const Due = () => {
   return (
     <>
       <section className='main_content clearfix'>
@@ -14,11 +14,11 @@ const agentDue = () => {
             <Sidebar />
          </div>
          <div className='main_content-rgt'>
-            <BreadCrumb title='Agent Due' subtitle='Agent Due' />
+            <BreadCrumb title='Due' subtitle='Due' />
             <div className='tabsWarp'>
              <Tabs defaultActiveKey="List" id="uncontrolled-tab-example" className="mb-3">
                     <Tab eventKey="List" title="List">
-                        <DueTableId />
+                      <DueTable/>
                     </Tab>
                 </Tabs>
            </div>
@@ -28,4 +28,4 @@ const agentDue = () => {
   )
 }
 
-export default agentDue
+export default Due
