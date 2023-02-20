@@ -70,12 +70,12 @@ function DealerReportTable() {
             {
               table.map((item) => (
                 <tr key={item.id}>
-                  <td><Link href={`/dealerreportid/${item.id}`}>{item.agent}</Link></td>
-                  <td><Link href={`/dealerreportid/${item.id}`}>{item.recharge}</Link></td>
-                  <td><Link href={`/dealerreportid/${item.id}`}>{item.dues}</Link></td>
-                  <td><Link href={`/dealerreportid/${item.id}`}>{item.earning}</Link></td>
-                  <td><Link href={`/dealerreportid/${item.id}`}>{item.balance}</Link></td>
-                  <td><Link href={`/dealerreportid/${item.id}`}>{item.sale}</Link></td>
+                  <td><Link href={`/agentreportid/${item.id}`}>{item.agent}</Link></td>
+                  <td><Link href={`/recharge/${item.id}`}>{item.recharge}</Link></td>
+                  <td><Link href={`/due/${item.id}`}>{item.dues}</Link></td>
+                  <td><Link href={`/earning/${item.id}`}>{item.earning}</Link></td>
+                  <td><Link href={`/balance/${item.id}`}>{item.balance}</Link></td>
+                  <td><Link href={`/sale/${item.id}`}>{item.sale}</Link></td>
                 </tr>
               ))
             }
