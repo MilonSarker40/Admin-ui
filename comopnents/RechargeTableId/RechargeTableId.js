@@ -11,7 +11,7 @@ import {
 } from 'react-bs-datatable';
 import { Col, Row, Table } from 'react-bootstrap';
 
-const RechargeTableId = ({uid}) => {
+const RechargeTableId = ({id}) => {
 
   const [data,setData]=useState([]);
 
@@ -95,11 +95,11 @@ const RechargeTableId = ({uid}) => {
       },
   ]
   useEffect(() => {
-    fetch(`http://localhost:3000/agentrecharge/${uid}`)
+    fetch("http://localhost:3000/agentrecharge/"+id)
       .then((res) => res.json())
       .then((data) => console.log(data));
     setData(bodyData);
-  })
+  },[])
   return (
     <>
       <DatatableWrapper

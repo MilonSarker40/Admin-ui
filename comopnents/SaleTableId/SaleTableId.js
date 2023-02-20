@@ -12,54 +12,15 @@ import {
 import { Col, Row, Table } from 'react-bootstrap';
 import { useState } from 'react';
 
-const SaleTableId = ({uid}) => {
+const SaleTableId = ({id}) => {
 
   const [data,setData] =useState([]);
-
-  const bodyData=[
-    {
-      id: 1,
-      taix: '2',
-      amount: '200',
-      number:'01745698745',
-      date: 'March 08, 2022',
-      },
-      {
-      id: 2,
-      taix: '2',
-      amount: '200',
-      number:'01745698745',
-      date: 'March 08, 2022',
-      },
-      {
-      id: 3,
-      taix: '2',
-      amount: '200',
-      number:'01745698745',
-      date: 'March 08, 2022',
-      },
-      {
-      id: 4,
-      taix: '2',
-      amount: '200',
-      number:'01745698745',
-      date: 'March 08, 2022',
-      },
-      {
-      id: 5,
-      taix: '2',
-      amount: '200',
-      number:'01745698745',
-      date: 'March 08, 2022',
-      },
-      {
-      id: 6,
-      taix: '2',
-      amount: '200',
-      number:'01745698745',
-      date: 'March 08, 2022',
-      },
-  ]
+  // id: 45,
+  //   phone: '01911552532',
+  //   amount: 450,
+  //   agent: 'Anonymous',
+  //   rechargeStatus: true,
+  //   createdAt: 2023-02-19T11:44:35.325Z,
   const headerData=[
     {
       cellProps: {
@@ -68,39 +29,38 @@ const SaleTableId = ({uid}) => {
       isFilterable: false,
       isSortable: true,
       prop: 'id',
-      title: 'Agent ID'
+      title: 'Sale ID'
       },
       {
       isFilterable: true,
       isSortable: true,
-      prop: 'taix',
-      title: 'Taix'
+      prop: 'phone',
+      title: 'Phone'
       },
       {
       isFilterable: false,
       isSortable: true,
       prop: 'amount',
-      title: 'Anount'
+      title: 'Amount'
       },
       {
       isFilterable: false,
       isSortable: true,
-      prop: 'number',
-      title: 'Number'
+      prop: 'rechargeStatus',
+      title: 'Status'
       },
       {
       isFilterable: false,
       isSortable: true,
-      prop: 'date',
+      prop: 'createdAt',
       title: 'Last Update'
       },
   ]
 
   useEffect(() => {
-    fetch(`http://localhost:3000/agentrecharge/${uid}`)
+    fetch("http://localhost:3000/agentsale/"+id)
       .then((res) => res.json())
-      .then((data) => console.log(data));
-    setData(bodyData);
+      .then((data) => setData(data.message));
   },[])
   return (
     <>

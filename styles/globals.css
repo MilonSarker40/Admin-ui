@@ -129,90 +129,6 @@ img{
 /*
 Sidebar Css 
  */
- .navbarMenu .dropdown button {
-  background: transparent;
-  color: #000;
-  width: 100%;
-  border: 0;
-  padding: 12px 20px 12px 25px;
-  position: relative;
-  font-size: 16px;
-  line-height: 1;
-  font-weight: 500;
-  text-align: left;
-}
-.navbarMenu .dropdown button > i{
-  position: absolute;
-  left: 5px;
-  color: #25c1d8;
-}
-.navbarMenu .dropdown span{
-  display: inline-block;
-  vertical-align: baseline;
-  position: absolute;
-  right: 0;
-}
-.navbarMenu .dropdown-menu{
-  position: static !important;
-  transform: none !important;
-  background: transparent !important;
-  border: 0 !important;
-  padding-left: 20px !important;
-  padding-right: 10px;
-}
-.navbarMenu .dropdown-menu.show {
-  display: block;
-  width: 100%;
-  border-radius: 0;
-}
-.navbarMenu .dropdown button:hover,
-.navbarMenu .btn-check:checked+.btn,
-.navbarMenu .btn.active, .btn.show,
-.navbarMenu .btn:first-child:active,
-.navbarMenu :not(.btn-check)+.btn:active{
-  background: #25c1d8 !important;
-  color: #fff !important;
-}
-.navbarMenu .btn-check:checked+.btn i,
-.navbarMenu .btn.active i,
-.btn.show i,
-.navbarMenu .btn:first-child:active i,
-.navbarMenu :not(.btn-check)+.btn:active i{
-  color: #fff !important;
-}
-.navbarMenu a:hover i,
-.navbarMenu .dropdown button:hover i{
-  color: #fff !important;
-}
-.navbarMenu > a:hover,
-.navbarMenu .dropdown-item:focus,
-.navbarMenu .dropdown-item:hover{
-  background: #25c1d8 !important;
-  color: #fff;
-}
-.navbarMenu > a {
-  color: #000;
-  text-decoration: none;
-  position: relative;
-  display: block;
-  padding: 13px 20px 13px 25px;
-  font-size: 16px;
-  font-weight: 500;
-}
-.navbarMenu a i{
-  position: absolute;
-  left: 5px;
-  color: #25c1d8;
-}
-
-element.style {
-  position: static;
-  inset: 0px auto auto 0px;
-  transform: none;
-  background: transparent;
-  border: 0;
-  padding-left: 20px;
-}
 .logo a {
   display: inline-block;
   vertical-align: baseline;
@@ -222,6 +138,53 @@ element.style {
   font-size: 24px;
   text-transform: uppercase;
   font-weight: 600;
+}
+.logo a:hover{
+  color: #fff;
+}
+
+/*
+---------------------
+New Sidebar Menu
+--------------------- 
+*/
+.navbarMenu ul li a{
+  display:block;
+  vertical-align: baseline;
+  text-decoration: none;
+  font-size: 16px;
+  line-height: 1;
+  font-weight: 500;
+  color: #000;
+  padding: 12px 25px;
+  position: relative;
+}
+.navbarMenu ul li ul{
+  padding-left: 30px;
+}
+.navbarMenu ul li ul li a{
+  padding: 10px 10px;
+}
+.navbarMenu > ul > li > a > i {
+  position: absolute;
+  left: 5px;
+  top: 12px;
+  color: #0088FF;
+}
+.navbarMenu > ul > li > a > span i {
+  position: absolute;
+  right: 5px;
+  top: 10px;
+  font-size: 18px;
+}
+
+.navbarMenu ul li a.active,
+.navbarMenu ul li a:hover{
+  background: #0088FF;
+  color: #fff;
+}
+.navbarMenu ul li a:hover i{
+  color: #fff;
 }
 
 /*

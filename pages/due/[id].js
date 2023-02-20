@@ -4,11 +4,12 @@ import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 import Sidebar from '../../comopnents/Sidebar/Sidebar';
 import BreadCrumb from '../../comopnents/BreadCrumb/BreadCrumb';
-import RechargeTableId from '../../comopnents/RechargeTableId/RechargeTableId';
+import DueTable from '../../comopnents/Due/DueTable';
 
-const RechargeReport = () => {
-  const router = useRouter()
-  const {id} = router.query
+
+const Due = () => {
+  const router = useRouter();
+  const {id} = router.query;
   return (
     <>
       <section className='main_content clearfix'>
@@ -16,11 +17,11 @@ const RechargeReport = () => {
             <Sidebar />
          </div>
          <div className='main_content-rgt'>
-            <BreadCrumb title='Agent Recharge' subtitle='Agent Recharge' />
+            <BreadCrumb title='Due' subtitle='Due' />
             <div className='tabsWarp'>
              <Tabs defaultActiveKey="List" id="uncontrolled-tab-example" className="mb-3">
                     <Tab eventKey="List" title="List">
-                      <RechargeTableId id={id}/>
+                      <DueTable id={id}/>
                     </Tab>
                 </Tabs>
            </div>
@@ -30,4 +31,4 @@ const RechargeReport = () => {
   )
 }
 
-export default RechargeReport
+export default Due

@@ -121,4 +121,4 @@ const IndexApiForm = () => {
   )
 }
 
-export default IndexApiForm
+export default AssignmentApiForm

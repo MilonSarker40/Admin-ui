@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState ,useEffect} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
   DatatableWrapper,
@@ -11,26 +11,8 @@ import {
 } from 'react-bs-datatable';
 import { Col, Row, Table } from 'react-bootstrap';
 
-const BalanceTableId = ({id}) => {
+const AgentReportTable = ({id}) => {
   const [data,setData] =useState([]);
-
-  const bodyData=[
-    {
-      id : 1,
-      credit : 200,
-      debit: 300,
-      },
-      {
-      id : 2,
-      credit : 300,
-      debit: 400,
-      },
-      {
-      id : 3,
-      credit : 400,
-      debit: 500,
-      },
-  ]
   const headerData=[
     {
       cellProps: {
@@ -39,29 +21,32 @@ const BalanceTableId = ({id}) => {
       isFilterable: false,
       isSortable: true,
       prop: 'id',
-      title: 'Agent ID'
+      title: 'ID'
       },
       {
       isFilterable: true,
-      isSortable:true,
-      prop: 'transferedAmount',
+      isSortable: true,
+      prop: 'debit',
+      title: 'Debit'
+      },
+      {
+      isFilterable: false,
+      isSortable: true,
+      prop: 'credit',
       title: 'Credit'
       },
       {
-      isFilterable: true,
-      isSortable:true,
-      prop: 'deductedAmount',
-      title: 'Debit'
-      },
+      isFilterable: false,
+      isSortable: true,
+      prop: 'note',
+      title: 'Note'
+      }
   ]
 
   useEffect(() => {
-    fetch("http://localhost:3000/agentbalance/"+id)
+    fetch("http://localhost:3000/agentdues/"+id)
       .then((res) => res.json())
-      .then((data) => 
-        // console.log(data)
-        setData(data.message)
-      );
+      .then((data) => setData(data.message));
     // setData(bodyData);
   },[])
   return (
@@ -123,4 +108,4 @@ const BalanceTableId = ({id}) => {
   )
 }
 
-export default BalanceTableId
+export default AgentReportTable

@@ -11,7 +11,7 @@ import {
 } from 'react-bs-datatable';
 import { Col, Row, Table } from 'react-bootstrap';
 
-const DueId = () => {
+const DueTableId = () => {
 
   const [data,setData] =useState([]);
  
@@ -123,4 +123,4 @@ const DueId = () => {
   )
 }
 
-export default DueId
+export default DueTableId

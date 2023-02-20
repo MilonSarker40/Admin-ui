@@ -8,7 +8,7 @@ import SaleTableId from '../../comopnents/SaleTableId/SaleTableId';
 
 const RechargeReport = () => {
   const router = useRouter()
-  const id = router.query
+  const {id} = router.query
   return (
     <>
       <section className='main_content clearfix'>
@@ -20,7 +20,7 @@ const RechargeReport = () => {
             <div className='tabsWarp'>
              <Tabs defaultActiveKey="List" id="uncontrolled-tab-example" className="mb-3">
                     <Tab eventKey="List" title="List">
-                      <SaleTableId uid={id} />
+                      <SaleTableId id={id} />
                     </Tab>
                 </Tabs>
            </div>

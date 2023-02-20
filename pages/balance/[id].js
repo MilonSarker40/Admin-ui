@@ -8,7 +8,7 @@ import BalanceTableId from '../../comopnents/BalanceTableId/BalanceTableId';
 
 const RechargeReport = () => {
   const router = useRouter();
-  const uid = parseInt(router.query);
+  const {id} = router.query;
   return (
     <>
       <section className='main_content clearfix'>
@@ -20,7 +20,7 @@ const RechargeReport = () => {
             <div className='tabsWarp'>
              <Tabs defaultActiveKey="List" id="uncontrolled-tab-example" className="mb-3">
                     <Tab eventKey="List" title="List">
-                      <BalanceTableId uid={uid}/>
+                      <BalanceTableId id={id}/>
                     </Tab>
                 </Tabs>
            </div>
