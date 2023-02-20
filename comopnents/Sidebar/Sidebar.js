@@ -55,6 +55,9 @@ const Sidebar = () => {
                     <li><Link href="/agent-report" className={asPath==='/agent-report' ? 'list active' : 'list'}>Agent</Link></li>
                     <li><Link href="/dealer-report" className={asPath==='/dealer-report' ? 'list active' : 'list'}>Dealer</Link></li>
                     <li><Link href="/subdealer-report" className={asPath==='/subdealer-report' ? 'list active' : 'list'}>SubDealer</Link></li>
+                    <li><Link href="/organization" className={asPath==='/organization' ? 'list active' : 'list'}>Organization</Link></li>
+                    <li><Link href="/transaction" className={asPath==='/transaction' ? 'list active' : 'list'}>Transaction</Link></li>
+
                   </ul>
                 )}
               </li>
@@ -71,7 +74,6 @@ const Sidebar = () => {
               <li><Link href="/settlement" className={asPath==='/settlement' ? 'list active' : 'list'}><i class="ri-radar-line"></i>Settlement</Link></li>
               <li><Link href="/indexapi" className={asPath==='/indexapi' ? 'list active' : 'list'}><i class="ri-file-text-line"></i>Api Index</Link></li>
               <li><Link href="/simulator" className={asPath==='/simulator' ? 'list active' : 'list'}><i class="ri-pages-fill"></i>Simulator</Link></li>
-              <li><Link href="/organization" className={asPath==='/organization' ? 'list active' : 'list'}><i class="ri-pages-fill"></i>Organization</Link></li>
               <li><Link href="/testcomponents" className={asPath==='/testcomponents' ? 'list active' : 'list'}><i class="ri-settings-3-fill"></i>Testcomponents</Link></li>
            </ul>
         </nav>
