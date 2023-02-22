@@ -10,7 +10,7 @@ function AgentReportId() {
   useEffect(() => {
     fetch('http://localhost:3000/agentreport')
       .then(res => res.json())
-      .then(data => console.log(data.message))
+      .then(data => setTable(data.message))
   },[])
 
   return (

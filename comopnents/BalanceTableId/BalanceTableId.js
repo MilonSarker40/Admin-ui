@@ -13,6 +13,7 @@ import { Col, Row, Table } from 'react-bootstrap';
 
 const BalanceTableId = ({id}) => {
   const [data,setData] =useState([]);
+  const [balance, setBalance] =useState(0);
 
   const bodyData=[
     {
@@ -58,14 +59,14 @@ const BalanceTableId = ({id}) => {
   useEffect(() => {
     fetch("http://localhost:3000/agentbalance/"+id)
       .then((res) => res.json())
-      .then((data) => 
-        // console.log(data)
+      .then((data) =>{
         setData(data.message)
-      );
-    // setData(bodyData);
+        setBalance(data.balance)
+      });
   },[])
   return (
     <>
+      <p>Total Balance : {balance}</p>
       <DatatableWrapper
         body={data}
         headers={headerData}

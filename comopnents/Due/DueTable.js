@@ -13,6 +13,7 @@ import { Col, Row, Table } from 'react-bootstrap';
 
 const AgentReportTable = ({id}) => {
   const [data,setData] =useState([]);
+  const [due, setDue] =useState(0);
   const headerData=[
     {
       cellProps: {
@@ -46,11 +47,15 @@ const AgentReportTable = ({id}) => {
   useEffect(() => {
     fetch("http://localhost:3000/agentdues/"+id)
       .then((res) => res.json())
-      .then((data) => setData(data.message));
+      .then((data) => {
+        setData(data.message)
+        setDue(data.due)
+      });
     // setData(bodyData);
   },[])
   return (
     <>
+      <p>Remaing Due to withdraw : {due}</p>
       <DatatableWrapper
         body={data}
         headers={headerData}

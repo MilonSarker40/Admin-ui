@@ -15,54 +15,8 @@ import { Col, Row, Table } from 'react-bootstrap';
 
 
 const OrganizationTable = () => {
-
-
   const [data,setData] =useState([]);
-
-  const bodyData=[
-     {
-      id: 1,
-      transaction: '200',
-      api: 'Api 1',
-      amount:'300',
-      date: 'March 04, 2022',
-      },
-      {
-      id: 2,
-      transaction: '200',
-      api: 'Api 2',
-      amount:'300',
-      date: 'March 04, 2022',
-      },
-      {
-      id: 3,
-      transaction: '200',
-      api: 'Api 3',
-      amount:'300',
-      date: 'March 04, 2022',
-      },
-      {
-      id: 4,
-      transaction: '200',
-      api: 'Api 4',
-      amount:'300',
-      date: 'March 04, 2022',
-      },
-      {
-      id: 5,
-      transaction: '200',
-      api: 'Api 5',
-      amount:'300',
-      date: 'March 04, 2022',
-      },
-      {
-      id: 6,
-      transaction: '200',
-      api: 'Api 6',
-      amount:'300',
-      date: 'March 04, 2022',
-      },
-  ]
+  const [total, setTotal] = useState(0);
 
   const headerData =[
       {
@@ -81,9 +35,15 @@ const OrganizationTable = () => {
       title: 'Trx'
       },
       {
+        isFilterable: true,
+        isSortable: true,
+        prop: 'rechargeAmount',
+        title: 'Recharge Amount'
+        },
+      {
       isFilterable: true,
       isSortable: false,
-      prop: 'apiId',
+      prop: 'api',
       title: 'Api'
       },
       {
@@ -103,12 +63,15 @@ const OrganizationTable = () => {
   useEffect(() => {
     fetch("http://localhost:3000/orgreports")
       .then((res) => res.json())
-      .then((data) => setData(data.message));
-    // setData(bodyData);
+      .then((data) => {
+        setData(data.message)
+        setTotal(data.total_earned)
+      });
   },[])
 
   return (
     <>
+      <p>Total Earned So Far : {total}</p>
       <DatatableWrapper
         body={data}
         headers={headerData}

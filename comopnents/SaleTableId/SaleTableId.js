@@ -13,14 +13,8 @@ import { Col, Row, Table } from 'react-bootstrap';
 import { useState } from 'react';
 
 const SaleTableId = ({id}) => {
-
   const [data,setData] =useState([]);
-  // id: 45,
-  //   phone: '01911552532',
-  //   amount: 450,
-  //   agent: 'Anonymous',
-  //   rechargeStatus: true,
-  //   createdAt: 2023-02-19T11:44:35.325Z,
+  const [sale, setSale] = useState(0);
   const headerData=[
     {
       cellProps: {
@@ -60,10 +54,14 @@ const SaleTableId = ({id}) => {
   useEffect(() => {
     fetch("http://localhost:3000/agentsale/"+id)
       .then((res) => res.json())
-      .then((data) => setData(data.message));
+      .then((data) => {
+        setData(data.message)
+        setSale(data.sale)
+      });
   },[])
   return (
     <>
+      <p>Total Sales : {sale}</p>
       <DatatableWrapper
         body={data}
         headers={headerData}

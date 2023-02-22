@@ -13,6 +13,7 @@ import { Col, Row, Table } from 'react-bootstrap';
 
 const EarningTableId = ({id}) => {
   const [data,setData] =useState([]);
+  const [earn, setEarn] = useState(0);
   const headerData=[
     {
       cellProps: {
@@ -46,10 +47,14 @@ const EarningTableId = ({id}) => {
   useEffect(() => {
     fetch("http://localhost:3000/agentearning/"+id)
       .then((res) => res.json())
-      .then((data) => setData(data.message));
+      .then((data) => {
+        setData(data.message)
+        setEarn(data.earn)
+      });
   },[])
   return (
     <>
+      <p>Total Earned : {earn}</p>
       <DatatableWrapper
         body={data}
         headers={headerData}
