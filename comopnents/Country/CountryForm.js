@@ -63,17 +63,17 @@ const CountryForm = () => {
      <div className='contact-form-wrp'>
          <Form action=''>
            <Row className="mb-3">
-                <Form.Group as={Col} controlId="formGridEmail">
+                <Form.Group as={Col}>
                     <Form.Label>Country Name</Form.Label>
                     <Form.Control type="text" id='name' placeholder="Country Name.." onChange={nameVal} />
                 </Form.Group>
-                <Form.Group as={Col} controlId="formGridEmail">
+                <Form.Group as={Col}>
                     <Form.Label>Country Short Code</Form.Label>
                     <Form.Control type="text" id='short' placeholder="Country Short Code" onChange={shortVal} />
                 </Form.Group>
             </Row>
             <Row className="mb-3">
-                <Form.Group as={Col} controlId="formGridEmail">
+                <Form.Group as={Col}>
                     <Form.Label>Country Code</Form.Label>
                     <Form.Control type="text" id='code' placeholder="Enter Country Code" onChange={codeVal} />
                 </Form.Group>

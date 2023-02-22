@@ -82,22 +82,22 @@ const IndexApiForm = () => {
       <div className='contact-form-wrp'>
          <Form action='' onSubmit={formSubmit}>
            <Row className="mb-3">
-              <Form.Group as={Col} controlId="formGridEmail">
+              <Form.Group as={Col}>
                     <Form.Label>Name</Form.Label>
                     <Form.Control type="name" placeholder="Enter Your Name" value={fname} onChange={(e)=>setFname(e.target.value)} />
                 </Form.Group>
-                <Form.Group as={Col} controlId="formGridEmail">
+                <Form.Group as={Col}>
                     <Form.Label>API Code</Form.Label>
                     <Form.Control type="text" placeholder="Enter Your Api Code" value={apiCode} onChange={(e)=>setApiCode(e.target.value)} />
                 </Form.Group>
             </Row>
             <Row className="mb-3">
-                <Form.Group as={Col} controlId="formInfo">
+                <Form.Group as={Col}>
                     <Form.Label>Info</Form.Label>
                     <Form.Control type="text" placeholder="Enter Info" value={info} onChange={(e)=>setInfo(e.target.value)} />
                 </Form.Group>
 
-                <Form.Group as={Col} controlId="formStatus">
+                <Form.Group as={Col}>
                     <Form.Label>Status</Form.Label>
                     <Form.Select aria-label="Default select example" value={status} onChange={(e)=>setStatus(e.target.value)}>
                         <option>Select Status</option>
@@ -106,14 +106,14 @@ const IndexApiForm = () => {
                 </Form.Group> 
             </Row>
             <Row className='mb-3'>
-               <Form.Group as={Col} controlId="formStatus">
+               <Form.Group as={Col}>
                     <Form.Label>Request Type</Form.Label>
                     <Form.Select aria-label="Default select example" value={requestType} onChange={(e)=>SetRequestType(e.target.value)}>
                         <option>Select Type</option>
                          {options1}
                     </Form.Select>
                 </Form.Group> 
-                <Form.Group as={Col} controlId="formCredentials">
+                <Form.Group as={Col}>
                     <Form.Label>Credentials</Form.Label>
                     <Form.Control type='text' placeholder="Enter Credentials" value={credentials}  onChange={(e)=>setCredentials(e.target.value)}/>
                 </Form.Group>

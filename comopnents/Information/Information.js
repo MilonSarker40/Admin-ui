@@ -46,9 +46,9 @@ const TransferForm = () => {
      <div className='contact-form-wrp'>
          <Form action=''>
            <Row className="mb-3"> 
-                <Form.Group as={Col} controlId="exampleForm.ControlTextarea1">
+                <Form.Group as={Col}>
                   <Form.Label>Information</Form.Label>
-                  <Form.Control as="textarea" type="text" step="2" id="information" placeholder="Information" onChange={informationVal} />
+                  <Form.Control as="textarea" type="text" step="2" placeholder="Information" onChange={informationVal} />
                 </Form.Group>
             </Row>
 

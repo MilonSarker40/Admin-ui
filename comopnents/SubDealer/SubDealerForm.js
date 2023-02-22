@@ -93,45 +93,45 @@ const SubDealerForm = () => {
       <div className='contact-form-wrp'>
          <Form action='' onSubmit={formSubmit}>
            <Row className="mb-3">
-              <Form.Group as={Col} controlId="formGridEmail">
+              <Form.Group as={Col}>
                     <Form.Label>Name</Form.Label>
                     <Form.Control type="name" placeholder="Enter Your Name" value={fname} onChange={(e)=>setfName(e.target.value)} />
                 </Form.Group>
-                <Form.Group as={Col} controlId="formGridEmail">
+                <Form.Group as={Col}>
                     <Form.Label>Mobile Number</Form.Label>
                     <Form.Control type="text" placeholder="Enter Your Number" value={number} onChange={(e)=>setNumber(e.target.value)} />
                 </Form.Group>
             </Row>
             <Row className="mb-3">
-                <Form.Group as={Col} controlId="formGridEmail">
+                <Form.Group as={Col}>
                     <Form.Label>Email Address</Form.Label>
                     <Form.Control type="email" placeholder="Enter email" value={email} onChange={(e)=>setEmail(e.target.value)} />
                 </Form.Group>
 
-                <Form.Group as={Col} controlId="formVerification">
+                <Form.Group as={Col}>
                     <Form.Label>Verification Code</Form.Label>
                     <Form.Control type="text" placeholder="Verification Code" value={verifiCode} onChange={(e)=>setVerifiCode(e.target.value)} />
                 </Form.Group>
             </Row>
             <Row className='mb-3'>
-                <Form.Group as={Col} controlId="formGridAddress1">
+                <Form.Group as={Col}>
                     <Form.Label>Address</Form.Label>
                     <Form.Control type='text' placeholder="Enter Address" value={address} onChange={(e)=>setAddress(e.target.value)} />
                 </Form.Group> 
-                <Form.Group as={Col} controlId="formCity">
+                <Form.Group as={Col}>
                     <Form.Label>City</Form.Label>
                     <Form.Control type='text' placeholder="Enter City" value={city} onChange={(e)=>setCity(e.target.value)} />
                 </Form.Group>
             </Row>
             <Row className='mb-3'>
-              <Form.Group as={Col} controlId="formCountry">
+              <Form.Group as={Col}>
                     <Form.Label>Country</Form.Label>
                     <Form.Select aria-label="Default select example" value={country} onChange={(e)=>setCountry(e.target.value)}>
                         <option>Country</option>
                         {options}
                     </Form.Select>
                 </Form.Group> 
-                <Form.Group as={Col} controlId="formDealer">
+                <Form.Group as={Col}>
                     <Form.Label>Dealer</Form.Label>
                     <Form.Select aria-label="Default select example" value={dealer} onChange={(e)=>setDealer(e.target.value)}>
                       {options1}
@@ -139,7 +139,7 @@ const SubDealerForm = () => {
                 </Form.Group> 
             </Row>
             <Row className='mb-3'>
-                 <Form.Group as={Col} lg={6} controlId="formArea">
+                 <Form.Group as={Col} lg={6}>
                     <Form.Label>Area</Form.Label>
                     <Form.Control type='text' placeholder="Enter Area" value={area} onChange={(e)=>setArea(e.target.value)} />
                  </Form.Group>

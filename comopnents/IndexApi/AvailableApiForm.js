@@ -70,7 +70,7 @@ const IndexApiForm = () => {
       <div className='contact-form-wrp'>
          <Form action=''>
             <Row className="mb-3">
-                <Form.Group as={Col} controlId="formStatus">
+                <Form.Group as={Col}>
                     <Form.Label>Status</Form.Label>
                     <Form.Select aria-label="Default select example" onChange={handleChnageApi}>
                         <option>Select Status</option>

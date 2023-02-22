@@ -46,7 +46,7 @@ const AssignmentApiForm = () => {
          <Form action=''>
             <div className='contact-form-check'>
             <Row className="mb-3">
-                <Form.Group as={Col} controlId="formStatus">
+                <Form.Group as={Col}>
                     <Form.Label>Status</Form.Label>
                     <Form.Select aria-label="Default select example">
                         <option>Select Status</option>
@@ -55,7 +55,7 @@ const AssignmentApiForm = () => {
                 </Form.Group> 
              </Row>
 
-              <Form.Group className="mb-3" controlId="formBasicPassword">
+              <Form.Group className="mb-3">
                 {
                   cities && cities.map((selectItem,index) => (
                     <>
