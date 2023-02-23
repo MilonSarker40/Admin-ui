@@ -21,7 +21,7 @@ const Sidebar = () => {
            <ul className='clearfix reset-list'>
               <li><Link href="/sample" className={asPath==='/sample' ? 'list active' : 'list'}><i class="ri-settings-3-fill"></i>Sample</Link></li>
               <li>
-                <Link onClick={() => setUserToggle(!userToggle)} href=''><i class="ri-user-line"></i>User<span><i class="ri-arrow-right-s-line"></i></span></Link>
+                <Link onClick={() => setUserToggle(!userToggle)} href='#'><i class="ri-user-line"></i>User<span><i class="ri-arrow-right-s-line"></i></span></Link>
                 {userToggle && (
                   <ul className='clearfix reset-list'>
                     <li><Link href="/dealer" className={asPath==='/dealer' ? 'list active' : 'list'}>Dealer</Link></li>
@@ -31,7 +31,7 @@ const Sidebar = () => {
                 )}
               </li>
               <li>
-                <Link onClick={() => setNationaToggle(!nationalToggle)} href=''><i class="ri-profile-line"></i>National<span><i class="ri-arrow-right-s-line"></i></span></Link>
+                <Link onClick={() => setNationaToggle(!nationalToggle)} href='#'><i class="ri-profile-line"></i>National<span><i class="ri-arrow-right-s-line"></i></span></Link>
                 {nationalToggle && (
                 <ul className='clearfix reset-list'>
                   <li><Link href="/country" className={asPath==='/country' ? 'list active' : 'list'}>Country</Link></li>
@@ -40,7 +40,7 @@ const Sidebar = () => {
                 )}
               </li>
               <li>
-                <Link onClick={() => setNetworkToggle(!networkToggle)} href=''><i class="ri-router-line"></i>Network<span><i class="ri-arrow-right-s-line"></i></span></Link>
+                <Link onClick={() => setNetworkToggle(!networkToggle)} href='#'><i class="ri-router-line"></i>Network<span><i class="ri-arrow-right-s-line"></i></span></Link>
                 {networkToggle && (
                   <ul className='clearfix reset-list'>
                     <li><Link href="/service" className={asPath==='/service' ? 'list active' : 'list'}>Country</Link></li>
@@ -49,7 +49,7 @@ const Sidebar = () => {
                 )}
               </li>
               <li>
-                <Link onClick={() => setReportToggle(!reportToggle)} href=''><i class="ri-file-text-fill"></i>Reports<span><i class="ri-arrow-right-s-line"></i></span></Link>
+                <Link onClick={() => setReportToggle(!reportToggle)} href='#'><i class="ri-file-text-fill"></i>Reports<span><i class="ri-arrow-right-s-line"></i></span></Link>
                 {reportToggle && (
                   <ul className='clearfix reset-list'>
                     <li><Link href="/agent-report" className={asPath==='/agent-report' ? 'list active' : 'list'}>Agent</Link></li>
@@ -62,7 +62,7 @@ const Sidebar = () => {
                 )}
               </li>
               <li>
-                <Link onClick={() => setToggle(!toggle)} href=''><i class="ri-file-text-fill"></i>Report<span><i class="ri-arrow-right-s-line"></i></span></Link>
+                <Link onClick={() => setToggle(!toggle)} href='#'><i class="ri-file-text-fill"></i>Report<span><i class="ri-arrow-right-s-line"></i></span></Link>
                 {toggle &&(
                   <ul className='clearfix reset-list'>
                     <li><Link href="/agent-earning" className={asPath==='/agent-earning' ? 'list active' : 'list'}>Agent Earning</Link></li>

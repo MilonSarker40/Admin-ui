@@ -127,14 +127,14 @@ const SimulatorForm = () => {
      <div className='contact-form-wrp'>
          <Form action=''>
            <Row className="mb-3">
-               <Form.Group as={Col} controlId="formCountry">
+               <Form.Group as={Col}>
                     <Form.Label>Country</Form.Label>
                     <Form.Select aria-label="Default select example" id="country" onChange={countryVal}>
                         <option value='0'>Select Country</option>
                         {ctry}
                     </Form.Select>
                 </Form.Group>
-                <Form.Group as={Col} controlId="formNetwork">
+                <Form.Group as={Col}>
                     <Form.Label>Network</Form.Label>
                     <Form.Select aria-label="Default select example" id="network" onChange={networkVal}>
                         <option value="0">Select Network</option>
@@ -143,7 +143,7 @@ const SimulatorForm = () => {
                 </Form.Group>
             </Row>
             <Row className="mb-3">
-                <Form.Group as={Col} controlId="formCountry">
+                <Form.Group as={Col}>
                     <Form.Label>Service Type</Form.Label>
                     <Form.Select aria-label="Default select example" id="service" onChange={serviceVal}>
                         <option value="0">Select Service</option>
@@ -151,13 +151,13 @@ const SimulatorForm = () => {
                     </Form.Select>
                 </Form.Group>
 
-                <Form.Group as={Col} controlId="formMobileNumber">
+                <Form.Group as={Col}>
                     <Form.Label>Mobile Number</Form.Label>
                     <Form.Control type="text" placeholder="Mobile Number" id="mobile" onChange={mobileVal} />
                 </Form.Group>
             </Row>
             <Row className='mb-3'>
-               <Form.Group as={Col} controlId="formAmount">
+               <Form.Group as={Col}>
                     <Form.Label>Amount</Form.Label>
                     <Form.Control type="text" placeholder="Enter Amount" step="0.01" id="amount" onChange={amountVal} />
                 </Form.Group>

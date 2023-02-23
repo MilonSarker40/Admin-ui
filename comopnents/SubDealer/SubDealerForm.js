@@ -96,7 +96,7 @@ const SubDealerForm = () => {
                     <Form.Label>Last Name</Form.Label>
                     <Form.Control type="name" placeholder="Last Name" onChange={(e)=>setLname(e.target.value)} />
                 </Form.Group>
-                <Form.Group as={Col} controlId="formGridEmail">
+                <Form.Group as={Col}>
                     <Form.Label>Mobile Number</Form.Label>
                     <Form.Control type="text" placeholder="Enter Your Number" onChange={(e)=>setNumber(e.target.value)} />
                 </Form.Group>
@@ -106,7 +106,7 @@ const SubDealerForm = () => {
                 </Form.Group>
             </Row>
             <Row className="mb-3">
-                <Form.Group as={Col} controlId="formGridEmail">
+                <Form.Group as={Col}>
                     <Form.Label>Email Address</Form.Label>
                     <Form.Control type="email" placeholder="Enter email" onChange={(e)=>setEmail(e.target.value)} />
                 </Form.Group>
@@ -122,7 +122,7 @@ const SubDealerForm = () => {
                 </Form.Group>
             </Row>
             <Row className='mb-3'>
-                <Form.Group as={Col} controlId="formGridAddress1">
+                <Form.Group as={Col}>
                     <Form.Label>Address</Form.Label>
                     <Form.Control type='text' placeholder="Enter Address" value={address} onChange={(e)=>setAddress(e.target.value)} />
                 </Form.Group> 

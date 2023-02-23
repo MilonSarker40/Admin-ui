@@ -42,11 +42,11 @@ const CircleForm = () => {
       <div className='contact-form-wrp'>
          <Form action='' onSubmit={formSubmit}>
            <Row className="mb-3">
-               <Form.Group as={Col} controlId="formGridEmail">
+               <Form.Group as={Col}>
                     <Form.Label>Name</Form.Label>
                     <Form.Control type="text" placeholder="Enter Your Name" value={fname} onChange={(e)=>setFname(e.target.value)} /> 
                 </Form.Group>
-                <Form.Group as={Col} controlId="formCountry">
+                <Form.Group as={Col}>
                     <Form.Label>Select Country</Form.Label>
                     <Form.Select aria-label="Default select example" value={selectCountry} onChange={(e)=>setSelectCountry(e.target.value)}>
                         <option>Country Name</option>

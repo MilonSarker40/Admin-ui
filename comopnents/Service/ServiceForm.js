@@ -64,11 +64,11 @@ const ServiceForm = () => {
     <div className='contact-form-wrp'>
          <Form action=''>
            <Row className="mb-3">
-               <Form.Group as={Col} controlId="formGridEmail">
+               <Form.Group as={Col}>
                     <Form.Label>Service Name</Form.Label>
                     <Form.Control type="text" placeholder="Enter Your Service Name" onChange={serviceVal} />
                 </Form.Group>
-                <Form.Group as={Col} controlId="formCountry">
+                <Form.Group as={Col}>
                     <Form.Label>Select Mobile Network</Form.Label>
                     <Form.Select aria-label="Default select example" onChange={mnoVal}>
                         <option>Select Network</option>

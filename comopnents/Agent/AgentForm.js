@@ -56,7 +56,7 @@ const AgentForm = () => {
       <div className='contact-form-wrp'>
          <Form action='' onSubmit={formSubmit}>
            <Row className="mb-3">
-              <Form.Group as={Col} controlId="formGridEmail">
+              <Form.Group as={Col}>
                     <Form.Label>Name</Form.Label>
                     <Form.Control type="name" placeholder="Enter Your Name" value={fname} onChange={(e)=>setFname(e.target.value)} />
                 </Form.Group>
@@ -66,35 +66,35 @@ const AgentForm = () => {
                 </Form.Group>
             </Row>
             <Row className="mb-3">
-                <Form.Group as={Col} controlId="formGridEmail">
+                <Form.Group as={Col}>
                     <Form.Label>Email Address</Form.Label>
                     <Form.Control type="email" placeholder="Enter email" value={email} onChange={(e)=>setEmail(e.target.value)} />
                 </Form.Group>
 
-                <Form.Group as={Col} controlId="formGridPassword">
+                <Form.Group as={Col}>
                     <Form.Label>Verification Code</Form.Label>
                     <Form.Control type="text" placeholder="Verification Code" value={verificCode} onChange={(e)=>setVerificCode(e.target.value)} />
                 </Form.Group>
             </Row>
             <Row className='mb-3'>
-                <Form.Group as={Col} controlId="formGridAddress1">
+                <Form.Group as={Col}>
                     <Form.Label>Address</Form.Label>
                     <Form.Control placeholder="Enter Address" value={address} onChange={(e)=>setAddress(e.target.value)}/>
                 </Form.Group> 
-                <Form.Group as={Col} controlId="formCity">
+                <Form.Group as={Col}>
                     <Form.Label>City</Form.Label>
                     <Form.Control type='text' placeholder="Enter City" value={city} onChange={(e)=>setCity(e.target.value)} />
                 </Form.Group>
             </Row>
             <Row className='mb-3'>
-              <Form.Group as={Col} controlId="formCountry">
+              <Form.Group as={Col}>
                     <Form.Label>Country</Form.Label>
                     <Form.Select aria-label="Default select example" value={country} onChange={(e)=>setCountry(e.target.value)}>
                         <option>Country</option>
                         {options}
                     </Form.Select>
                 </Form.Group> 
-                <Form.Group as={Col} controlId="AreaManager">
+                <Form.Group as={Col}>
                     <Form.Label>Area manager</Form.Label>
                     <Form.Select aria-label="Default select example" value={areaManager} onChange={(e)=>setAreaManager(e.target.value)}>
                         <option>Area manager</option>

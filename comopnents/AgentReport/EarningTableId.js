@@ -10,10 +10,16 @@ import {
   TableHeader
 } from 'react-bs-datatable';
 import { Col, Row, Table } from 'react-bootstrap';
+import TrxLink from '../Trxdt/TrxLink';
 
 const EarningTableId = ({id}) => {
   const [data,setData] =useState([]);
   const [earn, setEarn] = useState(0);
+
+  for(let i = 0; i<data.length;i++){
+    let comp = <TrxLink trxId={data[i].transactionId} />
+    data[i].link = comp
+  }
   const headerData=[
     {
       cellProps: {
@@ -30,6 +36,12 @@ const EarningTableId = ({id}) => {
       prop: 'transactionId',
       title: 'Trx No'
       },
+      {
+        isFilterable: true,
+        isSortable: true,
+        prop: 'link',
+        title: 'Trx Detail'
+        },
       {
       isFilterable: false,
       isSortable: true,

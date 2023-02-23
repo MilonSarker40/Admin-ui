@@ -3,9 +3,11 @@ import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 import Sidebar from '../comopnents/Sidebar/Sidebar';
 import BreadCrumb from '../comopnents/BreadCrumb/BreadCrumb';
-import TransactionReportTable from '../comopnents/Transaction/TransactionReportTable';
+import Trxdts from '../comopnents/Trxdt/Trxdts';
 
-const TransactionReport = () => {
+
+
+const DealerReport = () => {
   return (
     <>
       <section className='main_content clearfix'>
@@ -13,13 +15,9 @@ const TransactionReport = () => {
             <Sidebar />
          </div>
          <div className='main_content-rgt'>
-            <BreadCrumb title='Transaction' subtitle='Transaction' />
+            <BreadCrumb title='Transaction Detalis' subtitle='Transaction Detalis' />
             <div className='tabsWarp'>
-             <Tabs defaultActiveKey="List" id="uncontrolled-tab-example" className="mb-3">
-                    <Tab eventKey="List" title="List">
-                       <TransactionReportTable />
-                    </Tab>
-                </Tabs>
+              <Trxdts />
            </div>
          </div>
       </section>
@@ -27,4 +25,4 @@ const TransactionReport = () => {
   )
 }
 
-export default TransactionReport
+export default DealerReport

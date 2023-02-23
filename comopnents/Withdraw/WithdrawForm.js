@@ -66,7 +66,7 @@ const WithdrawForm = ({uid}) => {
      <div className='contact-form-wrp'>
          <Form action=''>
          <Row className="mb-3">
-              <Form.Group as={Col} controlId="formCountry">
+              <Form.Group as={Col}>
                 <Form.Label>Select Agent</Form.Label>
                 <Form.Select aria-label="Default select example" onChange={agentVal}>
                     <option>Select Agent</option>
@@ -75,7 +75,7 @@ const WithdrawForm = ({uid}) => {
               </Form.Group>
            </Row>
            <Row className="mb-3"> 
-                <Form.Group as={Col} controlId="formGridEmail">
+                <Form.Group as={Col}>
                     <Form.Label>Balance Withdraw</Form.Label>
                     <Form.Control type="number" step="2" id="withdraw" placeholder="Balance Withdraw" onChange={withdrawVal} />
                 </Form.Group>

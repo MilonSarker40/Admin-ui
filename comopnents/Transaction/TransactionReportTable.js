@@ -10,22 +10,17 @@ import {
   TableHeader
 } from 'react-bs-datatable';
 import { Col, Row, Table } from 'react-bootstrap';
+import TrxLink from '../Trxdt/TrxLink';
 
 const TransactionReportId = () => {
   const [data,setData] =useState([]);
 
-//   {
-//     "trxId": 45,
-//     "phone": "01911552532",
-//     "amount": 450,
-//     "rechargeStatus": true,
-//     "doneBy": "new@test.com",
-//     "store": "No Store",
-//     "country": "Bangladesh",
-//     "network": "Banglalink",
-//     "service": "Dataload",
-//     "createdAt": "2023-02-19T11:44:35.325Z"
-// },
+  for(let i = 0; i<data.length;i++){
+    let comp = <TrxLink trxId={data[i].trxId} />
+
+    data[i].link = comp
+  }
+
   const headerData=[
     {
       cellProps: {
@@ -35,6 +30,12 @@ const TransactionReportId = () => {
       isSortable: true,
       prop: 'trxId',
       title: 'Trx ID'
+      },
+      {
+        isFilterable: true,
+        isSortable: true,
+        prop: 'link',
+        title: 'Link'
       },
       {
       isFilterable: true,

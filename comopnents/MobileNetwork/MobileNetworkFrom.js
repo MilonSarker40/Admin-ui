@@ -72,11 +72,11 @@ const MobileNetworkFrom = () => {
       <div className='contact-form-wrp'>
          <Form action=''>
            <Row className="mb-3">
-               <Form.Group as={Col} controlId="formGridEmail">
+               <Form.Group as={Col}>
                     <Form.Label>Service Name</Form.Label>
                     <Form.Control type="text" placeholder="Enter Your Service Name" onChange={mnoVal} />
                 </Form.Group>
-                <Form.Group as={Col} controlId="formCountry">
+                <Form.Group as={Col}>
                     <Form.Label>Select Country</Form.Label>
                     <Form.Select aria-label="Default select example" onChange={countryVal}>
                         <option>Select Country</option>

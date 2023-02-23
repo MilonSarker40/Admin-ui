@@ -10,6 +10,8 @@ import {
   TableHeader
 } from 'react-bs-datatable';
 import { Col, Row, Table } from 'react-bootstrap';
+import TrxLink from '../Trxdt/TrxLink';
+
 
 
 
@@ -20,6 +22,11 @@ const OrganizationTable = () => {
   const [success, setSuccess] = useState(0);
   const [failed, setFailed] = useState(0);
   const [sales, setSales] = useState(0);
+
+  for(let i = 0; i<data.length;i++){
+    let comp = <TrxLink trxId={data[i].transactionId} />
+    data[i].link = comp
+  }
 
   const headerData =[
       {
@@ -37,6 +44,12 @@ const OrganizationTable = () => {
       prop: 'transactionId',
       title: 'Trx'
       },
+      {
+        isFilterable: true,
+        isSortable: true,
+        prop: 'link',
+        title: 'Trx Detail'
+        },
       {
         isFilterable: true,
         isSortable: true,

@@ -78,15 +78,15 @@ const LoginFrom = () => {
                  </div>
                 <Form action='' onSubmit={submitForm}>
                     <Row className="mb-3">
-                    <Form.Group as={Col} controlId="formNumber">
+                    <Form.Group as={Col}>
                         <Form.Label>Number</Form.Label>
-                        <Form.Control type="text" id='formNumber' ref={phoneNumber}  value={number} onChange={(e) => setNumber(e.target.value)} placeholder="Enter Number"/>
+                        <Form.Control type="text" ref={phoneNumber}  value={number} onChange={(e) => setNumber(e.target.value)} placeholder="Enter Number"/>
                     </Form.Group> 
                     </Row>
                     <Row className="mb-3">
-                        <Form.Group as={Col} controlId="formPassword">
+                        <Form.Group as={Col}>
                             <Form.Label>Password</Form.Label>
-                            <Form.Control type="password" id='formPassword' ref={userPassword} value={password} onChange={(e)=>setPassword(e.target.value)} placeholder="Enter Password" />
+                            <Form.Control type="password" ref={userPassword} value={password} onChange={(e)=>setPassword(e.target.value)} placeholder="Enter Password" />
                         </Form.Group>
                     </Row>
                     <div className='contact-submit'>
