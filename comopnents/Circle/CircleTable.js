@@ -1,4 +1,5 @@
 import React, { useState,useEffect } from 'react';
+import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
   DatatableWrapper,
@@ -22,7 +23,8 @@ const CircleTable = () => {
       name: 'Gertrud',
       id: 60,
       status: 'Eidt',
-      nambuer: '01745698745'
+      nambuer: '01745698745',
+      button:<Button variant="primary">Link</Button>,
       },
       {
       date: 'March 08, 2022',
@@ -30,7 +32,9 @@ const CircleTable = () => {
       name: 'Gui',
       id: 73,
       status: 'Eidt',
-      nambuer: '01745698745'
+      nambuer: '01745698745',
+      button:<Button variant="primary">Link</Button>,
+
       },
       {
       date: 'February 18, 2022',
@@ -38,7 +42,8 @@ const CircleTable = () => {
       name: 'Hannis',
       id: 17,
       status: 'Eidt',
-      nambuer: '01745698745'
+      nambuer: '01745698745',
+      button:<Button variant="primary">Link</Button>,
       },
       {
       date: 'February 15, 2022',
@@ -46,7 +51,8 @@ const CircleTable = () => {
       name: 'Hyacinthe',
       id: 1,
       status: 'Eidt',
-      nambuer: '01745698745'
+      nambuer: '01745698745',
+      button:<Button variant="primary">Link</Button>,
       },
       {
       date: 'February 26, 2022',
@@ -54,7 +60,8 @@ const CircleTable = () => {
       name: 'Jacquetta',
       id: 54,
       status: 'Eidt',
-      nambuer: '01745698745'
+      nambuer: '01745698745',
+      button:<Button variant="primary">Link</Button>,
       },
       {
       date: 'February 09, 2022',
@@ -62,7 +69,8 @@ const CircleTable = () => {
       name: 'Jany',
       id: 44,
       status: 'Eidt',
-      nambuer: '01745698745'
+      nambuer: '01745698745',
+      button:<Button variant="primary">Link</Button>,
       },
 
   ]
@@ -91,6 +99,12 @@ const CircleTable = () => {
       isSortable: true,
       prop: 'date',
       title: 'Last Update'
+      },
+     {
+      isFilterable: false,
+      isSortable: true,
+      prop: 'button',
+      title: 'Link'
       },
       {
       cellProps: {
