@@ -14,24 +14,6 @@ import { Col, Row, Table } from 'react-bootstrap';
 
 export const WithdrawTable = ({uid}) => {
     const [data,setData] = useState([]);
-    console.log("withdraw uid : ", uid, typeof(uid));
-
-    // {
-    //     id: 3,
-    //     note: 'User Credit Data',
-    //     debit: 0,
-    //     credit: 510,
-    //     userId: 11
-    //   }
-
-    const bodyData=[
-       {
-        id: 1,
-        name: 'Agent 1',
-        amount:'200',
-        date: 'March 02, 2023',
-        }
-    ]
   
     const headerData=[
         {
@@ -49,6 +31,12 @@ export const WithdrawTable = ({uid}) => {
         prop: 'userId',
         title: 'Name'
         },
+        {
+          isFilterable: true,
+          isSortable: true,
+          prop: 'credit',
+          title: 'Amount Given'
+          },
        {
         isFilterable: true,
         isSortable: true,
@@ -70,7 +58,6 @@ export const WithdrawTable = ({uid}) => {
                 console.log("withdrawl data : ", data)
                 setData(data.message);
             });
-        // setData(bodyData);
     },[])
 
   return (

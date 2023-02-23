@@ -17,6 +17,9 @@ import { Col, Row, Table } from 'react-bootstrap';
 const OrganizationTable = () => {
   const [data,setData] =useState([]);
   const [total, setTotal] = useState(0);
+  const [success, setSuccess] = useState(0);
+  const [failed, setFailed] = useState(0);
+  const [sales, setSales] = useState(0);
 
   const headerData =[
       {
@@ -66,12 +69,18 @@ const OrganizationTable = () => {
       .then((data) => {
         setData(data.message)
         setTotal(data.total_earned)
+        setSuccess(data.success_recharge_count)
+        setFailed(data.failed_recharge_count)
+        setSales(data.total_sales)
       });
   },[])
 
   return (
     <>
       <p>Total Earned So Far : {total}</p>
+      <p>Total Success : {success}</p>
+      <p>Total Failed : {failed}</p>
+      <p>Total Sales : {sales}</p>
       <DatatableWrapper
         body={data}
         headers={headerData}

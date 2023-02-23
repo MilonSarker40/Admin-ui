@@ -15,14 +15,6 @@ import { Col, Row, Table } from 'react-bootstrap';
 export const TransferTable = ({uid}) => {
     const [data,setData] = useState([]);
 
-    const bodyData=[
-       {
-        id: 1,
-        name: 'Agent 1',
-        amount:'200',
-        date: 'March 02, 2023',
-        }
-    ]
   
     const headerData=[
         {
@@ -36,6 +28,12 @@ export const TransferTable = ({uid}) => {
         isSortable: true,
         prop: 'transferedAmount',
         title: 'Transfered Amount'
+        },
+        {
+        isFilterable: true,
+        isSortable: true,
+        prop: 'deductedAmount',
+        title: 'Recharged Amounts'
         },
         {
         isFilterable: false,

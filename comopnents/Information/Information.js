@@ -4,66 +4,28 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 
-const TransferForm = () => {
+const Information = ({uid}) => {
+  const [data, setData] = useState({})
 
-  const [information, setinformation] = useState("");
-
-
-  const informationVal = (event) => {
-    setinformation(event.target.value);
-  }
-
-  const clearData = () => {
-      document.getElementById("information").value = 0.00;
-  }
-
-  const saveData = () => {
-      // fetch('http://localhost:3000/network', {
-      //     method: 'POST', // or 'PUT'
-      //     headers: {
-      //         'Content-Type': 'application/json',
-      //     },
-      //     body: JSON.stringify(data),
-      // })
-      // .then((response) => response.json())
-      // .then((data) => {
-      //     console.log('Success:', data);
-      // })
-      // .catch((error) => {
-      //     console.error('Error:', error);
-      // });
-      console.log(information);
-      
-      clearData();
-
-  }
-
-   
-
+  useEffect(() => {
+    fetch("http://localhost:3000/user/information/"+uid)
+      .then(res => res.json())
+      .then(data => setData(data.message))
+  }, [])
 
   return (
     <>
-     <div className='contact-form-wrp'>
-         <Form action=''>
-           <Row className="mb-3"> 
-                <Form.Group as={Col} controlId="exampleForm.ControlTextarea1">
-                  <Form.Label>Information</Form.Label>
-                  <Form.Control as="textarea" type="text" step="2" id="information" placeholder="Information" onChange={informationVal} />
-                </Form.Group>
-            </Row>
-
-            <div className='contact-submit'>
-                <Button gap={3} variant="primary" type="submit" onChange={saveData}>
-                    Save
-                </Button>
-                <Button variant="primary" type="submit" onChange={clearData}>
-                    Clear
-                </Button>
-            </div>
-            </Form>
+     <div className=''>
+      <h1>Information</h1>
+      <hr/>
+      <p>Debt Remaing to withdraw : {data.dues}</p>
+      <p>Total Transactions Made : {data.total_trx}</p>
+      <p>Total Amount Recharged : {data.total_recharged}</p>
+      <p>Current Balance : {data.balance}</p>
+      <p>Current Commision Percentage: {data.percent}%</p>
       </div>
     </>
   )
 }
 
-export default TransferForm
+export default Information

@@ -10,13 +10,6 @@ const WithdrawForm = ({uid}) => {
   const [agent, setAgent] = useState(0);
   const [opt, setOpt] = useState([]);
 
-  // Call api for the country list
-  const optd = [
-      {'id': 1, 'name': "Agent 1"},
-      {'id': 2, 'name': "Agent 2"},
-      {'id': 3, 'name': "Agent 3"}
-  ] 
-
   useEffect(() => {
       fetch('http://localhost:3000/country/list')
           .then((res) => res.json())
@@ -24,7 +17,6 @@ const WithdrawForm = ({uid}) => {
               console.log(data.message);
               setOpt(data.message);
           })
-      setOpt(optd);
   }, [])
 
   const options = opt.map((value) => <option value={value.id}>{ value.name }</option>)
