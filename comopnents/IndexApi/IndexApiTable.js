@@ -10,17 +10,21 @@ import {
   TableHeader
 } from 'react-bs-datatable';
 import { Col, Row, Table } from 'react-bootstrap';
+import ApiButton from './ApiButton';
 
 
 const IndexApiTable = () => {
 
   const [data,setData] =useState([]);
+  for(let i = 0; i<data.length;i++){
+    let btn = <ApiButton id={data[i].id} status={data[i].status} />
+    data[i].btn = btn
+  }
 
   useEffect(() => {
     fetch('http://localhost:3000/apis')
         .then((res) => res.json())
         .then((data) => {
-            console.log(data.message);
             setData(data.message);
         })
 }, []);
@@ -47,8 +51,14 @@ const IndexApiTable = () => {
       {
       isFilterable: true,
       isSortable: false,
-      prop: 'Status',
+      prop: 'status',
       title: 'Status'
+      },
+      {
+      isFilterable: true,
+      isSortable: false,
+      prop: 'btn',
+      title: 'Toggle'
       }
   ]
 

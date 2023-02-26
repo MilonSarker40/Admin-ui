@@ -45,17 +45,17 @@ const OrganizationTable = () => {
       title: 'Trx'
       },
       {
-        isFilterable: true,
-        isSortable: true,
-        prop: 'link',
-        title: 'Trx Detail'
-        },
+      isFilterable: true,
+      isSortable: true,
+      prop: 'link',
+      title: 'Trx Detail'
+      },
       {
-        isFilterable: true,
-        isSortable: true,
-        prop: 'rechargeAmount',
-        title: 'Recharge Amount'
-        },
+      isFilterable: true,
+      isSortable: true,
+      prop: 'rechargeAmount',
+      title: 'Recharge Amount'
+      },
       {
       isFilterable: true,
       isSortable: false,
