@@ -7,10 +7,18 @@ const ApiButton = ({id, status}) => {
 
     useEffect(() => {
         const btnClass = statusVal ? "btn btn-sm btn-primary" : "btn btn-sm btn-danger"
-        const btnText = statusVal ? "Active" : "Inactive"
+        const btnText = statusVal ? "Enabled! Click to Disable" : "Disabled! Click Enable"
         setStatusClass(btnClass);
         setStatusText(btnText);
     }, [])
+
+    const statusUpdate = (status) => {
+        setStatusVal(status);
+        const btnClass = status ? "btn btn-sm btn-primary" : "btn btn-sm btn-danger"
+        const btnText = status ? "Enabled! Click to Disable" : "Disabled! Click Enable"
+        setStatusClass(btnClass);
+        setStatusText(btnText);
+    }
 
     const statusCheck = () => {
         event.preventDefault();
@@ -20,7 +28,7 @@ const ApiButton = ({id, status}) => {
             fetch(url)
                 .then((res) => res.json())
                 .then((data) => {
-                    setStatusVal(data.status);
+                    statusUpdate(data.status);
                 });
         }else{
             let url = `http://localhost:3000/api/activate/${id}`;
@@ -28,7 +36,8 @@ const ApiButton = ({id, status}) => {
             fetch(url)
                 .then((res) => res.json())
                 .then((data) => {
-                    setStatusVal(data.status);
+                    statusUpdate(data.status);
+                    // setStatusVal(data.status);
                 });
         }
     }

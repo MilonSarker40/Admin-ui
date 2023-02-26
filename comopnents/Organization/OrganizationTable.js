@@ -11,9 +11,8 @@ import {
 } from 'react-bs-datatable';
 import { Col, Row, Table } from 'react-bootstrap';
 import TrxLink from '../Trxdt/TrxLink';
-
-
-
+import DateFilter from './DateFilter';
+import Summary from './Summary';
 
 
 const OrganizationTable = () => {
@@ -88,12 +87,21 @@ const OrganizationTable = () => {
       });
   },[])
 
+  const filteredData = (data) => {
+    setData(data.message);
+    setTotal(data.total_earned)
+    setSuccess(data.success_recharge_count)
+    setFailed(data.failed_recharge_count)
+    setSales(data.total_sales)
+  }
+
   return (
     <>
-      <p>Total Earned So Far : {total}</p>
-      <p>Total Success : {success}</p>
-      <p>Total Failed : {failed}</p>
-      <p>Total Sales : {sales}</p>
+      <DateFilter func={filteredData} />
+      <hr/>
+      <Summary total={total} success={success} failed={failed} sales={sales}/>
+      <hr/>
+      <h4>Data</h4>
       <DatatableWrapper
         body={data}
         headers={headerData}

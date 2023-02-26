@@ -11,10 +11,6 @@ const CountryForm = () => {
   const [code, setCode] = useState("");
 
 
-
-
-
-
   const nameVal = (event) => {
       setName(event.target.value);
   }

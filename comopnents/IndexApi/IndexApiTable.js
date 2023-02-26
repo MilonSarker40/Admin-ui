@@ -11,6 +11,7 @@ import {
 } from 'react-bs-datatable';
 import { Col, Row, Table } from 'react-bootstrap';
 import ApiButton from './ApiButton';
+import ApiStatus from './ApiStatus';
 
 
 const IndexApiTable = () => {
@@ -51,14 +52,8 @@ const IndexApiTable = () => {
       {
       isFilterable: true,
       isSortable: false,
-      prop: 'status',
-      title: 'Status'
-      },
-      {
-      isFilterable: true,
-      isSortable: false,
       prop: 'btn',
-      title: 'Toggle'
+      title: 'Status'
       }
   ]
 
