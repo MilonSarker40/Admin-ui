@@ -183,6 +183,7 @@ New Sidebar Menu
   background: #0088FF;
   color: #fff;
 }
+.navbarMenu ul li a.active i,
 .navbarMenu ul li a:hover i{
   color: #fff;
 }
