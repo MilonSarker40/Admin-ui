@@ -1,4 +1,7 @@
 import React,{useState} from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { authLogout } from '../../state/actions/authActions';
+import {persistor} from '../../state/actions/store';
 import {Row, Col } from 'reactstrap';
 import {
     Dropdown,
@@ -24,14 +27,21 @@ const Header = (props) => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-    const [dropdownOpen, setDropdownOpen] = useState(false);
-    const toggle = () => setDropdownOpen((prevState) => !prevState);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const toggle = () => setDropdownOpen((prevState) => !prevState);
 
-    const handleClick=()=>{
-      localStorage.clear();
-      // window.location.href = '/login';
-      window.location.reload();
-    }
+  const loginData = useSelector(state => state?.auth.isLoggedin);
+  const dispatch = useDispatch();
+
+  const handleClick=(event)=>{
+    localStorage.clear();
+    event.preventDefault();
+    dispatch(dispatch(authLogout(loginData)));
+    persistor.pause();
+    persistor.flush().then(() => {
+        return persistor.purge();
+    });
+  }
   return (
     <>
       <header className={`${classes.header}`}>

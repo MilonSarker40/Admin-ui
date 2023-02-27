@@ -1,5 +1,8 @@
 import React, { useState, useRef } from 'react';
-import Container from 'react-bootstrap/Container';
+import { useSelector, useDispatch } from 'react-redux';
+
+import { authLogin } from '../../state/actions/authActions';
+
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
@@ -7,6 +10,9 @@ import Form from 'react-bootstrap/Form';
 
 
 const LoginFrom = () => {
+    const loginData = useSelector(state => state?.auth?.isLoggedin);
+    const dispatch = useDispatch();
+
     const [number, setNumber]= useState('');
     const [password, setPassword]= useState('');
     const [isloggedIn, setIsloggedIn] = useState(false)
@@ -47,15 +53,16 @@ const LoginFrom = () => {
             })
             .then((response) => response.json())
             .then((data) => {
+                dispatch(authLogin(data));
                 console.log('Success:', data);
                 console.log(data.uid);
                 setIsloggedIn(true);
                 localStorage.setItem("loginData", data);
-                localStorage.setItem("uid", data.uid),
-                localStorage.setItem("accessToken", data.accessToken),
-                localStorage.setItem("refreshToken", data.refreshToken),
+                localStorage.setItem("uid", data.uid);
+                localStorage.setItem("accessToken", data.accessToken);
+                localStorage.setItem("refreshToken", data.refreshToken);
 
-                window.location.reload();
+                // window.location.reload();
             })
             .catch((error) => {
                 console.error('Error:', error);
