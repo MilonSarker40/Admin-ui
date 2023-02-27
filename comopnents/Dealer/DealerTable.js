@@ -133,7 +133,7 @@ const DataTable = () => {
         >
       <Row className="mb-4">
         <Col
-          className="d-flex flex-col justify-content-end align-items-end"
+          className="d-flex flex-col justify-content-end align-items-end firstletter1"
           lg={6}
           xs={12}
         >
@@ -141,7 +141,7 @@ const DataTable = () => {
         </Col>
 
         <Col
-            className="d-flex flex-col justify-content-lg-right align-items-right justify-content-sm-end mb-2 mb-sm-0"
+            className="d-flex flex-col justify-content-lg-right align-items-right justify-content-sm-end mb-2 mb-sm-0 firstletter1"
             lg={6}
             sm={6}
             xs={12}
@@ -155,7 +155,7 @@ const DataTable = () => {
         </table>
         <Row>
           <Col
-            className="d-flex flex-col justify-content-end align-items-end"
+            className="d-flex flex-col justify-content-end align-items-end tablePagi"
             lg={12}
             sm={12}
             xs={12}

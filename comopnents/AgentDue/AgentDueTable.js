@@ -112,7 +112,7 @@ const AgentDueTable = () => {
         >
       <Row className="mb-4">
         <Col
-          className="d-flex flex-col justify-content-end align-items-end"
+          className="d-flex flex-col justify-content-end align-items-end firstletter1"
           lg={6}
           xs={12}
         >
@@ -134,7 +134,7 @@ const AgentDueTable = () => {
         </table>
         <Row>
           <Col
-            className="d-flex flex-col justify-content-end align-items-end"
+            className="d-flex flex-col justify-content-end align-items-end tablePagi"
             lg={12}
             sm={12}
             xs={12}

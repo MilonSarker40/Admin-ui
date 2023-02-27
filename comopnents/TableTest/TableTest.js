@@ -565,14 +565,14 @@ const TableTest = () => {
     >
     <Row className="mb-4">
         <Col
-        className="d-flex flex-col justify-content-end align-items-end"
+        className="d-flex flex-col justify-content-end align-items-end firstletter1"
         lg={4}
         xs={12}
         >
         <Filter />
         </Col>
         <Col
-        className="d-flex flex-col justify-content-lg-center align-items-center justify-content-sm-start mb-2 mb-sm-0"
+        className="d-flex flex-col justify-content-lg-center align-items-center justify-content-sm-start mb-2 mb-sm-0 firstletter1"
         lg={4}
         sm={6}
         xs={12}
@@ -580,7 +580,7 @@ const TableTest = () => {
         {/* <PaginationOptions alwaysShowPagination /> */}
         </Col>
         <Col
-        className="d-flex flex-col justify-content-end align-items-end"
+        className="d-flex flex-col justify-content-end align-items-end tablePagi"
         lg={4}
         sm={6}
         xs={12}

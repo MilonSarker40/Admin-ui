@@ -43,7 +43,7 @@ const TableData =()=>{
             <Col
               xs={12}
               lg={4}
-              className="d-flex flex-col justify-content-end align-items-end"
+              className="d-flex flex-col justify-content-end align-items-end firstletter1"
             >
               <Filter />
             </Col>
@@ -51,7 +51,7 @@ const TableData =()=>{
               xs={12}
               sm={6}
               lg={4}
-              className="d-flex flex-col justify-content-lg-center align-items-center justify-content-sm-start mb-2 mb-sm-0"
+              className="d-flex flex-col justify-content-lg-center align-items-center justify-content-sm-start mb-2 mb-sm-0 firstletter1"
             >
               {/* <PaginationOpts /> */}
             </Col>
@@ -59,7 +59,7 @@ const TableData =()=>{
               xs={12}
               sm={6}
               lg={4}
-              className="d-flex flex-col justify-content-end align-items-end"
+              className="d-flex flex-col justify-content-end align-items-end tablePagi"
             >
               <Pagination />
             </Col>
