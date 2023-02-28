@@ -644,6 +644,12 @@ show-data
   .navbarMenu {
       max-width: 28%;
   }
+  .login-form-sec-wrp{
+    background: transparent;
+  }
+  .login-form-rgt{
+    width: 100%;
+  }
  }
  @media(max-width:575px){
   .contact-form-wrp .col {
@@ -725,7 +731,9 @@ show-data
   }
  }
  @media(max-width:479px){
-
+  .login-form-dsc p br{
+    display: none;
+  }
  }
  
 
