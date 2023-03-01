@@ -4,6 +4,7 @@ import Tabs from 'react-bootstrap/Tabs';
 import Sidebar from '../comopnents/Sidebar/Sidebar';
 import BreadCrumb from '../comopnents/BreadCrumb/BreadCrumb';
 import OrganizationTable from '../comopnents/Organization/OrganizationTable';
+import AdjustmentTable from '../comopnents/Organization/AdjustmentTable';
 
 
 const country = () => {
@@ -17,9 +18,12 @@ const country = () => {
             <BreadCrumb title='Organization' subtitle='Organization' />
             <div className='tabsWarp'>
              <Tabs defaultActiveKey="List" id="uncontrolled-tab-example" className="mb-3">
-                    <Tab eventKey="List" title="List">
-                       <OrganizationTable />
-                    </Tab>
+               <Tab eventKey="List" title="List">
+                  <OrganizationTable />
+               </Tab>
+               <Tab eventKey="adjustment" title="Org Adjustments">
+                  <AdjustmentTable />
+               </Tab>
               </Tabs>
            </div>
          </div>

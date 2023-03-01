@@ -3,12 +3,16 @@ import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
+import { useSelector } from 'react-redux';
 
 const Information = ({uid}) => {
   const [data, setData] = useState({})
 
+  const sid = parseInt(useSelector(state => state?.settlement?.userSettlementId));
+
   useEffect(() => {
-    fetch("http://localhost:3000/user/information/"+uid)
+    console.log("infomration ", uid);
+    fetch("http://localhost:3000/user/information/"+sid)
       .then(res => res.json())
       .then(data => setData(data.message))
   }, [])

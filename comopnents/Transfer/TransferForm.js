@@ -9,7 +9,6 @@ const TransferForm = ({uid}) => {
 
   const [transfer, setTransfer] = useState(0.00);
 
-
   const transferVal = (event) => {
     setTransfer(parseFloat(event.target.value));
   }

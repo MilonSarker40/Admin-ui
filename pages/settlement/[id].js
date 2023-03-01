@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
@@ -8,13 +8,21 @@ import TransferForm from '../../comopnents/Transfer/TransferForm';
 import WithdrawForm from '../../comopnents/Withdraw/WithdrawForm';
 import ProfitForm from '../../comopnents/Profit/ProfitForm';
 import Information from '../../comopnents/Information/Information';
-
-
+import TransactionRefund from '../../comopnents/TransactionRefund';
+import { useDispatch } from 'react-redux';
+import { settlementIdSet } from '../../state/actions/authActions';
 
 const country = () => {
+    const dispatch = useDispatch();
+
+
     const router = useRouter();
     const {id} = router.query;
-    console.log(typeof(id));
+    const [uid, setUid] = useState(id);
+    dispatch(settlementIdSet(id));
+    useEffect(() => {
+        setUid(id);
+    }, [id])
     return (
     <>
         <section className='main_content clearfix'>
@@ -26,16 +34,19 @@ const country = () => {
                 <div className='tabsWarp'>
                 <Tabs defaultActiveKey="Transfer" id="uncontrolled-tab-example" className="mb-3">
                         <Tab eventKey="Transfer" title="Transfer">
-                            <TransferForm uid={id} />
+                            <TransferForm uid={uid} />
                         </Tab>
                         <Tab eventKey="Withdraw" title="Withdraw">
-                            <WithdrawForm uid={id} />
+                            <WithdrawForm uid={uid} />
                         </Tab>
                         <Tab eventKey="Profit" title="Profit">
-                            <ProfitForm uid={id}/>
+                            <ProfitForm uid={uid}/>
                         </Tab>
                         <Tab eventKey="Information" title="Information">
-                            <Information uid={id}/>
+                            <Information uid={uid}/>
+                        </Tab>
+                        <Tab eventKey="Refund" title="Refund">
+                            <TransactionRefund uid={uid}/>
                         </Tab>
                 </Tabs>
             </div>

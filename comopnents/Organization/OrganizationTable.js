@@ -21,6 +21,9 @@ const OrganizationTable = () => {
   const [success, setSuccess] = useState(0);
   const [failed, setFailed] = useState(0);
   const [sales, setSales] = useState(0);
+  const [refund, setRefund] = useState(0);
+  const [salesRefund, setSalesRefund] = useState(0);
+  const [adj, setAdj] = useState({})
 
   for(let i = 0; i<data.length;i++){
     let comp = <TrxLink trxId={data[i].transactionId} />
@@ -84,6 +87,9 @@ const OrganizationTable = () => {
         setSuccess(data.success_recharge_count)
         setFailed(data.failed_recharge_count)
         setSales(data.total_sales)
+        setRefund(data.refunds)
+        setSalesRefund(data.refund_sales)
+        setAdj(data.adjustment)
       });
   },[])
 
@@ -93,13 +99,24 @@ const OrganizationTable = () => {
     setSuccess(data.success_recharge_count)
     setFailed(data.failed_recharge_count)
     setSales(data.total_sales)
+    setRefund(data.refunds)
+    setSalesRefund(data.refund_sales)
+    setAdj(data.adjustments)
   }
 
   return (
     <>
       <DateFilter func={filteredData} />
       <hr/>
-      <Summary total={total} success={success} failed={failed} sales={sales}/>
+      <Summary 
+        total={total} 
+        success={success} 
+        failed={failed} 
+        sales={sales}
+        refund={refund}
+        salesRefund={salesRefund}
+        adj={adj}
+      />
       <hr/>
       <h4>Data</h4>
       <DatatableWrapper

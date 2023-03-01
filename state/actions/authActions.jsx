@@ -24,3 +24,10 @@ export const authLogout = (data) => {
         payload: []
     }
 }
+
+export const settlementIdSet = (uid) => {
+    return {
+        type: "settlemendIdSet",
+        payload: uid
+    }
+}

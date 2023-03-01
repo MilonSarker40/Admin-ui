@@ -10,26 +10,14 @@ import {
   TableHeader
 } from 'react-bs-datatable';
 import { Col, Row, Table } from 'react-bootstrap';
+import { useSelector } from 'react-redux';
 
 
 export const ProfitTable = ({uid}) => {
+    const [id, setId] = useState(uid);
     const [data,setData] = useState([]);
     console.log("profit uid : ", uid, typeof(uid));
-
-    // {
-    //   id: 1,
-    //   userId: 11,
-    //   percentage: 2,
-    //   createdAt: 2023-02-12T07:42:57.986Z
-    // }
-    const bodyData=[
-       {
-        id: 1,
-        name: 'Agent 1',
-        percentage:'10%',
-        date: 'March 02, 2023',
-        }
-    ]
+    const sid = parseInt(useSelector(state => state?.settlement?.userSettlementId));
   
     const headerData=[
         {
@@ -59,7 +47,8 @@ export const ProfitTable = ({uid}) => {
     ]
   
     useEffect(() => {
-      fetch("http://localhost:3000/data/percent/"+uid)
+      setId(uid);
+      fetch("http://localhost:3000/data/percent/"+sid)
         .then((res) => res.json())
         .then((data) => {
           console.log("profit data : ", data)

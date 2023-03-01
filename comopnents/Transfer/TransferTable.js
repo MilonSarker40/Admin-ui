@@ -10,9 +10,12 @@ import {
   TableHeader
 } from 'react-bs-datatable';
 import { Col, Row, Table } from 'react-bootstrap';
+import { useSelector } from 'react-redux';
 
 
 export const TransferTable = ({uid}) => {
+    const sid = parseInt(useSelector(state => state?.settlement?.userSettlementId));
+    const [id, setId] = useState(uid);
     const [data,setData] = useState([]);
 
   
@@ -44,7 +47,8 @@ export const TransferTable = ({uid}) => {
     ]
   
     useEffect(() => {
-      fetch("http://localhost:3000/data/transfer/"+uid)
+      // setId(uid);
+      fetch("http://localhost:3000/data/transfer/"+sid)
         .then((res) => res.json())
         .then((data) => setData(data.message));
       // setData(bodyData);

@@ -10,9 +10,12 @@ import {
   TableHeader
 } from 'react-bs-datatable';
 import { Col, Row, Table } from 'react-bootstrap';
+import { useSelector } from 'react-redux';
 
 
 export const WithdrawTable = ({uid}) => {
+    const sid = parseInt(useSelector(state => state?.settlement?.userSettlementId));
+    const [id, setId] = useState(uid);
     const [data,setData] = useState([]);
   
     const headerData=[
@@ -52,7 +55,8 @@ export const WithdrawTable = ({uid}) => {
     ]
   
     useEffect(() => {
-      fetch("http://localhost:3000/data/withdrawal/"+uid)
+      setId(uid);
+      fetch("http://localhost:3000/data/withdrawal/"+sid)
             .then((res) => res.json())
             .then((data) => {
                 console.log("withdrawl data : ", data)
