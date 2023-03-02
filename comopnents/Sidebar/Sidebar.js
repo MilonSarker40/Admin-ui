@@ -43,8 +43,8 @@ const Sidebar = () => {
                 <Link onClick={() => setNetworkToggle(!networkToggle)} href='#'><i class="ri-router-line"></i>Network<span><i class="ri-arrow-right-s-line"></i></span></Link>
                 {networkToggle && (
                   <ul className='clearfix reset-list'>
-                    <li><Link href="/service" className={asPath==='/service' ? 'list active' : 'list'}>Country</Link></li>
-                    <li><Link href="/mobilenetwork" className={asPath==='/mobilenetwork' ? 'list active' : 'list'}>Circle</Link></li>
+                    <li><Link href="/service" className={asPath==='/service' ? 'list active' : 'list'}>Service</Link></li>
+                    <li><Link href="/mobilenetwork" className={asPath==='/mobilenetwork' ? 'list active' : 'list'}>Mobile Network</Link></li>
                   </ul>
                 )}
               </li>

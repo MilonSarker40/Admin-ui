@@ -98,7 +98,7 @@ const SimulatorForm = () => {
 
   const saveData = () => {
       console.log(data);
-      if (mobile.length == 11){
+      if (mobile.length >= 11){
           fetch('http://localhost:3000/submitdata', {
           method: 'POST',
           headers: {

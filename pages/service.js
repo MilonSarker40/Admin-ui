@@ -14,11 +14,7 @@ const service = () => {
             <Sidebar />
          </div>
          <div className='main_content-rgt'>
-<<<<<<< HEAD
             <BreadCrumb title='Service' subtitle='Service Index' />
-=======
-            <BreadCrumb title='Service' subtitle='Service' />
->>>>>>> 1b1164e815e7ee1c1882428a65e0ed3f410e85d7
             <div className='tabsWarp'>
              <Tabs defaultActiveKey="List" id="uncontrolled-tab-example" className="mb-3">
                     <Tab eventKey="List" title="List">

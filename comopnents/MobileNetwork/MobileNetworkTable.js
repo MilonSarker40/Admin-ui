@@ -40,7 +40,25 @@ const MobileNetworkTable = () => {
       isSortable: true,
       prop: 'name',
       title: 'Name'
-      }
+      },
+      {
+        isFilterable: true,
+        isSortable: true,
+        prop: 'ctry',
+        title: 'Country'
+      },
+      {
+        isFilterable: true,
+        isSortable: true,
+        prop: 'short',
+        title: 'ShortName'
+      },
+      {
+        isFilterable: true,
+        isSortable: true,
+        prop: 'createAt',
+        title: 'Date'
+      },
   ]
   
   return (

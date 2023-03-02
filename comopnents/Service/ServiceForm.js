@@ -20,7 +20,7 @@ const ServiceForm = () => {
       // setOpt(optd);
   }, [])
 
-  const options = opt.map((value) => <option value={value.id}>{ value.name }</option>)
+  const options = opt.map((value) => <option value={value.id}>{ value.name } - {value.id}</option>)
 
   const serviceVal = (event) => {
       setService(event.target.value);
@@ -62,7 +62,7 @@ const ServiceForm = () => {
   return (
     <>
     <div className='contact-form-wrp'>
-         <Form action=''>
+         <Form>
            <Row className="mb-3">
                <Form.Group as={Col}>
                     <Form.Label>Service Name</Form.Label>
@@ -77,10 +77,10 @@ const ServiceForm = () => {
                  </Form.Group> 
             </Row>
             <div className='contact-submit'>
-                <Button gap={3} variant="primary" type="submit" onClick={saveData}>
+                <Button gap={3} variant="primary" type="button" onClick={saveData}>
                     Save
                 </Button>
-                <Button variant="primary" type="submit" onClick={clearData}>
+                <Button variant="primary" type="button" onClick={clearData}>
                     Clear
                 </Button>
             </div>

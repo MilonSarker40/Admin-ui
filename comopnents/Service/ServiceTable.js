@@ -36,6 +36,18 @@ const ServiceTable = () => {
       isSortable: true,
       prop: 'name',
       title: 'Service'
+      },
+      {
+        isFilterable: true,
+        isSortable: true,
+        prop: 'network',
+        title: 'MNO'
+      },
+      {
+        isFilterable: true,
+        isSortable: true,
+        prop: 'createAt',
+        title: 'Created Time'
       }
   ]
 
