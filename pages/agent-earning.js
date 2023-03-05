@@ -5,6 +5,9 @@ import Sidebar from '../comopnents/Sidebar/Sidebar';
 import BreadCrumb from '../comopnents/BreadCrumb/BreadCrumb';
 import EarningId from '../comopnents/AgentEarning/EarningId';
 
+
+
+
 const agent = () => {
   return (
     <>
@@ -15,7 +18,7 @@ const agent = () => {
          <div className='main_content-rgt'>
             <BreadCrumb title='Agent Earning' subtitle='Agent Earning' />
             <div className='tabsWarp'>
-             <Tabs defaultActiveKey="List" id="uncontrolled-tab-example" className="mb-3">
+              <Tabs defaultActiveKey="List" id="uncontrolled-tab-example" className="mb-3">
                     <Tab eventKey="List" title="List">
                         <EarningId />
                     </Tab>
