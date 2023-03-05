@@ -10,9 +10,10 @@ import {
   TableHeader
 } from 'react-bs-datatable';
 import { Col, Row, Table } from 'react-bootstrap';
+import { useSelector } from 'react-redux';
 
 const RechargeTableId = ({id}) => {
-
+  const rid = parseInt(useSelector(state => state?.report?.agentId));
   const [data,setData]=useState([]);
 
   const bodyData=[
@@ -95,7 +96,7 @@ const RechargeTableId = ({id}) => {
       },
   ]
   useEffect(() => {
-    fetch("http://localhost:3000/agentrecharge/"+id)
+    fetch("http://localhost:3000/agentrecharge/"+rid)
       .then((res) => res.json())
       .then((data) => console.log(data));
     setData(bodyData);

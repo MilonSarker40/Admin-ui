@@ -10,28 +10,12 @@ import {
   TableHeader
 } from 'react-bs-datatable';
 import { Col, Row, Table } from 'react-bootstrap';
+import { useSelector } from 'react-redux';
 
 const BalanceTableId = ({id}) => {
   const [data,setData] =useState([]);
   const [balance, setBalance] =useState(0);
-
-  const bodyData=[
-    {
-      id : 1,
-      credit : 200,
-      debit: 300,
-      },
-      {
-      id : 2,
-      credit : 300,
-      debit: 400,
-      },
-      {
-      id : 3,
-      credit : 400,
-      debit: 500,
-      },
-  ]
+  const rid = parseInt(useSelector(state => state?.report?.agentId));
   const headerData=[
     {
       cellProps: {
@@ -57,7 +41,7 @@ const BalanceTableId = ({id}) => {
   ]
 
   useEffect(() => {
-    fetch("http://localhost:3000/agentbalance/"+id)
+    fetch("http://localhost:3000/agentbalance/"+rid)
       .then((res) => res.json())
       .then((data) =>{
         setData(data.message)

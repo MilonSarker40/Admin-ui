@@ -2,11 +2,13 @@ import Table from 'react-bootstrap/Table';
 import { useRouter } from 'next/router'
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { useDispatch } from 'react-redux';
+import { agentReportIdSet } from '../../state/actions/authActions';
 
 function AgentReportId() {
 
   const [table, setTable] =useState([]);
-
+  const dispatch = useDispatch();
   useEffect(() => {
     fetch('http://localhost:3000/agentreport')
       .then(res => res.json())
@@ -31,11 +33,11 @@ function AgentReportId() {
               table.map((item) => (
                 <tr key={item.id}>
                   <td>{item.email}</td>
-                  <td><Link href={`/recharge/${item.id}`}>{item.data.recharge}</Link></td>
-                  <td><Link href={`/due/${item.id}`}>{item.data.dues}</Link></td>
-                  <td><Link href={`/earning/${item.id}`}>{item.data.earning}</Link></td>
-                  <td><Link href={`/balance/${item.id}`}>{item.data.balance}</Link></td>
-                  <td><Link href={`/sale/${item.id}`}>{item.data.sale}</Link></td>
+                  <td><Link href={`/recharge/${item.id}`} onClick={() => dispatch(agentReportIdSet(item.id))}>{item.data.recharge}</Link></td>
+                  <td><Link href={`/due/${item.id}`} onClick={() => dispatch(agentReportIdSet(item.id))}>{item.data.dues}</Link></td>
+                  <td><Link href={`/earning/${item.id}`} onClick={() => dispatch(agentReportIdSet(item.id))}>{item.data.earning}</Link></td>
+                  <td><Link href={`/balance/${item.id}`} onClick={() => dispatch(agentReportIdSet(item.id))}>{item.data.balance}</Link></td>
+                  <td><Link href={`/sale/${item.id}`} onClick={() => dispatch(agentReportIdSet(item.id))}>{item.data.sale}</Link></td>
                 </tr>
               ))
             }

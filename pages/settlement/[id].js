@@ -9,17 +9,11 @@ import WithdrawForm from '../../comopnents/Withdraw/WithdrawForm';
 import ProfitForm from '../../comopnents/Profit/ProfitForm';
 import Information from '../../comopnents/Information/Information';
 import TransactionRefund from '../../comopnents/TransactionRefund';
-import { useDispatch } from 'react-redux';
-import { settlementIdSet } from '../../state/actions/authActions';
 
 const country = () => {
-    const dispatch = useDispatch();
-
-
     const router = useRouter();
     const {id} = router.query;
     const [uid, setUid] = useState(id);
-    dispatch(settlementIdSet(id));
     useEffect(() => {
         setUid(id);
     }, [id])

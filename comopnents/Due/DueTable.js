@@ -10,8 +10,10 @@ import {
   TableHeader
 } from 'react-bs-datatable';
 import { Col, Row, Table } from 'react-bootstrap';
+import { useSelector } from 'react-redux';
 
 const AgentReportTable = ({id}) => {
+  const rid = parseInt(useSelector(state => state?.report?.agentId));
   const [data,setData] =useState([]);
   const [due, setDue] =useState(0);
   const headerData=[
@@ -45,7 +47,7 @@ const AgentReportTable = ({id}) => {
   ]
 
   useEffect(() => {
-    fetch("http://localhost:3000/agentdues/"+id)
+    fetch("http://localhost:3000/agentdues/"+rid)
       .then((res) => res.json())
       .then((data) => {
         setData(data.message)

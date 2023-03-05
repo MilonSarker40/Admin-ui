@@ -7,8 +7,8 @@ import Sidebar from '../../comopnents/Sidebar/Sidebar';
 import BreadCrumb from '../../comopnents/BreadCrumb/BreadCrumb';
 import DueTable from '../../comopnents/Due/DueTable';
 
-
 const Due = () => {
+  
   const [id, setId] = useState(0);
   const router = useRouter()
   // const {id} = router.query

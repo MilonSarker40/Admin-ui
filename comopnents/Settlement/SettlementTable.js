@@ -2,13 +2,14 @@ import Table from 'react-bootstrap/Table';
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { useDispatch } from 'react-redux';
+import { settlementIdSet } from '../../state/actions/authActions';
 
 function AgReportTable() {
 
   const uid = localStorage.getItem("uid")
-
-
   const [table, setTable] =useState([]);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     fetch("http://localhost:3000/agents")
@@ -31,7 +32,7 @@ function AgReportTable() {
             {
               table.map((item) => (
                 <tr key={item.id}>
-                  <td><Link href={`/settlement/${item.id}`}>{item.id}</Link></td>
+                  <td><Link href={`/settlement/${item.id}`} onClick={() =>dispatch(settlementIdSet(item.id))}>{item.id}</Link></td>
                   <td>{item.phone}</td>
                   <td>{item.email}</td>
                   <td>{item.store}</td>

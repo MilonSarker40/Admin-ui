@@ -11,10 +11,12 @@ import {
 } from 'react-bs-datatable';
 import { Col, Row, Table } from 'react-bootstrap';
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 
 const SaleTableId = ({id}) => {
   const [data,setData] =useState([]);
   const [sale, setSale] = useState(0);
+  const rid = parseInt(useSelector(state => state?.report?.agentId));
   const headerData=[
     {
       cellProps: {
@@ -52,7 +54,7 @@ const SaleTableId = ({id}) => {
   ]
 
   useEffect(() => {
-    fetch("http://localhost:3000/agentsale/"+id)
+    fetch("http://localhost:3000/agentsale/"+rid)
       .then((res) => res.json())
       .then((data) => {
         setData(data.message)

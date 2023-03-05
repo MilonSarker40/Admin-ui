@@ -11,8 +11,10 @@ import {
 } from 'react-bs-datatable';
 import { Col, Row, Table } from 'react-bootstrap';
 import TrxLink from '../Trxdt/TrxLink';
+import { useSelector } from 'react-redux';
 
 const EarningTableId = ({id}) => {
+  const rid = parseInt(useSelector(state => state?.report?.agentId));
   const [data,setData] =useState([]);
   const [earn, setEarn] = useState(0);
 
@@ -57,7 +59,7 @@ const EarningTableId = ({id}) => {
   ]
 
   useEffect(() => {
-    fetch("http://localhost:3000/agentearning/"+id)
+    fetch("http://localhost:3000/agentearning/"+rid)
       .then((res) => res.json())
       .then((data) => {
         setData(data.message)

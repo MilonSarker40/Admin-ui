@@ -31,3 +31,17 @@ export const settlementIdSet = (uid) => {
         payload: uid
     }
 }
+
+export const agentReportIdSet = (uid) => {
+    return {
+        type: "agentReportIdSet",
+        payload: uid
+    }
+}
+
+export const apiIdSet = (aid) => {
+    return {
+        type: "apiIdSet",
+        payload: aid
+    }
+}
