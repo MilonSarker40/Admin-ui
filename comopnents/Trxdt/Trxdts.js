@@ -17,7 +17,7 @@ function Trxdts({id}) {
   return (
     <div className='agent-report-tbl'>
       <h5>Transaction Details for {id}</h5>
-      <p>Trnsaction Id: {detail.id}</p>
+      <p>Trnsaction Id: {detail.id}</p> 
       <p>Phone: {detail.phone}</p>
       <p>Amount: {detail.amount}</p>
       <p>Status: {detail.rechargeStatus}</p>
