@@ -1,11 +1,13 @@
-import Link from "next/link"
+import Link from "next/link";
+import { useDispatch } from "react-redux";
+import { setTrxId } from '../../state/actions/authActions';
 
 const TrxLink = ({trxId}) => {
-    console.log("trxId : ", trxId)
     let link = "/trxdt/"+trxId
-    console.log(link);
+    const dispatch = useDispatch()
+
     return(
-        <Link href={link}>Link</Link>
+        <Link href={link} onClick={() => dispatch(setTrxId(trxId))}>Link</Link>
     )   
 }
 

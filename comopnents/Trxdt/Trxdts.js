@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 
 function Trxdts({id}) {
   const [detail, setDetail] = useState({})
-
+  const tid = parseInt(useSelector(state => state?.trx?.trxId));
   useEffect(() => {
-    fetch("http://localhost:3000/trxdetail/"+id)
+    fetch("http://localhost:3000/trxdetail/"+tid)
       .then(res => res.json())
       .then(data => {
         console.log(data.message)
@@ -21,13 +22,13 @@ function Trxdts({id}) {
       <p>Amount: {detail.amount}</p>
       <p>Status: {detail.rechargeStatus}</p>
       <hr/>
-      <p>Agent email: {detail.doneBy.email}</p>
-      <p>Agent phone: {detail.doneBy.phone}</p>
-      <p>Agent store: {detail.doneBy.store}</p>
+      <p>Agent email: {detail.agent_email}</p>
+      <p>Agent phone: {detail.agent_phone}</p>
+      <p>Agent store: {detail.store}</p>
       <hr/>
-      <p>Country: {detail.country.name}</p>
-      <p>MNO: {detail.mobile.name}</p>
-      <p>Service: {detail.service.name}</p>
+      <p>Country: {detail.ctry}</p>
+      <p>MNO: {detail.mno}</p>
+      <p>Service: {detail.service}</p>
     </div>
   );
 }

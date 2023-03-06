@@ -45,3 +45,10 @@ export const apiIdSet = (aid) => {
         payload: aid
     }
 }
+
+export const setTrxId = (tid) => {
+    return {
+        type: "setTrxId",
+        payload: tid
+    }
+}
