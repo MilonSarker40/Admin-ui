@@ -75,6 +75,7 @@ const Sidebar = () => {
               <li><Link href="/settlement" className={asPath==='/settlement' ? 'list active' : 'list'}><i class="ri-radar-line"></i>Settlement</Link></li>
               <li><Link href="/indexapi" className={asPath==='/indexapi' ? 'list active' : 'list'}><i class="ri-file-text-line"></i>Api Index</Link></li>
               <li><Link href="/simulator" className={asPath==='/simulator' ? 'list active' : 'list'}><i class="ri-pages-fill"></i>Simulator</Link></li>
+              <li><Link href="/activityLog" className={asPath==='/activityLog' ? 'list active' : 'list'}><i class="ri-pages-fill"></i>Actvity Log</Link></li>
               <li><Link href="/testcomponents" className={asPath==='/testcomponents' ? 'list active' : 'list'}><i class="ri-settings-3-fill"></i>Testcomponents</Link></li>
            </ul>
         </nav>
