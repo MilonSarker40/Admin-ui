@@ -79,13 +79,15 @@ const SimulatorForm = () => {
       setService(event.target.value);
   }
 
+
+//   'userId': parseInt(localStorage.getItem("uid"))
   let data = {
       'mobile': mobile,
       'amount': amount,
       'country': parseInt(country),
       'network': parseInt(network),
       'service': parseInt(service),
-      'userId': parseInt(localStorage.getItem("uid"))
+      'userId': 20
   }
 
   const clearData = () => {

@@ -6,9 +6,6 @@ import BreadCrumb from '../comopnents/BreadCrumb/BreadCrumb';
 import SubDealerReportTable from '../comopnents/SubDealer/SubDealerReportTable';
 
 
-
-
-
 const SubDealerReport = () => {
   return (
     <>
@@ -19,12 +16,12 @@ const SubDealerReport = () => {
          <div className='main_content-rgt'>
             <BreadCrumb title='Subdealer Report' subtitle='Subdealer Report' />
             <div className='tabsWarp'>
-             <Tabs defaultActiveKey="List" id="uncontrolled-tab-example" className="mb-3">
+                <Tabs defaultActiveKey="List" id="uncontrolled-tab-example" className="mb-3">
                     <Tab eventKey="List" title="List">
-                       <SubDealerReportTable />
+                        <SubDealerReportTable />
                     </Tab>
                 </Tabs>
-           </div>
+            </div>
          </div>
       </section>
     </>

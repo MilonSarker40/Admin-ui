@@ -2,12 +2,10 @@ import Table from 'react-bootstrap/Table';
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { dealerIdSet } from '../../state/actions/authActions';
-import { useDispatch } from 'react-redux';
 
-function DealerReportTable() {
-  const [table, setTable] =useState([]);
-  const dispatch = useDispatch();
+function DealerSubDealerReportTable() {
+
+  const [table, setTable] =useState();
 
   useEffect(() => {
     fetch('http://localhost:3000/dealer')
@@ -31,7 +29,7 @@ function DealerReportTable() {
             {
               table.map((item) => (
                 <tr key={item.id}>
-                  <td><Link href={`/dealersubdealerreport/${item.id}`} onClick={() => dispatch(dealerIdSet(item.id))}>{item.id}</Link></td>
+                  <td><Link href={`/dealersubdealerreport/${item.id}`}>{item.id}</Link></td>
                   <td>{item.email}</td>
                   <td>{item.phone}</td>
                   <td>{item.store}</td>
@@ -45,4 +43,4 @@ function DealerReportTable() {
   );
 }
 
-export default DealerReportTable;
+export default DealerSubDealerReportTable;

@@ -29,6 +29,9 @@ function Trxdts({id}) {
       <p>Country: {detail.ctry}</p>
       <p>MNO: {detail.mno}</p>
       <p>Service: {detail.service}</p>
+      <hr/>
+      <p>Device: {detail.device}</p>
+      <p>Ip Addr: {detail.ip_addr}</p>
     </div>
   );
 }

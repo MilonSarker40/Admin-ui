@@ -52,3 +52,10 @@ export const setTrxId = (tid) => {
         payload: tid
     }
 }
+
+export const dealerIdSet = (did) => {
+    return {
+        type: "dealerIdSet",
+        payload: did
+    }
+}
