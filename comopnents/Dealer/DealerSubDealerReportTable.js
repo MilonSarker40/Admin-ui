@@ -2,13 +2,15 @@ import Table from 'react-bootstrap/Table';
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { useSelector } from 'react-redux';
 
 function DealerSubDealerReportTable() {
-
-  const [table, setTable] =useState();
+  const did = parseInt(useSelector(state => state?.dealer?.dealerId));
+  console.log("did is ", did);
+  const [table, setTable] =useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:3000/dealer')
+    fetch("http://localhost:3000/dealersubdealerreport/"+did)
       .then(res => res.json())
       .then(data => setTable(data.message))
   }, [])
@@ -29,7 +31,7 @@ function DealerSubDealerReportTable() {
             {
               table.map((item) => (
                 <tr key={item.id}>
-                  <td><Link href={`/dealersubdealerreport/${item.id}`}>{item.id}</Link></td>
+                  <td><Link href={`/`}>{item.id}</Link></td>
                   <td>{item.email}</td>
                   <td>{item.phone}</td>
                   <td>{item.store}</td>

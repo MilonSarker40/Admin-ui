@@ -21,6 +21,14 @@ const SubDealerForm = () => {
     const [dealer,setDealer] = useState('');
     const [age, setAge] = useState(0);
     const [ref, setRef] = useState(0);
+    const [users, setUsers] = useState([]);
+    const [userData, setUserData] = useState([]);
+
+    useEffect(() => {
+        fetch('http://localhost:3000/users')
+            .then(res => res.json())
+            .then(data => setUsers(data.message))
+    }, [])
 
     const optd1=[
         {
@@ -45,12 +53,40 @@ const SubDealerForm = () => {
         },
     ]
 
-    const options1 =optd1.map((value)=><option value={value.value}>{value.name}</option>)
+    const options1 =optd1.map((value) => <option value={value.value}>{value.name}</option>)
+    const userOpt = userData.map((value) => <option value={value.id}>{value.email} - {value.store}</option>)
+
+    const typeSelect = (e) => {
+        setType(e.target.value);
+
+        if (e.target.value == "dealer"){
+            let uData = users.filter((data) => {
+                return data ? data.type == "admin" : {}
+            });
+
+            setUserData(uData)
+        }else if(e.target.value == "subdealer") {
+            let uData = users.filter((data) => {
+                return data ? data.type == "dealer" : {}
+            });
+
+            setUserData(uData)
+
+        }else if(e.target.value == "agent") {
+            let uData = users.filter((data) => {
+                return data ? data.type == "subdealer" : {}
+            });
+
+            setUserData(uData)
+
+        }
+    }
 
     const data = {
         fname: fname,
         lname: lname,
         email: email,
+        store: store,
         phone: number,
         password: pasword,
         type: type,
@@ -130,8 +166,14 @@ const SubDealerForm = () => {
             <Row className='mb-3'> 
                 <Form.Group as={Col} controlId="formDealer">
                     <Form.Label>User Type</Form.Label>
-                    <Form.Select aria-label="User Type" onChange={(e)=>setType(e.target.value)}>
+                    <Form.Select aria-label="User Type" onChange={typeSelect}>
                       {options1}
+                    </Form.Select>
+                </Form.Group> 
+                <Form.Group as={Col} controlId="formDealer">
+                    <Form.Label>Refer User</Form.Label>
+                    <Form.Select aria-label="Refer user" onChange={(e)=>console.log(e.target.value)}>
+                      {userOpt}
                     </Form.Select>
                 </Form.Group> 
             </Row>
