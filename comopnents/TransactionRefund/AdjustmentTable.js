@@ -15,7 +15,7 @@ const AdjustmentTable = () => {
     const [data, setData] = useState([])
 
     useEffect(()=> {
-        fetch("http://localhost:3000/alladjustments")
+        fetch(process.env.NEXT_PUBLIC_BASE_URL+"alladjustments")
             .then(res => res.json())
             .then(data => setData(data.message))
     }, [])

@@ -45,7 +45,7 @@ const ActivityLog = () => {
     ]
 
     useEffect(() => {
-        fetch('http://localhost:3000/systemlog/')
+        fetch(process.env.NEXT_PUBLIC_BASE_URL+'systemlog/')
             .then((res) => res.json())
             .then((resdata) => setData(resdata.message))
     }, [])

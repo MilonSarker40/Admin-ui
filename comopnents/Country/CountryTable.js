@@ -15,8 +15,10 @@ const CountryTable = () => {
 
   const [data,setData]=useState([]);
 
+  console.log(process.env.NEXT_PUBLIC_BASE_URL);
+
   useEffect(() => {
-    fetch('http://localhost:3000/countries')
+    fetch(process.env.NEXT_PUBLIC_BASE_URL+'countries')
         .then((res) => res.json())
         .then((data) => {
             console.log(data.message);

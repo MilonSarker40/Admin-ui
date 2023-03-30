@@ -48,7 +48,7 @@ export const TransferTable = ({uid}) => {
   
     useEffect(() => {
       // setId(uid);
-      fetch("http://localhost:3000/data/transfer/"+sid)
+      fetch(process.env.NEXT_PUBLIC_BASE_URL+"data/transfer/"+sid)
         .then((res) => res.json())
         .then((data) => setData(data.message));
       // setData(bodyData);

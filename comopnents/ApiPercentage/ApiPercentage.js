@@ -15,14 +15,14 @@ export const ApiPersentent = () => {
     const [api, setApi] = useState(0);
 
     useEffect(() => {
-        fetch('http://localhost:3000/network/list')
+        fetch(process.env.NEXT_PUBLIC_BASE_URL+'network/list')
             .then((res) => res.json())
             .then((data) => {
                 console.log("network : ", data.message);
                 setNetworkList(data.message);
             })
 
-        fetch('http://localhost:3000/apis')
+        fetch(process.env.NEXT_PUBLIC_BASE_URL+'apis')
             .then((res) => res.json())
             .then((data) => {
                 console.log("apis : ", data.message);
@@ -58,7 +58,7 @@ export const ApiPersentent = () => {
 
     const saveData = () => {
         console.log(data);
-        fetch('http://localhost:3000/assign/percent',{
+        fetch(process.env.NEXT_PUBLIC_BASE_URL+'assign/percent',{
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

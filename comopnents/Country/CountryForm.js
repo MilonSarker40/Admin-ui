@@ -37,7 +37,7 @@ const CountryForm = () => {
 
   const saveData = () => {
       console.log("data Saving : ", data);
-      fetch('http://localhost:3000/country', {
+      fetch(process.env.NEXT_PUBLIC_BASE_URL+'country', {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json',
@@ -75,7 +75,7 @@ const CountryForm = () => {
                 </Form.Group>
             </Row>
             <div className='contact-submit'>
-                <Button gap={3} variant="primary" type="submit" onClick={saveData}>
+                <Button gap={3} variant="primary" type="button" onClick={saveData}>
                     Save
                 </Button>
                 <Button variant="primary" type="submit" onClick={clearData}>

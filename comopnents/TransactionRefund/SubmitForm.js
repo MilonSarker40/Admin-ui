@@ -11,7 +11,7 @@ const SubmitForm = ({func}) => {
 
 
     useEffect(() => {
-        fetch("http://localhost:3000/alltransactions")
+        fetch(process.env.NEXT_PUBLIC_BASE_URL+"alltransactions")
             .then((res) => res.json())
             .then((data) => setTrx(data.message));
     }, [])
@@ -24,7 +24,7 @@ const SubmitForm = ({func}) => {
     const options = trx.map((value) => <option value={value.trxId}>{value.trxId} - Amount - {value.amount}</option>)
 
     const checkData = () => {
-        fetch("http://localhost:3000/trxdetail/"+trxId)
+        fetch(process.env.NEXT_PUBLIC_BASE_URL+"trxdetail/"+trxId)
             .then(res => res.json())
             .then(data => {
                 console.log(data.message);
@@ -33,7 +33,7 @@ const SubmitForm = ({func}) => {
     }
 
     const refundData = () => {
-        fetch('http://localhost:3000/trxrefund/', {
+        fetch(process.env.NEXT_PUBLIC_BASE_URL+'trxrefund/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

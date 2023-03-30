@@ -30,7 +30,7 @@ const TransferForm = ({uid}) => {
 
   const saveData = () => {
       event.preventDefault();
-      fetch("http://localhost:3000/balancetransfer/"+uid, {
+      fetch(process.env.NEXT_PUBLIC_BASE_URL+"balancetransfer/"+uid, {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json',
@@ -54,15 +54,6 @@ const TransferForm = ({uid}) => {
     <>
      <div className='contact-form-wrp'>
        <Form action=''>
-         <Row className="mb-3">
-              <Form.Group as={Col}>
-                <Form.Label>Select Agent</Form.Label>
-                <Form.Select aria-label="Default select example" onChange={agentVal}>
-                    <option>Select Agent</option>
-                    {/* {options} */}
-                </Form.Select>
-              </Form.Group>
-           </Row>
            <Row className="mb-3"> 
                 <Form.Group as={Col}>
                     <Form.Label>Balance Transfer</Form.Label>

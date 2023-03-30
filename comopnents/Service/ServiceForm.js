@@ -11,7 +11,7 @@ const ServiceForm = () => {
   const [opt, setOpt] = useState([]);
 
   useEffect(() => {
-      fetch('http://localhost:3000/network/list')
+      fetch(process.env.NEXT_PUBLIC_BASE_URL+'network/list')
           .then((res) => res.json())
           .then((data) => {
               console.log(data.message);

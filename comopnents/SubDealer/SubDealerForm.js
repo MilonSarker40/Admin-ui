@@ -25,7 +25,7 @@ const SubDealerForm = () => {
     const [userData, setUserData] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:3000/users')
+        fetch(process.env.NEXT_PUBLIC_BASE_URL+'users')
             .then(res => res.json())
             .then(data => setUsers(data.message))
     }, [])

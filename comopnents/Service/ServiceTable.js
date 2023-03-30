@@ -16,7 +16,7 @@ const ServiceTable = () => {
   const [data,setData] =useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:3000/services')
+    fetch(process.env.NEXT_PUBLIC_BASE_URL+'services')
         .then((res) => res.json())
         .then((data) => {
             console.log(data.message);

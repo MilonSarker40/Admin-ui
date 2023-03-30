@@ -18,7 +18,7 @@ const DateFilter = ({ func }) => {
             end_time: endTime
         }
 
-        fetch('http://localhost:3000/filtertrx', {
+        fetch(process.env.NEXT_PUBLIC_BASE_URL+'filtertrx', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

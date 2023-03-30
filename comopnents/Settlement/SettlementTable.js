@@ -12,7 +12,7 @@ function AgReportTable() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    fetch("http://localhost:3000/agents")
+    fetch(process.env.NEXT_PUBLIC_BASE_URL+"agents")
       .then((res) => res.json())
       .then((data) => setTable(data.message))
   }, [])

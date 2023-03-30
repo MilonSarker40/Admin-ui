@@ -48,7 +48,7 @@ export const ProfitTable = ({uid}) => {
   
     useEffect(() => {
       setId(uid);
-      fetch("http://localhost:3000/data/percent/"+sid)
+      fetch(process.env.NEXT_PUBLIC_BASE_URL+"data/percent/"+sid)
         .then((res) => res.json())
         .then((data) => {
           console.log("profit data : ", data)

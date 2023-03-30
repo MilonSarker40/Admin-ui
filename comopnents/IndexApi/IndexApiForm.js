@@ -68,12 +68,12 @@ const IndexApiForm = () => {
     }
 
     const clearData = () => {
-        document.getElementById("name").value = "";
+        // document.getElementById("name").value = "";
     }
 
     const saveData = () => {
         console.log(data);
-        fetch('http://localhost:3000/api', {
+        fetch(process.env.NEXT_PUBLIC_BASE_URL+'api', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

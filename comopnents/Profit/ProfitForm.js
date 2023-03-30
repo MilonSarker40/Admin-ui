@@ -13,7 +13,7 @@ const ProfitForm = ({uid}) => {
 
 
   useEffect(() => {
-      fetch('http://localhost:3000/country/list')
+      fetch(process.env.NEXT_PUBLIC_BASE_URL+'country/list')
           .then((res) => res.json())
           .then((data) => {
               console.log(data.message);
@@ -44,7 +44,7 @@ const ProfitForm = ({uid}) => {
 
   const saveData = () => {
     event.preventDefault();
-    fetch(`http://localhost:3000/assignpercent/${uid}`, {
+    fetch(`${process.env.NEXT_PUBLIC_BASE_URL}assignpercent/${uid}`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

@@ -79,7 +79,7 @@ const OrganizationTable = () => {
   ]
 
   useEffect(() => {
-    fetch("http://localhost:3000/orgreports")
+    fetch(process.env.NEXT_PUBLIC_BASE_URL+"orgreports")
       .then((res) => res.json())
       .then((data) => {
         setData(data.message)

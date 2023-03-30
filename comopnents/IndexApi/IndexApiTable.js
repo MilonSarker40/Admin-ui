@@ -23,7 +23,7 @@ const IndexApiTable = () => {
   }
 
   useEffect(() => {
-    fetch('http://localhost:3000/apis')
+    fetch(process.env.NEXT_PUBLIC_BASE_URL+'apis')
         .then((res) => res.json())
         .then((data) => {
             setData(data.message);

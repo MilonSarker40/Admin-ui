@@ -17,13 +17,13 @@ const AssignmentApiForm = () => {
 
 
     useEffect(()=>{
-        fetch('http://localhost:3000/country/list')
+        fetch(process.env.NEXT_PUBLIC_BASE_URL+'country/list')
             .then((res) => res.json())
             .then((data) => {
                 console.log("country : ", data.message);
                 setCtryList(data.message);
             })
-        fetch('http://localhost:3000/apis')
+        fetch(process.env.NEXT_PUBLIC_BASE_URL+'apis')
             .then((res) => res.json())
             .then((data) => {
                 console.log("apis : ", data.message);
@@ -47,7 +47,7 @@ const AssignmentApiForm = () => {
             apiPriority: values
         }
         console.log(data);
-        fetch('http://localhost:3000/assign/priority',{
+        fetch(process.env.NEXT_PUBLIC_BASE_URL+'assign/priority',{
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

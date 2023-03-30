@@ -11,7 +11,7 @@ const WithdrawForm = ({uid}) => {
   const [opt, setOpt] = useState([]);
 
   useEffect(() => {
-      fetch('http://localhost:3000/country/list')
+      fetch(process.env.NEXT_PUBLIC_BASE_URL+'country/list')
           .then((res) => res.json())
           .then((data) => {
               console.log(data.message);
@@ -40,7 +40,7 @@ const WithdrawForm = ({uid}) => {
 
   const saveData = () => {
     event.preventDefault();
-    fetch(`http://localhost:3000/settledebt/${uid}`, {
+    fetch(`${process.env.NEXT_PUBLIC_BASE_URL}settledebt/${uid}`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -64,16 +64,7 @@ const WithdrawForm = ({uid}) => {
   return (
     <>
      <div className='contact-form-wrp'>
-         <Form action=''>
-         <Row className="mb-3">
-              <Form.Group as={Col}>
-                <Form.Label>Select Agent</Form.Label>
-                <Form.Select aria-label="Default select example" onChange={agentVal}>
-                    <option>Select Agent</option>
-                    {options}
-                </Form.Select>
-              </Form.Group>
-           </Row>
+        <Form action=''>
            <Row className="mb-3"> 
                 <Form.Group as={Col}>
                     <Form.Label>Balance Withdraw</Form.Label>

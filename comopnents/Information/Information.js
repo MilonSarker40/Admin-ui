@@ -12,7 +12,7 @@ const Information = ({uid}) => {
 
   useEffect(() => {
     console.log("infomration ", uid);
-    fetch("http://localhost:3000/user/information/"+sid)
+    fetch(process.env.NEXT_PUBLIC_BASE_URL+"user/information/"+sid)
       .then(res => res.json())
       .then(data => setData(data.message))
   }, [])

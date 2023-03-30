@@ -9,13 +9,13 @@ const ApiInfo = () => {
     const [data, setData] = useState([]);
 
     useEffect(()=> {
-        fetch('http://localhost:3000/apis')
+        fetch(process.env.NEXT_PUBLIC_BASE_URL+'apis')
             .then((res) => res.json())
             .then((data) => {
                 // console.log("apis : ", data.message);
                 setApiList(data.message);
             })
-        fetch('http://localhost:3000/apipriority')
+        fetch(process.env.NEXT_PUBLIC_BASE_URL+'apipriority')
             .then((res) => res.json())
             .then((data) => {
                 // console.log("APi Datas : ", data.message);

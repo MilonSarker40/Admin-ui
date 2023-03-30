@@ -56,7 +56,7 @@ export const WithdrawTable = ({uid}) => {
   
     useEffect(() => {
       setId(uid);
-      fetch("http://localhost:3000/data/withdrawal/"+sid)
+      fetch(process.env.NEXT_PUBLIC_BASE_URL+"data/withdrawal/"+sid)
             .then((res) => res.json())
             .then((data) => {
                 console.log("withdrawl data : ", data)

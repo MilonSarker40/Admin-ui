@@ -68,7 +68,7 @@ const SubDealerTable = () => {
   ]
 
   useEffect(() => {
-    fetch("http://localhost:3000/all")
+    fetch(process.env.NEXT_PUBLIC_BASE_URL+"all")
       .then((res) => res.json())
       .then((data) => setData(data.message));
     // setData(bodyData);

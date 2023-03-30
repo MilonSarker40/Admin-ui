@@ -20,19 +20,19 @@ const SimulatorForm = () => {
   // const loginData = useSelector(state => state?.auth.loginData);
 
   useEffect(() => {
-      fetch('http://localhost:3000/country/list')
+      fetch(process.env.NEXT_PUBLIC_BASE_URL+'country/list')
           .then((res) => res.json())
           .then((data) => {
               console.log("country : ", data.message);
               setCountries(data.message);
           })
-      fetch('http://localhost:3000/network/list')
+      fetch(process.env.NEXT_PUBLIC_BASE_URL+'network/list')
           .then((res) => res.json())
           .then((data) => {
               console.log("network : ", data.message);
               setNetworks(data.message);
           })
-      fetch('http://localhost:3000/service/list')
+      fetch(process.env.NEXT_PUBLIC_BASE_URL+'service/list')
           .then((res) => res.json())
           .then((data) => {
               console.log("service : ", data.message);
@@ -87,7 +87,7 @@ const SimulatorForm = () => {
       'country': parseInt(country),
       'network': parseInt(network),
       'service': parseInt(service),
-      'userId': 20
+      'userId': 4
   }
 
   const clearData = () => {
@@ -101,7 +101,7 @@ const SimulatorForm = () => {
   const saveData = () => {
       console.log(data);
       if (mobile.length >= 11){
-          fetch('http://localhost:3000/submitdata', {
+          fetch(process.env.NEXT_PUBLIC_BASE_URL+'submitdata', {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json',

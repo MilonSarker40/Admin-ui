@@ -9,13 +9,13 @@ const PercentInfo = () => {
     const [data, setData] = useState([]);
 
     useEffect(()=> {
-        fetch('http://localhost:3000/apis')
+        fetch(process.env.NEXT_PUBLIC_BASE_URL+'apis')
             .then((res) => res.json())
             .then((data) => {
                 // console.log("apis : ", data.message);
                 setApiList(data.message);
             })
-        fetch('http://localhost:3000/apipercentage')
+        fetch(process.env.NEXT_PUBLIC_BASE_URL+'apipercentage')
             .then((res) => res.json())
             .then((data) => {
                 // console.log("Percent Datas : ", data.message);

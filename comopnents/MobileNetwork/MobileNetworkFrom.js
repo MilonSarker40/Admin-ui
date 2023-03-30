@@ -20,7 +20,7 @@ const MobileNetworkFrom = () => {
   ] 
 
   useEffect(() => {
-      fetch('http://localhost:3000/country/list')
+      fetch(process.env.NEXT_PUBLIC_BASE_URL+'country/list')
           .then((res) => res.json())
           .then((data) => {
               console.log(data.message);

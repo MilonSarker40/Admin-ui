@@ -94,7 +94,7 @@ const TransactionReportId = () => {
   ]
 
   useEffect(() => {
-    fetch("http://localhost:3000/alltransactions")
+    fetch(process.env.NEXT_PUBLIC_BASE_URL+"alltransactions")
       .then((res) => res.json())
       .then((data) => setData(data.message));
   },[])

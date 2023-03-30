@@ -29,9 +29,9 @@ const indexapi = () => {
                     <Tab eventKey="Add New" title="Add New">
                        <IndexApiForm />
                     </Tab>
-                    <Tab eventKey="Available Api" title="Available Api">
+                    {/* <Tab eventKey="Available Api" title="Available Api">
                        <AvailableApiForm/>
-                    </Tab>
+                    </Tab> */}
                     <Tab eventKey="Assignment Api" title="Assignment Api">
                        <AssignmentApiForm/>
                     </Tab>
