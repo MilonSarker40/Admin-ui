@@ -3,8 +3,6 @@ import { useRouter} from 'next/router';
 import React,{useState} from 'react';
 import Dropdown from 'react-bootstrap/Dropdown';
 
-
-
 const Sidebar = () => {
 
   const {asPath} =useRouter();
@@ -24,9 +22,7 @@ const Sidebar = () => {
                 <Link onClick={() => setUserToggle(!userToggle)} href='#'><i class="ri-user-line"></i>User<span><i class="ri-arrow-right-s-line"></i></span></Link>
                 {userToggle && (
                   <ul className='clearfix reset-list'>
-                    <li><Link href="/dealer" className={asPath==='/dealer' ? 'list active' : 'list'}>Dealer</Link></li>
-                    <li><Link href="/subdealer" className={asPath==='/subdealer' ? 'list active' : 'list'}>Sub Dealer</Link></li>
-                    <li><Link href="/agent" className={asPath==='/agent' ? 'list active' : 'list'}>Agent</Link></li>
+                    <li><Link href="/subdealer" className={asPath==='/subdealer' ? 'list active' : 'list'}>Create User</Link></li>
                   </ul>
                 )}
               </li>
@@ -54,7 +50,7 @@ const Sidebar = () => {
                   <ul className='clearfix reset-list'>
                     <li><Link href="/agent-report" className={asPath==='/agent-report' ? 'list active' : 'list'}>Agent</Link></li>
                     <li><Link href="/dealer-report" className={asPath==='/dealer-report' ? 'list active' : 'list'}>Dealer</Link></li>
-                    <li><Link href="/subdealer-report" className={asPath==='/subdealer-report' ? 'list active' : 'list'}>SubDealer</Link></li>
+                    {/* <li><Link href="/subdealer-report" className={asPath==='/subdealer-report' ? 'list active' : 'list'}>SubDealer</Link></li> */}
                     <li><Link href="/organization" className={asPath==='/organization' ? 'list active' : 'list'}>Organization</Link></li>
                     <li><Link href="/transaction" className={asPath==='/transaction' ? 'list active' : 'list'}>Transaction</Link></li>
 

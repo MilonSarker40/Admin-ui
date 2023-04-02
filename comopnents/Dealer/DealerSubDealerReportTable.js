@@ -2,11 +2,12 @@ import Table from 'react-bootstrap/Table';
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { subDealerIdSet } from '../../state/actions/authActions';
 
 function DealerSubDealerReportTable() {
+  const dispatch = useDispatch();
   const did = parseInt(useSelector(state => state?.dealer?.dealerId));
-  console.log("did is ", did);
   const [table, setTable] =useState([]);
 
   useEffect(() => {
@@ -21,7 +22,7 @@ function DealerSubDealerReportTable() {
           <thead>
             <tr>
               <th>Id</th>
-              <th>Dealer</th>
+              <th>SubDealer</th>
               <th>Phone</th>
               <th>store</th>
               <th>Date </th>
@@ -31,11 +32,11 @@ function DealerSubDealerReportTable() {
             {
               table.map((item) => (
                 <tr key={item.id}>
-                  <td><Link href={`/`}>{item.id}</Link></td>
+                  <td><Link href={`/dealersubdealeragentreport/${item.user.id}`} onClick={() => dispatch(subDealerIdSet(item.user.id))}>{item.id}</Link></td>
                   <td>{item.email}</td>
                   <td>{item.phone}</td>
-                  <td>{item.store}</td>
-                  <td>{item.createdAt}</td>
+                  <td>{item.user.store}</td>
+                  <td>{item.user.createdAt}</td>
                 </tr>
               ))
             }

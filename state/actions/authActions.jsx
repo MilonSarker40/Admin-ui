@@ -59,3 +59,10 @@ export const dealerIdSet = (did) => {
         payload: did
     }
 }
+
+export const subDealerIdSet = (sid) => {
+    return {
+        type: "subDealerIdSet",
+        payload: sid
+    }
+}

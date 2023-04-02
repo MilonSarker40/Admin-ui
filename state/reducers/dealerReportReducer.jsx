@@ -7,6 +7,11 @@ const dealerReportReducer = (state = initialState, action) => {
                 ...state,
                 dealerId: action.payload,
             }
+        case "subDealerIdSet":
+            return {
+                ...state,
+                subDealerId: action.payload,
+            }
         default: 
             return state
     }
