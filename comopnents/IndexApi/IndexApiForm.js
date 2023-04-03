@@ -68,7 +68,11 @@ const IndexApiForm = () => {
     }
 
     const clearData = () => {
-        // document.getElementById("name").value = "";
+        document.getElementById("name").value = "";
+        document.getElementById("code").value = "";
+        document.getElementById("info").value = "";
+        document.getElementById("status").selectedIndex = "0";
+        document.getElementById("type").selectedIndex = "0";
     }
 
     const saveData = () => {
@@ -83,9 +87,11 @@ const IndexApiForm = () => {
         .then((response) => response.json())
         .then((data) => {
             console.log('Success:', data.message);
+            alert(data.message);
         })
         .catch((error) => {
             console.error('Error:', error);
+            alert(data.message);
         });
         clearData();
     }
@@ -112,22 +118,22 @@ const IndexApiForm = () => {
                     <Row className="mb-3">
                         <Form.Group as={Col}>
                             <Form.Label>Name</Form.Label>
-                            <Form.Control type="name" placeholder="Enter Your Name" onChange={nameVal} />
+                            <Form.Control type="name" id="name" placeholder="Enter Your Name" onChange={nameVal} />
                         </Form.Group>
                         <Form.Group as={Col}>
                             <Form.Label>API Code</Form.Label>
-                            <Form.Control type="text" placeholder="Enter Your Api Code" onChange={codeVal} />
+                            <Form.Control type="text" id="code" placeholder="Enter Your Api Code" onChange={codeVal} />
                         </Form.Group>
                     </Row>
                     <Row className="mb-3">
                         <Form.Group as={Col}>
                             <Form.Label>Info</Form.Label>
-                            <Form.Control type="text" placeholder="Enter Info" onChange={infoVal} />
+                            <Form.Control type="text" id="info" placeholder="Enter Info" onChange={infoVal} />
                         </Form.Group>
 
                         <Form.Group as={Col}>
                             <Form.Label>Status</Form.Label>
-                            <Form.Select aria-label="Default select example" onChange={statusVal}>
+                            <Form.Select aria-label="Status" id="status" onChange={statusVal}>
                                 <option>Select Status</option>
                                 {statoptions}
                             </Form.Select>
@@ -136,7 +142,7 @@ const IndexApiForm = () => {
                     <Row className='mb-3'>
                         <Form.Group as={Col}>
                             <Form.Label>Request Type</Form.Label>
-                            <Form.Select aria-label="Default select example" onChange={typeVal}>
+                            <Form.Select aria-label="type" id="type" onChange={typeVal}>
                                 <option>Select Type</option>
                                 {options}
                             </Form.Select>

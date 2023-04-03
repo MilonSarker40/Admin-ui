@@ -67,15 +67,15 @@ const WithdrawForm = ({uid}) => {
         <Form action=''>
            <Row className="mb-3"> 
                 <Form.Group as={Col}>
-                    <Form.Label>Balance Withdraw</Form.Label>
+                    <Form.Label>Balance Payment</Form.Label>
                     <Form.Control type="number" step="2" id="withdraw" placeholder="Balance Withdraw" onChange={withdrawVal} />
                 </Form.Group>
             </Row>
             <div className='contact-submit'>
-                <Button gap={3} variant="primary" type="submit" onClick={saveData}>
+                <Button gap={3} variant="primary" type="button" onClick={saveData}>
                     Save
                 </Button>
-                <Button variant="primary" type="submit" onClick={clearData}>
+                <Button variant="primary" type="button" onClick={clearData}>
                     Clear
                 </Button>
             </div>

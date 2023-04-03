@@ -41,17 +41,19 @@ const BalanceTableId = ({id}) => {
   ]
 
   useEffect(() => {
-    fetch("http://localhost:3000/agentbalance/"+rid)
+    fetch(process.env.NEXT_PUBLIC_BASE_URL + "agentbalancecheck/"+rid)
       .then((res) => res.json())
       .then((data) =>{
         setData(data.message)
         setBalance(data.balance)
       });
   },[])
+
+  console.log(data);
   return (
     <>
       <p>Total Balance : {balance}</p>
-      <DatatableWrapper
+      {/* <DatatableWrapper
         body={data}
         headers={headerData}
         paginationOptionsProps={{
@@ -103,7 +105,7 @@ const BalanceTableId = ({id}) => {
             <Pagination alwaysShowPagination />
           </Col>
         </Row>
-      </DatatableWrapper>
+      </DatatableWrapper> */}
     </>
   )
 }

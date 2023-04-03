@@ -59,7 +59,7 @@ const EarningTableId = ({id}) => {
   ]
 
   useEffect(() => {
-    fetch("http://localhost:3000/agentearning/"+rid)
+    fetch(process.env.NEXT_PUBLIC_BASE_URL + "agentearning/"+rid)
       .then((res) => res.json())
       .then((data) => {
         setData(data.message)

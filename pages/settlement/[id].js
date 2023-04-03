@@ -30,7 +30,7 @@ const country = () => {
                         <Tab eventKey="Transfer" title="Transfer">
                             <TransferForm uid={uid} />
                         </Tab>
-                        <Tab eventKey="Withdraw" title="Withdraw">
+                        <Tab eventKey="Withdraw" title="Payment">
                             <WithdrawForm uid={uid} />
                         </Tab>
                         <Tab eventKey="Profit" title="Profit">

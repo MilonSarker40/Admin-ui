@@ -3,7 +3,6 @@ import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 import Sidebar from '../../comopnents/Sidebar/Sidebar';
 import BreadCrumb from '../../comopnents/BreadCrumb/BreadCrumb';
-// import TrxdtTableId from '../../comopnents/Trxdt/TrxdtTableId';
 import Trxdts from '../../comopnents/Trxdt/Trxdts';
 import { useRouter } from 'next/router';
 

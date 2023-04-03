@@ -5,7 +5,7 @@ function Trxdts({id}) {
   const [detail, setDetail] = useState({})
   const tid = parseInt(useSelector(state => state?.trx?.trxId));
   useEffect(() => {
-    fetch("http://localhost:3000/trxdetail/"+tid)
+    fetch(process.env.NEXT_PUBLIC_BASE_URL+"trxdetail/"+tid)
       .then(res => res.json())
       .then(data => {
         console.log(data.message)

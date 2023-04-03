@@ -96,6 +96,19 @@ const SubDealerForm = () => {
         age: age
     }
 
+    const clearData = () => {
+        document.getElementById("f_name").value = "";
+        document.getElementById("l_name").value = "";
+        document.getElementById("phone").value = "";
+        document.getElementById("pass").value = "";
+        document.getElementById("email").value = "";
+        document.getElementById("store").value = "";
+        document.getElementById("age").value = 0;
+        document.getElementById("addr").value = "";
+        document.getElementById("type_select").selectedIndex = "0";
+        document.getElementById("refer_user").selectedIndex = "0";
+    }
+
     const formSubmit = (e) => {
         e.preventDefault();
         console.log(data);
@@ -110,7 +123,7 @@ const SubDealerForm = () => {
         setArea('')
         setDealer('')
 
-        fetch('http://localhost:3000/register', {
+        fetch(process.env.NEXT_PUBLIC_BASE_URL + 'register', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -118,7 +131,9 @@ const SubDealerForm = () => {
             body: JSON.stringify(data),
         })
             .then((res) => res.json())
-            .then((data) => console.log(data));
+            .then((data) => alert(data.msg));
+
+        clearData()
     }
     return (
         <>
@@ -127,47 +142,47 @@ const SubDealerForm = () => {
                     <Row className="mb-3">
                         <Form.Group as={Col} controlId="formGridEmail">
                             <Form.Label>First Name</Form.Label>
-                            <Form.Control type="name" placeholder="First Name" onChange={(e) => setFName(e.target.value)} />
+                            <Form.Control type="name" placeholder="First Name" id="f_name" onChange={(e) => setFName(e.target.value)} />
                         </Form.Group>
                         <Form.Group as={Col} controlId="formGridEmail">
                             <Form.Label>Last Name</Form.Label>
-                            <Form.Control type="name" placeholder="Last Name" onChange={(e) => setLname(e.target.value)} />
+                            <Form.Control type="name" placeholder="Last Name" id="l_name" onChange={(e) => setLname(e.target.value)} />
                         </Form.Group>
                         <Form.Group as={Col}>
                             <Form.Label>Mobile Number</Form.Label>
-                            <Form.Control type="text" placeholder="Enter Your Number" onChange={(e) => setNumber(e.target.value)} />
+                            <Form.Control type="text" placeholder="Enter Your Number" id="phone" onChange={(e) => setNumber(e.target.value)} />
                         </Form.Group>
                         <Form.Group as={Col} controlId="formGridEmail">
                             <Form.Label>Password</Form.Label>
-                            <Form.Control type="password" placeholder="Set Password" onChange={(e) => setPassword(e.target.value)} />
+                            <Form.Control type="password" placeholder="Set Password" id="pass" onChange={(e) => setPassword(e.target.value)} />
                         </Form.Group>
                     </Row>
                     <Row className="mb-3">
                         <Form.Group as={Col}>
                             <Form.Label>Email Address</Form.Label>
-                            <Form.Control type="email" placeholder="Enter email" onChange={(e) => setEmail(e.target.value)} />
+                            <Form.Control type="email" placeholder="Enter email" id="email" onChange={(e) => setEmail(e.target.value)} />
                         </Form.Group>
 
                         <Form.Group as={Col} controlId="formGridAddress1">
                             <Form.Label>Store Name</Form.Label>
-                            <Form.Control type='text' placeholder="Enter Store Name" onChange={(e) => setStore(e.target.value)} />
+                            <Form.Control type='text' placeholder="Enter Store Name" id="store" onChange={(e) => setStore(e.target.value)} />
                         </Form.Group>
 
                         <Form.Group as={Col} controlId="formVerification">
                             <Form.Label>Age</Form.Label>
-                            <Form.Control type="number" placeholder="Age" onChange={(e) => setAge(e.target.value)} />
+                            <Form.Control type="number" placeholder="Age" id="age" onChange={(e) => setAge(e.target.value)} />
                         </Form.Group>
                     </Row>
                     <Row className='mb-3'>
                         <Form.Group as={Col}>
                             <Form.Label>Address</Form.Label>
-                            <Form.Control type='text' placeholder="Enter Address" value={address} onChange={(e) => setAddress(e.target.value)} />
+                            <Form.Control type='text' placeholder="Enter Address" id="addr" value={address} onChange={(e) => setAddress(e.target.value)} />
                         </Form.Group>
                     </Row>
                     <Row className='mb-3'>
                         <Form.Group as={Col} controlId="formDealer">
                             <Form.Label>User Type</Form.Label>
-                            <Form.Select aria-label="User Type" onChange={typeSelect}>
+                            <Form.Select aria-label="User Type" id="type_select" onChange={typeSelect}>
                                 {options1}
                             </Form.Select>
                         </Form.Group>
@@ -183,7 +198,7 @@ const SubDealerForm = () => {
                         <Button gap={3} variant="primary" type="submit">
                             Save
                         </Button>
-                        <Button variant="primary" type="button">
+                        <Button variant="primary" onClick={clearData} type="button">
                             Clear
                         </Button>
                     </div>
