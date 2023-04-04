@@ -18,7 +18,6 @@ export const TransferTable = ({uid}) => {
     const [id, setId] = useState(uid);
     const [data,setData] = useState([]);
 
-  
     const headerData=[
         {
         isFilterable: false,

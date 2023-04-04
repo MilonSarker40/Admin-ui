@@ -29,14 +29,14 @@ const Summary = ({total, success, failed, sales, refund, salesRefund, adj}) => {
                     <p className='fs-5 text-start mx-5'>Total salesRefund : {salesRefund}</p>
                 </Badge>{' '}
             </Row>
-            <Row>
+            {/* <Row>
                 <Badge bg="light" text="dark" as={Col}>
                     <p className='fs-5 text-start mx-5'>Adjusted Refund : {adj.profit}</p>
                 </Badge>{' '}
                 <Badge bg="light" text="dark" as={Col}>
                     <p className='fs-5 text-start mx-5'>Adjusted Sales : {adj.sales}</p>
                 </Badge>
-            </Row>
+            </Row> */}
         </>
     )
 }

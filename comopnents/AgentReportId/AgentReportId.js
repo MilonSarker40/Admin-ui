@@ -1,5 +1,3 @@
-import Table from 'react-bootstrap/Table';
-import { useRouter } from 'next/router'
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useDispatch } from 'react-redux';
@@ -12,13 +10,13 @@ function AgentReportId() {
     const dispatch = useDispatch();
 
     for (let i = 0; i < table.length; i++) {
-        let recharge_link = <Link href={`/recharge/${table[i].id}`} onClick={() => dispatch(agentReportIdSet(table[i].id))}>{table[i].data.recharge}</Link>
+        // let recharge_link = <Link href={`/recharge/${table[i].id}`} onClick={() => dispatch(agentReportIdSet(table[i].id))}>{table[i].data.recharge}</Link>
         let due_link = <Link href={`/due/${table[i].id}`} onClick={() => dispatch(agentReportIdSet(table[i].id))}>{table[i].data.dues}</Link>
         let earning_link = <Link href={`/earning/${table[i].id}`} onClick={() => dispatch(agentReportIdSet(table[i].id))}>{table[i].data.earning}</Link>
         let balance_link = <Link href={`/balance/${table[i].id}`} onClick={() => dispatch(agentReportIdSet(table[i].id))}>{table[i].data.balance}</Link>
         let sale_link = <Link href={`/sale/${table[i].id}`} onClick={() => dispatch(agentReportIdSet(table[i].id))}>{table[i].data.sale}</Link>
 
-        table[i].recharge_link = recharge_link
+        // table[i].recharge_link = recharge_link
         table[i].due_link = due_link
         table[i].earning_link = earning_link
         table[i].balance_link = balance_link
@@ -43,12 +41,12 @@ function AgentReportId() {
             prop: 'email',
             title: 'Email'
         },
-        {
-            isFilterable: true,
-            isSortable: true,
-            prop: 'recharge_link',
-            title: 'Recharge'
-        },
+        // {
+        //     isFilterable: true,
+        //     isSortable: true,
+        //     prop: 'recharge_link',
+        //     title: 'Recharge'
+        // },
         {
             isFilterable: true,
             isSortable: true,
@@ -77,33 +75,6 @@ function AgentReportId() {
 
     return (
         <div className='agent-report-tbl'>
-            {/* <Table striped bordered hover size="sm">
-                <thead>
-                    <tr>
-                        <th>Agent Report</th>
-                        <th>Recharge</th>
-                        <th>Dues</th>
-                        <th>Earing</th>
-                        <th>Balance </th>
-                        <th>Sale</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {
-                        table.map((item) => (
-                            <tr key={item.id}>
-                                <td>{item.email}</td>
-                                <td><Link href={`/recharge/${item.id}`} onClick={() => dispatch(agentReportIdSet(item.id))}>{item.data.recharge}</Link></td>
-                                <td><Link href={`/due/${item.id}`} onClick={() => dispatch(agentReportIdSet(item.id))}>{item.data.dues}</Link></td>
-                                <td><Link href={`/earning/${item.id}`} onClick={() => dispatch(agentReportIdSet(item.id))}>{item.data.earning}</Link></td>
-                                <td><Link href={`/balance/${item.id}`} onClick={() => dispatch(agentReportIdSet(item.id))}>{item.data.balance}</Link></td>
-                                <td><Link href={`/sale/${item.id}`} onClick={() => dispatch(agentReportIdSet(item.id))}>{item.data.sale}</Link></td>
-                            </tr>
-                        ))
-                    }
-                </tbody>
-            </Table> */}
-
             <DatatableComp data={table} headerData={headerData}/>
         </div>
     );

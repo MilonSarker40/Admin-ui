@@ -96,7 +96,7 @@ const RechargeTableId = ({id}) => {
       },
   ]
   useEffect(() => {
-    fetch("http://localhost:3000/agentrecharge/"+rid)
+    fetch(process.env.NEXT_PUBLIC_BASE_URL + "agentrecharge/"+rid)
       .then((res) => res.json())
       .then((data) => console.log(data));
     setData(bodyData);

@@ -1,12 +1,8 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import React, { use, useState } from 'react';
-import { useSelector } from 'react-redux';
+import React, { useState } from 'react';
 
-import AgentMenu from './AgentMenu';
-import AdminMenu from './AdminMenu';
-
-const Sidebar = () => {
+const AdminMenu = () => {
     const { asPath } = useRouter();
     const [toggle, setToggle] = useState(false)
     const [userToggle, setUserToggle] = useState(false)
@@ -14,26 +10,12 @@ const Sidebar = () => {
     const [networkToggle, setNetworkToggle] = useState(false)
     const [reportToggle, setReportToggle] = useState(false)
 
-    const userType = useSelector(state => state?.auth?.loginData.type)
-
-    // TODO
-    // DYNAMIC MENU 
-    const menu = (type) => {
-        if(type == "admin"){
-            return AdminMenu
-        }else if (type == "agent"){
-            return AdminMenu
-        }
-    }
-
-    const userMenu = menu(userType);
-
     return (
         <>
             <div className='left_sidebar clearfix'>
                 <nav className='navbarMenu'>
                     <ul className='clearfix reset-list'>
-                        <li><Link href="/sample" className={asPath === '/sample' ? 'list active' : 'list'}><i class="ri-settings-3-fill"></i>{userType} User</Link></li>
+                        <li><Link href="/sample" className={asPath === '/sample' ? 'list active' : 'list'}><i class="ri-settings-3-fill"></i>Sample</Link></li>
                         <li>
                             <Link onClick={() => setUserToggle(!userToggle)} href='#'><i class="ri-user-line"></i>User<span><i class="ri-arrow-right-s-line"></i></span></Link>
                             {userToggle && (
@@ -43,7 +25,7 @@ const Sidebar = () => {
                             )}
                         </li>
                         <li>
-                            <Link onClick={() => setNationaToggle(!nationalToggle)} href='#'><i class="ri-profile-line"></i>Country<span><i class="ri-arrow-right-s-line"></i></span></Link>
+                            <Link onClick={() => setNationaToggle(!nationalToggle)} href='#'><i class="ri-profile-line"></i>National<span><i class="ri-arrow-right-s-line"></i></span></Link>
                             {nationalToggle && (
                                 <ul className='clearfix reset-list'>
                                     <li><Link href="/country" className={asPath === '/country' ? 'list active' : 'list'}>Country</Link></li>
@@ -73,7 +55,7 @@ const Sidebar = () => {
                                 </ul>
                             )}
                         </li>
-                        {/* <li>
+                        <li>
                             <Link onClick={() => setToggle(!toggle)} href='#'><i class="ri-file-text-fill"></i>Self Report<span><i class="ri-arrow-right-s-line"></i></span></Link>
                             {toggle && (
                                 <ul className='clearfix reset-list'>
@@ -82,8 +64,8 @@ const Sidebar = () => {
                                     <li><Link href="/agent-recharge" className={asPath === '/agent-recharge' ? 'list active' : 'list'}>Agent Recharge</Link></li>
                                 </ul>
                             )}
-                        </li> */}
-                        {/* <li><Link href="/datetime" className={asPath === '/datetime' ? 'list active' : 'list'}><i class="ri-radar-line"></i>DateTime</Link></li> */}
+                        </li>
+                        <li><Link href="/datetime" className={asPath === '/datetime' ? 'list active' : 'list'}><i class="ri-radar-line"></i>DateTime</Link></li>
                         <li><Link href="/settlement" className={asPath === '/settlement' ? 'list active' : 'list'}><i class="ri-radar-line"></i>Settlement</Link></li>
                         <li><Link href="/indexapi" className={asPath === '/indexapi' ? 'list active' : 'list'}><i class="ri-file-text-line"></i>Api Index</Link></li>
                         <li><Link href="/simulator" className={asPath === '/simulator' ? 'list active' : 'list'}><i class="ri-pages-fill"></i>Simulator</Link></li>
@@ -95,4 +77,4 @@ const Sidebar = () => {
     )
 }
 
-export default Sidebar
+export default AdminMenu;

@@ -44,18 +44,18 @@ const DateFilter = ({ func }) => {
                             <Form.Label>Date Form</Form.Label>
                             <Form.Control type="date" placeholder="Start Date" onChange={(e) => setStartDate(e.target.value)} />
                         </Form.Group>
-                        <Form.Group as={Col}>
+                        {/* <Form.Group as={Col}>
                             <Form.Label>Time Form</Form.Label>
                             <Form.Control type="time" placeholder="Start Time" onChange={(e) => setStartTime(e.target.value)} />
-                        </Form.Group>
+                        </Form.Group> */}
                         <Form.Group as={Col} controlId="formGridEmail">
                             <Form.Label>Date To</Form.Label>
                             <Form.Control type="date" placeholder="End Date" onChange={(e) => setEndDate(e.target.value)} />
                         </Form.Group>
-                        <Form.Group as={Col}>
+                        {/* <Form.Group as={Col}>
                             <Form.Label>Time To</Form.Label>
                             <Form.Control type="time" placeholder="End Time" onChange={(e) => setEndTime(e.target.value)} />
-                        </Form.Group>
+                        </Form.Group> */}
                     </Row>
                     <div className='contact-submit'>
                         <Button gap={3} variant="primary" type="button" onClick={filterTime}>
