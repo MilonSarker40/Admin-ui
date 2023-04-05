@@ -17,7 +17,8 @@ export const ProfitTable = ({uid}) => {
     const [id, setId] = useState(uid);
     const [data,setData] = useState([]);
     console.log("profit uid : ", uid, typeof(uid));
-    const sid = parseInt(useSelector(state => state?.settlement?.userSettlementId));
+    const sid = useSelector(state => state?.settlement?.userSettlementId);
+    console.log(sid)
   
     const headerData=[
         {

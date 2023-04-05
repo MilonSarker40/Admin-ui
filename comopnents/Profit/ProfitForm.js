@@ -69,7 +69,7 @@ const ProfitForm = ({ uid }) => {
         <>
             <div className='contact-form-wrp'>
                 <Form action=''>
-                    <Row className="mb-3">
+                    {/* <Row className="mb-3">
                         <Form.Group as={Col}>
                             <Form.Label>Select Agent</Form.Label>
                             <Form.Select aria-label="Default select example" onChange={agentVal}>
@@ -77,7 +77,7 @@ const ProfitForm = ({ uid }) => {
                                 {options}
                             </Form.Select>
                         </Form.Group>
-                    </Row>
+                    </Row> */}
                     <Row className="mb-3">
                         <Form.Group as={Col}>
                             <Form.Label>Profit</Form.Label>

@@ -32,7 +32,7 @@ function AgReportTable() {
             {
               table.map((item) => (
                 <tr key={item.id}>
-                  <td><Link href={`/settlement/${item.id}`} onClick={() =>dispatch(settlementIdSet(item.id))}>{item.id}</Link></td>
+                  <td><Link href={`/settlement/${item.uuid}`} onClick={() =>dispatch(settlementIdSet(item.uuid))}>{item.uuid}</Link></td>
                   <td>{item.phone}</td>
                   <td>{item.email}</td>
                   <td>{item.store}</td>

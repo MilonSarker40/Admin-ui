@@ -28,7 +28,8 @@ const TransferForm = ({uid}) => {
     uid: uid
   }
 
-  const saveData = () => {
+  const saveData = (event) => {
+    console.log(data);
       event.preventDefault();
       fetch(process.env.NEXT_PUBLIC_BASE_URL+"balancetransfer/"+uid, {
           method: 'POST',

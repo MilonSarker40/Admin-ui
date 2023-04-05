@@ -10,7 +10,7 @@ function DealerSubDealerReportTable() {
     const [table, setTable] = useState([]);
 
     for (let i = 0; i < table.length; i++) {
-        let sd_link = <Link href={`/dealersubdealeragentreport/${table[i].id}`} onClick={() => dispatch(subDealerIdSet(table[i].id))}>{table[i].id}</Link>
+        let sd_link = <Link href={`/dealersubdealeragentreport/${table[i].userId}`} onClick={() => dispatch(subDealerIdSet(table[i].userId))}>{table[i].userId}</Link>
         table[i].sd_link = sd_link
         table[i].store = table[i].user.store
         table[i].createdAt = table[i].user.createdAt

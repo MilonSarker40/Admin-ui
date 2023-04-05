@@ -14,7 +14,7 @@ import { useSelector } from 'react-redux';
 
 
 export const TransferTable = ({uid}) => {
-    const sid = parseInt(useSelector(state => state?.settlement?.userSettlementId));
+    const sid = useSelector(state => state?.settlement?.userSettlementId);
     const [id, setId] = useState(uid);
     const [data,setData] = useState([]);
 
@@ -46,11 +46,9 @@ export const TransferTable = ({uid}) => {
     ]
   
     useEffect(() => {
-      // setId(uid);
       fetch(process.env.NEXT_PUBLIC_BASE_URL+"data/transfer/"+sid)
         .then((res) => res.json())
         .then((data) => setData(data.message));
-      // setData(bodyData);
     },[])
 
   return (

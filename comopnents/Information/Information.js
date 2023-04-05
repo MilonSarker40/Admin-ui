@@ -8,10 +8,10 @@ import { useSelector } from 'react-redux';
 const Information = ({uid}) => {
   const [data, setData] = useState({})
 
-  const sid = parseInt(useSelector(state => state?.settlement?.userSettlementId));
+  const sid = useSelector(state => state?.settlement?.userSettlementId);
 
   useEffect(() => {
-    console.log("infomration ", uid);
+    console.log("infomration ", sid);
     fetch(process.env.NEXT_PUBLIC_BASE_URL+"user/information/"+sid)
       .then(res => res.json())
       .then(data => setData(data.message))

@@ -14,9 +14,10 @@ import { useSelector } from 'react-redux';
 
 
 export const WithdrawTable = ({uid}) => {
-    const sid = parseInt(useSelector(state => state?.settlement?.userSettlementId));
+    const sid = useSelector(state => state?.settlement?.userSettlementId);
     const [id, setId] = useState(uid);
     const [data,setData] = useState([]);
+    console.log("withdraw, ", sid);
   
     const headerData=[
         {
@@ -55,7 +56,6 @@ export const WithdrawTable = ({uid}) => {
     ]
   
     useEffect(() => {
-      setId(uid);
       fetch(process.env.NEXT_PUBLIC_BASE_URL+"data/withdrawal/"+sid)
             .then((res) => res.json())
             .then((data) => {
