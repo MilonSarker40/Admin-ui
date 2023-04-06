@@ -21,7 +21,7 @@ const PriorityData = ({id, dataOpt}) => {
         });
 
         for (let i = 0; i<filtered.length; i++){
-          filtered[i].button = <ModalUpdate id={filtered[i].id}  />
+          filtered[i].button = <ModalUpdate id={filtered[i].uuid}  />
         }
         console.log("filtered data priority : ", filtered);
         setData(filtered);

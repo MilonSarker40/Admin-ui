@@ -26,7 +26,7 @@ const ModalUpdate=({id})=> {
   const submitHandle = () => {
     console.log("submitting for ", id);
 
-    fetch('http://localhost:3000/update/percent', {
+    fetch(process.env.NEXT_PUBLIC_BASE_URL+'update/percent', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

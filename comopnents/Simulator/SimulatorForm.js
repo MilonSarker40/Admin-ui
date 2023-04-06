@@ -6,8 +6,6 @@ import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 
 const SimulatorForm = () => {
-
-
     const [mobile, setMobile] = useState("");
     const [amount, setAmount] = useState(0.00);
     const [country, setCountry] = useState(0);
@@ -80,6 +78,7 @@ const SimulatorForm = () => {
     }
 
     const userId = useSelector(state => state?.auth.loginData.uid);
+    const uuid = useSelector(state => state?.auth.loginData.uuid);
     const userType = useSelector(state => state?.auth.loginData.type);
     let data = {
         'mobile': mobile,
@@ -87,7 +86,8 @@ const SimulatorForm = () => {
         'country': parseInt(country),
         'network': parseInt(network),
         'service': parseInt(service),
-        'userId': parseInt(userId)
+        'userId': parseInt(userId),
+        'uuid': uuid
     }
 
     const clearData = () => {

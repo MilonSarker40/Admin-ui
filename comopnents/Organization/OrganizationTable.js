@@ -26,7 +26,7 @@ const OrganizationTable = () => {
   const [adj, setAdj] = useState({})
 
   for(let i = 0; i<data.length;i++){
-    let comp = <TrxLink trxId={data[i].transactionId} />
+    let comp = <TrxLink trxId={data[i].trxuuid} />
     data[i].link = comp
   }
 

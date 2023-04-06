@@ -23,7 +23,7 @@ const ApiButton = ({id, status}) => {
     const statusCheck = () => {
         event.preventDefault();
         if(statusVal){
-            let url = `http://localhost:3000/api/deactivate/${id}`;
+            let url = `${process.env.NEXT_PUBLIC_BASE_URL}api/deactivate/${id}`;
             console.log("access url ", url);
             fetch(url)
                 .then((res) => res.json())
@@ -31,7 +31,7 @@ const ApiButton = ({id, status}) => {
                     statusUpdate(data.status);
                 });
         }else{
-            let url = `http://localhost:3000/api/activate/${id}`;
+            let url = `${process.env.NEXT_PUBLIC_BASE_URL}api/activate/${id}`;
             console.log("access url ", url);
             fetch(url)
                 .then((res) => res.json())

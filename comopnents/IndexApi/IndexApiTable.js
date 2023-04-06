@@ -6,7 +6,7 @@ import DatatableComp from '../DataTableComp/DatatableComp';
 const IndexApiTable = () => {
     const [data, setData] = useState([]);
     for (let i = 0; i < data.length; i++) {
-        let btn = <ApiButton id={data[i].id} status={data[i].status} />
+        let btn = <ApiButton id={data[i].uuid} status={data[i].status} />
         data[i].btn = btn
     }
 

@@ -16,7 +16,7 @@ import DatatableComp from '../DataTableComp/DatatableComp';
 const BalanceTableId = ({ id }) => {
     const [data, setData] = useState([]);
     const [balance, setBalance] = useState(0);
-    const rid = parseInt(useSelector(state => state?.report?.agentId));
+    const rid = useSelector(state => state?.report?.agentId);
     const headerData = [
         {
             cellProps: {

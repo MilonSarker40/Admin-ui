@@ -20,7 +20,7 @@ const PercentData = ({id, dataOpt}) => {
             return data ? data.apiId == id : []
         })
         for (let i = 0; i<filtered.length; i++){
-          filtered[i].button = <ModalUpdate id={filtered[i].id} />
+          filtered[i].button = <ModalUpdate id={filtered[i].uuid} />
         }
         console.log("filtered data percentage : ", filtered);
         setData(filtered);

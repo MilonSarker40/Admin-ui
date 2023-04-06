@@ -6,12 +6,12 @@ const SimulatorData = () => {
     const type = useSelector(state => state?.auth?.loginData?.type);
     const store = useSelector(state => state?.auth?.loginData?.store);
     const uid = parseInt(useSelector(state => state?.auth?.loginData?.uid));
+    const uuid = useSelector(state => state?.auth?.loginData?.uuid);
 
     useEffect(() => {
         if (type == "agent"){
             console.log("Agent Id calling");
-            setBalance(1.00)
-            fetch(process.env.NEXT_PUBLIC_BASE_URL + 'agentbalance/'+ uid)
+            fetch(process.env.NEXT_PUBLIC_BASE_URL + 'agentbalance/'+ uuid)
                 .then(res => res.json())
                 .then(data => setBalance(data.balance))
         }else {

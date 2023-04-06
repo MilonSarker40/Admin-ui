@@ -16,7 +16,7 @@ const TransactionReportId = () => {
   const [data,setData] =useState([]);
 
   for(let i = 0; i<data.length;i++){
-    let comp = <TrxLink trxId={data[i].trxId} />
+    let comp = <TrxLink trxId={data[i].uuid} />
 
     data[i].link = comp
   }

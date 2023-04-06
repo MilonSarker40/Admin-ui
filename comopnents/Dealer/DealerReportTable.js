@@ -9,7 +9,7 @@ function DealerReportTable() {
     const dispatch = useDispatch();
 
     for (let i = 0; i < table.length; i++) {
-        let sd_link = <Link href={`/dealersubdealerreport/${table[i].id}`} onClick={() => dispatch(dealerIdSet(table[i].id))}>{table[i].id}</Link>
+        let sd_link = <Link href={`/dealersubdealerreport/${table[i].uuid}`} onClick={() => dispatch(dealerIdSet(table[i].uuid))}>{table[i].id}</Link>
         table[i].sd_link = sd_link
     }
 

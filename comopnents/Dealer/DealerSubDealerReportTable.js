@@ -6,11 +6,11 @@ import DatatableComp from '../DataTableComp/DatatableComp';
 
 function DealerSubDealerReportTable() {
     const dispatch = useDispatch();
-    const did = parseInt(useSelector(state => state?.dealer?.dealerId));
+    const did = useSelector(state => state?.dealer?.dealerId);
     const [table, setTable] = useState([]);
 
     for (let i = 0; i < table.length; i++) {
-        let sd_link = <Link href={`/dealersubdealeragentreport/${table[i].userId}`} onClick={() => dispatch(subDealerIdSet(table[i].userId))}>{table[i].userId}</Link>
+        let sd_link = <Link href={`/dealersubdealeragentreport/${table[i].user.uuid}`} onClick={() => dispatch(subDealerIdSet(table[i].user.uuid))}>{table[i].user.uuid}</Link>
         table[i].sd_link = sd_link
         table[i].store = table[i].user.store
         table[i].createdAt = table[i].user.createdAt

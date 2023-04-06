@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import DatatableComp from '../DataTableComp/DatatableComp';
 
 const EarningTableId = ({ id }) => {
-    const rid = parseInt(useSelector(state => state?.report?.agentId));
+    const rid = useSelector(state => state?.report?.agentId);
     const [data, setData] = useState([]);
     const [earn, setEarn] = useState(0);
 
