@@ -2,9 +2,15 @@ import { useEffect, useState } from "react"
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import DatatableComp from "../DataTableComp/DatatableComp";
+import TypeTag from "./TypeTag";
 
 const ActivityLog = () => {
     const [data, setData] = useState([])
+
+    for(let i=0; i< data.length; i++){
+        const tag = <TypeTag type={data[i].type}/>
+        data[i].typetag = tag
+    }
 
     const headerData=[
         {
@@ -25,7 +31,7 @@ const ActivityLog = () => {
           {
           isFilterable: false,
           isSortable: true,
-          prop: 'type',
+          prop: 'typetag',
           title: 'Type'
           },
           {

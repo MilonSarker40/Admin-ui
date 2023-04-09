@@ -3,11 +3,17 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import DatatableComp from '../DataTableComp/DatatableComp';
+import DataStatus from '../DataStatus/DataStatus';
 
 const SaleTableId = ({ id }) => {
     const [data, setData] = useState([]);
     const [sale, setSale] = useState(0);
     const rid = useSelector(state => state?.report?.agentId);
+
+    for (let i = 0; i<data.length; i++){
+        const datastatus = <DataStatus status={data[i].rechargeStatus}/>
+        data[i].status = datastatus
+    }
     const headerData = [
         {
             cellProps: {
@@ -33,7 +39,7 @@ const SaleTableId = ({ id }) => {
         {
             isFilterable: false,
             isSortable: true,
-            prop: 'rechargeStatus',
+            prop: 'status',
             title: 'Status'
         },
         {

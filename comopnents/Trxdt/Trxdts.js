@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
+import DataStatus from '../DataStatus/DataStatus';
 
 function Trxdts({id}) {
   const [detail, setDetail] = useState({})
@@ -13,6 +14,10 @@ function Trxdts({id}) {
         console.log(detail)
       })
   }, [])
+  console.log("recharge Status ", detail.status)
+  console.log("trx_stat ", detail.trx_stat)
+  const recharge_status = <DataStatus status={detail.status}/>
+  const trx_status = <DataStatus status={detail.trx_stat}/>
 
   return (
     <div className='agent-report-tbl'>
@@ -20,7 +25,7 @@ function Trxdts({id}) {
       <p>Trnsaction Id: {detail.id}</p> 
       <p>Phone: {detail.phone}</p>
       <p>Amount: {detail.amount}</p>
-      <p>Status: {detail.rechargeStatus}</p>
+      <p>Status: {recharge_status}</p>  
       <hr/>
       <p>Agent email: {detail.agent_email}</p>
       <p>Agent phone: {detail.agent_phone}</p>
@@ -33,7 +38,7 @@ function Trxdts({id}) {
       <p>Device: {detail.device}</p>
       <p>Ip Addr: {detail.ip_addr}</p>
       <p>Response: {detail.trx_resp}</p>
-      <p>Status: {detail.trx_stat}</p>
+      <p>Status: {trx_status}</p>
     </div>
   );
 }

@@ -11,14 +11,16 @@ import {
 } from 'react-bs-datatable';
 import { Col, Row, Table } from 'react-bootstrap';
 import TrxLink from '../Trxdt/TrxLink';
+import DataStatus from '../DataStatus/DataStatus';
 
 const TransactionReportId = () => {
   const [data,setData] =useState([]);
 
   for(let i = 0; i<data.length;i++){
     let comp = <TrxLink trxId={data[i].uuid} />
-
+    let status = <DataStatus status={data[i].rechargeStatus} />
     data[i].link = comp
+    data[i].status = status
   }
 
   const headerData=[
@@ -52,7 +54,7 @@ const TransactionReportId = () => {
       {
       isFilterable: false,
       isSortable: true,
-      prop: 'rechargeStatus',
+      prop: 'status',
       title: 'Status'
       },
       {
