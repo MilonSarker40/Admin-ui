@@ -272,6 +272,12 @@ New Sidebar Menu
   margin-top: 20px;;
 }
 
+.trxWrap{
+  padding: 20px 20px;
+  margin-top: 20px;
+  border: 1px solid #eee;
+}
+
 .tabsWarp ul {
   border-bottom: 1px solid#ddd;
   padding-bottom: 0;

@@ -6,7 +6,8 @@ import Row from 'react-bootstrap/Row';
 
 const SubmitForm = ({func}) => {
     const [trx, setTrx] = useState([]);
-    const [trxId, setTrxId] = useState(0);
+    const [trxId, setTrxId] = useState("");
+    const [trxCheck, setTrxCheck] = useState(0);
     const [note, setNote] = useState("");
 
 
@@ -17,11 +18,12 @@ const SubmitForm = ({func}) => {
     }, [])
 
     const data = {  
-        tid: parseInt(trxId),
+        tid: trxId,
         note: note
+
     }
 
-    const options = trx.map((value) => <option value={value.trxId}>{value.trxId} - Amount - {value.amount}</option>)
+    const options = trx.map((value) => <option value={value.uuid}>{value.trxId} - Amount - {value.amount}</option>)
 
     const checkData = () => {
         fetch(process.env.NEXT_PUBLIC_BASE_URL+"trxdetail/"+trxId)

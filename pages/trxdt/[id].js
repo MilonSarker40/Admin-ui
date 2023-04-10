@@ -20,7 +20,7 @@ const TransactionDetail = () => {
          </div>
          <div className='main_content-rgt'>
             <BreadCrumb title='Transaction Details' subtitle='Transaction Details' />
-            <div className='tabsWarp'>
+            <div className='trxWrap'>
               <Trxdts id={id}/>
            </div>
          </div>

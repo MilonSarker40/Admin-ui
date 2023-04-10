@@ -25,6 +25,8 @@ function Trxdts({id}) {
       <p>Trnsaction Id: {detail.id}</p> 
       <p>Phone: {detail.phone}</p>
       <p>Amount: {detail.amount}</p>
+      <p>Agent Cut: {detail.agentCut}</p>
+      <p>Organization Percentage Cut: {detail.orgCut}</p>
       <p>Status: {recharge_status}</p>  
       <hr/>
       <p>Agent email: {detail.agent_email}</p>

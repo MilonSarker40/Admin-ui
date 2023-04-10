@@ -68,10 +68,12 @@ export const ApiPersentent = () => {
         .then((response) => response.json())
         .then((data) => {
             console.log(data.message);
+            alert(data.message);
         })
 
         .catch((error) => {
-            console.error('Error: ', error)
+            console.error('Error: ', error);
+            alert(data.message);
         });
     }
 

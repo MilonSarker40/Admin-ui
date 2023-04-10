@@ -113,11 +113,11 @@ const SimulatorForm = () => {
                     .then((response) => response.json())
                     .then((data) => {
                         console.log('Success:', data);
-                        alert(data.message.msg);
+                        alert("Transaction In Process", data.message);
                     })
                     .catch((error) => {
                         console.error('Error:', error);
-                        alert(error.message.msg);
+                        alert("Transaction Failed", data.message);
                     });
                 clearData();
             } else {

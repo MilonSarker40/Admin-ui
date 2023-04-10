@@ -13,6 +13,7 @@ import { Col, Row, Table } from 'react-bootstrap';
 import TrxLink from '../Trxdt/TrxLink';
 import DateFilter from './DateFilter';
 import Summary from './Summary';
+import DataStatus from '../DataStatus/DataStatus';
 
 
 const OrganizationTable = () => {
@@ -24,11 +25,10 @@ const OrganizationTable = () => {
   const [refund, setRefund] = useState(0);
   const [salesRefund, setSalesRefund] = useState(0);
   const [adj, setAdj] = useState({})
-
-  for(let i = 0; i<data.length;i++){
-    let comp = <TrxLink trxId={data[i].trxuuid} />
-    data[i].link = comp
-  }
+  const [todayEarned, setTodayEarned] = useState(0);
+  const [todaySuccess, setTodaySuccess] = useState(0);
+  const [todaySales, setTodaySales] = useState(0);
+  const [mainEarning, setMainEarning] = useState(0);
 
   const headerData =[
       {
@@ -38,7 +38,7 @@ const OrganizationTable = () => {
         isFilterable: false,
         isSortable: true,
         prop: 'id',
-        title: 'ID'
+        title: 'SRL'
         },
       {
       isFilterable: true,
@@ -71,6 +71,12 @@ const OrganizationTable = () => {
       title: 'Amount'
       },
       {
+        isFilterable: true,
+        isSortable: true,
+        prop: 'status',
+        title: 'Status'
+      },
+      {
       isFilterable: false,
       isSortable: true,
       prop: 'createdAt',
@@ -90,8 +96,20 @@ const OrganizationTable = () => {
         setRefund(data.refunds)
         setSalesRefund(data.refund_sales)
         setAdj(data.adjustment)
+        setTodayEarned(data.today_earned)
+        setTodaySuccess(data.today_success_count)
+        setTodaySales(data.today_sales)
+        setMainEarning(data.main_earning)
       });
   },[])
+
+  for(let i = 0; i<data.length;i++){
+    let comp = <TrxLink trxId={data[i].trxuuid} />
+    let status = <DataStatus status={data[i].status} />
+    data[i].link = comp
+    data[i].transactionId = "100"+ data[i].transactionId
+    data[i].status = status
+  }
 
   const filteredData = (data) => {
     setData(data.message);
@@ -102,6 +120,10 @@ const OrganizationTable = () => {
     setRefund(data.refunds)
     setSalesRefund(data.refund_sales)
     setAdj(data.adjustments)
+    setTodayEarned(data.today_earned)
+    setTodaySuccess(data.today_success_count)
+    setTodaySales(data.today_sales)
+    setMainEarning(data.main_earning)
   }
 
   return (
@@ -116,6 +138,10 @@ const OrganizationTable = () => {
         refund={refund}
         salesRefund={salesRefund}
         adj={adj}
+        today_earned={todayEarned}
+        today_success={todaySuccess}
+        today_sales={todaySales}
+        main_earning={mainEarning}
       />
       <hr/>
       <h4>Data</h4>
