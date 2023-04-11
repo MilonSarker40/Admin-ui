@@ -22,7 +22,7 @@ const Sidebar = () => {
         if(type == "admin"){
             return <AdminMenu />
         }else if (type == "agent"){
-            return <AgentMenu />
+            return <AdminMenu />
         }
     }
 

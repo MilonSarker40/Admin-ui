@@ -59,9 +59,7 @@ const AdminMenu = () => {
                             <Link onClick={() => setToggle(!toggle)} href='#'><i class="ri-file-text-fill"></i>Self Report<span><i class="ri-arrow-right-s-line"></i></span></Link>
                             {toggle && (
                                 <ul className='clearfix reset-list'>
-                                    <li><Link href="/agent-earning" className={asPath === '/agent-earning' ? 'list active' : 'list'}>Agent Earning</Link></li>
-                                    <li><Link href="/agent-due" className={asPath === '/agent-due' ? 'list active' : 'list'}>Agent Due</Link></li>
-                                    <li><Link href="/agent-recharge" className={asPath === '/agent-recharge' ? 'list active' : 'list'}>Agent Recharge</Link></li>
+                                    <li><Link href="/agentprofilereport" className={asPath === '/agentprofilereport' ? 'list active' : 'list'}>Agent Report</Link></li>
                                 </ul>
                             )}
                         </li>
