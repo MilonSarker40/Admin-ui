@@ -20,7 +20,7 @@ const SubDealerForm = () => {
     const [type, setType] = useState('');
     const [dealer, setDealer] = useState('');
     const [age, setAge] = useState(0);
-    const [ref, setRef] = useState(0);
+    const [ref, setRef] = useState("");
     const [users, setUsers] = useState([]);
     const [userData, setUserData] = useState([]);
 
@@ -54,27 +54,27 @@ const SubDealerForm = () => {
     ]
 
     const options1 = optd1.map((value) => <option value={value.value}>{value.name}</option>)
-    const userOpt = userData.map((value) => <option value={value.id}>{value.email} - {value.store}</option>)
+    const userOpt = userData.map((value) => <option value={value.uuid}>{value.email} - {value.store}</option>)
 
     const typeSelect = (e) => {
         setType(e.target.value);
 
         if (e.target.value == "dealer") {
             let uData = users.filter((data) => {
-                return data ? data.type == "admin" : {}
+                return data ? data.usertype == "admin" : {}
             });
 
             setUserData(uData)
         } else if (e.target.value == "subdealer") {
             let uData = users.filter((data) => {
-                return data ? data.type == "dealer" : {}
+                return data ? data.usertype == "dealer" : {}
             });
 
             setUserData(uData)
 
         } else if (e.target.value == "agent") {
             let uData = users.filter((data) => {
-                return data ? data.type == "subdealer" : {}
+                return data ? data.usertype == "subdealer" : {}
             });
 
             setUserData(uData)
@@ -92,7 +92,7 @@ const SubDealerForm = () => {
         password: pasword,
         type: type,
         address: address,
-        ref: parseInt(ref),
+        ref: ref,
         age: age
     }
 

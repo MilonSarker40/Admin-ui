@@ -15,17 +15,6 @@ const SubDealerTable = () => {
 
   const [data,setData] = useState([]);
 
-  const test= {
-    "id": 9,
-    "email": "test@test.com",
-    "phone": "01797568609",
-    "password": "$2b$12$VZ03b5FiGy.37FtIaBK6YeWmw6jsqlDYE1qmS49xYXXIp.UwDEXWG",
-    "createdAt": "2023-02-02T09:43:08.730Z",
-    "updatedAt": "2023-02-02T09:43:08.730Z",
-    "type": "agent",
-    "status": true
-}
-
   const bodyData=[]
 
   const headerData =[
@@ -56,7 +45,7 @@ const SubDealerTable = () => {
       {
       isFilterable: true,
       isSortable: false,
-      prop: 'type',
+      prop: 'usertype',
       title: 'Type'
       },
       {

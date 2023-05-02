@@ -14,7 +14,7 @@ const Sidebar = () => {
     const [networkToggle, setNetworkToggle] = useState(false)
     const [reportToggle, setReportToggle] = useState(false)
 
-    const userType = useSelector(state => state?.auth?.loginData.type)
+    const userType = useSelector(state => state?.auth?.loginData.usertype)
 
     // TODO
     // DYNAMIC MENU 

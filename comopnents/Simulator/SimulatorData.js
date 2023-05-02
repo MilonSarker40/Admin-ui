@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 
 const SimulatorData = () => {
     const [balance, setBalance] = useState(0.00);
-    const type = useSelector(state => state?.auth?.loginData?.type);
+    const type = useSelector(state => state?.auth?.loginData?.usertype);
     const store = useSelector(state => state?.auth?.loginData?.store);
     const uid = parseInt(useSelector(state => state?.auth?.loginData?.uid));
     const uuid = useSelector(state => state?.auth?.loginData?.uuid);

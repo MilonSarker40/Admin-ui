@@ -38,9 +38,9 @@ const SimulatorForm = () => {
             })
     }, [])
 
-    const ctry = countries.map((value) => <option value={value.id}>{value.name}</option>)
-    const net = networklist.map((value) => <option value={value.id}>{value.name}</option>)
-    const serv = servicelist.map((value) => <option value={value.id}>{value.name}</option>)
+    const ctry = countries.map((value) => <option value={value.uuid}>{value.name}</option>)
+    const net = networklist.map((value) => <option value={value.uuid}>{value.name}</option>)
+    const serv = servicelist.map((value) => <option value={value.uuid}>{value.name}</option>)
 
     const mobileVal = (event) => {
         setMobile(event.target.value);
@@ -55,7 +55,7 @@ const SimulatorForm = () => {
         setCountry(event.target.value);
         let ctry = event.target.value;
         const filterdNetwork = networks.filter((data) => {
-            return data ? data.nationId == parseInt(ctry) : {}
+            return data ? data.countryId == ctry : {}
         });
         console.log(filterdNetwork);
 
@@ -67,7 +67,7 @@ const SimulatorForm = () => {
         setNetwork(event.target.value);
         let net = event.target.value;
         const filteredService = services.filter((data) => {
-            return data ? data.mobileId === parseInt(net) : {}
+            return data ? data.mobileId === net : {}
         });
         console.log(filteredService);
         setServicelist(filteredService);
@@ -79,14 +79,14 @@ const SimulatorForm = () => {
 
     const userId = useSelector(state => state?.auth.loginData.uid);
     const uuid = useSelector(state => state?.auth.loginData.uuid);
-    const userType = useSelector(state => state?.auth.loginData.type);
+    const userType = useSelector(state => state?.auth.loginData.usertype);
     let data = {
         'mobile': mobile,
         'amount': amount,
-        'country': parseInt(country),
-        'network': parseInt(network),
-        'service': parseInt(service),
-        'userId': parseInt(userId),
+        'country': country,
+        'network': network,
+        'service': service,
+        'userId': userId,
         'uuid': uuid
     }
 
@@ -126,6 +126,8 @@ const SimulatorForm = () => {
         }else{
             alert("Your account is not Agent Account. Please Login with an Agent priviledged Profile");
         }
+        console.log(userType)
+        console.log(data)
     }
 
     return (

@@ -39,7 +39,7 @@ function Trxdts({id}) {
       <hr/>
       <p>Device: {detail.device}</p>
       <p>Ip Addr: {detail.ip_addr}</p>
-      <p>Response: {detail.trx_resp}</p>
+      {/* <p>Response: {detail.trx_resp}</p> */}
       <p>Status: {trx_status}</p>
     </div>
   );
