@@ -66,7 +66,7 @@ const AssignmentApiForm = () => {
         });
     }
 
-    const ctryOptions = ctryList.map((value) => <option value={value.id}>{value.name}</option>)
+    const ctryOptions = ctryList.map((value) => <option value={value.uuid}>{value.name}</option>)
 
     const countryVal = (event) => {
         setCtry(event.target.value);
@@ -96,7 +96,7 @@ const AssignmentApiForm = () => {
                         <label>{item.name}</label>
                       </Col>
                       <Col lg='4'>
-                        <Form.Control key={index} id={item.id} type="number" name='priority[]' placeholder="Enter Value" />
+                        <Form.Control key={index} id={item.uuid} type="number" name='priority[]' placeholder="Enter Value" />
                       </Col>
                       </Row>
                     </>

@@ -34,7 +34,7 @@ export const TransferTable = ({uid}) => {
         {
         isFilterable: true,
         isSortable: true,
-        prop: 'deductedAmount',
+        prop: 'dedcutedAmount',
         title: 'Recharged Amounts'
         },
         {

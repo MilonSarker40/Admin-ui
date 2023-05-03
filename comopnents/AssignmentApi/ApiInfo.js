@@ -18,7 +18,7 @@ const ApiInfo = () => {
         fetch(process.env.NEXT_PUBLIC_BASE_URL+'apipriority')
             .then((res) => res.json())
             .then((data) => {
-                // console.log("APi Datas : ", data.message);
+                console.log("APi Datas : ", data.message);
                 setData(data.message);
             })
         
@@ -26,7 +26,7 @@ const ApiInfo = () => {
 
     const apiTab = apiList.map((values) => 
         <Tab eventKey={values.name} title={values.name}>
-            <PriorityData id={values.id} dataOpt={data} />
+            <PriorityData id={values.uuid} dataOpt={data} />
         </Tab>
     )
 

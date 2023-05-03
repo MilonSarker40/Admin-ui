@@ -18,14 +18,14 @@ const PercentInfo = () => {
         fetch(process.env.NEXT_PUBLIC_BASE_URL+'apipercentage')
             .then((res) => res.json())
             .then((data) => {
-                // console.log("Percent Datas : ", data.message);
+                console.log("Percent Datas : ", data.message);
                 setData(data.message);
             })
     },[])
 
     const apiTab = apiList.map((values) => 
         <Tab eventKey={values.name} title={values.name}>
-            <PercentData id={values.id} dataOpt={data} />
+            <PercentData id={values.uuid} dataOpt={data} />
         </Tab>
     )
 

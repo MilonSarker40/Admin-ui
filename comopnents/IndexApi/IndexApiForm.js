@@ -118,7 +118,7 @@ const IndexApiForm = () => {
                     <Row className="mb-3">
                         <Form.Group as={Col}>
                             <Form.Label>Name</Form.Label>
-                            <Form.Control type="name" id="name" placeholder="Enter Your Name" onChange={nameVal} />
+                            <Form.Control type="name" id="name" placeholder="API Name" onChange={nameVal} />
                         </Form.Group>
                         <Form.Group as={Col}>
                             <Form.Label>API Code</Form.Label>

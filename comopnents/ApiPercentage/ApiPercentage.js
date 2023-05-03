@@ -31,14 +31,15 @@ export const ApiPersentent = () => {
 
     }, [])
 
-    const apiOpt = apiList.map((value) => <option value={value.id}>{ value.name }</option>)
-    const networkOpt = networkList.map((value) => <option value={value.id}>{ value.name }</option>)
+    const apiOpt = apiList.map((value) => <option value={value.uuid}>{ value.name }</option>)
+    const networkOpt = networkList.map((value) => <option value={value.uuid}>{ value.name }</option>)
 
     const persentVal = (event) => {
         setPersent(event.target.value);
     }
 
     const apiVal = (event) => {
+        console.log(event.target.value);
         setApi(event.target.value);
     }
 
@@ -48,8 +49,8 @@ export const ApiPersentent = () => {
 
     let data = {
         percentage: parseFloat(persent),
-        api: parseInt(api),
-        network: parseInt(network),
+        api: api,
+        network: network,
     }
 
     const clearData = () => {
