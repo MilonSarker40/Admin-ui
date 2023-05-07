@@ -1,15 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {
-    DatatableWrapper,
-    Filter,
-    Pagination,
-    PaginationOptions,
-    paginationOptionsProps,
-    TableBody,
-    TableHeader
-} from 'react-bs-datatable';
-import { Col, Row, Table } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import DatatableComp from '../DataTableComp/DatatableComp';
 
@@ -36,7 +26,7 @@ const BalanceTableId = ({ id }) => {
         {
             isFilterable: true,
             isSortable: true,
-            prop: 'deductedAmount',
+            prop: 'dedcutedAmount',
             title: 'Debit'
         },
     ]

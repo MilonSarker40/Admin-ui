@@ -13,10 +13,10 @@ function DealerAgentReport() {
 
     for (let i = 0; i < table.length; i++) {
         // let recharge_link = <Link href={`/recharge/${table[i].id}`} onClick={() => dispatch(agentReportIdSet(table[i].id))}>{table[i].data.recharge}</Link>
-        let due_link = <Link href={`/due/${table[i].user.uuid}`} onClick={() => dispatch(agentReportIdSet(table[i].user.uuid))}>{table[i].data.dues}</Link>
-        let earning_link = <Link href={`/earning/${table[i].user.uuid}`} onClick={() => dispatch(agentReportIdSet(table[i].user.uuid))}>{table[i].data.earning}</Link>
-        let balance_link = <Link href={`/balance/${table[i].user.uuid}`} onClick={() => dispatch(agentReportIdSet(table[i].user.uuid))}>{table[i].data.balance}</Link>
-        let sale_link = <Link href={`/sale/${table[i].user.uuid}`} onClick={() => dispatch(agentReportIdSet(table[i].user.uuid))}>{table[i].data.sale}</Link>
+        let due_link = <Link href={`/due/${table[i].uuid}`} onClick={() => dispatch(agentReportIdSet(table[i].uuid))}>{table[i].data.dues}</Link>
+        let earning_link = <Link href={`/earning/${table[i].uuid}`} onClick={() => dispatch(agentReportIdSet(table[i].uuid))}>{table[i].data.earning}</Link>
+        let balance_link = <Link href={`/balance/${table[i].uuid}`} onClick={() => dispatch(agentReportIdSet(table[i].uuid))}>{table[i].data.balance}</Link>
+        let sale_link = <Link href={`/sale/${table[i].uuid}`} onClick={() => dispatch(agentReportIdSet(table[i].uuid))}>{table[i].data.sale}</Link>
 
         // table[i].recharge_link = recharge_link
         table[i].due_link = due_link
@@ -43,8 +43,8 @@ function DealerAgentReport() {
         {
             isFilterable: true,
             isSortable: true,
-            prop: 'email',
-            title: 'Email'
+            prop: 'store',
+            title: 'Store'
         },
         // {
         //     isFilterable: true,

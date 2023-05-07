@@ -10,16 +10,16 @@ function DealerSubDealerReportTable() {
     const [table, setTable] = useState([]);
 
     for (let i = 0; i < table.length; i++) {
-        let sd_link = <Link href={`/dealersubdealeragentreport/${table[i].user.uuid}`} onClick={() => dispatch(subDealerIdSet(table[i].user.uuid))}>{table[i].user.uuid}</Link>
+        let sd_link = <Link href={`/dealersubdealeragentreport/${table[i].userId}`} onClick={() => dispatch(subDealerIdSet(table[i].userId))}>{table[i].userId}</Link>
         table[i].sd_link = sd_link
-        table[i].store = table[i].user.store
-        table[i].createdAt = table[i].user.createdAt
+        table[i].store = table[i].address
+        table[i].createdAt = table[i].createdAt
     }
 
     useEffect(() => {
         fetch(process.env.NEXT_PUBLIC_BASE_URL + "dealersubdealerreport/" + did)
             .then(res => res.json())
-            .then(data => setTable(data.message))
+            .then(data => {setTable(data.message)})
     }, [])
 
     const headerData = [
@@ -45,7 +45,7 @@ function DealerSubDealerReportTable() {
             isFilterable: true,
             isSortable: true,
             prop: 'store',
-            title: 'Store'
+            title: 'Location'
         },
         {
             isFilterable: true,

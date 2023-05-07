@@ -35,6 +35,7 @@ const SubmitForm = ({func}) => {
     }
 
     const refundData = () => {
+        console.log("refund data : ", data)
         fetch(process.env.NEXT_PUBLIC_BASE_URL+'trxrefund/', {
             method: 'POST',
             headers: {

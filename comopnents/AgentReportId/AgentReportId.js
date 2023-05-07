@@ -26,7 +26,9 @@ function AgentReportId() {
     useEffect(() => {
         fetch(process.env.NEXT_PUBLIC_BASE_URL + 'agentreport')
             .then(res => res.json())
-            .then(data => setTable(data.message))
+            .then(data => {
+                setTable(data.message)
+            })
     }, [])
 
     const headerData = [
@@ -39,8 +41,8 @@ function AgentReportId() {
         {
             isFilterable: true,
             isSortable: true,
-            prop: 'email',
-            title: 'Email'
+            prop: 'store',
+            title: 'Store'
         },
         // {
         //     isFilterable: true,

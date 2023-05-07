@@ -10,7 +10,7 @@ const EarningTableId = ({ id }) => {
     const [earn, setEarn] = useState(0);
 
     for (let i = 0; i < data.length; i++) {
-        let comp = <TrxLink trxId={data[i].transactionId} />
+        let comp = <TrxLink trxId={data[i].trxId} />
         data[i].link = comp
     }
     const headerData = [
@@ -26,7 +26,7 @@ const EarningTableId = ({ id }) => {
         {
             isFilterable: true,
             isSortable: true,
-            prop: 'transactionId',
+            prop: 'trxId',
             title: 'Trx No'
         },
         {
