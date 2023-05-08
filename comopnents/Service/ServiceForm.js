@@ -19,7 +19,7 @@ const ServiceForm = () => {
             })
     }, [])
 
-    const options = opt.map((value) => <option value={value.id}>{value.name} - {value.id}</option>)
+    const options = opt.map((value) => <option value={value.uuid}>{value.name} </option>)
 
     const serviceVal = (event) => {
         setService(event.target.value);

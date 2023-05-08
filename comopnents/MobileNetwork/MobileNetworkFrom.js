@@ -9,12 +9,6 @@ const MobileNetworkFrom = () => {
     const [country, setCountry] = useState(0);
     const [opt, setOpt] = useState([]);
 
-    // Call api for the country list
-    const optd = [
-        { 'id': 1, 'name': "BD" },
-        { 'id': 2, 'name': "IND" }
-    ]
-
     useEffect(() => {
         fetch(process.env.NEXT_PUBLIC_BASE_URL + 'country/list')
             .then((res) => res.json())
@@ -25,7 +19,7 @@ const MobileNetworkFrom = () => {
         // setOpt(optd);
     }, [])
 
-    const options = opt.map((value) => <option value={value.id}>{value.name}</option>)
+    const options = opt.map((value) => <option value={value.uuid}>{value.name}</option>)
 
     const mnoVal = (event) => {
         setMno(event.target.value);

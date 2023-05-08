@@ -12,7 +12,7 @@ const SubmitForm = ({func}) => {
 
 
     useEffect(() => {
-        fetch(process.env.NEXT_PUBLIC_BASE_URL+"alltransactions")
+        fetch(process.env.NEXT_PUBLIC_BASE_URL+"nonrefundedtrx")
             .then((res) => res.json())
             .then((data) => setTrx(data.message));
     }, [])
