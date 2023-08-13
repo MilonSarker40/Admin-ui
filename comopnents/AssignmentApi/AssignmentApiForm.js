@@ -34,16 +34,17 @@ const AssignmentApiForm = () => {
     const handleSubmit = () => {
         console.log("Submitting");
         let input = document.getElementsByName('priority[]');
+        console.log("priorities", input);
         let values = []
         for (var i = 0; i < input.length; i++) {
             if (!isNaN(parseInt(input[i].value))){
-                let val = {apiId: parseInt(input[i].id), priority: parseInt(input[i].value)}
+                let val = {apiId: input[i].id, priority: parseInt(input[i].value)}
                 values.push(val);
             }
         }
 
         let data = {
-            ctry: parseInt(ctry),
+            ctry: ctry,
             apiPriority: values
         }
         console.log(data);
@@ -69,6 +70,7 @@ const AssignmentApiForm = () => {
     const ctryOptions = ctryList.map((value) => <option value={value.uuid}>{value.name}</option>)
 
     const countryVal = (event) => {
+        console.log(event.target.value)
         setCtry(event.target.value);
     }
 

@@ -12,7 +12,7 @@ const ApiInfo = () => {
         fetch(process.env.NEXT_PUBLIC_BASE_URL+'apis')
             .then((res) => res.json())
             .then((data) => {
-                // console.log("apis : ", data.message);
+                console.log("apis : ", data.message);
                 setApiList(data.message);
             })
         fetch(process.env.NEXT_PUBLIC_BASE_URL+'apipriority')

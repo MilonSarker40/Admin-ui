@@ -6,8 +6,6 @@ import BreadCrumb from '../comopnents/BreadCrumb/BreadCrumb';
 import AgentReportId from '../comopnents/AgentReportId/AgentReportId';
 
 
-
-
 const AgentReport = () => {
   return (
     <>

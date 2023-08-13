@@ -44,7 +44,7 @@ const LoginFrom = () => {
             password: userPassword.current.value
           }
 
-          fetch('http://localhost:3000/login', {
+          fetch(process.env.NEXT_PUBLIC_BASE_URL+'login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

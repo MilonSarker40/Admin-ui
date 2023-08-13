@@ -15,6 +15,7 @@ const Sidebar = () => {
     const [reportToggle, setReportToggle] = useState(false)
 
     const userType = useSelector(state => state?.auth?.loginData.usertype)
+    console.log(userType)
 
     // TODO
     // DYNAMIC MENU 
