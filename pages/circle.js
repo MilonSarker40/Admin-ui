@@ -7,28 +7,28 @@ import CircleForm from '../comopnents/Circle/CircleForm';
 import CircleTable from '../comopnents/Circle/CircleTable';
 
 const circle = () => {
-  return (
-    <>
-     <section className='main_content clearfix'>
-         <div className='main_content-lft'>
-            <Sidebar />
-         </div>
-         <div className='main_content-rgt'>
-            <BreadCrumb title='Circle' subtitle='Circle' />
-            <div className='tabsWarp'>
-             <Tabs defaultActiveKey="List" id="uncontrolled-tab-example" className="mb-3">
-                    <Tab eventKey="List" title="List">
-                       <CircleTable />
-                    </Tab>
-                    <Tab eventKey="Add New" title="Add New">
-                       <CircleForm />
-                    </Tab>
-                </Tabs>
-           </div>
-         </div>
-      </section>
-    </>
-  )
+   return (
+      <>
+         <section className='main_content clearfix'>
+            <div className='main_content-lft'>
+               <Sidebar />
+            </div>
+            <div className='main_content-rgt'>
+               <BreadCrumb title='Circle' subtitle='Circle' />
+               <div className='tabsWarp'>
+                  <Tabs defaultActiveKey="List" id="uncontrolled-tab-example" className="mb-3">
+                     <Tab eventKey="List" title="List">
+                        <CircleTable />
+                     </Tab>
+                     <Tab eventKey="Add New" title="Add New">
+                        <CircleForm />
+                     </Tab>
+                  </Tabs>
+               </div>
+            </div>
+         </section>
+      </>
+   )
 }
 
 export default circle

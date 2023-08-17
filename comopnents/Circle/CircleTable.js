@@ -16,14 +16,14 @@ const CircleTable = () => {
  
   const [data,setData] = useState([]);
 
-  useEffect(() => {
-    fetch('http://localhost:3000/circles')
-        .then((res) => res.json())
-        .then((data) => {
-            console.log(data.message);
-            setData(data.message);
-        })
-}, []);
+//   useEffect(() => {
+//     fetch('http://localhost:3000/circles')
+//         .then((res) => res.json())
+//         .then((data) => {
+//             console.log(data.message);
+//             setData(data.message);
+//         })
+// }, []);
 
   const headerData=[
     {

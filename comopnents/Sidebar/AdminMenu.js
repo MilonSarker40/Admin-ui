@@ -9,6 +9,7 @@ const AdminMenu = () => {
     const [nationalToggle, setNationaToggle] = useState(false)
     const [networkToggle, setNetworkToggle] = useState(false)
     const [reportToggle, setReportToggle] = useState(false)
+    const [settingToggle, setSettingToggle] = useState(false)
 
     return (
         <>
@@ -60,6 +61,19 @@ const AdminMenu = () => {
                             {toggle && (
                                 <ul className='clearfix reset-list'>
                                     <li><Link href="/agentprofilereport" className={asPath === '/agentprofilereport' ? 'list active' : 'list'}>Agent Report</Link></li>
+                                </ul>
+                            )}
+                        </li>
+                        <li>
+                            <Link onClick={() => setSettingToggle(!settingToggle)} href='#'><i class="ri-file-text-fill"></i>Setting<span><i class="ri-arrow-right-s-line"></i></span></Link>
+                            {settingToggle && (
+                                <ul className='clearfix reset-list'>
+                                    <li><Link href="/operatorcode" className={asPath === '/operatorcode' ? 'list active' : 'list'}>Operator Code</Link></li>
+                                    <li><Link href="/mobilesetting" className={asPath === '/mobilesetting' ? 'list active' : 'list'}>Operator Setting</Link></li>
+                                    <li><Link href="/circle" className={asPath === '/circle' ? 'list active' : 'list'}>Circle</Link></li>
+                                    <li><Link href="/currency" className={asPath === '/currency' ? 'list active' : 'list'}>Currency</Link></li>
+                                    <li><Link href="/plantype" className={asPath === '/plantype' ? 'list active' : 'list'}>Plantype</Link></li>
+                                    <li><Link href="/plan" className={asPath === '/plan' ? 'list active' : 'list'}>Plan</Link></li>
                                 </ul>
                             )}
                         </li>
