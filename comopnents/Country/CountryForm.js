@@ -49,7 +49,7 @@ const CountryForm = () => {
           console.log('Success:', data);
           alert(data.message);
       })
-      .catch((error) => {
+      .catch((error) => {210
           console.error('Error:', error);
           alert(data.message);
       });

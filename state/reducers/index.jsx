@@ -6,6 +6,7 @@ import agentReportReducer from './agentReporReducer';
 import apiReducer from './apiReducer';
 import trxReducer from './trxReducer';
 import dealerReportReducer from './dealerReportReducer';
+import appReportReducer from "./appReportReducer";
 
 const reducers = combineReducers({
     auth: authReducers,
@@ -14,6 +15,7 @@ const reducers = combineReducers({
     api: apiReducer,
     trx: trxReducer,
     dealer: dealerReportReducer,
+    appReport: appReportReducer
 });
 
 export default reducers;

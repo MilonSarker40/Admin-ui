@@ -10,6 +10,7 @@ const AdminMenu = () => {
     const [networkToggle, setNetworkToggle] = useState(false)
     const [reportToggle, setReportToggle] = useState(false)
     const [settingToggle, setSettingToggle] = useState(false)
+    const [appReportToggle, setAppReportToggle] = useState(false)
 
     return (
         <>
@@ -52,7 +53,20 @@ const AdminMenu = () => {
                                     {/* <li><Link href="/subdealer-report" className={asPath==='/subdealer-report' ? 'list active' : 'list'}>SubDealer</Link></li> */}
                                     <li><Link href="/organization" className={asPath === '/organization' ? 'list active' : 'list'}>Organization</Link></li>
                                     <li><Link href="/transaction" className={asPath === '/transaction' ? 'list active' : 'list'}>Transaction</Link></li>
-
+                                    <li><Link href="/reportorg" className={asPath === '/reportorg' ? 'list active' : 'list'}>Main Report</Link></li>
+                                </ul>
+                            )}
+                        </li>
+                        
+                        <li>
+                            <Link onClick={() => setAppReportToggle(!appReportToggle)} href='#'><i class="ri-file-text-fill"></i>App Reports<span><i class="ri-arrow-right-s-line"></i></span></Link>
+                            {appReportToggle && (
+                                <ul className='clearfix reset-list'>
+                                    <li><Link href="/reportorderhistory" className={asPath === '/reportorderhistory' ? 'list active' : 'list'}>Order History</Link></li>
+                                    <li><Link href="/reportsalestransactionhistory" className={asPath === '/reportsalestransactionhistory' ? 'list active' : 'list'}>Sales Transaction History</Link></li>
+                                    {/* <li><Link href="/subdealer-report" className={asPath==='/subdealer-report' ? 'list active' : 'list'}>SubDealer</Link></li> */}
+                                    <li><Link href="/reportsaleswallethistory" className={asPath === '/reportsaleswallethistory' ? 'list active' : 'list'}>Sales Wallet History</Link></li>
+                                    <li><Link href="/reportuserlist" className={asPath === '/reportuserlist' ? 'list active' : 'list'}>User List+</Link></li>
                                 </ul>
                             )}
                         </li>
@@ -68,12 +82,14 @@ const AdminMenu = () => {
                             <Link onClick={() => setSettingToggle(!settingToggle)} href='#'><i class="ri-file-text-fill"></i>Setting<span><i class="ri-arrow-right-s-line"></i></span></Link>
                             {settingToggle && (
                                 <ul className='clearfix reset-list'>
+                                    <li><Link href="/addcredit" className={asPath === '/addcredit' ? 'list active' : 'list'}>Add Credit</Link></li>
                                     <li><Link href="/operatorcode" className={asPath === '/operatorcode' ? 'list active' : 'list'}>Operator Code</Link></li>
                                     <li><Link href="/mobilesetting" className={asPath === '/mobilesetting' ? 'list active' : 'list'}>Operator Setting</Link></li>
                                     <li><Link href="/circle" className={asPath === '/circle' ? 'list active' : 'list'}>Circle</Link></li>
                                     <li><Link href="/currency" className={asPath === '/currency' ? 'list active' : 'list'}>Currency</Link></li>
                                     <li><Link href="/plantype" className={asPath === '/plantype' ? 'list active' : 'list'}>Plantype</Link></li>
                                     <li><Link href="/plan" className={asPath === '/plan' ? 'list active' : 'list'}>Plan</Link></li>
+                                    <li><Link href="/planding" className={asPath === '/planding' ? 'list active' : 'list'}>Ding</Link></li>
                                 </ul>
                             )}
                         </li>

@@ -1,4 +1,4 @@
-import React,{useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
   DatatableWrapper,
@@ -11,58 +11,87 @@ import {
 } from 'react-bs-datatable';
 import { Col, Row, Table } from 'react-bootstrap';
 
-const OperatorCodeData = () => {
-
-  const [data,setData]=useState([]);
+const DingData = () => {
+  const [data, setData] = useState([]);
 
   console.log(process.env.NEXT_PUBLIC_BASE_URL);
 
   useEffect(() => {
-    fetch(process.env.NEXT_PUBLIC_BASE_URL+'operatorcodelist')
-        .then((res) => res.json())
-        .then((data) => {
-            console.log("operatorcodelist")
-            console.log(data);
-            setData(data);
-        })
+    fetch(process.env.NEXT_PUBLIC_BASE_URL + 'listdingplan')
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("plan dings")
+        console.log(data);
+        setData(data);
+      })
   }, [])
-
-  const headerData=[
+  const headerData = [
     {
-      isFilterable: true,
-      isSortable: true,
-      prop: 'api',
-      title: 'Api'
-      },
-      {
       isFilterable: true,
       isSortable: true,
       prop: 'country',
       title: 'Country'
-      },
-      {
+    },
+    {
+      isFilterable: true,
+      isSortable: true,
+      prop: 'operator',
+      title: 'Operator'
+    },
+    {
       isFilterable: true,
       isSortable: false,
-      prop: 'mobile',
-      title: 'Mobile'
-      },
-      {
+      prop: 'plan_id',
+      title: 'Plan'
+    },
+    {
       isFilterable: false,
       isSortable: true,
-      prop: 'operatorCode',
-      title: 'Code'
-      },
-      {
+      prop: 'providercode',
+      title: 'Provider COde'
+    },
+    {
+      isFilterable: true,
+      isSortable: true,
+      prop: 'receive_amount',
+      title: 'Recieve Amount'
+    },
+    {
+      isFilterable: true,
+      isSortable: true,
+      prop: 'receive_currency',
+      title: 'Receive Currency'
+    },
+    {
+      isFilterable: true,
+      isSortable: false,
+      prop: 'send_amount',
+      title: 'Send Amount'
+    },
+    {
       isFilterable: false,
       isSortable: true,
-      prop: 'operatorShort',
-      title: 'Short'
-      }
-   ]
+      prop: 'send_currency',
+      title: 'Send Currency'
+    },
+    {
+      isFilterable: true,
+      isSortable: true,
+      prop: 'skucode',
+      title: 'Sku Code'
+    },
+    {
+      isFilterable: true,
+      isSortable: true,
+      prop: 'type',
+      title: 'Type'
+    }
+  ]
+
    return (
     <>
       <DatatableWrapper
-        
+
         body={data}
         headers={headerData}
         paginationOptionsProps={{
@@ -119,4 +148,4 @@ const OperatorCodeData = () => {
   )
 }
 
-export default OperatorCodeData;
+export default DingData;

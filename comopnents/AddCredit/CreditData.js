@@ -1,4 +1,4 @@
-import React,{useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
   DatatableWrapper,
@@ -11,55 +11,55 @@ import {
 } from 'react-bs-datatable';
 import { Col, Row, Table } from 'react-bootstrap';
 
-const OperatorCodeData = () => {
-
-  const [data,setData]=useState([]);
+const CreditData = () => {
+  const [data, setData] = useState([]);
 
   console.log(process.env.NEXT_PUBLIC_BASE_URL);
 
   useEffect(() => {
-    fetch(process.env.NEXT_PUBLIC_BASE_URL+'operatorcodelist')
-        .then((res) => res.json())
-        .then((data) => {
-            console.log("operatorcodelist")
-            console.log(data);
-            setData(data);
-        })
+    fetch(process.env.NEXT_PUBLIC_BASE_URL + 'credit-list')
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setData(data);
+      })
   }, [])
 
   const headerData=[
     {
       isFilterable: true,
       isSortable: true,
-      prop: 'api',
-      title: 'Api'
+      prop: 'userId',
+      title: 'User Id'
       },
       {
       isFilterable: true,
       isSortable: true,
-      prop: 'country',
-      title: 'Country'
+      prop: 'name',
+      title: 'Name'
+      },
+      {
+      isFilterable: true,
+      isSortable: true,
+      prop: 'credit',
+      title: 'Credit'
       },
       {
       isFilterable: true,
       isSortable: false,
-      prop: 'mobile',
-      title: 'Mobile'
+      prop: 'credit_limit',
+      title: 'Credit Limit'
       },
       {
       isFilterable: false,
       isSortable: true,
-      prop: 'operatorCode',
-      title: 'Code'
-      },
-      {
-      isFilterable: false,
-      isSortable: true,
-      prop: 'operatorShort',
-      title: 'Short'
+      prop: 'max_credit',
+      title: 'Max Credit'
       }
    ]
-   return (
+
+  
+  return (
     <>
       <DatatableWrapper
         
@@ -119,4 +119,4 @@ const OperatorCodeData = () => {
   )
 }
 
-export default OperatorCodeData;
+export default CreditData;

@@ -66,3 +66,31 @@ export const subDealerIdSet = (sid) => {
         payload: sid
     }
 }
+
+export const orderHistoryIdSet = (oid) => {
+    return {
+        type: "orderHistoryIdSet",
+        payload: oid
+    }
+}
+
+export const salesIdSet = (sid) => {
+    return {
+        type: "salesIdSet",
+        payload: sid
+    }
+}
+
+export const trxUserIdSet = (tid) => {
+    return {
+        type: "trxUserIdSet",
+        payload: tid
+    }
+}
+
+export const userListIdSet = (uid) => {
+    return {
+        type: "userListIdSet",
+        payload: uid
+    }
+}
