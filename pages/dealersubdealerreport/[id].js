@@ -3,7 +3,7 @@ import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 import Sidebar from '../../comopnents/Sidebar/Sidebar';
 import BreadCrumb from '../../comopnents/BreadCrumb/BreadCrumb';
-import DealerSubDealerReportTable from '../../comopnents/Dealer/DealerSubdealerReportTable';
+// import DealerSubDealerReportTable from '../../comopnents/Dealer/DealerSubdealerReportTable';
 
 
 const DealerSubDealer = () => {
@@ -18,7 +18,7 @@ const DealerSubDealer = () => {
             <div className='tabsWarp'>
              <Tabs defaultActiveKey="List" id="uncontrolled-tab-example" className="mb-3">
                   <Tab eventKey="List" title="List">
-                    <DealerSubDealerReportTable />
+                    {/* <DealerSubDealerReportTable /> */}
                   </Tab>
                 </Tabs>
            </div>
