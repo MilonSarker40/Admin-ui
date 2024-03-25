@@ -13,6 +13,7 @@ const PurchaseForm = () => {
     const [purchase, setPurchase] = useState(0.0)
     const [payable, setPayable] = useState(0.0)
     const [commission, setCommission] = useState(0.0)
+    const [com, setCom] = useState(0.0)
     const [entryDate, setEntryDate] = useState("")
     const [locale, setLocale] = useState("")
     const [conv, setConv] = useState(0.0)
@@ -33,14 +34,14 @@ const PurchaseForm = () => {
     }, []);
 
     const apiList = listDist.map((value) => <option value={value.name}>{ value.name }</option>)
-    const telcoList = listTelco.map((value) => <option value={value.name}>{ value.name }</option>)
+    const telcoList = listTelco.map((value) => <option value={value.name}>{ value.name } - { value.short }</option>)
 
     let data = {
         telco: telco,
         dist: dist,
         purchase: purchase,
         payable: payable,
-        commission: commission,
+        commission: com,
         entryDate: entryDate,
         locale: locale,
         conv: conv
@@ -113,7 +114,7 @@ const PurchaseForm = () => {
                         </Form.Group>
                         <Form.Group as={Col}>
                             <Form.Label>Commission</Form.Label>
-                            <Form.Control type="text" id='credit_limit' placeholder="Commission" value={commission} disabled={true}/>
+                            <Form.Control type="text" id='credit_limit' placeholder="Commission" onChange={(e) => {setCom(e.target.value)}}/>
                         </Form.Group>
                     </Row>
                     <Row className="mb-3">

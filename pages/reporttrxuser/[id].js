@@ -16,7 +16,7 @@ import {
 import { Col, Row, Table } from 'react-bootstrap';
 
 
-const reporttrxuser = () => {
+const Reporttrxuser = () => {
     const phone = useSelector(state => state?.appReport?.trxUserId);
     const [table, setTable] = useState([])
 
@@ -138,4 +138,4 @@ const reporttrxuser = () => {
     )
 }
 
-export default reporttrxuser
+export default Reporttrxuser

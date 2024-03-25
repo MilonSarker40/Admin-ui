@@ -16,7 +16,7 @@ import {
 import { Col, Row, Table } from 'react-bootstrap';
 
 
-const reportsaleswallet = () => {
+const Reportsaleswallet = () => {
     const phone = useSelector(state => state?.appReport?.salesId);
     const [table, setTable] = useState([])
 
@@ -138,4 +138,4 @@ const reportsaleswallet = () => {
     )
 }
 
-export default reportsaleswallet
+export default Reportsaleswallet

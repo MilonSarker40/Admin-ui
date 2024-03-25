@@ -15,7 +15,7 @@ import {
   } from 'react-bs-datatable';
 import { Col, Row, Table } from 'react-bootstrap';
 
-const reportorder = () => {
+const ReportOrder = () => {
     const phone = useSelector(state => state?.appReport?.orderHistoryId);
     const [table, setTable] = useState([])
 
@@ -137,4 +137,4 @@ const reportorder = () => {
     )
 }
 
-export default reportorder
+export default ReportOrder

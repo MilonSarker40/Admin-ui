@@ -18,7 +18,7 @@ import {
 import { Col, Row, Table } from 'react-bootstrap';
 
 
-const reportuserlist = async() => {
+const Reportuserlist = async() => {
     const phone = useSelector(state => state?.appReport?.userListId);
     const [table, setTable] = useState({})
 
@@ -68,4 +68,4 @@ const reportuserlist = async() => {
   )
 }
 
-export default reportuserlist
+export default Reportuserlist

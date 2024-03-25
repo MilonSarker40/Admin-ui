@@ -10,7 +10,7 @@ import ProfitForm from '../../comopnents/Profit/ProfitForm';
 import Information from '../../comopnents/Information/Information';
 import TransactionRefund from '../../comopnents/TransactionRefund';
 
-const country = () => {
+const Country = () => {
     const router = useRouter();
     const {id} = router.query;
     const [uid, setUid] = useState(id);
@@ -50,4 +50,4 @@ const country = () => {
   )
 }
 
-export default country
+export default Country
