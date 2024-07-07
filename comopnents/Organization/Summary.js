@@ -18,7 +18,6 @@ const Summary = ({total, success, failed, sales, refund, salesRefund, adj, today
                 <Badge className='' bg="light" text="dark" as={Col}>
                     <p className='fs-5 text-start mx-5'>Total Refund : {refund}</p>
                 </Badge>{' '}
-                
             </Row>
             <hr/>
             <Row>

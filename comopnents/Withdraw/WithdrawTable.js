@@ -48,9 +48,15 @@ export const WithdrawTable = ({uid}) => {
         title: 'Withdraw Amount'
         },
         {
+          isFilterable: false,
+          isSortable: true,
+          prop: 'note',
+          title: 'NOTE'
+        },
+        {
         isFilterable: false,
         isSortable: true,
-        prop: 'note',
+        prop: 'createdAt',
         title: 'Last Update'
         },
     ]

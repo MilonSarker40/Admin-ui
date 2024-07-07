@@ -82,6 +82,7 @@ const AdminMenu = () => {
                             <Link onClick={() => setSettingToggle(!settingToggle)} href='#'><i class="ri-file-text-fill"></i>Setting<span><i class="ri-arrow-right-s-line"></i></span></Link>
                             {settingToggle && (
                                 <ul className='clearfix reset-list'>
+                                    <li><Link href="/device" className={asPath === '/device' ? 'list active' : 'list'}>Device</Link></li>
                                     <li><Link href="/addcredit" className={asPath === '/addcredit' ? 'list active' : 'list'}>Add Credit</Link></li>
                                     <li><Link href="/operatorcode" className={asPath === '/operatorcode' ? 'list active' : 'list'}>Operator Code</Link></li>
                                     <li><Link href="/mobilesetting" className={asPath === '/mobilesetting' ? 'list active' : 'list'}>Operator Setting</Link></li>

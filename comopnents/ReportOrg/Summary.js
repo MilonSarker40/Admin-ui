@@ -1,4 +1,5 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
+import DateFilter from "./DateFilter";
 
 const Summary = () => {
     const [purchase, setPurchase] = useState(0.00)
@@ -6,17 +7,25 @@ const Summary = () => {
     const [revenue, setRevenue] = useState(0.00)
 
     useEffect(() => {
-        fetch(process.env.NEXT_PUBLIC_BASE_URL+"summaryreport")
-          .then((res) => res.json())
-          .then((data) => {
-            setPurchase(data.data.total_purchase)
-            setSales(data.data.total_sales)
-            setRevenue(data.data.total_revenue)
-          })
-      }, [])
+        fetch(process.env.NEXT_PUBLIC_BASE_URL + "summaryreport")
+            .then((res) => res.json())
+            .then((data) => {
+                setPurchase(data.data.total_purchase)
+                setSales(data.data.total_sales)
+                setRevenue(data.data.total_revenue)
+            })
+    }, [])
+
+    const url = "filtersummaryreport"
+    const filteredData = (data) => {
+        setPurchase(data.data.total_purchase)
+        setSales(data.data.total_sales)
+        setRevenue(data.data.total_revenue)
+    }
 
     return (
         <>
+            <DateFilter func={filteredData} url={url} />
             <p>Total Purchase : {purchase}</p>
             <p>Total Sales: {sales}</p>
             <p>Total Revenue: {revenue}</p>

@@ -17,7 +17,7 @@ const CurrencyData = () => {
   console.log(process.env.NEXT_PUBLIC_BASE_URL);
 
   useEffect(() => {
-    fetch(process.env.NEXT_PUBLIC_BASE_URL + 'countries')
+    fetch(process.env.NEXT_PUBLIC_BASE_URL + 'listcurrency')
       .then((res) => res.json())
       .then((data) => {
         console.log(data.message);
@@ -29,20 +29,26 @@ const CurrencyData = () => {
       {
       isFilterable: true,
       isSortable: true,
-      prop: 'name',
-      title: 'Name'
+      prop: 'title',
+      title: 'Title'
       },
       {
       isFilterable: true,
       isSortable: false,
-      prop: 'short',
-      title: 'Short'
+      prop: 'credit_currency',
+      title: 'Credit Currency'
       },
       {
       isFilterable: false,
       isSortable: true,
-      prop: 'code',
-      title: 'Code'
+      prop: 'debit_currency',
+      title: 'Debit Currency'
+      },
+      {
+      isFilterable: false,
+      isSortable: true,
+      prop: 'conversionValue',
+      title: 'Conversion Value'
       }
    ]
 

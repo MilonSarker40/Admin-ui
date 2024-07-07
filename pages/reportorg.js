@@ -8,6 +8,7 @@ import PurchaseTable from "../comopnents/ReportOrg/PurchaseTable";
 import SalesTable from "../comopnents/ReportOrg/SalesTable";
 import RevenueTable from "../comopnents/ReportOrg/RevenueTable";
 import PurchaseForm from "../comopnents/ReportOrg/PurchaseForm";
+import CollectionTable from "../comopnents/ReportOrg/CollectionTable";
 
 const reportorg = () => {
     return (
@@ -34,6 +35,9 @@ const reportorg = () => {
                         </Tab>
                         <Tab eventKey="AddEntry" title="Add Purchase Entry">
                             <PurchaseForm />
+                        </Tab>
+                        <Tab eventKey="Collection" title="Collection Report">
+                            <CollectionTable />
                         </Tab>
                     </Tabs>
                 </div>

@@ -4,7 +4,7 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 
-const DateFilter = ({ func }) => {
+const DateFilter = ({ func, url }) => {
     const [startDate, setStartDate] = useState('')
     const [startTime, setStartTime] = useState('')
     const [endDate, setEndDate] = useState('')
@@ -19,7 +19,7 @@ const DateFilter = ({ func }) => {
             end_time: endTime
         }
 
-        fetch(process.env.NEXT_PUBLIC_BASE_URL+'filtertrx', {
+        fetch(process.env.NEXT_PUBLIC_BASE_URL+url, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

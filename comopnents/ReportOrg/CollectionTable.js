@@ -1,5 +1,3 @@
-// import { useEffect, useState } from 'react';
-// import Table from 'react-bootstrap/Table';
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
@@ -16,29 +14,78 @@ import Badge from 'react-bootstrap/Badge';
 import Papa from 'papaparse';
 import DateFilter from './DateFilter';
 
-const RevenueTable = () => {
+const CollectionTable = () => {
     const [data, setData] = useState([])
+    const [debit, setDebit] = useState(0)
+    const [credit, setCredit] = useState(0)
+
+    const headerData = [
+        {
+            cellProps: {
+                style: function noRefCheck() { }
+            },
+            isFilterable: false,
+            isSortable: true,
+            prop: 'userId',
+            title: 'User Id'
+        },
+        {
+            isFilterable: true,
+            isSortable: true,
+            prop: 'user',
+            title: 'User'
+        },
+        {
+            isFilterable: true,
+            isSortable: true,
+            prop: 'debit',
+            title: 'Debit'
+        },
+        {
+            isFilterable: true,
+            isSortable: true,
+            prop: 'credit',
+            title: 'Credit'
+        },
+        {
+            isFilterable: true,
+            isSortable: true,
+            prop: 'note',
+            title: 'Note'
+        },
+        {
+            isFilterable: false,
+            isSortable: true,
+            prop: 'createdAt',
+            title: 'Date'
+        },
+    ]
 
     useEffect(() => {
-        fetch(process.env.NEXT_PUBLIC_BASE_URL + "revenuereport")
+        fetch(process.env.NEXT_PUBLIC_BASE_URL + "collection")
             .then((res) => res.json())
-            .then((data) => setData(data.data))
+            .then((data) => {
+                setData(data.data)
+                setDebit(data.total_debit)
+                setCredit(data.total_credit)
+            });
     }, [])
-    
-    const url = "filterrevenuereport"
+
+    const url = "filtercollection"
     const filteredData = (data) => {
         setData(data.data)
+        setDebit(data.total_debit)
+        setCredit(data.total_credit)
     }
 
     const exportToCSV = () => {
         const csvData = data.map(row => ({
-            Amount: row.amount,
-            Agent: row.agent,
-            Number: row.number,
-            Operator: row.operator,
-            Api: row.api,
-            Time: row.time,
-            Profit: row.profit
+            UserId: row.userId,
+            User: row.user,
+            Debit: row.debit,
+            Credit: row.credit,
+            Note: row.note,
+            Date: row.createdAt
         }));
 
         const csv = Papa.unparse(csvData)
@@ -47,7 +94,7 @@ const RevenueTable = () => {
         if (link.download != undefined) {
             const url = URL.createObjectURL(blob)
             link.setAttribute('href', url)
-            link.setAttribute('download', 'revenue.csv')
+            link.setAttribute('download', 'collection.csv')
             link.style.visibility = 'hidden'
             document.body.appendChild(link)
             link.click()
@@ -55,97 +102,19 @@ const RevenueTable = () => {
         }
     }
 
-    const headerData = [
-        {
-            cellProps: {
-                style: function noRefCheck() { }
-            },
-            isFilterable: true,
-            isSortable: true,
-            prop: 'amount',
-            title: 'Amount'
-        },
-        {
-            isFilterable: true,
-            isSortable: true,
-            prop: 'agent',
-            title: 'Agent'
-        },
-        {
-            isFilterable: true,
-            isSortable: true,
-            prop: 'number',
-            title: 'Number'
-        },
-        {
-            isFilterable: true,
-            isSortable: true,
-            prop: 'operator',
-            title: 'Operator'
-        },
-        {
-            isFilterable: true,
-            isSortable: true,
-            prop: 'api',
-            title: 'Api'
-        },
-        {
-            isFilterable: true,
-            isSortable: true,
-            prop: 'time',
-            title: 'Time'
-        },
-        {
-            isFilterable: true,
-            isSortable: true,
-            prop: 'profit',
-            title: 'Profit'
-        },
-    ]
-
-    // return(
-    //     <Table striped bordered hover size="sm">
-    //         <thead>
-    //             <tr>
-    //                 <th>Recharge Amount</th>
-    //                 <th>Agent</th>
-    //                 <th>Number</th>
-    //                 <th>Operator</th>
-    //                 <th>Api</th>
-    //                 <th>Time</th>
-    //                 <th>profit</th>
-    //             </tr>
-    //         </thead>
-    //         <tbody>
-    //             {
-    //                 data.map((item, index) => (
-    //                     <tr key={index}>
-    //                         <td>{item.amount}</td>
-    //                         <td>{item.agent}</td>
-    //                         <td>{item.number}</td>
-    //                         <td>{item.operator}</td>
-    //                         <td>{item.api}</td>
-    //                         <td>{item.time}</td>
-    //                         <td>{item.profit}</td>
-    //                     </tr>
-    //                 ))
-    //             }
-    //         </tbody>
-    //     </Table>
-    // )
-
     return (
         <>
             <Row>
                 <Badge className='' bg="light" text="dark" as={Col}>
-                    <p className='fs-6 text-start'>REVENUE TABLE</p>
+                    <p className='fs-6 text-start'>COLLECTION TABLE</p>
                 </Badge>{' '}
                 <Badge className='' bg="light" text="dark" as={Col}>
                     <button className='fs-6 text-start' onClick={exportToCSV}>Export to CSV</button>
                 </Badge>{' '}
             </Row>
-
             <DateFilter func={filteredData} url={url} />
+            <p>Total Debit : {debit} AED</p>
+            <p>Total Credit : {credit} AED</p>
             <DatatableWrapper
                 body={data}
                 headers={headerData}
@@ -200,7 +169,8 @@ const RevenueTable = () => {
                 </Row>
             </DatatableWrapper>
         </>
+
     )
 }
 
-export default RevenueTable
+export default CollectionTable

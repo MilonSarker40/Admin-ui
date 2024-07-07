@@ -30,20 +30,6 @@ const PlanForm = () => {
 
     const apiOpt = apiList.map((value) => <option value={value.uuid}>{ value.name }</option>)
 
-    let data = {
-        operator_code: operatorCode,
-        circle_code: circleCode,
-        rechargeType: rechargeType,
-        credit_amount: creditAmount,
-        credit_currency: creditCurrency,
-        debit_amount: debitAmount,
-        debit_currency: debitCurrency,
-        validity: validity,
-        narration: narration,
-        is_range: isRange,
-        tags: [],
-        api_plan_id: apiPlanId
-    }
     const stats = [
         { 'status': "True" },
         { 'status': "False" }
@@ -58,8 +44,36 @@ const PlanForm = () => {
     }
 
     const saveData = () => {
-        console.log(data)
-        fetch(process.env.NEXT_PUBLIC_BASE_URL+'createplan', {
+        console.log("Submitting");
+        let input = document.getElementsByName('priority[]');
+        console.log("priorities", input);
+        let values = []
+        for (var i = 0; i < input.length; i++) {
+            if (!isNaN(parseInt(input[i].value))){
+                let val = {apiId: input[i].id, priority: parseInt(input[i].value)}
+                values.push(val);
+            }
+        }
+
+        let data = {
+            operator_code: operatorCode,
+            circle_code: circleCode,
+            rechargeType: rechargeType,
+            credit_amount: creditAmount,
+            credit_currency: creditCurrency,
+            debit_amount: debitAmount,
+            debit_currency: debitCurrency,
+            validity: validity,
+            narration: narration,
+            is_range: isRange,
+            tags: [],
+            api_plan_id: apiPlanId,
+            values: values
+        }
+
+
+        console.log("FULL PLAN DATA : ", data)
+        fetch(process.env.NEXT_PUBLIC_BASE_URL+'dummyplan', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -145,6 +159,25 @@ const PlanForm = () => {
                             <Form.Control type="text" id='narration' placeholder="Narration" onChange={e => setNarration(e.target.value)} />
                         </Form.Group>
                     </Row>
+
+                    <Form.Group className="mb-3">
+                        <Form.Label>SET API PRIORITY</Form.Label>
+                        {
+                        apiList && apiList.map((item,index) => (
+                            <>
+                            <Row className="mb-3">
+                            <Col lg='2'>
+                                <label>{item.name}</label>
+                            </Col>
+                            <Col lg='4'>
+                                <Form.Control key={index} id={item.name} type="number" name='priority[]' placeholder="Enter Value" />
+                            </Col>
+                            </Row>
+                            </>
+                        ))
+                        }
+                        
+                    </Form.Group>
                     <div className='contact-submit'>
                         <Button gap={3} variant="primary" type="button" onClick={saveData}>
                             Save

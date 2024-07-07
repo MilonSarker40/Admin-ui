@@ -10,92 +10,67 @@ import {
   TableHeader
 } from 'react-bs-datatable';
 import { Col, Row, Table } from 'react-bootstrap';
+import UpdateDevice from './UpdateDevice';
 
-const PlanData = () => {
+const DeviceData = () => {
   const [data, setData] = useState([]);
 
-  console.log(process.env.NEXT_PUBLIC_BASE_URL);
+  for (let i = 0; i<data.length; i++){
+    console.log(data[i].uuid)
+    data[i].func = <UpdateDevice uuid={data[i].uuid}/>
+  }
+
 
   useEffect(() => {
-    fetch(process.env.NEXT_PUBLIC_BASE_URL + 'listplan')
+    fetch(process.env.NEXT_PUBLIC_BASE_URL + 'devicelist')
       .then((res) => res.json())
       .then((data) => {
         console.log(data.message);
-        setData(data.message);
+        setData(data.devicelist);
       })
   }, [])
 
-  const headerData = [
-    {
+  const headerData=[
+      {
       isFilterable: true,
       isSortable: true,
-      prop: 'api_plan',
-      title: 'Api Plan'
-    },
-    {
-      isFilterable: true,
-      isSortable: true,
-      prop: 'circle_code',
-      title: 'Circle Code'
-    },
-    {
+      prop: 'uuid',
+      title: 'ID'
+      },
+      {
       isFilterable: true,
       isSortable: false,
-      prop: 'credit_amount',
-      title: 'Credit Amount'
-    },
-    {
+      prop: 'currentDevice',
+      title: 'Current Device'
+      },
+      {
       isFilterable: false,
       isSortable: true,
-      prop: 'credit_currency',
-      title: 'Credit Currency'
-    },
-    {
-      isFilterable: true,
-      isSortable: true,
-      prop: 'debit_amount',
-      title: 'Debit Amount'
-    },
-    {
-      isFilterable: true,
-      isSortable: true,
-      prop: 'debit_currency',
-      title: 'Debit Currency'
-    },
-    {
-      isFilterable: true,
-      isSortable: false,
-      prop: 'is_range',
-      title: 'is_range'
-    },
-    {
+      prop: 'prevDevice',
+      title: 'Previous Devcie'
+      },
+      {
       isFilterable: false,
       isSortable: true,
-      prop: 'narration',
-      title: 'Narration'
-    },
-    {
-      isFilterable: true,
+      prop: 'userId',
+      title: 'User'
+      }
+      ,
+      {
+      isFilterable: false,
       isSortable: true,
-      prop: 'operator_code',
-      title: 'Operator Code'
-    },
-    {
-      isFilterable: true,
+      prop: 'createdAt',
+      title: 'Date'
+      } ,
+      {
+      isFilterable: false,
       isSortable: true,
-      prop: 'rechargeType',
-      title: 'Recharge Type'
-    },
-    {
-      isFilterable: true,
-      isSortable: true,
-      prop: 'values',
-      title: 'Priority Values'
-    },
-  ]
+      prop: 'func',
+      title: 'Change'
+      }
+   ]
 
-
-  return (
+   return (
     <>
       <DatatableWrapper
         
@@ -155,4 +130,4 @@ const PlanData = () => {
   )
 }
 
-export default PlanData;
+export default DeviceData;
