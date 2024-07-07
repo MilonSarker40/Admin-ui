@@ -17,5 +17,6 @@ app.prepare().then(() => {
 }).catch(ex => {
     console.error(ex.stack);
     process.exit(1);
+    // process.exit
 
 })
