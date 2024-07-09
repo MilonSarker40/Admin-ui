@@ -104,6 +104,7 @@ const OrganizationTable = () => {
   },[])
 
   for(let i = 0; i<data.length;i++){
+    console.log(data[i].status)
     let comp = <TrxLink trxId={data[i].trxuuid} />
     let status = <DataStatus status={data[i].status} />
     data[i].link = comp
