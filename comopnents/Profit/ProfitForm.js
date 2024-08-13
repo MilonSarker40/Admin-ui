@@ -10,14 +10,6 @@ const ProfitForm = ({ uid }) => {
     const [Profit, setProfit] = useState("");
     const [agent, setAgent] = useState(0);
     const [opt, setOpt] = useState([]);
-    const [apiList, setApiList] = useState([]);
-
-    let apiArray = [
-        {
-            name: "International",
-            code: "INT"
-        }
-    ]
 
 
     useEffect(() => {
@@ -28,24 +20,7 @@ const ProfitForm = ({ uid }) => {
                 setOpt(data.message);
             })
         //   setOpt(optd);
-
-        fetch(process.env.NEXT_PUBLIC_BASE_URL + 'apis')
-            .then((res) => res.json())
-            .then((data) => {
-                console.log("apis : ", data.message);
-                setApiList(data.message);
-            })
     }, [])
-    
-    for(let api of apiList){
-        if(api.code == "ETS" || api.code == "DU"){
-            let obj = {
-                name: api.name,
-                code: api.code
-            }
-            apiArray.push(obj)
-        }
-    }
 
     const options = opt.map((value) => <option value={value.id}>{value.name}</option>)
 
@@ -69,20 +44,6 @@ const ProfitForm = ({ uid }) => {
 
     const saveData = () => {
         event.preventDefault();
-        let input = document.getElementsByName('percentage[]');
-        console.log("percentage", input);
-        let values = []
-        for (var i = 0; i < input.length; i++) {
-            if (!isNaN(parseFloat(input[i].value))){
-                let keyVariable = input[i].id
-                // let val = {apiCode: input[i].id, percentage: parseFloat(input[i].value)}
-                let val = {[keyVariable]: parseFloat(input[i].value)}
-                values.push(val);
-            }
-        }
-        let data = values
-
-        console.log(data)
         fetch(`${process.env.NEXT_PUBLIC_BASE_URL}assignpercent/${uid}`, {
             method: 'POST',
             headers: {
@@ -123,24 +84,6 @@ const ProfitForm = ({ uid }) => {
                             <Form.Control type="number" step="2" id="Profit" placeholder="Profit" onChange={ProfitVal} />
                         </Form.Group>
                     </Row>
-
-                    <Form.Group className="mb-3">
-                        {
-                            apiArray && apiArray.map((item, index) => (
-                                <>
-                                    <Row className="mb-3">
-                                        <Col lg='2'>
-                                            <label>{item.name}</label>
-                                        </Col>
-                                        <Col lg='4'>
-                                            <Form.Control key={index} id={item.code} type="number" name='percentage[]' placeholder="Enter Value" />
-                                        </Col>
-                                    </Row>
-                                </>
-                            ))
-                        }
-
-                    </Form.Group>
                     <div className='contact-submit'>
                         <Button gap={3} variant="primary" type="submit" onClick={saveData}>
                             Save

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState,useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
   DatatableWrapper,
@@ -13,121 +13,96 @@ import { Col, Row, Table } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 
 
-export const ProfitTable = ({ uid }) => {
-  const [id, setId] = useState(uid);
-  const [data, setData] = useState([]);
-  const [profit, setProfit] = useState([]);
-  console.log("profit uid : ", uid, typeof (uid));
-  const sid = useSelector(state => state?.settlement?.userSettlementId);
-  console.log(sid)
-  console.log(profit)
-
-  const headerData = [
-    {
-      isFilterable: false,
-      isSortable: true,
-      prop: 'id',
-      title: 'ID'
-    },
-    {
-      isFilterable: true,
-      isSortable: true,
-      prop: 'userId',
-      title: 'Name'
-    },
-    {
-      isFilterable: true,
-      isSortable: true,
-      prop: 'percentage',
-      title: 'Percentage'
-    },
-    {
-      isFilterable: false,
-      isSortable: true,
-      prop: 'createdAt',
-      title: 'Last Update'
-    },
-  ]
-
-  useEffect(() => {
-    setId(uid);
-    fetch(process.env.NEXT_PUBLIC_BASE_URL + "data/percent/" + sid)
-      .then((res) => res.json())
-      .then((data) => {
-        console.log("profit data : ", data)
-        setData(data.message)
-        setProfit(data.pdata)
-      });
-    // setData(bodyData);
-  }, [])
+export const ProfitTable = ({uid}) => {
+    const [id, setId] = useState(uid);
+    const [data,setData] = useState([]);
+    console.log("profit uid : ", uid, typeof(uid));
+    const sid = useSelector(state => state?.settlement?.userSettlementId);
+    console.log(sid)
+  
+    const headerData=[
+        {
+        isFilterable: false,
+        isSortable: true,
+        prop: 'id',
+        title: 'ID'
+        },
+        {
+        isFilterable: true,
+        isSortable: true,
+        prop: 'userId',
+        title: 'Name'
+        },
+       {
+        isFilterable: true,
+        isSortable: true,
+        prop: 'percentage',
+        title: 'Percentage'
+        },
+        {
+        isFilterable: false,
+        isSortable: true,
+        prop: 'createdAt',
+        title: 'Last Update'
+        },
+    ]
+  
+    useEffect(() => {
+      setId(uid);
+      fetch(process.env.NEXT_PUBLIC_BASE_URL+"data/percent/"+sid)
+        .then((res) => res.json())
+        .then((data) => {
+          console.log("profit data : ", data)
+          setData(data.message)
+        });
+      // setData(bodyData);
+    },[])
 
   return (
     <>
-      <div className='transfer-table-wrp'>
-        <h3>Api Percentage</h3>
-
-        <div className='agent-percent-tbl'>
-          <Table striped bordered hover size="sm">
-            <thead>
-              <tr>
-                <th>Api</th>
-                <th>Percentage</th>
-              </tr>
-            </thead>
-            <tbody>
-              {
-                profit && profit.map((item) => (
-                  <tr>
-                    <td>{item.api}</td>
-                    <td>{item.percent}</td>
-                  </tr>
-                ))
-              }
-            </tbody>
-          </Table>
-        </div>
-        <h3>Profit History</h3>
-        <DatatableWrapper
-          body={data}
-          headers={headerData}
+    <div className='transfer-table-wrp'>
+      <h3>Profit History</h3>
+      <DatatableWrapper
+        body={data}
+        headers={headerData}
           paginationOptionsProps={{
-            initialState: {
+              initialState: {
               options: [
-                5,
-                10,
-                15,
-                20
+                  5,
+                  10,
+                  15,
+                  20
               ],
               rowsPerPage: 10
-            }
+              }
           }}
           sortProps={{
-            sortValueObj: {
-              date: function noRefCheck() { }
-            }
+              sortValueObj: {
+              date: function noRefCheck(){}
+              }
           }}
-        >
-          <Row className="mb-4">
-            <Col
-              className="d-flex flex-col justify-content-end align-items-end"
-              lg={6}
-              xs={12}
-            >
-              <Filter />
-            </Col>
+          >
+        <Row className="mb-4">
+          <Col
+            className="d-flex flex-col justify-content-end align-items-end"
+            lg={6}
+            xs={12}
+          >
+            <Filter />
+          </Col>
 
-            <Col
+          <Col
               className="d-flex flex-col justify-content-lg-right align-items-right justify-content-sm-end mb-2 mb-sm-0"
               lg={6}
               sm={6}
               xs={12}
             >
               <PaginationOptions alwaysShowPagination />
-            </Col>
-          </Row>
+          </Col>
+        </Row>
           <table className='table'>
-            <TableHeader />
-            <TableBody />
+              <TableHeader />
+              <TableBody />
           </table>
           <Row>
             <Col

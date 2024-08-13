@@ -24,7 +24,7 @@ const CollectionTable = () => {
             cellProps: {
                 style: function noRefCheck() { }
             },
-            isFilterable: true,
+            isFilterable: false,
             isSortable: true,
             prop: 'userId',
             title: 'User Id'

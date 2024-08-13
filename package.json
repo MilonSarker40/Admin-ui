@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "pm2 start azraui.js --watch",
+    "start": "NODE_ENV=production pm2 start azraui.js --watch",
     "lint": "next lint"
   },
   "dependencies": {
@@ -25,7 +25,6 @@
     "express": "^4.19.2",
     "next": "^13.1.1",
     "papaparse": "^5.4.1",
-    "pm2": "^5.4.2",
     "react": "^18.2.0",
     "react-apexcharts": "^1.4.0",
     "react-bootstrap": "^2.7.0",
