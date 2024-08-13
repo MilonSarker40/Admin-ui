@@ -89,6 +89,12 @@ const PlanData = () => {
     {
       isFilterable: true,
       isSortable: true,
+      prop: 'productcode',
+      title: 'Product Code'
+    },
+    {
+      isFilterable: true,
+      isSortable: true,
       prop: 'values',
       title: 'Priority Values'
     },

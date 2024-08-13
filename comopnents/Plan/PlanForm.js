@@ -13,6 +13,7 @@ const PlanForm = () => {
     const [debitAmount, setDebitAmount] = useState("");
     const [debitCurrency, setDebitCurrency] = useState("");
     const [validity, setValidity] = useState(0);
+    const [productCode, setProductCode] = useState("");
     const [narration, setNarration] = useState("");
     const [isRange, setIsRange] = useState(false);
     const [apiPlanId, setApiPlanId] = useState("");
@@ -64,6 +65,7 @@ const PlanForm = () => {
             debit_amount: debitAmount,
             debit_currency: debitCurrency,
             validity: validity,
+            productCode: productCode,
             narration: narration,
             is_range: isRange,
             tags: [],
@@ -140,6 +142,10 @@ const PlanForm = () => {
                         <Form.Group as={Col}>
                             <Form.Label>Validity</Form.Label>
                             <Form.Control type="text" id='validity' placeholder="Validity" onChange={e => setValidity(e.target.value)} />
+                        </Form.Group>
+                        <Form.Group as={Col}>
+                            <Form.Label>Product Code</Form.Label>
+                            <Form.Control type="text" id='code' placeholder="Product Code" onChange={e => setProductCode(e.target.value)} />
                         </Form.Group>
                         {/* <Form.Group as={Col}>
                             <Form.Label>Is Range</Form.Label>
