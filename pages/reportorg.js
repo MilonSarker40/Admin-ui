@@ -5,6 +5,7 @@ import Sidebar from '../comopnents/Sidebar/Sidebar';
 import BreadCrumb from '../comopnents/BreadCrumb/BreadCrumb';
 import Summary from "../comopnents/ReportOrg/Summary";
 import PurchaseTable from "../comopnents/ReportOrg/PurchaseTable";
+import PurchaseHistoryTable from "../comopnents/ReportOrg/purchaseHistoryTable";
 import SalesTable from "../comopnents/ReportOrg/SalesTable";
 import RevenueTable from "../comopnents/ReportOrg/RevenueTable";
 import PurchaseForm from "../comopnents/ReportOrg/PurchaseForm";
@@ -26,6 +27,7 @@ const reportorg = () => {
                         </Tab>
                         <Tab eventKey="Purchase" title="Purchase Report">
                             <PurchaseTable />
+                            <PurchaseHistoryTable />
                         </Tab>
                         <Tab eventKey="Sales" title="Sales Report">
                             <SalesTable />

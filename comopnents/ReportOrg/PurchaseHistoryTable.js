@@ -13,13 +13,12 @@ import {
 import { Col, Row, Table } from 'react-bootstrap';
 import Badge from 'react-bootstrap/Badge';
 import Papa from 'papaparse';
-import DateFilter from './DateFilter';
 
-const PurchaseTable = () => {
+const PurchaseHistoryTable = () => {
     const [data, setData] = useState([])
 
     useEffect(() => {
-        fetch(process.env.NEXT_PUBLIC_BASE_URL + "purchasereport")
+        fetch(process.env.NEXT_PUBLIC_BASE_URL + "purchasehistoryreport")
             .then((res) => res.json())
             .then((data) => setData(data.data))
     }, [])
@@ -116,52 +115,16 @@ const PurchaseTable = () => {
         },
     ]
 
-    // return (
-    //     <Table striped bordered hover size="sm">
-    //         <thead>
-    //             <tr>
-    //                 <th>Date</th>
-    //                 <th>Telco</th>
-    //                 <th>Distributor</th>
-    //                 <th>Amount</th>
-    //                 <th>Payable</th>
-    //                 <th>Commission</th>
-    //                 <th>Entry Date</th>
-    //                 <th>Local/International</th>
-    //                 <th>Conversion Rate</th>
-    //             </tr>
-    //         </thead>
-    //         <tbody>
-    //             {
-    //                 data.map((item, index) => (
-    //                     <tr key={index}>
-    //                         <td>{item.date}</td>
-    //                         <td>{item.telco}</td>
-    //                         <td>{item.dist}</td>
-    //                         <td>{item.purchase}</td>
-    //                         <td>{item.payable}</td>
-    //                         <td>{item.commission}</td>
-    //                         <td>{item.entrydate}</td>
-    //                         <td>{item.locale}</td>
-    //                         <td>{item.conv}</td>
-    //                     </tr>
-    //                 ))
-    //             }
-    //         </tbody>
-    //     </Table>
-    // )
-
     return (
         <>
             <Row>
                 <Badge className='' bg="light" text="dark" as={Col}>
-                    <p className='fs-6 text-start'>API BALANCE TABLE</p>
+                    <p className='fs-6 text-start'>API BALANCE PURCHASE HISTORY TABLE</p>
                 </Badge>{' '}
                 <Badge className='' bg="light" text="dark" as={Col}>
                     <button className='fs-6 text-start' onClick={exportToCSV}>Export to CSV</button>
                 </Badge>{' '}
             </Row>
-            <DateFilter func={filteredData} url={url} />
             <DatatableWrapper
                 body={data}
                 headers={headerData}
@@ -220,4 +183,4 @@ const PurchaseTable = () => {
 }
 
 
-export default PurchaseTable
+export default PurchaseHistoryTable
