@@ -5,7 +5,7 @@ import Sidebar from '../comopnents/Sidebar/Sidebar';
 import BreadCrumb from '../comopnents/BreadCrumb/BreadCrumb';
 import Summary from "../comopnents/ReportOrg/Summary";
 import PurchaseTable from "../comopnents/ReportOrg/PurchaseTable";
-import PurchaseHistoryTable from "../comopnents/ReportOrg/purchaseHistoryTable";
+import PurchaseHistoryTable from "../comopnents/ReportOrg/PurchaseHistoryTable";
 import SalesTable from "../comopnents/ReportOrg/SalesTable";
 import RevenueTable from "../comopnents/ReportOrg/RevenueTable";
 import PurchaseForm from "../comopnents/ReportOrg/PurchaseForm";
