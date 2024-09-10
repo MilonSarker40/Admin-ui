@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 
 import AgentMenu from './AgentMenu';
 import AdminMenu from './AdminMenu';
+import SubdealerMenu from './SubdealerMenu';
 
 const Sidebar = () => {
     const { asPath } = useRouter();
@@ -20,10 +21,13 @@ const Sidebar = () => {
     // TODO
     // DYNAMIC MENU 
     const menu = (type) => {
+        console.log(type)
         if(type == "admin"){
             return <AdminMenu />
         }else if (type == "agent"){
-            return <AdminMenu />
+            return <AgentMenu />
+        }else if (type == "subdealer"){
+            return <SubdealerMenu />
         }
     }
 
