@@ -13,12 +13,13 @@ import {
 import { Col, Row, Table } from 'react-bootstrap';
 import Badge from 'react-bootstrap/Badge';
 import Papa from 'papaparse';
+import DateFilter from './DateFilter';
 
-const PurchaseHistoryTable = () => {
+const CommissionTable = () => {
     const [data, setData] = useState([])
 
     useEffect(() => {
-        fetch(process.env.NEXT_PUBLIC_BASE_URL + "purchaseapihistoryreport")
+        fetch(process.env.NEXT_PUBLIC_BASE_URL + "purchasereport")
             .then((res) => res.json())
             .then((data) => setData(data.data))
     }, [])
@@ -31,15 +32,13 @@ const PurchaseHistoryTable = () => {
     const exportToCSV = () => {
         const csvData = data.map(row => ({
             Date: row.date,
+            Telco: row.telco,
             Distributor: row.dist,
-            Amount: row.purchase,
-            Payable: row.payable,
-            Entry: row.entrydate,
+            Commission: row.commission
         }));
 
         const csv = Papa.unparse(csvData)
         const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' })
-        console.log("blob created")
         const link = document.createElement('a')
         if (link.download != undefined) {
             const url = URL.createObjectURL(blob)
@@ -65,26 +64,20 @@ const PurchaseHistoryTable = () => {
         {
             isFilterable: true,
             isSortable: true,
-            prop: 'api',
+            prop: 'telco',
+            title: 'Telco'
+        },
+        {
+            isFilterable: true,
+            isSortable: true,
+            prop: 'dist',
             title: 'Distributor'
         },
         {
             isFilterable: true,
             isSortable: true,
-            prop: 'purchase',
-            title: 'Amount'
-        },
-        {
-            isFilterable: true,
-            isSortable: true,
-            prop: 'payable',
-            title: 'Payable'
-        },
-        {
-            isFilterable: true,
-            isSortable: true,
-            prop: 'entrydate',
-            title: 'Entry Date'
+            prop: 'commission',
+            title: 'Commission'
         }
     ]
 
@@ -92,12 +85,13 @@ const PurchaseHistoryTable = () => {
         <>
             <Row>
                 <Badge className='' bg="light" text="dark" as={Col}>
-                    <p className='fs-6 text-start'>API BALANCE PURCHASE HISTORY TABLE</p>
+                    <p className='fs-6 text-start'>API COMMISSION TABLE</p>
                 </Badge>{' '}
                 <Badge className='' bg="light" text="dark" as={Col}>
                     <button className='fs-6 text-start' onClick={exportToCSV}>Export to CSV</button>
                 </Badge>{' '}
             </Row>
+            {/* <DateFilter func={filteredData} url={url} /> */}
             <DatatableWrapper
                 body={data}
                 headers={headerData}
@@ -156,4 +150,4 @@ const PurchaseHistoryTable = () => {
 }
 
 
-export default PurchaseHistoryTable
+export default CommissionTable

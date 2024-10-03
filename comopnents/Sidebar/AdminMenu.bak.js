@@ -11,43 +11,36 @@ const AdminMenu = () => {
     const [reportToggle, setReportToggle] = useState(false)
     const [settingToggle, setSettingToggle] = useState(false)
     const [appReportToggle, setAppReportToggle] = useState(false)
-    const [extraToggle, setExtraToggle] = useState(false)
-    const [salesToggle, setSalesToggle] = useState(false)
 
     return (
         <>
             <div className='left_sidebar clearfix'>
                 <nav className='navbarMenu'>
                     <ul className='clearfix reset-list'>
+                        <li><Link href="/sample" className={asPath === '/sample' ? 'list active' : 'list'}><i class="ri-settings-3-fill"></i>Sample</Link></li>
                         <li>
                             <Link onClick={() => setUserToggle(!userToggle)} href='#'><i class="ri-user-line"></i>User<span><i class="ri-arrow-right-s-line"></i></span></Link>
                             {userToggle && (
                                 <ul className='clearfix reset-list'>
                                     <li><Link href="/subdealer" className={asPath === '/subdealer' ? 'list active' : 'list'}>Create User</Link></li>
-                                    <li><Link href="/addcredit" className={asPath === '/addcredit' ? 'list active' : 'list'}>Add Credit</Link></li>
-                                    <li><Link href="/settlement" className={asPath === '/settlement' ? 'list active' : 'list'}>Settlement</Link></li>
-                                    <li><Link href="/device" className={asPath === '/device' ? 'list active' : 'list'}>Device</Link></li>
                                 </ul>
                             )}
                         </li>
                         <li>
-                            <Link onClick={() => setNationaToggle(!nationalToggle)} href='#'><i class="ri-profile-line"></i>Country & Network<span><i class="ri-arrow-right-s-line"></i></span></Link>
+                            <Link onClick={() => setNationaToggle(!nationalToggle)} href='#'><i class="ri-profile-line"></i>National<span><i class="ri-arrow-right-s-line"></i></span></Link>
                             {nationalToggle && (
                                 <ul className='clearfix reset-list'>
                                     <li><Link href="/country" className={asPath === '/country' ? 'list active' : 'list'}>Country</Link></li>
                                     <li><Link href="/circle" className={asPath === '/circle' ? 'list active' : 'list'}>Circle</Link></li>
-                                    <li><Link href="/service" className={asPath === '/service' ? 'list active' : 'list'}>Service</Link></li>
-                                    <li><Link href="/mobilenetwork" className={asPath === '/mobilenetwork' ? 'list active' : 'list'}>Mobile Network</Link></li>
                                 </ul>
                             )}
                         </li>
                         <li>
-                            <Link onClick={() => setSalesToggle(!salesToggle)} href='#'><i class="ri-file-text-fill"></i>Sales & Purchase<span><i class="ri-arrow-right-s-line"></i></span></Link>
-                            {salesToggle && (
+                            <Link onClick={() => setNetworkToggle(!networkToggle)} href='#'><i class="ri-router-line"></i>Network<span><i class="ri-arrow-right-s-line"></i></span></Link>
+                            {networkToggle && (
                                 <ul className='clearfix reset-list'>
-                                    <li><Link href="/indexapi" className={asPath === '/indexapi' ? 'list active' : 'list'}><i class="ri-file-text-line"></i>Api Index</Link></li>
-                                    <li><Link href="/reportpurchase" className={asPath === '/reportpurchase' ? 'list active' : 'list'}>Purchase</Link></li>
-                                    <li><Link href="/reportsales" className={asPath === '/reportsales' ? 'list active' : 'list'}>Sales</Link></li>
+                                    <li><Link href="/service" className={asPath === '/service' ? 'list active' : 'list'}>Service</Link></li>
+                                    <li><Link href="/mobilenetwork" className={asPath === '/mobilenetwork' ? 'list active' : 'list'}>Mobile Network</Link></li>
                                 </ul>
                             )}
                         </li>
@@ -89,6 +82,8 @@ const AdminMenu = () => {
                             <Link onClick={() => setSettingToggle(!settingToggle)} href='#'><i class="ri-file-text-fill"></i>Setting<span><i class="ri-arrow-right-s-line"></i></span></Link>
                             {settingToggle && (
                                 <ul className='clearfix reset-list'>
+                                    <li><Link href="/device" className={asPath === '/device' ? 'list active' : 'list'}>Device</Link></li>
+                                    <li><Link href="/addcredit" className={asPath === '/addcredit' ? 'list active' : 'list'}>Add Credit</Link></li>
                                     <li><Link href="/operatorcode" className={asPath === '/operatorcode' ? 'list active' : 'list'}>Operator Code</Link></li>
                                     <li><Link href="/mobilesetting" className={asPath === '/mobilesetting' ? 'list active' : 'list'}>Operator Setting</Link></li>
                                     <li><Link href="/circle" className={asPath === '/circle' ? 'list active' : 'list'}>Circle</Link></li>
@@ -99,18 +94,11 @@ const AdminMenu = () => {
                                 </ul>
                             )}
                         </li>
-                        <li>
-                            <Link onClick={() => setExtraToggle(!extraToggle)} href='#'><i class="ri-file-text-fill"></i>Extra Menu<span><i class="ri-arrow-right-s-line"></i></span></Link>
-                            {extraToggle && (
-                                <ul>
-                                    <li><Link href="/sample" className={asPath === '/sample' ? 'list active' : 'list'}><i class="ri-settings-3-fill"></i>Sample</Link></li>
-                                    <li><Link href="/datetime" className={asPath === '/datetime' ? 'list active' : 'list'}><i class="ri-radar-line"></i>DateTime</Link></li>
-                                    <li><Link href="/simulator" className={asPath === '/simulator' ? 'list active' : 'list'}><i class="ri-pages-fill"></i>Simulator</Link></li>
-                                    <li><Link href="/activityLog" className={asPath === '/activityLog' ? 'list active' : 'list'}><i class="ri-pages-fill"></i>Actvity Log</Link></li>
-                                </ul>
-                            )}
-                        </li>
-                        
+                        <li><Link href="/datetime" className={asPath === '/datetime' ? 'list active' : 'list'}><i class="ri-radar-line"></i>DateTime</Link></li>
+                        <li><Link href="/settlement" className={asPath === '/settlement' ? 'list active' : 'list'}><i class="ri-radar-line"></i>Settlement</Link></li>
+                        <li><Link href="/indexapi" className={asPath === '/indexapi' ? 'list active' : 'list'}><i class="ri-file-text-line"></i>Api Index</Link></li>
+                        <li><Link href="/simulator" className={asPath === '/simulator' ? 'list active' : 'list'}><i class="ri-pages-fill"></i>Simulator</Link></li>
+                        <li><Link href="/activityLog" className={asPath === '/activityLog' ? 'list active' : 'list'}><i class="ri-pages-fill"></i>Actvity Log</Link></li>
                     </ul>
                 </nav>
             </div>

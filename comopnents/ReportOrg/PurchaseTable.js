@@ -19,7 +19,7 @@ const PurchaseTable = () => {
     const [data, setData] = useState([])
 
     useEffect(() => {
-        fetch(process.env.NEXT_PUBLIC_BASE_URL + "purchasereport")
+        fetch(process.env.NEXT_PUBLIC_BASE_URL + "purchaseapireport")
             .then((res) => res.json())
             .then((data) => setData(data.data))
     }, [])
@@ -32,14 +32,10 @@ const PurchaseTable = () => {
     const exportToCSV = () => {
         const csvData = data.map(row => ({
             Date: row.date,
-            Telco: row.telco,
             Distributor: row.dist,
             Amount: row.purchase,
             Payable: row.payable,
-            Commission: row.commission,
             Entry: row.entrydate,
-            Locale: row.locale,
-            Conversion: row.conv,
         }));
 
         const csv = Papa.unparse(csvData)
@@ -69,13 +65,7 @@ const PurchaseTable = () => {
         {
             isFilterable: true,
             isSortable: true,
-            prop: 'telco',
-            title: 'Telco'
-        },
-        {
-            isFilterable: true,
-            isSortable: true,
-            prop: 'dist',
+            prop: 'api',
             title: 'Distributor'
         },
         {
@@ -93,63 +83,10 @@ const PurchaseTable = () => {
         {
             isFilterable: true,
             isSortable: true,
-            prop: 'commission',
-            title: 'Commission'
-        },
-        {
-            isFilterable: true,
-            isSortable: true,
             prop: 'entrydate',
             title: 'Entry Date'
-        },
-        {
-            isFilterable: true,
-            isSortable: true,
-            prop: 'locale',
-            title: 'Local/International'
-        },
-        {
-            isFilterable: true,
-            isSortable: true,
-            prop: 'conv',
-            title: 'Conversion Rate'
-        },
+        }
     ]
-
-    // return (
-    //     <Table striped bordered hover size="sm">
-    //         <thead>
-    //             <tr>
-    //                 <th>Date</th>
-    //                 <th>Telco</th>
-    //                 <th>Distributor</th>
-    //                 <th>Amount</th>
-    //                 <th>Payable</th>
-    //                 <th>Commission</th>
-    //                 <th>Entry Date</th>
-    //                 <th>Local/International</th>
-    //                 <th>Conversion Rate</th>
-    //             </tr>
-    //         </thead>
-    //         <tbody>
-    //             {
-    //                 data.map((item, index) => (
-    //                     <tr key={index}>
-    //                         <td>{item.date}</td>
-    //                         <td>{item.telco}</td>
-    //                         <td>{item.dist}</td>
-    //                         <td>{item.purchase}</td>
-    //                         <td>{item.payable}</td>
-    //                         <td>{item.commission}</td>
-    //                         <td>{item.entrydate}</td>
-    //                         <td>{item.locale}</td>
-    //                         <td>{item.conv}</td>
-    //                     </tr>
-    //                 ))
-    //             }
-    //         </tbody>
-    //     </Table>
-    // )
 
     return (
         <>
@@ -161,7 +98,7 @@ const PurchaseTable = () => {
                     <button className='fs-6 text-start' onClick={exportToCSV}>Export to CSV</button>
                 </Badge>{' '}
             </Row>
-            <DateFilter func={filteredData} url={url} />
+            {/* <DateFilter func={filteredData} url={url} /> */}
             <DatatableWrapper
                 body={data}
                 headers={headerData}

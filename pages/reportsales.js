@@ -4,15 +4,11 @@ import Tabs from 'react-bootstrap/Tabs';
 import Sidebar from '../comopnents/Sidebar/Sidebar';
 import BreadCrumb from '../comopnents/BreadCrumb/BreadCrumb';
 import Summary from "../comopnents/ReportOrg/Summary";
-import PurchaseTable from "../comopnents/ReportOrg/PurchaseTable";
-import PurchaseHistoryTable from "../comopnents/ReportOrg/PurchaseHistoryTable";
 import SalesTable from "../comopnents/ReportOrg/SalesTable";
 import RevenueTable from "../comopnents/ReportOrg/RevenueTable";
-import PurchaseForm from "../comopnents/ReportOrg/PurchaseForm";
-import PurchaseApiForm from "../comopnents/ReportOrg/PurchaseApiForm";
 import CollectionTable from "../comopnents/ReportOrg/CollectionTable";
 
-const reportorg = () => {
+const reportsales = () => {
     return (
         <>
         <section className='main_content clearfix'>
@@ -26,21 +22,11 @@ const reportorg = () => {
                         <Tab eventKey="Summary" title="Summary Report">
                             <Summary />
                         </Tab>
-                        <Tab eventKey="Purchase" title="Purchase Report">
-                            <PurchaseTable />
-                            <PurchaseHistoryTable />
-                        </Tab>
                         <Tab eventKey="Sales" title="Sales Report">
                             <SalesTable />
                         </Tab>
                         <Tab eventKey="Revenue" title="Revenue Report">
                             <RevenueTable />
-                        </Tab>
-                        <Tab eventKey="AddCommission" title="Commission Entry">
-                            <PurchaseForm />
-                        </Tab>
-                        <Tab eventKey="AddPurchase" title="Purchase Entry">    
-                            <PurchaseApiForm />
                         </Tab>
                         <Tab eventKey="Collection" title="Collection Report">
                             <CollectionTable />
@@ -53,4 +39,4 @@ const reportorg = () => {
     )
 }
 
-export default reportorg
+export default reportsales

@@ -16,6 +16,10 @@ const ProfitForm = ({ uid }) => {
         {
             name: "International",
             code: "INT"
+        },
+        {
+            name: "Voucher",
+            code: "Voucher"
         }
     ]
 

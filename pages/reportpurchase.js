@@ -3,16 +3,14 @@ import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 import Sidebar from '../comopnents/Sidebar/Sidebar';
 import BreadCrumb from '../comopnents/BreadCrumb/BreadCrumb';
-import Summary from "../comopnents/ReportOrg/Summary";
 import PurchaseTable from "../comopnents/ReportOrg/PurchaseTable";
+import CommissionTable from "../comopnents/ReportOrg/CommissionTable";
 import PurchaseHistoryTable from "../comopnents/ReportOrg/PurchaseHistoryTable";
-import SalesTable from "../comopnents/ReportOrg/SalesTable";
-import RevenueTable from "../comopnents/ReportOrg/RevenueTable";
 import PurchaseForm from "../comopnents/ReportOrg/PurchaseForm";
 import PurchaseApiForm from "../comopnents/ReportOrg/PurchaseApiForm";
-import CollectionTable from "../comopnents/ReportOrg/CollectionTable";
 
-const reportorg = () => {
+
+const reportpurchase = () => {
     return (
         <>
         <section className='main_content clearfix'>
@@ -22,28 +20,17 @@ const reportorg = () => {
             <div className='main_content-rgt'>
                 <BreadCrumb title='Organization report' subtitle='Report' />
                 <div className='tabsWarp'>
-                    <Tabs defaultActiveKey="Summary" id="uncontrolled-tab-example" className="mb-3">
-                        <Tab eventKey="Summary" title="Summary Report">
-                            <Summary />
-                        </Tab>
+                    <Tabs defaultActiveKey="Purchase" id="uncontrolled-tab-example" className="mb-3">
                         <Tab eventKey="Purchase" title="Purchase Report">
                             <PurchaseTable />
                             <PurchaseHistoryTable />
-                        </Tab>
-                        <Tab eventKey="Sales" title="Sales Report">
-                            <SalesTable />
-                        </Tab>
-                        <Tab eventKey="Revenue" title="Revenue Report">
-                            <RevenueTable />
+                            <CommissionTable />
                         </Tab>
                         <Tab eventKey="AddCommission" title="Commission Entry">
                             <PurchaseForm />
                         </Tab>
                         <Tab eventKey="AddPurchase" title="Purchase Entry">    
                             <PurchaseApiForm />
-                        </Tab>
-                        <Tab eventKey="Collection" title="Collection Report">
-                            <CollectionTable />
                         </Tab>
                     </Tabs>
                 </div>
@@ -53,4 +40,4 @@ const reportorg = () => {
     )
 }
 
-export default reportorg
+export default reportpurchase

@@ -16,6 +16,7 @@ const PlanForm = () => {
     const [narration, setNarration] = useState("");
     const [isRange, setIsRange] = useState(false);
     const [apiPlanId, setApiPlanId] = useState("");
+    const [code, setCode] = useState("");
     const [statusopt, setStatusopt] = useState([]);
     const [apiList, setApiList] = useState([]);
 
@@ -66,6 +67,7 @@ const PlanForm = () => {
             validity: validity,
             narration: narration,
             is_range: isRange,
+            productCode: code,
             tags: [],
             api_plan_id: apiPlanId,
             values: values
@@ -157,6 +159,10 @@ const PlanForm = () => {
                         <Form.Group as={Col}>
                             <Form.Label>Narration</Form.Label>
                             <Form.Control type="text" id='narration' placeholder="Narration" onChange={e => setNarration(e.target.value)} />
+                        </Form.Group>
+                        <Form.Group as={Col}>
+                            <Form.Label>Product Code</Form.Label>
+                            <Form.Control type="text" id='prodcode' placeholder="Product Code" onChange={e => setCode(e.target.value)} />
                         </Form.Group>
                     </Row>
 
