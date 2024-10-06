@@ -5,6 +5,7 @@ import Sidebar from '../comopnents/Sidebar/Sidebar';
 import BreadCrumb from '../comopnents/BreadCrumb/BreadCrumb';
 import PurchaseTable from "../comopnents/ReportOrg/PurchaseTable";
 import CommissionTable from "../comopnents/ReportOrg/CommissionTable";
+import CommissionForm from "../comopnents/ReportOrg/CommissionForm";
 import PurchaseHistoryTable from "../comopnents/ReportOrg/PurchaseHistoryTable";
 import PurchaseForm from "../comopnents/ReportOrg/PurchaseForm";
 import PurchaseApiForm from "../comopnents/ReportOrg/PurchaseApiForm";
@@ -24,10 +25,10 @@ const reportpurchase = () => {
                         <Tab eventKey="Purchase" title="Purchase Report">
                             <PurchaseTable />
                             <PurchaseHistoryTable />
-                            <CommissionTable />
                         </Tab>
-                        <Tab eventKey="AddCommission" title="Commission Entry">
-                            <PurchaseForm />
+                        <Tab eventKey="AddCommission" title="Commission">
+                            <CommissionForm />
+                            <CommissionTable />
                         </Tab>
                         <Tab eventKey="AddPurchase" title="Purchase Entry">    
                             <PurchaseApiForm />

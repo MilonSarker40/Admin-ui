@@ -36,7 +36,7 @@ const reportorg = () => {
                         <Tab eventKey="Revenue" title="Revenue Report">
                             <RevenueTable />
                         </Tab>
-                        <Tab eventKey="AddCommission" title="Commission Entry">
+                        <Tab eventKey="AddCommission" title="Commission">
                             <PurchaseForm />
                         </Tab>
                         <Tab eventKey="AddPurchase" title="Purchase Entry">    
